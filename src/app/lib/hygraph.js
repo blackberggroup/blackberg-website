@@ -62,3 +62,27 @@ export const getPostBySlug = async (slug) => {
     console.log('Post: ', data.post);
     return data.post
 }
+
+export const getAllPagePaths = async () => {
+    const { data } = await client.query({
+      query: gql`
+        query GetPaths {
+          pages {
+            slug
+          }
+          posts {
+            slug
+          }
+        }
+      `,
+    });
+  
+    console.log('Pages Data: ', data.pages);
+    console.log('Posts Data: ', data.posts);
+
+    const pages = data.pages.map(({ slug }) => `/${slug}`);
+    const articles = data.posts.map(({ slug }) => `/articles/${slug}`);
+  
+    return [...pages, ...articles];
+    
+  };

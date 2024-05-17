@@ -33,13 +33,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Hygraph
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To load data from Hygraph you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these two keys and get the values by logging into your Hygraph project. 
 
+```bash
+NEXT_PUBLIC_HYGRAPH_ENDPOINT=""
+HYGRAPH_TOKEN=""
+```
 
 ## Deploy 
 
-The project is setup to deploy on Vercel. For security purposes enviroment variables including Hygraph keys and endpoints will be setup through the Vercel website. 
+The project is setup to deploy on Vercel. The key/values in the .env.local file need to be added to the Vercel deployment configuration to work properly. 
 
 CI/CD is utilized with GitHub actions. The website is built and deployed on every push to the main branch. 

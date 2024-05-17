@@ -1,11 +1,12 @@
-import Head from "next/head";
-import Link from "next/link";
+import PostCard from '../../app/components/PostCard';
+import { getAllPosts } from '../../app/lib/hygraph';
+import Head from 'next/head';
 
-function ErrorPage({}) {
+function Resources ({ posts }) {
   return (
     <>
-    <Head>
-          <title>About Us - My Website</title>
+        <Head>
+          <title>Resources - My Website</title>
           <meta name="description" content="Learn more about what we do and who we are." />
           <meta name="keywords" content="about us, company, my website" />
           <meta property="og:title" content="About Us - My Website" />
@@ -17,15 +18,14 @@ function ErrorPage({}) {
       </Head>
       <div className="container-fluid">
           <div className="container">
-            <div className="row">
-              <div className="col-12 col-md-7 text-center mx-auto py-5 my-5">
-                <h1>{"Oops, looks like we couldn't find what you were looking for."}</h1>
-                <h5 className="my-4">{"Let's go back to the home page and try again."}</h5>
-                <Link href="/" className="btn btn-primary">
-                    Back To Home
-                </Link>
+              <h1>Recent Resources</h1>
+              <div className="row mt-4">
+              {posts.map(post => (
+                  <div className="col-12 col-sm-4" key={post.id}>
+                      <PostCard post={post} />
+                  </div>
+              ))}
               </div>
-            </div>
           </div>
       </div>
     </>
@@ -33,7 +33,10 @@ function ErrorPage({}) {
 }
 
 export async function getServerSideProps() {
-
+  const posts = await getAllPosts();
+  return {
+    props: { posts }, // This will pass posts to the page component
+  };
 }
 
-export default ErrorPage;
+export default Resources;

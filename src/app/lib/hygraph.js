@@ -50,17 +50,71 @@ export const getPostBySlug = async (slug) => {
     });
 
     if (errors) {
-        const error = apolloError 
-
-        console.log(error instanceof Error);
-
-        console.log('Slug: ' + slug);
+        const error = apolloError; 
  
         throw new Error("Failed to fetch post.");
     }
 
-    console.log('Post: ', data.post);
     return data.post
+}
+
+export const getPageBySlug = async (slug) => {
+    const { data, errors } = await client.query({
+        query: gql`
+            query GetPageBySlug($slug: String!) {
+                page(where: { slug: $slug }) {
+                  slug
+                  id
+                  title
+                  content {
+                    raw
+                    html
+                    markdown
+                    text
+                  }
+                  seoOverride {
+                    description
+                    title
+                  }
+                }
+              }
+        `,
+        variables: { slug },
+    });
+
+    if (errors) {
+        const error = apolloError;
+        throw new Error("Failed to fetch post.");
+    }
+
+    return data.page
+}
+
+export const getAllCaseStudies = async () => {
+    const { data } = await client.query({
+        query: gql`
+            query GetCaseStudies { 
+                caseStudies {
+                    id
+                    title
+                    category
+                    slug
+                    excerpt
+                    coverImage {
+                        url
+                        altText
+                    }
+                      content {
+                        html
+                        markdown
+                        raw
+                        text
+                    }
+                }
+            }
+        `,
+    });
+    return data.caseStudies
 }
 
 export const getAllPagePaths = async () => {
@@ -76,9 +130,6 @@ export const getAllPagePaths = async () => {
         }
       `,
     });
-  
-    console.log('Pages Data: ', data.pages);
-    console.log('Posts Data: ', data.posts);
 
     const pages = data.pages.map(({ slug }) => `/${slug}`);
     const articles = data.posts.map(({ slug }) => `/articles/${slug}`);
@@ -86,3 +137,4 @@ export const getAllPagePaths = async () => {
     return [...pages, ...articles];
     
   };
+

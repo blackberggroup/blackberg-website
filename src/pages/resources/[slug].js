@@ -1,20 +1,12 @@
 import { getPostBySlug } from '../../app/lib/hygraph';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-import Head from 'next/head';
+import SEOHead from '@/app/components/SEOHead';
 
 function ResourcePage ({ post }) {
 
   return (
     <>
-      <Head>
-          <title>{post.seoOverride.title} - Blog</title>
-          <meta name="description" content={post.seoOverride.description} />
-          <meta property="og:title" content={post.seoOverride.title} />
-          <meta property="og:description" content={post.seoOverride.description} />
-          <meta property="og:url" content={`http://www.yourwebsite.com/blog/${post.slug}`} />
-          <meta property="og:image" content={post.coverImage.url} />
-          <link rel="canonical" href={`http://www.yourwebsite.com/blog/${post.slug}`} />
-      </Head>
+      <SEOHead page={post} />
       <div className="container-fluid">
         <div className="container">
           <div className="row">

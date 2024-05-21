@@ -16,6 +16,7 @@ function HomePage({page, caseStudies}) {
     const ballRef = useRef(null); // Reference to the moon element that will animate
     const homeRef = useRef(null);
     const show1 = useRef(null);
+    const caseStudyRef = useRef(null);
 
     useEffect(() => {
         const tl = gsap.timeline();
@@ -47,9 +48,24 @@ function HomePage({page, caseStudies}) {
             scale: 1,
             autoAlpha: 1,
             duration: .5,
+            ease: "sine.out",
             scrollTrigger: {
                 trigger: homeRef.current,
                 start: "top top",
+                end: "+=300",
+                scrub: 1,
+            }
+        });
+
+        tl.to(caseStudyRef.current, {
+            y: 0,
+            scale: 1,
+            autoAlpha: 1,
+            duration: .5,
+            ease: "sine.out",
+            scrollTrigger: {
+                trigger: caseStudyRef.current,
+                start: "-=300",
                 end: "+=300",
                 scrub: 1,
             }
@@ -106,11 +122,13 @@ function HomePage({page, caseStudies}) {
             {/* Featured Case Studies */}
             <div className="container-fluid">
                 <div className="container">
-                    <span class="label text-uppercase">Our Work</span>
-                    <h2>Case Studies</h2>
-                    <div className="row mt-4">
+                    <div className="container-title text-center">
+                        <span className="label text-uppercase">Our Work</span>
+                        <h2>Case Studies</h2>
+                    </div>
+                    <div className="row mt-4 d-flex flex-column align-items-center fade-up" ref={caseStudyRef}>
                         {caseStudies.map(caseStudy => (
-                            <div className="col-12 col-sm-4" key={caseStudy.id}>
+                            <div className="col-12 col-md-8 mb-4 mb-md-5 mt-0 mt-md-5" key={caseStudy.id}>
                                 <CaseStudyCard caseStudy={caseStudy} />
                             </div>
                         ))}

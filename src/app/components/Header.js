@@ -18,11 +18,11 @@ const Header = () => {
                                     Home
                                 </Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <Link href="/services" className="nav-link" aria-label="Services page">
-                                    Services
+                            <li className="nav-item">
+                                <Link href="/case-studies" className="nav-link" aria-label="Services page">
+                                    Case Studies
                                 </Link>
-                            </li> */}
+                            </li>
                             <li className="nav-item">
                                 <Link href="/resources" className="nav-link" aria-label="Insights page">
                                     Insights

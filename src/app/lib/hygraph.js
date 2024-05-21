@@ -117,6 +117,45 @@ export const getAllCaseStudies = async () => {
     return data.caseStudies
 }
 
+export const getCaseStudyBySlug = async (slug) => {
+    console.log('Slug: ' + slug);
+    const { data, errors } = await client.query({
+        query: gql`
+            query GetCaseStudyBySlug($slug: String!) {
+                caseStudy(where: { slug: $slug }) {
+                  slug
+                  id
+                  title
+                  category
+                  content {
+                    raw
+                    html
+                    markdown
+                    text
+                  }
+                  coverImage {     
+                    url       
+                    altText
+                  }
+                  seoOverride {
+                    description
+                    title
+                  }
+                }
+              }
+        `,
+        variables: { slug },
+    });
+
+    if (errors) {
+        const error = apolloError; 
+ 
+        throw new Error("Failed to fetch case study.");
+    }
+
+    return data.caseStudy
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`

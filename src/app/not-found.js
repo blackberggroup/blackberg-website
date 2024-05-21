@@ -5,7 +5,7 @@ function ErrorPage({}) {
   return (
     <>
     <Head>
-          <title>About Us - My Website</title>
+          <title>Error - My Website</title>
           <meta name="description" content="Learn more about what we do and who we are." />
           <meta name="keywords" content="about us, company, my website" />
           <meta property="og:title" content="About Us - My Website" />

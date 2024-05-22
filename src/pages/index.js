@@ -6,17 +6,16 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MotionPathPlugin from "gsap/dist/MotionPathPlugin";
 import CaseStudyCard from '@/app/components/CaseStudyCard';
-
-
+import Reveal from '@/app/components/Reveal';
 
 function HomePage({page, caseStudies}) {
 
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
     const mainRef = useRef(null); // Reference to the main container for the scroll trigger
     const ballRef = useRef(null); // Reference to the moon element that will animate
     const homeRef = useRef(null);
-    const show1 = useRef(null);
-    const caseStudyRef = useRef(null);
+    const cardRefs = useRef([]);
 
     useEffect(() => {
         const tl = gsap.timeline();
@@ -43,32 +42,33 @@ function HomePage({page, caseStudies}) {
             scrub: 1, 
         });
 
-        tl.to(show1.current, {
-            y: 0,
-            scale: 1,
-            autoAlpha: 1,
-            duration: .5,
-            ease: "sine.out",
-            scrollTrigger: {
-                trigger: homeRef.current,
-                start: "top top",
-                end: "+=300",
-                scrub: 1,
-            }
-        });
-
-        tl.to(caseStudyRef.current, {
-            y: 0,
-            scale: 1,
-            autoAlpha: 1,
-            duration: .5,
-            ease: "sine.out",
-            scrollTrigger: {
-                trigger: caseStudyRef.current,
-                start: "-=300",
-                end: "+=300",
-                scrub: 1,
-            }
+        cardRefs.current.forEach(card => {
+        
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'center center',
+                    end: 'max',
+                    scrub: true
+                }
+            })
+            .to(card, {
+                ease: 'none',
+                startAt: {filter: 'blur(0px)'},
+                filter: 'blur(3px)',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'center center',
+                    end: '+=100%',
+                    scrub: true
+                }
+            }, 0)
+            .to(card, {
+                ease: 'none',
+                scale: 0.4,
+                yPercent: -50
+            }, 0)
+    
         });
 
         // Cleanup function to kill animations and scroll triggers when component unmounts
@@ -85,9 +85,10 @@ function HomePage({page, caseStudies}) {
             <div className="container-fluid p-4 p-md-5 mb-4 bg-light">
                 <div className="container">
                     <div className="col-md-6 px-0">
-                        <h1 className="display-4 fst-italic">Innovative and creative solutions for any industry.</h1>
+                        <h1 className="display-4 fst-italic m-0">Innovative and creative</h1>
+                        <h1 className="display-4 fst-italic">solutions for any industry.</h1>
                         <p className="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what your company does.</p>
-                        <p className="lead mb-0"><a href="#" className="btn btn-primary">Get Started</a></p>
+                        <p className="lead mb-0"><Link href="#" className="btn btn-primary">Get Started</Link></p>
                     </div>
                 </div>
             </div>
@@ -109,7 +110,23 @@ function HomePage({page, caseStudies}) {
                     <path d="M1 177V325.5" stroke="white"/>
                 </svg>
             </div>
-            <div className="container d-flex justify-content-center fade-up" ref={show1}>
+            {/* Featured Case Studies */}
+            <div className="container-fluid">
+                <div className="container">
+                    <div className="container-title text-center">
+                        <span className="label text-uppercase">Our Work</span>
+                        <h2>Case Studies</h2>
+                    </div>
+                    <div className="row mt-4 d-flex flex-column align-items-center">
+                        {caseStudies.map((caseStudy, index) => (
+                            <div className="col-12 col-md-8 mb-4 mb-md-5 mt-0 mt-md-5 sticky" key={caseStudy.id} ref={(el) => (cardRefs.current[index] = el)}>
+                                <CaseStudyCard caseStudy={caseStudy} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="container d-flex justify-content-center">
                 <div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
                     <div className="col-12 col-md-6 bg-dark p-5 text-center text-white overflow-hidden mx-auto">
                         <div className="my-3 py-5">
@@ -119,19 +136,13 @@ function HomePage({page, caseStudies}) {
                     </div>
                 </div>
             </div>
-            {/* Featured Case Studies */}
-            <div className="container-fluid">
-                <div className="container">
-                    <div className="container-title text-center">
-                        <span className="label text-uppercase">Our Work</span>
-                        <h2>Case Studies</h2>
-                    </div>
-                    <div className="row mt-4 d-flex flex-column align-items-center fade-up" ref={caseStudyRef}>
-                        {caseStudies.map(caseStudy => (
-                            <div className="col-12 col-md-8 mb-4 mb-md-5 mt-0 mt-md-5" key={caseStudy.id}>
-                                <CaseStudyCard caseStudy={caseStudy} />
-                            </div>
-                        ))}
+            <div className="container d-flex justify-content-center">
+                <div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div className="col-12 col-md-6 bg-dark p-5 text-center text-white overflow-hidden mx-auto">
+                        <div className="my-3 py-5">
+                            <h2 className="display-5">Another headline</h2>
+                            <p className="lead mb-0">And an even wittier subheading.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,18 +151,7 @@ function HomePage({page, caseStudies}) {
   );
 }
 
-// TODO - data request for SSR
 export async function getServerSideProps(context) {
-
-    // Extract the slug from the resolved URL
-    // Remove leading slash
-    // const slug = context.resolvedUrl.substring(1); 
-    // const page = await getPageBySlug(slug);
-  
-    // return {
-    //   props: { page }, // This will pass posts to the page component
-    // };
-
 
     const slug = context.resolvedUrl.substring(1);
 

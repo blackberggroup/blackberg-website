@@ -4,10 +4,12 @@ import SEOHead from '@/app/components/SEOHead';
 import { useEffect, useRef } from 'react';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CustomEase } from "gsap/dist/CustomEase";
 
 function CaseStudies ({ page, caseStudies }) {
 
     gsap.registerPlugin(ScrollTrigger);
+    CustomEase.create('customEase', '0.77, 0, 0.175, 1');
 
     const cardRefs = useRef([]);
 
@@ -15,20 +17,17 @@ function CaseStudies ({ page, caseStudies }) {
         cardRefs.current.forEach((card, index) => {
           gsap.fromTo(
             card,
-            {
-              opacity: 0,
-              y: 50,
-            },
+            { opacity: 0, y: 20 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.5,
-              ease: "circ.out",
+              duration: 0.3,
               scrollTrigger: {
                 trigger: card,
                 start: 'top 80%',
+                toggleActions: 'play none none none',
               },
-              delay: index * 0.2, // Stagger effect
+              delay: index * 0.2, 
             }
           );
         });

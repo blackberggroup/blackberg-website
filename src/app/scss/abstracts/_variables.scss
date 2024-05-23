@@ -1,6 +1,39 @@
 // Import Bootstrap variables
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
+
+// Define custom spacing variables
+$spacer-5: 2rem; // 32px
+$spacer-6: 2.5rem; // 40px
+$spacer-7: 3rem; // 48px
+$spacer-8: 4rem; // 64px
+$spacer-9: 5rem; // 80px
+$spacer-10: 6rem; // 96px
+$spacer-11: 8rem; // 128px
+$spacer-12: 10em; // 160px
+
+// Merge your custom spacers with the default ones
+$spacers: map-merge(
+  (
+    0: 0,
+    1: $spacer * .25, // 4px
+    2: $spacer * .5, // 8px
+    3: $spacer, // 16px
+    4: $spacer * 1.5, // 24px
+  ),
+  (
+    5: $spacer-5, // 32px
+    6: $spacer-6, // 40px
+    7: $spacer-7, // 48px
+    8: $spacer-8, // 64px
+    9: $spacer-9, // 80px
+    10: $spacer-10, // 96px
+    11: $spacer-11, // 128px
+    12: $spacer-12, // 160px
+  )
+);
+
+
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
@@ -171,15 +204,7 @@ $prefix:                      $variable-prefix !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
-$spacer: 1rem !default;
-$spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-) !default;
+
 // scss-docs-end spacer-variables-maps
 
 

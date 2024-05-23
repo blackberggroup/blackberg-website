@@ -1,6 +1,7 @@
 import { getAllCaseStudies, getPageBySlug } from '@/app/lib/hygraph';
 import Link from 'next/link';
 import SEOHead from '@/app/components/SEOHead';
+import HeroSection from "../app/components/home/HeroSection";
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -81,15 +82,8 @@ function HomePage({page, caseStudies}) {
   return (
     <>
         <SEOHead page={page} />
+        <HeroSection />
         <div className="container-fluid px-0 home" ref={homeRef}>
-            <div className="container-fluid bg-primary p-4 p-md-5 mb-4">
-                <div className="container">
-                    <div className="col-md-12">
-                        <h1 className="display-4 text-white">Where Strategy <span className="d-block">Meets <span className="text-gradient">Creativity</span>.</span></h1>
-                        <p className="lead mb-0"><a href="#" className="btn btn-secondary">Get Started</a></p>
-                    </div>
-                </div>
-            </div>
             <div className="container container-svg px-0">
                 <svg width="291" height="519" viewBox="0 0 291 519" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M291 438.845C189.928 438.845 107.993 358.473 107.993 259.33C107.993 160.187 189.928 79.8155 291 79.8155" fill="#FFE031"/>

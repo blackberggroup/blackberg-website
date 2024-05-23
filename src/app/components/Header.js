@@ -1,6 +1,9 @@
-import Link from 'next/link';
 
-const Header = () => {
+import Link from 'next/link';
+import React from 'react';
+
+const Header = ({ nav }) => {
+
     return (
         <header>
             <div className="container">
@@ -18,31 +21,36 @@ const Header = () => {
                                     Home
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link href="/case-studies" className="nav-link" aria-label="Services page">
-                                    Case Studies
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/resources" className="nav-link" aria-label="Insights page">
-                                    Insights
-                                </Link>
-                            </li>
-                            {/* <li className="nav-item">
-                                <Link href="/case-studies" className="nav-link" aria-label="Case Studies page">
-                                    Case Studies
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/about" className="nav-link" aria-label="About page">
-                                    About
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/contact" className="nav-link" aria-label="Contact page">
-                                    Contact
-                                </Link>
-                            </li> */}
+
+                            {nav.navigationLink.map((item, index) => {
+                            const hasMultiplePages = item.page.length > 1;
+                            if (hasMultiplePages) {
+                                return (
+                                <li key={index} className="nav-item dropdown">
+                                    <Link className="nav-link dropdown-toggle" href={item.url} id={`navbarDropdown-${index}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {item.displayText}
+                                    </Link>
+                                    <ul className="dropdown-menu" aria-labelledby={`navbarDropdown-${index}`}>
+                                        {item.page.map((subItem, subIndex) => (
+                                            <li key={subIndex}>
+                                                <Link href={subItem.slug} className="dropdown-item" aria-label={`${subItem.title} page`}>
+                                                    {subItem.title}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                                );
+                            } else {
+                                return (
+                                <li key={index} className="nav-item">
+                                    <Link href={item.page[0].slug} className="nav-link" aria-label={`${item.displayText} page`}>
+                                        {item.displayText}
+                                    </Link>
+                                </li>
+                                );
+                            }
+                            })}
                         </ul>
                     </div>
                 </nav>

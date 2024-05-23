@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const Header = () => {
     return (
-        <header className="bg-light">
+        <header>
             <div className="container">
                 <nav className="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
                     <Link href="/" className="navbar-brand" aria-label="Home page">
-                        Blackberg Group
+                        <img src="/images/logo-light.svg" className="navbar-logo" alt="Blackberg Logo" />
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

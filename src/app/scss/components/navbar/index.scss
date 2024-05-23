@@ -1,0 +1,33 @@
+.navbar {
+
+    .nav-link {
+        font-family: $font-family-sans-serif;
+    }
+
+    &-light {
+
+        .navbar-logo {
+            background-image: url('/images/logo-light.svg');
+        }
+        
+    }
+
+    &-dark {
+
+        .navbar-logo {
+            background-image: url('/images/logo-dark.svg');
+        }
+
+    }
+
+    &-logo {
+        height: 38px;
+        width: 94px;
+        
+        @include media-breakpoint-up(lg) {
+            height: 50px;
+            width: 124px;    
+        }
+    }
+
+}

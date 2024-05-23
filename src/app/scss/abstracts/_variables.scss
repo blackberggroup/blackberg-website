@@ -1,46 +1,162 @@
 // Import Bootstrap variables
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-
-// Variables
-//
-// Variables should follow the `$component-state-property-size` formula for
-// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
 
 
-// Theme colors
-$primary:                     #006154;
-$secondary:                   $gray-200 !default;
-$info:                        #4c82f7 !default;
-$success:                     #22c55e !default;
-$warning:                     #ffba08 !default;
-$danger:                      #ef4444 !default;
-$light:                       $white !default;
-$dark:                        $gray-900 !default;
+// Color system
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// Blackberg Group Colors
+$jade-green:#006154; 
+$electric-green:#b5d334;
+$navy: #253551;
+$refreshing-blue: #50c2bd;
+
+$primary: $jade-green; 
+$secondary: $electric-green;
+$tertiary: $navy;
+$quaternary: $refreshing-blue;
+
+// Custom Theme
+$custom-theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "tertiary": $tertiary,
+    "quaternary": $quaternary
+);
+
+// Map Custom Theme to Utilities
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
+$jade-green-50: tint-color($jade-green, 90%) !default;
+$jade-green-100: tint-color($jade-green, 80%) !default;
+$jade-green-200: tint-color($jade-green, 60%) !default;
+$jade-green-300: tint-color($jade-green, 40%) !default;
+$jade-green-400: tint-color($jade-green, 20%) !default;
+$jade-green-500: shade-color($jade-green, 10%) !default;
+$jade-green-600: shade-color($jade-green, 20%) !default;
+$jade-green-700: shade-color($jade-green, 40%) !default;
+$jade-green-800: $jade-green !default;
+$jade-green-900: shade-color($jade-green, 80%) !default;
+$jade-green-950: shade-color($jade-green, 90%) !default;
+
+$electric-green-50: tint-color($electric-green, 90%) !default;
+$electric-green-100: tint-color($electric-green, 80%) !default;
+$electric-green-200: tint-color($electric-green, 60%) !default;
+$electric-green-300: tint-color($electric-green, 40%) !default;
+$electric-green-400: tint-color($electric-green, 20%) !default;
+$electric-green-500: $electric-green !default;
+$electric-green-600: shade-color($electric-green, 20%) !default;
+$electric-green-700: shade-color($electric-green, 40%) !default;
+$electric-green-800: shade-color($electric-green, 60%) !default;
+$electric-green-900: shade-color($electric-green, 80%) !default;
+$electric-green-950: shade-color($electric-green, 90%) !default;
+
+$navy-50: tint-color($navy, 90%) !default;
+$navy-100: tint-color($navy, 80%) !default;
+$navy-200: tint-color($navy, 60%) !default;
+$navy-300: tint-color($navy, 40%) !default;
+$navy-400: tint-color($navy, 20%) !default;
+$navy-500: shade-color($navy, 10%) !default;
+$navy-600: shade-color($navy, 20%) !default;
+$navy-700: shade-color($navy, 40%) !default;
+$navy-800: shade-color($navy, 60%) !default;
+$navy-900: $navy !default;
+$navy-950: shade-color($navy, 90%) !default;
+
+$refreshing-blue-50: tint-color($refreshing-blue, 90%) !default;
+$refreshing-blue-100: tint-color($refreshing-blue, 80%) !default;
+$refreshing-blue-200: tint-color($refreshing-blue, 60%) !default;
+$refreshing-blue-300: $refreshing-blue !default;
+$refreshing-blue-400: tint-color($refreshing-blue, 20%) !default;
+$refreshing-blue-500: shade-color($refreshing-blue, 10%) !default;
+$refreshing-blue-600: shade-color($refreshing-blue, 20%) !default;
+$refreshing-blue-700: shade-color($refreshing-blue, 40%) !default;
+$refreshing-blue-800: shade-color($refreshing-blue, 60%) !default;
+$refreshing-blue-800: shade-color($refreshing-blue, 80%) !default;
+$refreshing-blue-950: shade-color($refreshing-blue, 90%) !default;
+
+$jade-greens: (
+  "jade-green-50": $jade-green-50,
+  "jade-green-100": $jade-green-100,
+  "jade-green-200": $jade-green-200,
+  "jade-green-300": $jade-green-300,
+  "jade-green-400": $jade-green-400,
+  "jade-green-500": $jade-green-500,
+  "jade-green-600": $jade-green-600,
+  "jade-green-700": $jade-green-700,
+  "jade-green-800": $jade-green-800,
+  "jade-green-900": $jade-green-900,
+  "jade-green-950": $jade-green-950  
+) !default;
+
+$electric-greens: (
+  "electric-green-50": $electric-green-50,
+  "electric-green-100": $electric-green-100,
+  "electric-green-200": $electric-green-200,
+  "electric-green-300": $electric-green-300,
+  "electric-green-400": $electric-green-400,
+  "electric-green-500": $electric-green-500,
+  "electric-green-600": $electric-green-600,
+  "electric-green-700": $electric-green-700,
+  "electric-green-800": $electric-green-800,
+  "electric-green-900": $electric-green-900,
+  "electric-green-950": $electric-green-950  
+) !default;
+
+$navys: (
+  "navy-50": $navy-50,
+  "navy-100": $navy-100,
+  "navy-200": $navy-200,
+  "navy-300": $navy-300,
+  "navy-400": $navy-400,
+  "navy-500": $navy-500,
+  "navy-600": $navy-600,
+  "navy-700": $navy-700,
+  "navy-800": $navy-800,
+  "navy-900": $navy-900,
+  "navy-950": $navy-950
+) !default;
+
+$navys: (
+  "refreshing-blue-50": $refreshing-blue-50,
+  "refreshing-blue-100": $refreshing-blue-100,
+  "refreshing-blue-200": $refreshing-blue-200,
+  "refreshing-blue-300": $refreshing-blue-300,
+  "refreshing-blue-400": $refreshing-blue-400,
+  "refreshing-blue-500": $refreshing-blue-500,
+  "refreshing-blue-600": $refreshing-blue-600,
+  "refreshing-blue-700": $refreshing-blue-700,
+  "refreshing-blue-800": $refreshing-blue-800,
+  "refreshing-blue-900": $refreshing-blue-900,
+  "refreshing-blue-950": $refreshing-blue-950
+) !default;
+
 
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-caret:                true !default;
-$enable-rounded:              true !default;
-$enable-shadows:              true !default;
-$enable-gradients:            false !default;
-$enable-transitions:          true !default;
-$enable-reduced-motion:       true !default;
-$enable-smooth-scroll:        true !default;
-$enable-grid-classes:         true !default;
-$enable-container-classes:    true !default;
-$enable-cssgrid:              false !default;
-$enable-button-pointers:      true !default;
-$enable-rfs:                  true !default;
-$enable-validation-icons:     true !default;
-$enable-negative-margins:     false !default;
-$enable-deprecation-messages: false !default;
-$enable-important-utilities:  true !default;
+$enable-shadows:              true;
 
-$enable-dark-mode:            false !default;
-$color-mode-type:             data !default; // `data` or `media-query`
+$enable-dark-mode:            false;
 
 // Prefix for :root CSS variables
 
@@ -224,3 +340,28 @@ $mark-padding:                .1875em !default;
 $mark-color:                  $body-color !default;
 $mark-bg:                     $yellow-100 !default;
 // scss-docs-end type-variables
+
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+$input-btn-padding-y:         .625rem;
+$input-btn-padding-x:         1.125rem;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+$btn-padding-y:               $input-btn-padding-y;
+$btn-padding-x:               $input-btn-padding-x;
+$btn-font-family:             $font-family-sans-serif;
+$btn-border-width:            0px;
+
+$btn-box-shadow:              inset 0 0 0 rgba($white, .15), 0 0 0 rgba($black, .075);
+$btn-active-box-shadow:       inset 0 0 0;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           $border-radius-pill;
+$btn-border-radius-sm:        $border-radius-pill;
+$btn-border-radius-lg:        $border-radius-pill;

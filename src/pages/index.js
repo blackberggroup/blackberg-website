@@ -86,7 +86,7 @@ function HomePage({page, caseStudies}) {
                 <div className="container">
                     <div className="col-md-12">
                         <h1 className="display-4 text-white">Where Strategy <span className="d-block">Meets <span className="text-gradient">Creativity</span>.</span></h1>
-                        <p className="lead mb-0"><a href="#" className="btn btn-secondary btn-pill">Get Started</a></p>
+                        <p className="lead mb-0"><a href="#" className="btn btn-secondary">Get Started</a></p>
                     </div>
                 </div>
             </div>

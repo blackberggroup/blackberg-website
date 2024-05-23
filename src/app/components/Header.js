@@ -1,15 +1,12 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 const Header = ({ nav }) => {
 
-    const router = useRouter();
-    // const currentPath = router.asPath;
-      //const currentPath = router.asPath.replace(/^\//, ''); // Remove leading slash
-      const currentPath = router.asPath.split('/').pop(); 
-  //const isActive = (path) => currentPath === path.replace(/^\//, '');
+    const pathname = usePathname();
+    const currentPath = pathname.split('/').pop();
     console.log('Current Path', currentPath);
 
     return (

@@ -1,5 +1,6 @@
 import { getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 
 function Page ({ page }) {
 
@@ -8,7 +9,9 @@ function Page ({ page }) {
         <SEOHead page={page} />
         <div className="container-fluid">
             <div className="container">
-                <h1>{page.title}</h1>
+              <div className="col-12 col-md-8 mx-auto">
+                  <RichText content={page.content.raw} />
+              </div>
             </div>
         </div>
     </>

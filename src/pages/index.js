@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MotionPathPlugin from "gsap/dist/MotionPathPlugin";
 import CaseStudyCard from '@/app/components/CaseStudyCard';
 import Reveal from '@/app/components/Reveal';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 
 function HomePage({page, caseStudies}) {
 

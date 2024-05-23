@@ -33,7 +33,7 @@ const Header = ({ nav }) => {
                                     <ul className="dropdown-menu" aria-labelledby={`navbarDropdown-${index}`}>
                                         {item.page.map((subItem, subIndex) => (
                                             <li key={subIndex}>
-                                                <Link href={`${item.url}/${item.page[0].slug}`} className="dropdown-item" aria-label={`${subItem.title} page`}>
+                                                <Link href={`${item.url}/${subItem.slug}`} className="dropdown-item" aria-label={`${subItem.title} page`}>
                                                     {subItem.title}
                                                 </Link>
                                             </li>

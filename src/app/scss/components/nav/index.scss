@@ -1,3 +1,33 @@
 .nav-link {
     font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    color: $white;
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    &.active::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 4px;
+        width: 18px;
+        border-radius: 4px;
+        background-color: $electric-green-600;
+    }
+
+    &.dropdown-toggle::after {
+        content: '';
+        background-image: url('/images/menu-dropdown-icon.png');
+        background-size: contain;
+        width: 11px;
+        height: 12px;
+        border: none;
+        margin-left: .5rem;
+    }
 }

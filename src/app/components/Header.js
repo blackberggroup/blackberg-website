@@ -1,15 +1,23 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { useRouter } from 'next/router';
 
 const Header = ({ nav }) => {
 
+    const router = useRouter();
+    // const currentPath = router.asPath;
+      //const currentPath = router.asPath.replace(/^\//, ''); // Remove leading slash
+      const currentPath = router.asPath.split('/').pop(); 
+  //const isActive = (path) => currentPath === path.replace(/^\//, '');
+    console.log('Current Path', currentPath);
+
     return (
-        <header>
-            <div className="container">
-                <nav className="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
+        <header className="bg-primary">
+            <div className="container h-100">
+                <nav className="navbar navbar-expand-lg navbar-dark h-100" aria-label="Main navigation">
                     <Link href="/" className="navbar-brand" aria-label="Home page">
-                        <img src="/images/logo-light.svg" className="navbar-logo" alt="Blackberg Logo" />
+                        <img src="/images/logo-light.svg" className="navbar-logo" alt="Blackberg Group Logo" />
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -17,7 +25,10 @@ const Header = ({ nav }) => {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link href="/" className="nav-link" aria-label="Home page">
+                                <Link href="/" 
+                                    className={`nav-link ${currentPath === '' ? 'active' : ''}`} 
+                                    aria-label="Home page"
+                                    aria-current={`${currentPath === '' ? 'page' : 'false'}`}>
                                     Home
                                 </Link>
                             </li>
@@ -27,13 +38,24 @@ const Header = ({ nav }) => {
                             if (hasMultiplePages) {
                                 return (
                                 <li key={index} className="nav-item dropdown">
-                                    <Link className="nav-link dropdown-toggle" href={`/${item.url}`} id={`navbarDropdown-${index}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Link 
+                                        className={`nav-link dropdown-toggle ${currentPath === item.url ? 'active' : ''}`} 
+                                        href={`/${item.url}`} 
+                                        id={`navbarDropdown-${index}`} 
+                                        role="button" 
+                                        data-bs-toggle="dropdown" 
+                                        aria-expanded="false"
+                                        aria-current={`${currentPath === item.url ? 'page' : 'false'}`}>
                                         {item.displayText}
                                     </Link>
                                     <ul className="dropdown-menu" aria-labelledby={`navbarDropdown-${index}`}>
                                         {item.page.map((subItem, subIndex) => (
                                             <li key={subIndex}>
-                                                <Link href={`${item.url}/${subItem.slug}`} className="dropdown-item" aria-label={`${subItem.title} page`}>
+                                                <Link 
+                                                    href={`${item.url}/${subItem.slug}`} 
+                                                    className={`dropdown-item ${currentPath === subItem.slug ? 'active' : ''}`} 
+                                                    aria-label={`${subItem.title} page`}
+                                                    aria-current={`${currentPath === subItem.slug ? 'page' : 'false'}`}>
                                                     {subItem.title}
                                                 </Link>
                                             </li>
@@ -44,7 +66,11 @@ const Header = ({ nav }) => {
                             } else {
                                 return (
                                 <li key={index} className="nav-item">
-                                    <Link href={`/${item.page[0].slug}`} className="nav-link" aria-label={`${item.displayText} page`}>
+                                    <Link 
+                                        href={`/${item.page[0].slug}`} 
+                                        className={`nav-link ${currentPath === item.page[0].slug ? 'active' : ''}`} 
+                                        aria-label={`${item.displayText} page`}
+                                        aria-current={`${currentPath === item.page[0].slug ? 'page' : 'false'}`}>
                                         {item.displayText}
                                     </Link>
                                 </li>

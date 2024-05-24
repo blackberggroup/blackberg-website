@@ -4,6 +4,7 @@ import HeroSection from "../app/components/home/HeroSection";
 import ServicesSection from '@/app/components/home/ServicesSection';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import AboutSection from '@/app/components/home/AboutSection';
 
 function HomePage({page, caseStudies}) {
 
@@ -12,6 +13,7 @@ function HomePage({page, caseStudies}) {
         <SEOHead page={page} />
         <HeroSection />
         <ServicesSection />
+        <AboutSection />
     </>
   );
 }

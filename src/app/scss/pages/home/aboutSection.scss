@@ -1,0 +1,23 @@
+#home-about-section{
+    #home-about-circle {
+        transform: translate3d(-300px, -250px, 0) scale(0.75);
+        z-index: -1;
+        width: 500px;
+    
+        @include media-breakpoint-up(sm) {
+            transform: translate3d(-350px, -200px, 0) scale(0.75);
+            width: 500px;
+        }  
+    
+        @include media-breakpoint-up(lg) {
+            transform: translate3d(-500px, -300px, 0) scale(0.75);
+            width: auto;
+        }  
+    }
+
+    .btn {
+        border-radius: 6px;
+        font-weight: $font-weight-normal;
+        padding: 1rem 1.25rem;
+    }
+}

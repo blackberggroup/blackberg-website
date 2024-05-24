@@ -156,6 +156,32 @@ export const getCaseStudyBySlug = async (slug) => {
     return data.caseStudy
 }
 
+export const getNavigation = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetNavigation { 
+              navigations {
+                navigationLink {
+                  displayText
+                  id
+                  url
+                  page {
+                    ... on Page {
+                      id
+                      slug
+                      title
+                    }
+                  }
+                  url
+                }
+              }
+          }
+      `,
+  });
+  console.log("Nav:", data.navigations[0]);
+  return data.navigations[0];
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`

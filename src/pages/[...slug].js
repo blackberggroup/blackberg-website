@@ -2,7 +2,7 @@ import { getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
-function AboutPage({ page }) {
+function Page ({ page }) {
 
   return (
     <>
@@ -22,12 +22,27 @@ export async function getServerSideProps(context) {
 
     // Extract the slug from the resolved URL
     // Remove leading slash
-    const slug = context.resolvedUrl.substring(1); 
-    const page = await getPageBySlug(slug);
+    const { slug } = context.params;
+
+    // console.log('Secondary page slug: ', slug);
+    // const path = Array.isArray(slug) ? slug.join('/') : slug;
+
+    // console.log('Secondary page slug: ', path);
+    const secondItem = slug[1];
+    console.log('Secondary page second item: ', secondItem);
+    const page = await getPageBySlug(secondItem);
+
+    console.log('Page: ', page);
+
+    if (!page) {
+        return {
+            notFound: true,
+        };
+    }
   
     return {
       props: { page }, // This will pass posts to the page component
     };
 }
 
-export default AboutPage;
+export default Page;

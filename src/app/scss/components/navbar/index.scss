@@ -30,4 +30,23 @@
         }
     }
 
+    .nav-item {
+        margin: 0 .5rem;
+
+        &:last-child {
+            margin-right: 0;
+
+            .nav-link {
+                padding-right: 0;
+            }
+        }
+
+        .dropdown-item {
+
+            &.active, &:active {
+                background: $primary;
+            }
+        }
+    }
+
 }

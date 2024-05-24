@@ -6,13 +6,16 @@ import "../app/styles/globals.scss";
 import "../app/scss/main.scss";
 
 import SmoothScrolling from "../app/components/SmoothScrolling";
+import { getNavigation } from '@/app/lib/hygraph';
+import NavInteractivity from '@/app/components/HeaderInteractive';
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, nav }) {
 
 
   return (
     <>
-    <Header />
+    <Header nav={nav} />
+    <NavInteractivity />
     <SmoothScrolling>
         <main aria-label="Main content">
             <Component {...pageProps} />
@@ -23,3 +26,10 @@ export default function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+MyApp.getInitialProps = async () => {
+  const nav = await getNavigation();
+  return { nav };
+};
+
+export default MyApp;

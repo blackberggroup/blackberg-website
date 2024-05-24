@@ -1,4 +1,32 @@
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+
 const HeroSection = () => {
+    useEffect(() => {
+        const heroImage = document.querySelector('.hero-image');
+        const container = document.querySelector('.home-page-hero-section');
+
+        const handleMouseMove = (e) => {
+            const { clientX, clientY } = e;
+            const { width, height } = container.getBoundingClientRect();
+            const xPos = (clientX / width - 0.5) * 40; // Adjust the multiplier for more/less movement
+            const yPos = (clientY / height - 0.5) * 20;
+
+            gsap.to(heroImage, {
+                x: xPos,
+                y: yPos,
+                duration: .8,
+                ease: 'power3.out'
+            });
+        };
+
+        container.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            container.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
     return (
             <section id="hero-section" className="home-page-hero-section">
                 <div className="container">

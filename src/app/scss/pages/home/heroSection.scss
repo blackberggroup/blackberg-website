@@ -29,8 +29,8 @@
 
     .hero-image {
         position: absolute;     
-        right: 0;
-        top: 80px;
+        right: -150px;
+        top: 100px;
         transform: translateX(55%);
         width: 75vw;
         height: 75vw;
@@ -39,6 +39,7 @@
 
         @include media-breakpoint-up(md) {
             top: 80px;
+            right: -300px;
             transform: translateX(55%);
             width: 75vw;
             height: 75vw;
@@ -46,6 +47,7 @@
         
         @include media-breakpoint-up(lg) {
             top: 100px;
+            right: -400px;
             
             transform: translateX(45%);
             width: 90vw;

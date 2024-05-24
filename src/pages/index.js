@@ -91,7 +91,7 @@ function HomePage({page, caseStudies}) {
                     </div>
                 </div>
             </div>
-            <div className="container container-svg px-0">
+            <div className="container container-svg px-0 d-none">
                 <svg width="291" height="519" viewBox="0 0 291 519" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M291 438.845C189.928 438.845 107.993 358.473 107.993 259.33C107.993 160.187 189.928 79.8155 291 79.8155" fill="#FFE031"/>
                     <path d="M86.961 259.33C86.961 148.797 178.316 59.185 291 59.185" stroke="#1D262D" strokeMiterlimit="10"/>
@@ -109,42 +109,86 @@ function HomePage({page, caseStudies}) {
                     <path d="M1 177V325.5" stroke="white"/>
                 </svg>
             </div>
-            {/* Featured Case Studies */}
-            <div className="container-fluid">
+            {/* Services */}
+            <section className="container-fluid py-4 py-lg-5 my-0 my-lg-5" aria-label="Services Overview">
                 <div className="container">
                     <div className="container-title text-center">
-                        <span className="label text-uppercase">Our Work</span>
-                        <h2>Case Studies</h2>
+                        <span className="text-headline-label text-uppercase">Services</span>
+                        <h2 className="text-headline">What We Do</h2>
                     </div>
                     <div className="row mt-4 d-flex flex-column align-items-center">
-                        {caseStudies.map((caseStudy, index) => (
-                            <div className="col-12 col-md-8 mb-4 mb-md-5 mt-0 mt-md-5 sticky" key={caseStudy.id} ref={(el) => (cardRefs.current[index] = el)}>
-                                <CaseStudyCard caseStudy={caseStudy} />
+                        {/* Services | Strategy */}
+                        <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[0] = el)} aria-label="Strategy Service Overview">
+                            <div className="card card-case-study border-0">
+                                <Link href="/services/strategy" aria-label="Learn more about our Strategy services">
+                                    <figure className="card-image">
+                                        <img src="/images/services-strategy.jpg" className="card-img-top" alt="Team strategizing in office" loading="lazy"></img>
+                                    </figure>
+                                    <div className="card-body d-flex flex-column">
+                                        <h5 className="card-title">Strategy</h5>
+                                        <p className="card-text">Translating vision into actionable blueprints</p>
+                                    </div>
+                                </Link>
                             </div>
-                        ))}
+                        </section>
+                        {/* Services | Communications */}
+                        <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[1] = el)} aria-label="Communications Service Overview">
+                            <div className="card card-case-study border-0">
+                                <Link href="/services/communications" aria-label="Learn more about our Communications services">
+                                    <figure className="card-image">
+                                        <img src="/images/services-communications.jpg" className="card-img-top" alt="Two veterans communicating" loading="lazy"></img>
+                                    </figure>
+                                    <div className="card-body d-flex flex-column">
+                                        <h5 className="card-title">Communications</h5>
+                                        <p className="card-text">Shaping Hearts and Minds</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        </section>
+                        {/* Services | Organizational Effectiveness */}
+                        <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[2] = el)} aria-label="Organizational Effectiveness Service Overview">
+                            <div className="card card-case-study border-0">
+                                <Link href="/services/organizational-effectiveness" aria-label="Learn more about our Organizational Effectiveness services">
+                                    <figure className="card-image">
+                                        <img src="/images/services-organizational-effectiveness.jpg" className="card-img-top" alt="Team reviewing data in office" loading="lazy"></img>
+                                    </figure>
+                                    <div className="card-body d-flex flex-column">
+                                        <h5 className="card-title">Organizational Effectiveness</h5>
+                                        <p className="card-text">Mastering data-driven change and innovation</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        </section>
+                        {/* Services | Operations */}
+                        <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[3] = el)} aria-label="Operations Service Overview">
+                            <div className="card card-case-study border-0">
+                                <Link href="/services/operations" aria-label="Learn more about our Operations services">
+                                    <figure className="card-image">
+                                        <img src="/images/services-operations.jpg" className="card-img-top" alt="Team meeting at office table" loading="lazy"></img>
+                                    </figure>
+                                    <div className="card-body d-flex flex-column">
+                                        <h5 className="card-title">Operations</h5>
+                                        <p className="card-text">Driving operations into pathways for unprecedented growth</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        </section>
                     </div>
                 </div>
-            </div>
-            <div className="container d-flex justify-content-center">
-                <div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                    <div className="col-12 col-md-6 bg-dark p-5 text-center text-white overflow-hidden mx-auto">
-                        <div className="my-3 py-5">
-                            <h2 className="display-5">Another headline</h2>
-                            <p className="lead mb-0">And an even wittier subheading.</p>
-                        </div>
-                    </div>
+            </section>
+            {/* End of Services */}
+
+            {/* Placeholder Spacers */}
+            <div className="container-fluid py-5">
+                <div className="container py-5">
                 </div>
             </div>
-            <div className="container d-flex justify-content-center">
-                <div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                    <div className="col-12 col-md-6 bg-dark p-5 text-center text-white overflow-hidden mx-auto">
-                        <div className="my-3 py-5">
-                            <h2 className="display-5">Another headline</h2>
-                            <p className="lead mb-0">And an even wittier subheading.</p>
-                        </div>
-                    </div>
+            <div className="container-fluid py-5">
+                <div className="container py-5">
                 </div>
             </div>
+            {/* End of Placeholder Spacers */}
+
         </div>
     </>
   );
@@ -154,17 +198,13 @@ export async function getServerSideProps(context) {
 
     const slug = context.resolvedUrl.substring(1);
 
-    const [page, caseStudies] = await Promise.all([
+    const [page] = await Promise.all([
         getPageBySlug(slug),
-        getAllCaseStudies()
     ]);
-
-    console.log('Case Studies: ', caseStudies);
 
     return {
         props: { 
             page: page || null,
-            caseStudies: caseStudies || [] 
         },
     };
 }

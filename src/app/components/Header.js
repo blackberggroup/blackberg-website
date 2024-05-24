@@ -3,8 +3,8 @@ import Link from 'next/link';
 const Header = () => {
     return (
         <header>
-            <div className="container">
-                <nav className="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Main navigation">
+                <div className="container">
                     <Link href="/" className="navbar-brand" aria-label="Home page">
                         <img src="/images/logo-light.svg" className="navbar-logo" alt="Blackberg Logo" />
                     </Link>
@@ -45,8 +45,8 @@ const Header = () => {
                             </li> */}
                         </ul>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
     )
 }

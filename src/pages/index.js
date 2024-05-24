@@ -84,7 +84,7 @@ function HomePage({page, caseStudies}) {
         <SEOHead page={page} />
         <HeroSection />
         <div className="container-fluid px-0 home" ref={homeRef}>
-            <div className="container container-svg px-0">
+            <div className="container container-svg px-0 d-none">
                 <svg width="291" height="519" viewBox="0 0 291 519" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M291 438.845C189.928 438.845 107.993 358.473 107.993 259.33C107.993 160.187 189.928 79.8155 291 79.8155" fill="#FFE031"/>
                     <path d="M86.961 259.33C86.961 148.797 178.316 59.185 291 59.185" stroke="#1D262D" strokeMiterlimit="10"/>

@@ -14,7 +14,7 @@ const AboutSection = () => {
 
         // Scale animation
         gsap.fromTo(element, 
-            { scale: 0.75 }, 
+            { scale: 0.5 }, 
             {
             scale: 1,
             duration: 2,

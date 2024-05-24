@@ -1,3 +1,9 @@
 header {
-    height: 100px;
+    height: auto;
+    background: $white;
+
+    @include media-breakpoint-up(md) {
+        height: 100px;
+        background: $primary 
+    }
 }

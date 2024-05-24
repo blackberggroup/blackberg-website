@@ -24,7 +24,7 @@
         height: 38px;
         width: 94px;
         
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
             height: 50px;
             width: 124px;    
         }
@@ -46,6 +46,16 @@
             &.active, &:active {
                 background: $primary;
             }
+        }
+    }
+
+    .btn-contact {
+        color: #000807;
+        border: 2px solid $electric-green-500;
+        border-radius: 4px;
+
+        @include media-breakpoint-up(md) {
+            color: $electric-green-500   
         }
     }
 

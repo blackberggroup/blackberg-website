@@ -1,7 +1,12 @@
 .navbar {
+    background: $white;
 
-    .nav-link {
-        font-family: $font-family-sans-serif;
+    @include media-breakpoint-down(lg) {
+        box-shadow: 0px 10px 20px rgba($color: #000000, $alpha: .2);
+    }
+
+    @include media-breakpoint-up(lg) {
+        background: transparent;
     }
 
     &-light {
@@ -9,7 +14,6 @@
         .navbar-logo {
             background-image: url('/images/logo-light.svg');
         }
-        
     }
 
     &-dark {
@@ -17,14 +21,13 @@
         .navbar-logo {
             background-image: url('/images/logo-dark.svg');
         }
-
     }
 
     &-logo {
         height: 38px;
         width: 94px;
         
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             height: 50px;
             width: 124px;    
         }
@@ -33,30 +36,69 @@
     .nav-item {
         margin: 0 .5rem;
 
-        &:last-child {
-            margin-right: 0;
-
-            .nav-link {
-                padding-right: 0;
-            }
-        }
-
         .dropdown-item {
 
+            &:hover {
+                background: $jade-green-200;
+            }
             &.active, &:active {
                 background: $primary;
             }
         }
     }
 
-    .btn-contact {
-        color: #000807;
-        border: 2px solid $electric-green-500;
-        border-radius: 4px;
-
-        @include media-breakpoint-up(md) {
-            color: $electric-green-500   
+    .nav-link {
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base;
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        align-items: center;
+    
+        @include media-breakpoint-down(lg) {
+            color: $black;
+    
+            &:hover {
+                color: $primary;
+            }
+    
+            &.active {
+                color: $primary;
+            }
         }
-    }
+    
+        @include media-breakpoint-up(lg) {
+            color: $white;
+        }
+    
+        &.active::before {
+
+            @include media-breakpoint-up(lg) {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                height: 4px;
+                width: 18px;
+                border-radius: 4px;
+                background-color: $electric-green-500;    
+                left: 50%;
+                transform: translateX(-50%);
+            }            
+
+        }
+    
+        &.dropdown-toggle::after {
+            content: '';
+            background-image: url('/images/menu-dropdown-icon.png');
+            background-size: contain;
+            width: 11px;
+            height: 12px;
+            border: none;
+            margin-left: .5rem;
+        }
+        
+    }    
 
 }

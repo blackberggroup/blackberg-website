@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import React from 'react';
 
@@ -6,14 +5,19 @@ const Header = ({ nav }) => {
 
     return (
         <header>
-            <div className="container h-100">
-                <nav className="navbar navbar-expand-lg navbar-dark h-100" aria-label="Main navigation">
-                    <button className="navbar-toggler pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Main navigation">
+                <div class="container">
+                    <button className="navbar-toggler collapsed pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
-                        <span>Menu</span>
+                        <span className="navbar-toggler-title d-inline-block ms-2">Menu</span>
                     </button>
-                    <Link href="/" className="navbar-brand m-0" aria-label="Home page">
+                    <Link href="/" className="navbar-brand mx-0" aria-label="Home page">
                         <img src="/images/logo-light.svg" className="navbar-logo" alt="Blackberg Group Logo" />
+                    </Link>
+                    <Link href="/contact" 
+                        className="btn btn-primary btn-sm d-flex d-lg-none"
+                        aria-label="Contact page">
+                        Contact Us
                     </Link>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
@@ -67,13 +71,8 @@ const Header = ({ nav }) => {
                             })}
                         </ul>
                     </div>
-                    <Link href="/contact" 
-                        className="btn btn-outline d-flex d-lg-none btn-contact"
-                        aria-label="Contact page">
-                        Contact
-                    </Link>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
     )
 }

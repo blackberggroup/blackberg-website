@@ -4,3 +4,54 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.text-headline {
+    letter-spacing: -1px;
+}
+
+.text-headline-label {
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-light;
+    letter-spacing: 3px;
+    padding-bottom: 0;
+    display: block;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: .5rem;
+    }
+}
+
+// .sticky {
+// 	position: sticky;
+// 	top: 24px;
+//     display: flex;
+//     flex-direction: column;
+//     height: auto;
+//     top: 10vh;
+//     margin: auto;
+//     border-radius: 1rem;
+//     text-align: center;
+
+//     @include media-breakpoint-up(lg) {
+//         height: auto;
+//     }
+// }
+
+
+
+.sticky {
+	position: sticky;
+	top: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    top: 10vh;
+    margin: auto;
+    border-radius: 14px;
+    gap: 3vh;
+    text-align: center;
+    margin-bottom: 5vh;
+
+}
+
+

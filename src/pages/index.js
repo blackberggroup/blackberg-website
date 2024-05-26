@@ -83,7 +83,7 @@ function HomePage({page, caseStudies}) {
     <>
         <SEOHead page={page} />
         <div className="container-fluid px-0 home" ref={homeRef}>
-            <div className="container-fluid bg-primary p-4 p-md-5 mb-4">
+            <div id="hero-section" className="container-fluid bg-primary p-4 p-md-5 mb-4">
                 <div className="container">
                     <div className="col-md-12">
                         <h1 className="display-4 text-white">Where Strategy <span className="d-block">Meets <span className="text-gradient">Creativity</span>.</span></h1>

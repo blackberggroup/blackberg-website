@@ -366,8 +366,24 @@ $btn-border-radius:           $border-radius-pill;
 $btn-border-radius-sm:        $border-radius-pill;
 $btn-border-radius-lg:        $border-radius-pill;
 
-
 $btn-font-weight:             $font-weight-bold;
 
 $btn-hover-bg-shade-amount:       20%;
 $btn-hover-bg-tint-amount:        20%;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+// scss-docs-start dropdown-variables
+$dropdown-border-radius:            var(--#{$prefix}border-radius-lg);
+$dropdown-box-shadow:               var(--#{$prefix}box-shadow);
+
+$dropdown-link-hover-color:         $primary;
+$dropdown-link-hover-bg:            none;
+$dropdown-link-active-color:        $primary;
+$dropdown-link-active-bg:           none;
+
+
+$dropdown-item-padding-y:           $spacer * .5;
+// scss-docs-end dropdown-variables

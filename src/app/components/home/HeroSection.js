@@ -35,7 +35,7 @@ const HeroSection = () => {
                             <h1 className="display-2 text-white">Where Strategy <span className="d-block">Meets <span className="text-gradient">Creativity</span>.</span></h1>
                         </div>
                     </div>
-                    <img src="/images/home/homehug.webp" className="hero-image" />
+                    <img src="/images/home/homehug.webp" className="hero-image" alt="Donut shaped image of a military veteran hugging a family member." />
                 </div>
             </section>
     );

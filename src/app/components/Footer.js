@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="footer-cta text-center pt-7 pt-lg-9">
                     <div className="container-title">
                         <span className="text-headline-label text-headline-label--secondary text-uppercase">Contact</span>
-                        <h3 className="text-headline display-5 mb-3 mb-lg-5">Let's work together.</h3>
+                        <h3 className="text-headline display-5 mb-3 mb-lg-5">Let&lsquo;s work together.</h3>
                     </div>
                     <Link href="/contact/" className="btn btn-secondary" arial-label="Contact us">Get In Touch</Link>
                     <div className="sdvosb-logo py-5 py-lg-8">

@@ -11,7 +11,10 @@ const Footer = () => {
                         <span className="text-headline-label text-headline-label--secondary text-uppercase">Contact</span>
                         <h3 className="text-headline display-5 mb-3 mb-lg-5">Let&lsquo;s work together.</h3>
                     </div>
-                    <Link href="/contact/" className="btn btn-secondary" arial-label="Contact us">Get In Touch</Link>
+                    <Link href="/contact/" className="btn btn-secondary" arial-label="Contact us">
+                        Get In Touch
+                        <img src="/images/message-icon-dark.svg" width="20" height="20" className="ms-2" />    
+                    </Link>
                     <div className="sdvosb-logo py-5 py-lg-8">
                         <img src="/images/SDVOSB-logo.png" width="100" height="100" alt="Service-Disabled, Veteran-Owned Small Business logo" />
                     </div>

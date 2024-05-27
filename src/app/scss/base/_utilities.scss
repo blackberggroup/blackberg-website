@@ -7,18 +7,55 @@
 
 .text-headline {
     letter-spacing: -1px;
+
+    &-label {
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-light;
+        letter-spacing: 3px;
+        padding-bottom: 0;
+        display: inline-block;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            padding-bottom: .5rem;
+        }
+
+        &::after {
+            content:'';
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 7px;
+            width: 120%;
+            border-radius:6px;
+            z-index: -1;
+
+            @include media-breakpoint-up(lg) {
+                bottom: 12px;
+            }            
+        }
+
+        &--primary {
+            &::after {
+                background-color: $primary;
+            }
+
+        }
+
+        &--secondary {
+            &::after {
+                background-color: $secondary;
+            }
+
+        }
+
+    }
+
 }
 
-.text-headline-label {
-    font-family: $font-family-sans-serif;
-    font-weight: $font-weight-light;
-    letter-spacing: 3px;
-    padding-bottom: 0;
-    display: block;
-
-    @include media-breakpoint-up(lg) {
-        padding-bottom: .5rem;
-    }
+.unselectable {
+    user-select: none;
 }
 
 // .sticky {

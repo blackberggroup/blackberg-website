@@ -1,0 +1,75 @@
+// scss/components/footer/index.scss
+.footer {
+    background-color: #0A0B02;
+    color: $white;
+    font-family: $font-family-sans-serif;
+    position: relative;
+
+    .container {
+        z-index: 10;
+        position: relative;
+    }
+
+    &-logo {
+        opacity: .04;
+        position: absolute;
+        left: 50%;
+        top: 80px;
+        transform: translateX(-50%);
+        width: 60%;
+        max-width: 800px;
+        z-index: 1;
+    }
+
+    &-cta {
+
+    }
+
+    &-navigation {
+        .nav-link {
+            color: $white;
+
+            &:hover {
+                color: $gray-200;
+                text-decoration: underline;
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            text-align: center;
+        }
+
+    }
+
+    &-copyright {
+        font-size: $font-size-sm;
+
+        a {
+            color: $white;
+            text-decoration: none;
+    
+            &:hover {
+                color: $gray-100;
+                text-decoration: underline;
+            }
+        }    
+
+        .social-media {
+            text-align: center;
+        }
+
+        .privacy-policy {
+            text-align: right;
+        }
+
+        @include media-breakpoint-down(lg) {
+            .year, 
+            .social-media, 
+            .privacy-policy {
+                text-align: center;
+            }
+        }        
+
+    }
+
+}

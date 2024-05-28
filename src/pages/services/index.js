@@ -1,10 +1,8 @@
-import { getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/services/HeroSection";
-import ServicesSection from '@/app/components/home/ServicesSection';
-import gsap from 'gsap';
+import ServicesSection from '@/app/components/services/ServicesSection';
 
-function Services({page, caseStudies}) {
+function Services({page }) {
 
   return (
     <>
@@ -14,6 +12,5 @@ function Services({page, caseStudies}) {
     </>
   );
 }
-
 
 export default Services;

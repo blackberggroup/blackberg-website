@@ -48,8 +48,8 @@ const ServicesSection = () => {
         <section className="container-fluid py-6 my-0 my-lg-6" aria-label="Services Overview">
         <div className="container">
             <div className="container-title text-center">
-                <span className="text-headline-label text-uppercase">Services</span>
-                <h2 className="text-headline display-3">What We Do</h2>
+                <span className="text-headline-label text-headline-label--secondary text-uppercase">Services</span>
+                <h2 className="text-headline display-5">What We Do</h2>
             </div>
             <div className="row mt-4 d-flex flex-column align-items-center">
                 {/* Services | Strategy */}
@@ -57,10 +57,10 @@ const ServicesSection = () => {
                     <div className="card card-case-study border-0">
                         <Link href="/services/strategy" aria-label="Learn more about our Strategy services">
                             <figure className="card-image">
-                                <img src="/images/home/home-services-strategy.webp" className="card-img-top" alt="Team strategizing in office" loading="lazy"></img>
+                                <img src="/images/services/services-strategy.webp" className="card-img-top" alt="Team strategizing in office" loading="lazy"></img>
                             </figure>
                             <div className="card-body d-flex flex-column">
-                                <h5 className="card-title">Strategy</h5>
+                                <h5 className="card-title display-5">Strategy</h5>
                                 <p className="card-text">Translating vision into actionable blueprints</p>
                             </div>
                         </Link>
@@ -71,10 +71,10 @@ const ServicesSection = () => {
                     <div className="card card-case-study border-0">
                         <Link href="/services/communications" aria-label="Learn more about our Communications services">
                             <figure className="card-image">
-                                <img src="/images/home/home-services-communications.webp" className="card-img-top" alt="Two veterans communicating" loading="lazy"></img>
+                                <img src="/images/services/services-communications.webp" className="card-img-top" alt="Two veterans communicating" loading="lazy"></img>
                             </figure>
                             <div className="card-body d-flex flex-column">
-                                <h5 className="card-title">Communications</h5>
+                                <h5 className="card-title display-5">Communications</h5>
                                 <p className="card-text">Shaping Hearts and Minds</p>
                             </div>
                         </Link>
@@ -85,10 +85,10 @@ const ServicesSection = () => {
                     <div className="card card-case-study border-0">
                         <Link href="/services/organizational-effectiveness" aria-label="Learn more about our Organizational Effectiveness services">
                             <figure className="card-image">
-                                <img src="/images/home/home-services-organizational-effectiveness.webp" className="card-img-top" alt="Team reviewing data in office" loading="lazy"></img>
+                                <img src="/images/services/services-organizational-effectiveness.webp" className="card-img-top" alt="Team reviewing data in office" loading="lazy"></img>
                             </figure>
                             <div className="card-body d-flex flex-column">
-                                <h5 className="card-title">Organizational Effectiveness</h5>
+                                <h5 className="card-title display-5">Organizational<br /> Effectiveness</h5>
                                 <p className="card-text">Mastering data-driven change and innovation</p>
                             </div>
                         </Link>
@@ -99,10 +99,10 @@ const ServicesSection = () => {
                     <div className="card card-case-study border-0">
                         <Link href="/services/operations" aria-label="Learn more about our Operations services">
                             <figure className="card-image">
-                                <img src="/images/home/home-services-operations.webp" className="card-img-top" alt="Team meeting at office table" loading="lazy"></img>
+                                <img src="/images/services/services-operations.webp" className="card-img-top" alt="Team meeting at office table" loading="lazy"></img>
                             </figure>
                             <div className="card-body d-flex flex-column">
-                                <h5 className="card-title">Operations</h5>
+                                <h5 className="card-title display-5">Operations</h5>
                                 <p className="card-text">Driving operations into pathways for unprecedented growth</p>
                             </div>
                         </Link>

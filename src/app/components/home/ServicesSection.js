@@ -54,7 +54,7 @@ const ServicesSection = () => {
             <div className="row mt-4 d-flex flex-column align-items-center">
                 {/* Services | Strategy */}
                 <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[0] = el)} aria-label="Strategy Service Overview">
-                    <div className="card card-case-study border-0">
+                    <div className="card card--service border-0">
                         <Link href="/services/strategy" aria-label="Learn more about our Strategy services">
                             <figure className="card-image">
                                 <img src="/images/services/services-strategy.webp" className="card-img-top" alt="Team strategizing in office" loading="lazy"></img>
@@ -68,7 +68,7 @@ const ServicesSection = () => {
                 </section>
                 {/* Services | Communications */}
                 <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[1] = el)} aria-label="Communications Service Overview">
-                    <div className="card card-case-study border-0">
+                    <div className="card card--service border-0">
                         <Link href="/services/communications" aria-label="Learn more about our Communications services">
                             <figure className="card-image">
                                 <img src="/images/services/services-communications.webp" className="card-img-top" alt="Two veterans communicating" loading="lazy"></img>
@@ -82,7 +82,7 @@ const ServicesSection = () => {
                 </section>
                 {/* Services | Organizational Effectiveness */}
                 <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[2] = el)} aria-label="Organizational Effectiveness Service Overview">
-                    <div className="card card-case-study border-0">
+                    <div className="card card--service border-0">
                         <Link href="/services/organizational-effectiveness" aria-label="Learn more about our Organizational Effectiveness services">
                             <figure className="card-image">
                                 <img src="/images/services/services-organizational-effectiveness.webp" className="card-img-top" alt="Team reviewing data in office" loading="lazy"></img>
@@ -96,7 +96,7 @@ const ServicesSection = () => {
                 </section>
                 {/* Services | Operations */}
                 <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[3] = el)} aria-label="Operations Service Overview">
-                    <div className="card card-case-study border-0">
+                    <div className="card card--service border-0">
                         <Link href="/services/operations" aria-label="Learn more about our Operations services">
                             <figure className="card-image">
                                 <img src="/images/services/services-operations.webp" className="card-img-top" alt="Team meeting at office table" loading="lazy"></img>

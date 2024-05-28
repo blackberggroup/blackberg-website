@@ -5,6 +5,7 @@ import ServicesSection from '@/app/components/home/ServicesSection';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import AboutSection from '@/app/components/home/AboutSection';
+import CaseStudySection from '@/app/components/home/CaseStudySection';
 
 function HomePage({page, caseStudies}) {
 
@@ -14,6 +15,7 @@ function HomePage({page, caseStudies}) {
         <HeroSection />
         <ServicesSection />
         <AboutSection />
+        <CaseStudySection />
     </>
   );
 }

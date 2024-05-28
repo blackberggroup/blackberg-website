@@ -45,7 +45,7 @@ const ServicesSection = () => {
     }, []);
 
     return (
-        <section className="container-fluid py-6 my-0 my-lg-6" aria-label="Services Overview">
+        <section className="container-fluid py-6 my-0 my-lg-6 position-relative z-1" aria-label="Services Overview">
         <div className="container">
             <div className="container-title text-center">
                 <span className="text-headline-label text-headline-label--secondary text-uppercase">Services</span>

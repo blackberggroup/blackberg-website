@@ -58,18 +58,7 @@ function CaseStudyPage ({ caseStudy }) {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-8 mx-auto">
-              <article>
-              <div className="hero-image mb-4">
-                  <div className="reveal" ref={containerRef}>
-                    <img ref={imageRef} src={caseStudy.coverImage.url} alt={caseStudy.coverImage.altText} className="img-fluid rounded mb-4" />
-                  </div>
-              </div>
-              <div ref={contentRef} className="fade-up">
-                <span className="label text-uppercase">{caseStudy.category}</span>
-                <h1 className="mb-4">{caseStudy.title}</h1>
-                <RichText content={caseStudy.content.raw} />
-              </div>
-            </article>
+              <h1>Case Studies</h1>
             </div>
           </div>
         </div>

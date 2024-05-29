@@ -59,23 +59,27 @@
     user-select: none;
 }
 
-// .sticky {
-// 	position: sticky;
-// 	top: 24px;
-//     display: flex;
-//     flex-direction: column;
-//     height: auto;
-//     top: 10vh;
-//     margin: auto;
-//     border-radius: 1rem;
-//     text-align: center;
+.text-figtree {
+    font-family: $font-family-sans-serif;
+}
 
-//     @include media-breakpoint-up(lg) {
-//         height: auto;
-//     }
-// }
+.text-noto {
+    font-family: $font-family-serif;
+}
 
+.fw-bold-800 {
+    font-weight: 800;
+}
 
+.fw-bold-900 {
+    font-weight: 900;
+}
+
+.btn-icon-invert {
+    img {
+       filter: invert(100%) saturate(0) brightness(2);
+    }
+}
 
 .sticky {
 	position: sticky;

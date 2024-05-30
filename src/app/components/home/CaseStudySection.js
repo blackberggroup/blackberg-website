@@ -68,7 +68,7 @@ const CaseStudySection = () => {
                         <div className="card card--case-study border-0 bg-transparent" ref={featuredCaseStudyRef}>
                             <Link href="/case-studies/" aria-label="View VHA Resuscitation Symposium case study" className="text-decoration-none">
                                 <div className="card-image">
-                                    <img src="/images/case-studies/case-study-vha-resuscitation-symposium.webp" className="card-img-top" alt="Person presenting at conference"></img>
+                                    <img src="/images/home/case-study-vha-resuscitation-symposium.webp" className="card-img-top" alt="Person presenting at conference"></img>
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-md-7">
                                     <h3 className="card-title mb-3">VHA Resuscitation Symposium </h3>
@@ -83,7 +83,7 @@ const CaseStudySection = () => {
                         <div className="card card--case-study border-0 bg-transparent" ref={secondCaseStudyRef}>
                             <Link href="/case-studies/" aria-label="View VA Immersive National Marketing case study" className="text-decoration-none">
                                 <div className="card-image">
-                                    <img src="/images/case-studies/case-study-va-immersive-national-marketing.webp" className="card-img-top" alt="Person wearing VR headsest"></img>
+                                    <img src="/images/home/case-study-va-immersive-national-marketing.webp" className="card-img-top" alt="Person wearing VR headsest"></img>
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-lg-7">
                                     <h3 className="card-title mb-3">VA Immersive National Marketing </h3>
@@ -96,7 +96,7 @@ const CaseStudySection = () => {
                         <div className="card card--case-study border-0 bg-transparent" ref={thirdCaseStudyRef}>
                             <Link href="/case-studies/" aria-label="View Suicide Prevention Annual Report case study" className="text-decoration-none">
                                 <div className="card-image">
-                                    <img src="/images/case-studies/case-study-va-immersive-national-marketing.webp" className="card-img-top" alt=""></img>
+                                    <img src="/images/home/case-study-va-immersive-national-marketing.webp" className="card-img-top" alt=""></img>
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-lg-7">
                                     <h3 className="card-title mb-3">Suicide Prevention Annual Report </h3>

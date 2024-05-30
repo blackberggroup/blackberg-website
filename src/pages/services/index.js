@@ -1,6 +1,7 @@
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/services/HeroSection";
 import ServicesSection from '@/app/components/services/ServicesSection';
+import { getPageBySlug } from '@/app/lib/hygraph';
 
 function Services({page }) {
 
@@ -11,6 +12,21 @@ function Services({page }) {
         <ServicesSection />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+
+  const slug = context.resolvedUrl.substring(1);
+
+  const [page] = await Promise.all([
+      getPageBySlug(slug)
+  ]);
+
+  return {
+      props: { 
+          page: page || null,
+      },
+  };
 }
 
 export default Services;

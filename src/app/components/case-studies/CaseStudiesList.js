@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const CaseStudiesList = () => {
 
@@ -80,7 +80,7 @@ const CaseStudiesList = () => {
         <section className="container-fluid py-8 py-md-10 position-relative z-1" aria-label="Case Studies Overview" id="case-studies-list" ref={caseStudyListRef}>
             <div className="container">
                 {/* Case Study | VA Immersive National Marketing */}
-                <section className="row mt-4 mt-lg-6 pb-2 pb-lg-6 align-items-center case-study-item" id="cs-va-immersive" aria-label="VA Immersive National Marketing Case Study Overview">
+                <section className="case-study-item row mt-4 mt-lg-6 pb-2 pb-lg-6 align-items-center" id="cs-va-immersive" aria-label="VA Immersive National Marketing Case Study Overview">
                     <div className="col-12 col-lg-6 position-relative h-100">
                         <div class="box-gradient position-absolute box-gradient--va-immersive" ref={(el) => (featuredBoxRefs.current[0] = el)}></div>
                         <figure className="feature-image px-7 pt-7 position-relative z-2 m-0">
@@ -109,7 +109,7 @@ const CaseStudiesList = () => {
                     </div>
                 </section>
                 {/* Case Study | 2023 Suicide Prevention Annual Report */}
-                <section className="row flex-lg-row-reverse mt-10 mt-lg-10 align-items-center case-study-item" id="cs-prevention" aria-label="2023 Suicide Prevention Annual Report Case Study Overview">
+                <section className="case-study-item row flex-lg-row-reverse mt-10 mt-lg-10 align-items-center" id="cs-prevention" aria-label="2023 Suicide Prevention Annual Report Case Study Overview">
                     <div className="col-12 col-lg-6 position-relative h-100">
                         <div class="box-gradient position-absolute box-gradient--va-prevention" ref={(el) => (featuredBoxRefs.current[1] = el)}></div>
                         <figure className="feature-image px-7 pt-7 position-relative z-2 m-0">

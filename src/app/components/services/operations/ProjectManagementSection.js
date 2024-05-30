@@ -16,7 +16,7 @@ const ProjectManagementSection = () => {
                                 <Image src="/images/services/operations/project-management-solution-group.webp"
                                     className="image rounded-4 mb-5 mb-md-0"
                                     fill={true}
-                                    alt="ALT_TEXT"
+                                    alt="Consultants sitting at a table discussing solutions to a problem."
                                 />
                             </div>
                         </div>                        

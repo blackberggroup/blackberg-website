@@ -1,11 +1,55 @@
 #operations-hero {
-    .hero__bg-image {
-        background-image: url('/images/services/operations/hero-operations.webp');
+  .hero__bg-image {
+      background-image: url('/images/services/operations/hero-operations.webp');
+  }
+}
+
+[aria-label='Main content'] {
+  overflow: hidden;
+}
+
+#operations-business-process {
+  .circle-arrow {
+    position: absolute;
+    left: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    @include media-breakpoint-up(sm) {
+      width: 1300px;
+      height: 1400px;
+      bottom: 0;
     }
+
+    @include media-breakpoint-up(md) {
+      width: 1200px;
+      height: 1300px;
+      bottom: -42%;
+      left: -40%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      bottom: 12%;
+      left: 0;
+      width: 986px;
+      height: 1072px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      bottom: 25%;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      bottom: 38%;
+    }
+
+  }
+
 }
 
 .section-image {
     width: 100%;
+    position: relative;
   
     > div {
       position: unset !important;

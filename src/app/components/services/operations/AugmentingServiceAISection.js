@@ -9,7 +9,7 @@ const AugmentingServiceAISection = () => {
                     <div className="row align-items-center">
                         <div className="col-12 col-md-6 order-2 order-md-1">
                             <h2 className="display-5 mb-3">Augmenting Services with AI</h2>
-                            <p>Our team is testing emerging AI solutions to augment staffing, optimize workflow efficiency, and personalize communications. As part of this in-house experimentation, we're uncovering the best solutions for more holistic AI integration.</p>
+                            <p>Our team is testing emerging AI solutions to augment staffing, optimize workflow efficiency, and personalize communications. As part of this in-house experimentation, we&lsquo;re uncovering the best solutions for more holistic AI integration.</p>
                         </div>
                         <div className="col-12 col-md-6 order-1 order-md-2">
                             <div className="section-image">

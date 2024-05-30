@@ -8,7 +8,7 @@ const IntroSection = () => {
                     <div className="row align-items-center">
                         <div className="col-12 col-lg-7 offset-lg-5">
                             <p className="lead">
-                                Blackberg supports your organization's complete strategic journey. From establishing strategic awareness to building a dynamic roadmap, we deliver recommendations and solutions to construct a bold strategy that propels your organization forward with enduring success.
+                                Blackberg supports your organization&lsquo;s complete strategic journey. From establishing strategic awareness to building a dynamic roadmap, we deliver recommendations and solutions to construct a bold strategy that propels your organization forward with enduring success.
                             </p>
                         </div>
                     </div>

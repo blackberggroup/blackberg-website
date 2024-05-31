@@ -9,38 +9,31 @@ const FeaturedImageSection = () => {
   
     useEffect(() => {
   
-        const tl = gsap.timeline({
-            repeat: 0, 
-            delay: 0,
-            ease: "sine.out"
-        });
-
-        tl.set(containerRef.current, {
-            visibility: "visible"
+        let tl = gsap.timeline({
+            scrollTrigger: {
+            trigger: containerRef.current,
+            toggleActions: "restart none none reset"
+            }
         });
         
-        tl.fromTo(containerRef.current,
-            {
-                clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
-                webkitClipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)"
-            },
-            {
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                webkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                duration: 1,
-                ease: "sine.out"
-            }
-        );
+        tl.set(containerRef.current, { autoAlpha: 1 });
+
+        tl.from(containerRef.current, {
+            xPercent: -100,
+     
+            duration: 1.5
+        });
 
         tl.from(imageRef.current, {
-            scale: 1.4,
-            duration: 3,
-            ease: "sine.out",
-            delay: -1
+            xPercent: 100,
+            scale: 1.3,
+            delay: -1.5,
+  
+            duration: 1.5
         });
           
-          // Clean up function
-          return () => {
+        // Clean up function
+        return () => {
             if (tl) tl.kill();
         };
     }, []);

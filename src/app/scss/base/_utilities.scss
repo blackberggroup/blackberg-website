@@ -81,6 +81,13 @@
     }
 }
 
+.hr {
+    &--primary {
+        border-color: #D0D5DD;
+        opacity: 1;
+    }
+}
+
 .sticky {
 	position: sticky;
 	top: 24px;

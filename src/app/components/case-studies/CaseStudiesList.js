@@ -98,7 +98,7 @@ const CaseStudiesList = () => {
                                 </div>
                                 <div className="d-flex flex-column ms-5 ms-lg-10 text-figtree">
                                     <span className="fw-bold-800 mb-2">Category</span>
-                                    <span className="badge">Communications</span>
+                                    <span className="badge badge--case-study">Communications</span>
                                 </div>
                             </div>
                             <Link href="/case-studies/va-immersive-national-marketing" aria-label="Learn more about our Strategy services" className="btn btn-primary btn-icon-invert align-self-start mt-5">
@@ -127,7 +127,7 @@ const CaseStudiesList = () => {
                                 </div>
                                 <div className="d-flex flex-column ms-5 ms-lg-10 text-figtree">
                                     <span className="fw-bold-800 mb-2">Category</span>
-                                    <span className="badge">Web Design and Development</span>
+                                    <span className="badge badge--case-study">Web Design and Development</span>
                                 </div>
                             </div>
                             <Link href="/case-studies/2023-suicide-prevention-annual-report" aria-label="Learn more about our Strategy services" className="btn btn-primary btn-icon-invert align-self-start mt-5">

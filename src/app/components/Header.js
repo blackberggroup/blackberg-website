@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-const Header = ({ nav }) => {
+const Header = ({ nav, navStyle }) => {
     const [navbarBackground, setNavbarBackground] = useState(false);
 
     useEffect(() => {
@@ -20,8 +20,8 @@ const Header = ({ nav }) => {
     }, []);
 
     return (
-        <header>
-            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''}`} aria-label="Main navigation">
+        <header >
+            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${navStyle}`} aria-label="Main navigation">
                 <div className="container">
                     <button className="navbar-toggler collapsed pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

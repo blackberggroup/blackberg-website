@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const GalleryFirstSection = () => {
-
-    const imageRef = useRef(null);
 
     return (
         <section id="gallery" className="py-8 py-md-11" aria-label="Gallery">

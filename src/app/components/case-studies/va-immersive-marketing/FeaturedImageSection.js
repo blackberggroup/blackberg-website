@@ -20,7 +20,6 @@ const FeaturedImageSection = () => {
 
         tl.from(containerRef.current, {
             xPercent: -100,
-     
             duration: 1.5
         });
 
@@ -28,7 +27,6 @@ const FeaturedImageSection = () => {
             xPercent: 100,
             scale: 1.3,
             delay: -1.5,
-  
             duration: 1.5
         });
           

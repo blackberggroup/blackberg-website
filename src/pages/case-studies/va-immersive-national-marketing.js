@@ -1,9 +1,5 @@
 import SEOHead from '@/app/components/SEOHead';
 import { getPageBySlug } from '@/app/lib/hygraph';
-import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import RelatedCaseStudiesSection from '@/app/components/case-studies/va-immersive-marketing/RelatedCaseStudiesSection';
 import ResultsSection from '@/app/components/case-studies/va-immersive-marketing/ResultsSection';
 import GallerySecondSection from '@/app/components/case-studies/va-immersive-marketing/GallerySecondSection';
@@ -14,7 +10,7 @@ import FeaturedImageSection from '@/app/components/case-studies/va-immersive-mar
 import DetailsSection from '@/app/components/case-studies/va-immersive-marketing/DetailsSection';
 import HrSpacer from '@/app/components/case-studies/HrSpacer';
 
-function CaseStudyPage ({ page, navStyle }) {
+function CaseStudyPage ({ page }) {
 
   return (
     <>
@@ -38,8 +34,7 @@ export async function getServerSideProps(context) {
 
   
   return { props: { 
-    page: page || null,
-    navStyle: 'page-case-study-details', // Change this based on your logic
+    page: page || null
   } };
 }
 

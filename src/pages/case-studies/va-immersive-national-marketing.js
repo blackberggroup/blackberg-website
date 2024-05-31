@@ -14,7 +14,7 @@ import FeaturedImageSection from '@/app/components/case-studies/va-immersive-mar
 import DetailsSection from '@/app/components/case-studies/va-immersive-marketing/DetailsSection';
 import HrSpacer from '@/app/components/case-studies/HrSpacer';
 
-function CaseStudyPage ({ page }) {
+function CaseStudyPage ({ page, navStyle }) {
 
   return (
     <>
@@ -35,7 +35,12 @@ function CaseStudyPage ({ page }) {
 export async function getServerSideProps(context) {
   const slug = context.resolvedUrl.substring(1);
   const page = await getPageBySlug(slug);
-  return { props: { page: page || null } };
+
+  
+  return { props: { 
+    page: page || null,
+    navStyle: 'page-case-study-details', // Change this based on your logic
+  } };
 }
 
 export default CaseStudyPage;

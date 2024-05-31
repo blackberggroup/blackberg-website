@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 
-const ProjectManagementSection = () => {
+const StrategicAwarenessSection = () => {
 
     return (
-            <section id="operations-project-management" className="py-8 py-md-11">
+            <section id="strategy-project-management" className="py-8 py-md-11">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-12 col-md-6 order-2 order-md-1">
@@ -27,4 +27,4 @@ const ProjectManagementSection = () => {
     );
 };
 
-export default ProjectManagementSection;
+export default StrategicAwarenessSection;

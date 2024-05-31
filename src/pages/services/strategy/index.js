@@ -1,7 +1,9 @@
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/services/strategy/HeroSection";
 import IntroSection from "@/app/components/services/strategy/IntroSection";
-import ProjectManagementSection from "@/app/components/services/strategy/ProjectManagementSection";
+import StrategicAwarenessSection from "@/app/components/services/strategy/StrategicAwarenessSection";
+import StrategicToolkitSection from "@/app/components/services/strategy/StrategicToolkitSection";
+import StrategicPlanningSection from "@/app/components/services/strategy/StrategicPlanningSection";
 
 function Strategy({page }) {
 
@@ -10,7 +12,9 @@ function Strategy({page }) {
         <SEOHead page={page} />
         <HeroSection />
         <IntroSection />
-        <ProjectManagementSection />
+        <StrategicAwarenessSection />
+        <StrategicToolkitSection />
+        <StrategicPlanningSection />
     </>
   );
 }

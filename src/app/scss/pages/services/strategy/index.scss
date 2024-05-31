@@ -1,0 +1,41 @@
+#strategy-hero {
+  .hero__bg-image {
+      background-image: url('/images/services/strategy/hero-strategy.webp');
+  }
+}
+
+#strategy-strategic-toolkit {
+
+  .section-wrapper {
+    background-color: $jade-green-950;
+  }
+
+  .toolkit-card {
+    border: 0;
+    border-radius: 1rem;
+    
+    &--right {
+      background-color: $electric-green-50;
+      
+      @include media-breakpoint-up(lg) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        
+      }
+
+    }
+
+    &--left {
+      background-color: $electric-green-50;
+
+      @include media-breakpoint-up(lg) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        
+      }
+
+    }
+
+  }
+
+}

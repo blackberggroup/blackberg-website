@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const IntroSection = () => {
 
     return (
-            <section id="operations-intro" className="py-8 py-md-11">
+            <section id="organizational-effectiveness-intro" className="py-8 py-md-11">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-12 col-lg-7">

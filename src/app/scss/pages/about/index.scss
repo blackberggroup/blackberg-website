@@ -1,0 +1,87 @@
+.hero--about {
+    background-color: $jade-green-50;
+}
+
+#mission-vision-section {
+    .circle-arrow {
+      position: absolute;
+      left: 0;
+      transform: translateX(-50%);
+      z-index: -1;
+      bottom: 0;
+  
+      @include media-breakpoint-up(sm) {
+        height: 800px;
+        left: -120px;
+        bottom: 50px;
+      }
+  
+      @include media-breakpoint-up(md) {
+        height: 850px;
+        left: -122px;
+        bottom: -100px;
+      }
+  
+      @include media-breakpoint-up(lg) {
+        left: -60px;
+        bottom: -240px;
+        height: auto;
+      }
+  
+    //   @include media-breakpoint-up(xl) {
+    //     left: -200px;
+    //     bottom: -200px;
+    //   }
+  
+      @include media-breakpoint-up(xxl) {
+        left: -200px;
+        bottom: -180px;
+      }
+  
+    }
+  
+  }
+
+  #values-sesction {
+    background-color: $jade-green-950;
+
+    .icon-container {
+        max-width: 390px;
+        max-height: 390px;
+        height: 100%;
+
+        @include media-breakpoint-up(lg) {
+            max-width: 500px;
+            max-height: 500px;
+        }
+
+        .icon-circle {
+            width: 225px;
+            height: 225px;
+            border-radius: 50rem;
+            background: rgba(255, 255, 255, 0.3);
+
+            &--bottom-left {
+                margin-top: -60px;
+
+                @include media-breakpoint-up(lg) {
+                    margin-top: -92px;
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+                width: 296px;
+                height: 296px;
+              }
+    
+            img {
+                width: 80px !important;
+
+                @include media-breakpoint-up(lg) {
+                    width: 124px !important;
+                }
+            }
+        }
+    }
+
+  }

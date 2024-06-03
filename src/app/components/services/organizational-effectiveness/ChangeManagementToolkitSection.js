@@ -34,8 +34,8 @@ const ChangeManagementToolkitSection = () => {
                             <div className="col-12">
                                 <p>Blackberg has built a customizable change management toolkit to equip executives, managers, and workforces with the necessary tools to confidently embrace change. Rooted in Kotter’s 8-Step Change Model, Prosci best practices, and our practitioner insights, our tools range from change assessments and communications checklists to manager trainings and enterprise roadmaps.</p>
                                 <div className="row mt-8">
-                                    <div class="col-12 col-md- col-lg-4 offset-lg-4">
-                                        <div id="toolkit-prosci" className="card bg-white">
+                                    <div class="col-12 col-md-8 col-lg-6 col-xl-4 offset-md-2 offset-lg-3 offset-xl-4">
+                                        <div id="toolkit-prosci" className="toolkit-card card">
                                             <div className="card-body align-items-center d-flex flex-row shadow-lg">
                                                 <div className="icon icon--secondary me-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -47,9 +47,9 @@ const ChangeManagementToolkitSection = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row mt-8 mx-auto">
-                                    <div class="col-4 offset-lg-1">
-                                        <div id="toolkit-kotters" className="card bg-white">
+                                <div className="row">
+                                    <div class="col-12 col-md-8 col-lg-5 col-xl-4 offset-md-2 offset-lg-0 offset-xl-1  mt-6 mt-lg-8">
+                                        <div id="toolkit-kotters" className="toolkit-card card">
                                             <div className="card-body align-items-center d-flex flex-row shadow-lg">
                                                 <div className="icon icon--secondary me-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -60,8 +60,8 @@ const ChangeManagementToolkitSection = () => {
                                             </div>                                            
                                         </div>
                                     </div>
-                                    <div class="col-4 offset-lg-2">
-                                        <div id="toolkit-insights" className="card bg-white">
+                                    <div class="col-12 col-md-8 col-lg-5 col-xl-4 offset-md-2 offset-lg-2 offset-xl-2 mt-6 mt-lg-8">
+                                        <div id="toolkit-insights" className="toolkit-card card">
                                             <div className="card-body align-items-center d-flex flex-row shadow-lg">
                                                 <div className="icon icon--secondary me-3">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

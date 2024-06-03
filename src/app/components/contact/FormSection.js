@@ -59,7 +59,7 @@ const handleSubmit = async (e) => {
                             <button type="submit" class="btn btn-primary mt-5">Send Message</button>
                         </form>
                     </div>
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-md-6 mt-5 mt-md-0">
                         <Image src="/images/contact/contact.webp"
                             className="img-fluid rounded-4 position-relative h-auto" 
                             alt="Person wearing VR headset" 

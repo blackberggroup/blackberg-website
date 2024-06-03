@@ -32,7 +32,7 @@ const ChangeManagementToolkitSection = () => {
                         </div>
                         <div className="row align-items-center position-relative z-2 text-white">
                             <div className="col-12">
-                                <p>Blackberg has built a customizable change management toolkit to equip executives, managers, and workforces with the necessary tools to confidently embrace change. Rooted in Kotter’s 8-Step Change Model, Prosci best practices, and our practitioner insights, our tools range from change assessments and communications checklists to manager trainings and enterprise roadmaps.</p>
+                                <p>Blackberg has built a customizable change management toolkit to equip executives, managers, and workforces with the necessary tools to confidently embrace change. Rooted in Kotter&lsquo;s 8-Step Change Model, Prosci best practices, and our practitioner insights, our tools range from change assessments and communications checklists to manager trainings and enterprise roadmaps.</p>
                                 <div className="row mt-8">
                                     <div class="col-12 col-md-8 col-lg-6 col-xl-4 offset-md-2 offset-lg-3 offset-xl-4">
                                         <div id="toolkit-prosci" className="toolkit-card card">

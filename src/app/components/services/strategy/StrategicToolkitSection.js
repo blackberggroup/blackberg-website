@@ -1,8 +1,27 @@
 import Image from 'next/image';
 import React, { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StrategicToolkitSection = () => {
-
+  useEffect(() => {
+    // Define the animation
+    gsap.fromTo('.circle-dotted', 
+      { opacity: 0 }, // Start from opacity 0
+      { 
+        opacity: 1, // End at opacity 1
+        scrollTrigger: {
+          trigger: '.circle-dotted',
+          start: 'top bottom', // Start animation when the top of the element hits the bottom of the viewport
+          end: 'center center', // End animation when the bottom of the element hits the top of the viewport
+          scrub: true, // Smoothly scrubs the animation based on the scroll position
+        }
+      }
+    );
+  }, []);
+  
     return (
             <section id="strategy-strategic-toolkit" className="py-8 py-md-11">
                 <div className="container">
@@ -11,7 +30,7 @@ const StrategicToolkitSection = () => {
                             <span className="text-headline-label text-headline-label--secondary text-uppercase text-white">Blackberg Group</span>
                             <h2 className="text-headline display-5 text-white">Our Strategic Toolkit</h2>
                         </div>
-                        <div className="row align-items-center">
+                        <div className="row align-items-center position-relative z-2">
                             <div className="col-12 col-lg-4 pe-lg-0">
                                 <div className="toolkit-card toolkit-card--left card py-6 mb-5 mb-lg-0 shadow text-center">
                                     <div className="card-body px-5 px-md-4">
@@ -51,6 +70,9 @@ const StrategicToolkitSection = () => {
                                     </div>
                                 </div>
                             </div>                                           
+                        </div>
+                        <div className="circle-dotted">
+                            <img src="/images/circle-dotted.svg" className="img-fluid unselectable" />
                         </div>
                     </div>
                 </div>

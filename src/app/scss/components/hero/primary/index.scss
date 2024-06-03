@@ -65,6 +65,23 @@
             width: 75vw;
             height: 75vw;
         }
+
+    }
+
+    &--right-align {
+
+        .hero-title {
+            @include media-breakpoint-up(lg) {
+                text-align: right;
+            }
+
+        }
+
+        .hero__donut {
+            left: 0;
+            transform: translateX(-45%);
+        }
+
     }
 
     &--contact {

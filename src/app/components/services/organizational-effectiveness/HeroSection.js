@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const HeroSection = () => {
 
     return (
-            <section id="case-study-hero" className="hero hero--primary">
+            <section id="organizational-effectiveness-hero" className="hero hero--primary hero--right-align">
                 <div className="container h-100">
                     <div className="row align-items-center h-100">
-                        <div className="col-12 col-md-12 col-lg-7">
+                        <div className="col-12 col-md-12 col-lg-7 offset-lg-5">
                             <div className="hero-title">
-                                <h1 className="display-2 text-white mb-3 mb-lg-5">Case Studies</h1>
-                                <p className="lead text-white">Explore the real impact of strategic collaboration and innovative solutions. Our Case Studies showcase how Blackberg Group, armed with a dynamic team of subject matter experts, consistently achieves tangible and measurable results for our clients.</p>
+                                <h1 className="display-2 text-white mb-3 mb-lg-5">Organizational Effectiveness</h1>
+                                <p className="lead text-white"> Mastering data-driven change and innovation</p>
                             </div>                            
                         </div>
                     </div>

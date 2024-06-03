@@ -4,6 +4,7 @@ import IntroSection from "@/app/components/services/strategy/IntroSection";
 import StrategicAwarenessSection from "@/app/components/services/strategy/StrategicAwarenessSection";
 import StrategicToolkitSection from "@/app/components/services/strategy/StrategicToolkitSection";
 import StrategicPlanningSection from "@/app/components/services/strategy/StrategicPlanningSection";
+import StrategicImplementationSection from "@/app/components/services/strategy/StrategicImplementationSection";
 
 function Strategy({page }) {
 
@@ -15,6 +16,7 @@ function Strategy({page }) {
         <StrategicAwarenessSection />
         <StrategicToolkitSection />
         <StrategicPlanningSection />
+        <StrategicImplementationSection />
     </>
   );
 }

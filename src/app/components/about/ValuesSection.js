@@ -7,25 +7,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ValuesSection = () => {
 
-
     useEffect(() => {
 
-           // Function to animate icon circles
            function animateIcons() {
             ScrollTrigger.batch(".icon-container", {
               onEnter: batch => {
                 batch.forEach(container => {
+
                   const iconCircles = container.querySelectorAll(".icon-circle");
                   
                   gsap.to(iconCircles, {
                     scale: 1,
                     opacity: 1,
                     ease: "none",
-                    stagger: 0.5, // Delay of 0.5 seconds between each icon-circle
+                    stagger: 0.5,
                     scrollTrigger: {
                       trigger: container,
-                      start: "-=500", // Adjust start point as needed
-                      end: "+=300",   // Adjust end point as needed
+                      start: "-=500",
+                      end: "+=300",
                       scrub: true
                     }
                   });
@@ -34,48 +33,33 @@ const ValuesSection = () => {
             });
           }
 
-          function animateText(textContainers) {
+        function animateText(textContainers) {
             textContainers.forEach(container => {
-          
-              // Animate icon circles with stagger
-              gsap.to(container, {
-                scale: 1,
-                opacity: 1,
-                ease: "none",
-                translateY: 0,
-                stagger: 0.5, // Delay of 0.5 seconds between each icon-circle
-                scrollTrigger: {
-                  trigger: container,
-                  start: "-=500", // Adjust start point as needed
-                  end: "+=300",   // Adjust end point as needed
-                  scrub: true
-                }
-              });
+                gsap.to(container, {
+                    scale: 1,
+                    opacity: 1,
+                    ease: "none",
+                    translateY: 0,
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "-=500", 
+                        end: "+=300",
+                        scrub: true
+                    }
+                });
             });
-          }
+        }
 
-    const iconContainers = document.querySelectorAll(".icon-container");
-    animateIcons(iconContainers);
+        const iconContainers = document.querySelectorAll(".icon-container");
+        animateIcons(iconContainers);
 
-    const textContainers = document.querySelectorAll(".text-container");
-    animateText(textContainers);
- 
-        // gsap.to(".icon-circle", {
-        //     scale: 1,
-        //     opacity: 1,
-        //     ease: "none",
-        //     scrollTrigger: {
-        //         trigger: ".icon-circle",
-        //         start: '-=500px',
-        //         end: "+=300px",
-        //         scrub: true,
-        //     }
-        // });
+        const textContainers = document.querySelectorAll(".text-container");
+        animateText(textContainers);
 
     }, []);   
 
     return (
-        <section id="values-sesction" className="py-8 py-md-11">
+        <section id="values-section" className="py-8 py-md-11">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-12 col-md-12 col-lg-8 text-center mx-auto">

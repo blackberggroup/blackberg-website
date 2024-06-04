@@ -14,7 +14,7 @@ const BenefitsSection = () => {
             translateY: "-100px",
             ease: "none",
             scrollTrigger: {
-                trigger: "#benefits-sesction",
+                trigger: "#benefits-section",
                 start: 'top top',
                 end: "+=1000px",
                 scrub: true,
@@ -25,7 +25,7 @@ const BenefitsSection = () => {
             translateY: "-70px",
             ease: "none",
             scrollTrigger: {
-                trigger: "#benefits-sesction",
+                trigger: "#benefits-section",
                 start: 'top top',
                 end: "+=1000px",
                 scrub: true,
@@ -36,7 +36,7 @@ const BenefitsSection = () => {
             translateY: "-100px",
             ease: "none",
             scrollTrigger: {
-                trigger: "#benefits-sesction",
+                trigger: "#benefits-section",
                 start: 'top top',
                 end: "+=1000px",
                 scrub: true,
@@ -46,7 +46,7 @@ const BenefitsSection = () => {
     }, []);    
 
     return (
-        <section id="benefits-sesction" className="py-8 py-md-11">
+        <section id="benefits-section" className="py-8 py-md-11">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-12 col-md-9 col-lg-6 col-xl-5 text-center mx-auto position-relative z-2">

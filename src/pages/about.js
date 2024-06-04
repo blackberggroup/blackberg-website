@@ -1,19 +1,24 @@
 import { getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
 import { RichText } from '@graphcms/rich-text-react-renderer';
+import HeroSection from '@/app/components/about/HeroSection';
+import MissionVisionSection from '@/app/components/about/MissionVisionSection';
+import OurTeamSection from '@/app/components/about/OurTeamSection';
+import ValuesSection from '@/app/components/about/ValuesSection';
+import BenefitsSection from '@/app/components/about/BenefitsSection';
+import JobOpeningsSection from '@/app/components/about/JobOpeningsSection';
 
 function AboutPage({ page }) {
 
   return (
     <>
         <SEOHead page={page} />
-        <div className="container-fluid">
-            <div className="container">
-              <div className="col-12 col-md-8 mx-auto">
-                  <RichText content={page.content.raw} />
-              </div>
-            </div>
-        </div>
+        <HeroSection />
+        <MissionVisionSection />
+        <OurTeamSection />
+        <ValuesSection />
+        <BenefitsSection />
+        <JobOpeningsSection />
     </>
   );
 }

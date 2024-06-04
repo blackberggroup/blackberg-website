@@ -1,0 +1,23 @@
+#communications-hero {
+    .hero__bg-image {
+        background-image: url('/images/services/communications/hero-comms.webp');
+    }
+
+    .hero__video-image {
+        position: absolute;
+        border-radius: 100%;
+        transition: .3s ease;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 50px;
+            width: 33vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+            margin-top: 50px;
+            width: 38%;
+        }
+
+    }
+
+}

@@ -10,13 +10,13 @@ const MissionVisionSection = () => {
     useEffect(() => {
         // GSAP animation for rotating the circle-arrow
         gsap.to('.circle-arrow', {
-            rotation: 25,  // Rotate 360 degrees
+            rotation: 35,  // Rotate 360 degrees
             ease: 'none',   // No easing for continuous rotation
             scrollTrigger: {
-                trigger: '.circle-arrow', // Trigger the animation when this section enters the viewport
+                trigger: 'body', // Trigger the animation when this section enters the viewport
                 start: 'top top',  // Start the animation when the top of the section reaches the top of the viewport
-                end: '+=1500', // End the animation when the bottom of the section reaches the top of the viewport
-                scrub: true,       // Smooth scrubbing, ties the animation progress to the scroll progress
+                end: 'bottom top', // End the animation when the bottom of the section reaches the top of the viewport
+                scrub: true,        // Smooth scrubbing, ties the animation progress to the scroll progress
             }
         });
     }, []);    

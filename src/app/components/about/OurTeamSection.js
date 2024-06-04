@@ -13,7 +13,7 @@ const OurTeamSection = () => {
                                 <p>Our philosophy is simple; hire great people and give them the resources and support to do their best work.</p>                          
                         </div>                        
                         <div className="col-12 col-lg-6 d-flex flex-column flex-md-row ms-auto mt-4 mt-lg-0">
-                            <div className="col-5">
+                            <div className="col-5 mx-auto">
                                 <Image src="/images/about/emily-uhl.webp" 
                                 alt="Emily Uhl - Blackberg Group President and Founder" 
                                 fill={true}
@@ -26,7 +26,7 @@ const OurTeamSection = () => {
                             </div>
                         </div>
                         <div className="col-12 col-lg-6 d-flex flex-column flex-md-row-reverse ms-auto mt-6 mt-md-8">
-                            <div className="col-5">
+                            <div className="col-5 mx-auto">
                                 <Image src="/images/about/leanne-reisz.webp" 
                                 alt="Leanne Reisz - Blackberg Group Executive Vide President" 
                                 fill={true}

@@ -17,7 +17,7 @@ const handleSubmit = async (e) => {
   setShowMessage(true);
 
   try {
-    const res = await fetch('/api/contact2', {
+    const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -42,26 +42,26 @@ const handleSubmit = async (e) => {
                         <form onSubmit={handleSubmit}>
                             <div className="d-flex flex-column flex-md-row">
                                 <div className="mb-4 me-5 flex-fill">
-                                    <label for="firstName" class="form-label">First name</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                                    <label htmlFor="firstName" className="form-label">First name</label>
+                                    <input type="text" className="form-control" id="firstName" placeholder="First Name" name="firstName" value={formData.firstName} onChange={handleChange} required />
                                 </div>
                                 <div className="mb-4 flex-fill">
-                                    <label for="lastNameInput" class="form-label">Last name</label>
-                                    <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                                    <label htmlFor="lastNameInput" className="form-label">Last name</label>
+                                    <input type="text" className="form-control" id="lastNameInput" placeholder="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} required />
                                 </div>
                             </div>
                             <div className="mb-4">
-                                <label for="emailInput" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="emailInput" placeholder="you@company.com" name="email" value={formData.email} onChange={handleChange} required />
+                                <label htmlFor="emailInput" className="form-label">Email</label>
+                                <input type="email" className="form-control" id="emailInput" placeholder="you@company.com" name="email" value={formData.email} onChange={handleChange} required />
                             </div>
                             <div className="mb-0">
-                                <label for="messageInput" class="form-label">Message</label>
-                                <textarea class="form-control" id="messageInput" placeholder="Leave us a message" rows="4" name="message" value={formData.message} onChange={handleChange} required></textarea>
+                                <label htmlFor="messageInput" className="form-label">Message</label>
+                                <textarea className="form-control" id="messageInput" placeholder="Leave us a message" rows="4" name="message" value={formData.message} onChange={handleChange} required></textarea>
                             </div>
                             <div className="d-flex flex-column">
-                              <button type="submit" class="btn btn-primary mt-5 align-self-start">Send Message</button>
+                              <button type="submit" className="btn btn-primary mt-5 align-self-start">Send Message</button>
                               {showMessage && (
-                                <span class="form-message mt-3">
+                                <span className="form-message mt-3">
                                   {formMessage}
                                 </span>
                                 )

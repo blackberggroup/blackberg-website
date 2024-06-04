@@ -9,9 +9,16 @@ export default async function POST(req, res) {
     const msg = {
       to: process.env.TO_EMAIL, // Your email address to receive the message
       from: process.env.FROM_EMAIL, // Your verified SendGrid email address
-      subject: `Contact form submission from ${name}`,
+      subject: `Blackberg Group Contact Submission`,
       text: message,
-      html: `<p>${message}</p>`,
+      html: `
+      <p>Name: </p>
+      <p>${firstName} ${lastName}</p>
+      <p>Email: </p>
+      <p>${email}</p>
+      <p>Message:</p>
+      <p>${message}</p>
+      `,
     };
 
     try {

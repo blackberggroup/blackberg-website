@@ -9,15 +9,15 @@ import SmoothScrolling from "../app/components/SmoothScrolling";
 import { getNavigation } from '@/app/lib/hygraph';
 import NavInteractivity from '@/app/components/HeaderInteractive';
 
-function MyApp({ Component, pageProps, nav, navStyle }) {
+function MyApp({ Component, pageProps, nav, pageName }) {
 
 
   return (
     <>
-    <Header nav={nav} navStyle={navStyle} />
+    <Header nav={nav} navStyle={pageName} />
     <NavInteractivity />
     <SmoothScrolling>
-        <main aria-label="Main content">
+        <main aria-label="Main content" className={pageName}>
             <Component {...pageProps} />
         </main>
     </SmoothScrolling>
@@ -30,8 +30,8 @@ function MyApp({ Component, pageProps, nav, navStyle }) {
 MyApp.getInitialProps = async (ctx) => {
   const nav = await getNavigation();
   const pathname = ctx.router.pathname;
-  const navStyle = pathname.replace('/', '').replace(/\//g, '-') || 'home';
-  return { nav, navStyle };
+  const pageName = pathname.replace('/', '').replace(/\//g, '-') || 'home';
+  return { nav, pageName };
 };
 
 export default MyApp;

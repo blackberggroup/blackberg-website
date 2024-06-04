@@ -1,25 +1,30 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
-    port: 587,
-    secure: false, 
+    service: 'gmail',
     auth: {
-      user: process.env.OUTLOOK_USER,
-      pass: process.env.OUTLOOK_PASS,
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
     },
   });
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { name, email, message } = req.body;
+    const { firstName, lastName, email, message } = req.body;
 
     const mailOptions = {
-      from: process.env.OUTLOOK_USER,
+      from: process.env.GMAIL_USER,
       to: process.env.TO_EMAIL,
-      subject: `Contact form submission from ${name}`,
+      subject: `Blackberg Group Contact Submission`,
       text: message,
-      html: `<p>${message}</p>`,
+      html: `
+      <p>Name: </p>
+      <p>${firstName} ${lastName}</p>
+      <p>Email: </p>
+      <p>${email}</p>
+      <p>Message:</p>
+      <p>${message}</p>
+      `,
     };
 
     try {

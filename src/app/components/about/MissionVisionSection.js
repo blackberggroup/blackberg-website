@@ -12,7 +12,7 @@ const MissionVisionSection = () => {
             rotation: 5,
             ease: 'none', 
             scrollTrigger: {
-                trigger: '.circle-arrow-about',
+                trigger: 'body',
                 start: '-=300', 
                 end: '+=600',
                 scrub: true,  

@@ -150,14 +150,14 @@ const ValuesSection = () => {
                                     fill={true}
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                             </div>
-                            <div className="icon-circle icon-circle--bottom-left icon-circle--cyan d-flex align-items-center justify-content-center position-relative bottom-0 start-0 z-2">
-                                <Image src="/images/about/hiker-icon.webp"
+                            <div className="icon-circle icon-circle--navy d-flex align-items-center justify-content-center position-absolute bottom-0 end-0 z-1">
+                                <Image src="/images/about/gears-icon.webp"
                                     className="img-fluid position-relative h-auto"
                                     fill={true}
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                             </div>
-                            <div className="icon-circle icon-circle--navy d-flex align-items-center justify-content-center position-absolute bottom-0 end-0 z-1">
-                                <Image src="/images/about/gears-icon.webp"
+                            <div className="icon-circle icon-circle--bottom-left icon-circle--cyan d-flex align-items-center justify-content-center position-relative bottom-0 start-0 z-2">
+                                <Image src="/images/about/hiker-icon.webp"
                                     className="img-fluid position-relative h-auto"
                                     fill={true}
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />

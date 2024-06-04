@@ -1,5 +1,6 @@
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/services/communications/HeroSection";
+import IntroSection from "@/app/components/services/communications/IntroSection";
 
 function Communications({page }) {
 
@@ -7,6 +8,7 @@ function Communications({page }) {
     <>
         <SEOHead page={page} />
         <HeroSection />
+        <IntroSection />
     </>
   );
 }

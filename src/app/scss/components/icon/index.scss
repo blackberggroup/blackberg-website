@@ -1,0 +1,17 @@
+.icon {
+    height: 48px;
+    width: 48px;
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        height: 24px;
+        width: 24px;
+    }
+    
+    &--secondary {
+        background-color: $electric-green-500;
+    }
+}

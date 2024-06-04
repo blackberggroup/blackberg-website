@@ -7,7 +7,7 @@
 }
 
 #mission-vision-section {
-    .circle-arrow {
+    .circle-arrow-about {
       position: absolute;
       left: -600px;
       transform: translateX(-50%);
@@ -22,24 +22,24 @@
   
       @include media-breakpoint-up(md) {
         height: 850px;
-        left: -530px;
+        left: -120px;
         bottom: -112px;
       }
   
       @include media-breakpoint-up(lg) {
-        left: -550px;
-        bottom: -180px;
         height: auto;
+        left: -100px;
+        bottom: -175px;
       }
   
       @include media-breakpoint-up(xl) {
-        left: -600px;
-        bottom: -170px;
+        left: -160px;
+        bottom: -190px;
       }
   
       @include media-breakpoint-up(xxl) {
-        left: -700px;
-        bottom: -180px;
+        left: -200px;
+        bottom: -195px;
       }
   
     }
@@ -48,6 +48,11 @@
 
   #values-sesction {
     background-color: $jade-green-950;
+
+    .text-container {
+      opacity: 0;
+      // transform: translateY(50px);
+    }
 
     .icon-container {
         max-width: 375px;
@@ -63,6 +68,8 @@
             width: 225px;
             height: 225px;
             border-radius: 50rem;
+            transform: scale(0.75);
+            opacity: 0;
 
             &--jade {
                 background: $jade-green;

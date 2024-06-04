@@ -1,7 +1,78 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ValuesSection = () => {
+
+
+    useEffect(() => {
+
+           // Function to animate icon circles
+           function animateIcons() {
+            ScrollTrigger.batch(".icon-container", {
+              onEnter: batch => {
+                batch.forEach(container => {
+                  const iconCircles = container.querySelectorAll(".icon-circle");
+                  
+                  gsap.to(iconCircles, {
+                    scale: 1,
+                    opacity: 1,
+                    ease: "none",
+                    stagger: 0.5, // Delay of 0.5 seconds between each icon-circle
+                    scrollTrigger: {
+                      trigger: container,
+                      start: "-=500", // Adjust start point as needed
+                      end: "+=300",   // Adjust end point as needed
+                      scrub: true
+                    }
+                  });
+                });
+              }
+            });
+          }
+
+          function animateText(textContainers) {
+            textContainers.forEach(container => {
+          
+              // Animate icon circles with stagger
+              gsap.to(container, {
+                scale: 1,
+                opacity: 1,
+                ease: "none",
+                translateY: 0,
+                stagger: 0.5, // Delay of 0.5 seconds between each icon-circle
+                scrollTrigger: {
+                  trigger: container,
+                  start: "-=500", // Adjust start point as needed
+                  end: "+=300",   // Adjust end point as needed
+                  scrub: true
+                }
+              });
+            });
+          }
+
+    const iconContainers = document.querySelectorAll(".icon-container");
+    animateIcons(iconContainers);
+
+    const textContainers = document.querySelectorAll(".text-container");
+    animateText(textContainers);
+ 
+        // gsap.to(".icon-circle", {
+        //     scale: 1,
+        //     opacity: 1,
+        //     ease: "none",
+        //     scrollTrigger: {
+        //         trigger: ".icon-circle",
+        //         start: '-=500px',
+        //         end: "+=300px",
+        //         scrub: true,
+        //     }
+        // });
+
+    }, []);   
 
     return (
         <section id="values-sesction" className="py-8 py-md-11">
@@ -24,7 +95,7 @@ const ValuesSection = () => {
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                             </div>
                         </div>
-                        <div className="col-12 col-md-6 text-white ps-auto ps-xxl-10 mt-5 mt-md-0 ms-auto">
+                        <div className="col-12 col-md-6 text-white ps-auto ps-xxl-10 mt-5 mt-md-0 ms-auto text-container">
                             <h3 className="h2 mb-3">Professionalism</h3>
                             <p>{"Our team thrives on precision, integrity, and a relentless pursuit of quality. Professionalism is not merely what we do; it’s who we are—a team committed to setting the gold standard."}</p>
                         </div>
@@ -46,7 +117,7 @@ const ValuesSection = () => {
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                             </div>
                         </div>
-                        <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto">
+                        <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto  text-container">
                             <h3 className="h2 mb-3">Boldness</h3>
                             <p>{"Our team thrives on precision, integrity, and a relentless pursuit of quality. Professionalism is not merely what we do; it’s who we are—a team committed to setting the gold standard."}</p>
                         </div>
@@ -74,7 +145,7 @@ const ValuesSection = () => {
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                             </div>
                         </div>
-                        <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto">
+                        <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto text-container">
                             <h3 className="h2 mb-3">Entrepreneurialism</h3>
                             <p>{"We believe in empowering bold and thoughtful ideas. We dare to dream big, think beyond conventional limits, and redefine industry norms. Our consultants are fearless in pushing the boundaries of conventional consulting and envisioning new possibilities to drive better solutions."}</p>
                         </div>
@@ -108,7 +179,7 @@ const ValuesSection = () => {
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                             </div>
                         </div>
-                        <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto">
+                        <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto text-container">
                             <h3 className="h2 mb-3">Grit</h3>
                             <p>{"Grit is the silent force that propels us through challenges. In the face of adversity, we don’t back down; we dig in. We thrive on perseverance and tenacity, turning obstacles into steppingstones for success."}</p>
                         </div>

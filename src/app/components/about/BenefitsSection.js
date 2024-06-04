@@ -1,7 +1,49 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const BenefitsSection = () => {
+
+
+    useEffect(() => {
+ 
+        gsap.to(".circle-36", {
+            translateY: "-100px",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#benefits-sesction",
+                start: 'top top',
+                end: "+=1000px",
+                scrub: true,
+            }
+        });
+
+        gsap.to(".circle-76", {
+            translateY: "-70px",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#benefits-sesction",
+                start: 'top top',
+                end: "+=1000px",
+                scrub: true,
+            }
+        });
+
+        gsap.to(".circle-106", {
+            translateY: "-100px",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#benefits-sesction",
+                start: 'top top',
+                end: "+=1000px",
+                scrub: true,
+            }
+        });
+
+    }, []);    
 
     return (
         <section id="benefits-sesction" className="py-8 py-md-11">

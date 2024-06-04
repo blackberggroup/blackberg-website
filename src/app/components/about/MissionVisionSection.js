@@ -8,15 +8,14 @@ gsap.registerPlugin(ScrollTrigger);
 const MissionVisionSection = () => {
 
     useEffect(() => {
-        // GSAP animation for rotating the circle-arrow
-        gsap.to('.circle-arrow', {
-            rotation: 35,  // Rotate 360 degrees
-            ease: 'none',   // No easing for continuous rotation
+        gsap.to('.circle-arrow-about', {
+            rotation: 5,
+            ease: 'none', 
             scrollTrigger: {
-                trigger: 'body', // Trigger the animation when this section enters the viewport
-                start: 'top top',  // Start the animation when the top of the section reaches the top of the viewport
-                end: 'bottom top', // End the animation when the bottom of the section reaches the top of the viewport
-                scrub: true,        // Smooth scrubbing, ties the animation progress to the scroll progress
+                trigger: '.circle-arrow-about',
+                start: '-=300', 
+                end: '+=600',
+                scrub: true,  
             }
         });
     }, []);    
@@ -31,7 +30,7 @@ const MissionVisionSection = () => {
                                     className="image rounded-4 mb-5 mb-md-0"
                                     fill={true}
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
-                                <img src="/images/about/circle-arrow-about.svg" className="circle-arrow unselectable d-none d-sm-block" />                                
+                                <img src="/images/about/circle-arrow-about.svg" className="circle-arrow-about unselectable d-none d-sm-block" />                                
                             </div>
                         </div>                        
                         <div className="col-12 col-md-6 col-xl-5 col-xxl-4">

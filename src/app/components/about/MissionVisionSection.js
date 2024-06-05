@@ -25,9 +25,9 @@ const MissionVisionSection = () => {
                 <div className="container">
                     <div className="row align-items-center justify-content-center">
                         <div className="col-12 col-md-6 col-xl-5 col-xxl-4">
-                            <div className="section-image">
+                            <div className="position-relative">
                                 <Image src="/images/about/about-mission-vision.webp"
-                                    className="image rounded-4 mb-5 mb-md-0"
+                                    className="w-100 h-auto rounded-4 mb-5 mb-md-0 position-relative"
                                     fill={true}
                                     alt="Multiple US Air Force planes and helicopters flying in formation." />
                                 <img src="/images/about/circle-arrow-about.svg" className="circle-arrow-about unselectable d-none d-sm-block" />                                

@@ -58,6 +58,7 @@
         max-width: 375px;
         max-height: 375px;
         height: 100%;
+        width: 100%;
 
         @include media-breakpoint-up(lg) {
             max-width: 516px;

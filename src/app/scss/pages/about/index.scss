@@ -10,35 +10,35 @@
     .circle-arrow-about {
       position: absolute;
       left: -600px;
-      transform: translateX(-50%);
+      // transform: translateX(-50%);
       z-index: -1;
       bottom: 0;
   
       @include media-breakpoint-up(sm) {
-        height: 900px;
-        left: -520px;
-        bottom: 0;
+        height: 806px;
+        left: -519px;
+        bottom: 34px;
       }
   
       @include media-breakpoint-up(md) {
         height: 850px;
-        left: -120px;
+        left: -520px;
         bottom: -112px;
       }
   
       @include media-breakpoint-up(lg) {
         height: auto;
-        left: -100px;
+        left: -600px;
         bottom: -175px;
       }
   
       @include media-breakpoint-up(xl) {
-        left: -160px;
+        left: -640px;
         bottom: -190px;
       }
   
       @include media-breakpoint-up(xxl) {
-        left: -200px;
+        left: -700px;
         bottom: -195px;
       }
   
@@ -58,6 +58,7 @@
         max-width: 375px;
         max-height: 375px;
         height: 100%;
+        width: 100%;
 
         @include media-breakpoint-up(lg) {
             max-width: 516px;

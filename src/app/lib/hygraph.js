@@ -127,15 +127,36 @@ export const getCaseStudyBySlug = async (slug) => {
                   id
                   title
                   category
-                  content {
-                    raw
-                    html
-                    markdown
-                    text
-                  }
+                  client
                   coverImage {     
                     url       
                     altText
+                  }                  
+                  introContent
+                  challengeContent
+                  solutionContent
+                  gallery {
+                    url
+                    altText
+                  }
+                  strategiesContent
+                  strategies {
+                    details
+                    title
+                  }
+                  gallerySecondary {
+                    url
+                    altText
+                  }
+                  resultContent
+                  relatedCaseStudies {
+                    slug
+                    category
+                    title
+                    coverImage {
+                      altText
+                      url
+                    }
                   }
                   seoOverride {
                     description
@@ -178,7 +199,7 @@ export const getNavigation = async () => {
           }
       `,
   });
-  console.log("Nav:", data.navigations[0]);
+  // console.log("Nav:", data.navigations[0]);
   return data.navigations[0];
 }
 

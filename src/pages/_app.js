@@ -8,9 +8,23 @@ import "../app/scss/main.scss";
 import SmoothScrolling from "../app/components/SmoothScrolling";
 import { getNavigation } from '@/app/lib/hygraph';
 import NavInteractivity from '@/app/components/HeaderInteractive';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps, nav, pageName }) {
 
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      window.scrollTo(0, 0);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
 
   return (
     <>

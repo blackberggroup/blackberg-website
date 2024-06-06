@@ -42,6 +42,16 @@ NEXT_PUBLIC_HYGRAPH_ENDPOINT=""
 HYGRAPH_TOKEN=""
 ```
 
+## SendGrid
+
+To handle contact form submissions you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these three items and get the API key by logging into your SendGrid account. The FROM_EMAIL needs to use the verified SendGrid email address. 
+
+```bash
+SENDGRID_API_KEY=""
+TO_EMAIL=""
+FROM_EMAIL=""
+```
+
 ## Deploy 
 
 The project is setup to deploy on Vercel. The key/values in the .env.local file need to be added to the Vercel deployment configuration to work properly. 

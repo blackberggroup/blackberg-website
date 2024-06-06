@@ -30,7 +30,9 @@ export async function getServerSideProps(context) {
 
     return {
         props: { 
-            page: page || null,
+            page: page,
+            navStyle: "dark",
+            footerCta: true
         },
     };
 }

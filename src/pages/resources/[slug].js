@@ -37,8 +37,12 @@ export async function getServerSideProps(context) {
   const post = await getPostBySlug(slug);
 
   return {
-    props: { post }, // This will pass posts to the page component
-  };
+    props: { 
+        post: post,
+        navStyle: "dark", 
+        footerCta: true
+    },
+};
 }
 
 export default ResourcePage;

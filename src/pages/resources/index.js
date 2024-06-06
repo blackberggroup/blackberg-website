@@ -34,8 +34,10 @@ export async function getServerSideProps(context) {
 
     return {
         props: { 
-            page: page || null,
-            posts: posts || [] 
+            page: page,
+            posts: posts || [],
+            navStyle: "dark", 
+            footerCta: true
         },
     };
 }

@@ -5,8 +5,9 @@ import StrategicAwarenessSection from "@/app/components/services/strategy/Strate
 import StrategicToolkitSection from "@/app/components/services/strategy/StrategicToolkitSection";
 import StrategicPlanningSection from "@/app/components/services/strategy/StrategicPlanningSection";
 import StrategicImplementationSection from "@/app/components/services/strategy/StrategicImplementationSection";
+import { getPageBySlug } from '@/app/lib/hygraph';
 
-function Strategy({page }) {
+function Strategy({ page }) {
 
   return (
     <>
@@ -19,6 +20,21 @@ function Strategy({page }) {
         <StrategicImplementationSection />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+
+  const slug = context.resolvedUrl.substring(1);
+
+  const [page] = await Promise.all([
+      getPageBySlug(slug)
+  ]);
+
+  return {
+      props: { 
+          page: page || null,
+      },
+  };
 }
 
 export default Strategy;

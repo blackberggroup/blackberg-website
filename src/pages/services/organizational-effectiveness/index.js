@@ -6,7 +6,7 @@ import TalentManagementSection from "@/app/components/services/organizational-ef
 import DigitalServicesSection from "@/app/components/services/organizational-effectiveness/DigitalServicesSection";
 import { getPageBySlug } from '@/app/lib/hygraph';
 
-function OrganizationalEffectiveness({page }) {
+function OrganizationalEffectiveness({ page }) {
 
   return (
     <>
@@ -29,10 +29,8 @@ export async function getServerSideProps(context) {
   ]);
 
   return {
-    props: { 
-        page: page,
-        navStyle: "dark",
-        footerCta: true
+      props: { 
+          page: page || null,
       },
   };
 }

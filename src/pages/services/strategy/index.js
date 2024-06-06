@@ -7,7 +7,7 @@ import StrategicPlanningSection from "@/app/components/services/strategy/Strateg
 import StrategicImplementationSection from "@/app/components/services/strategy/StrategicImplementationSection";
 import { getPageBySlug } from '@/app/lib/hygraph';
 
-function Strategy({page }) {
+function Strategy({ page }) {
 
   return (
     <>
@@ -31,10 +31,8 @@ export async function getServerSideProps(context) {
   ]);
 
   return {
-    props: { 
-        page: page,
-        navStyle: "dark",
-        footerCta: true
+      props: { 
+          page: page || null,
       },
   };
 }

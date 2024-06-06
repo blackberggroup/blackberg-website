@@ -1,15 +1,17 @@
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/services/communications/HeroSection";
 import IntroSection from "@/app/components/services/communications/IntroSection";
+import IntegratedMarketingSection from "@/app/components/services/communications/IntegratedMarketingSection";
 import { getPageBySlug } from '@/app/lib/hygraph';
 
-function Communications({page }) {
+function Communications({ page }) {
 
   return (
     <>
         <SEOHead page={page} />
         <HeroSection />
         <IntroSection />
+        <IntegratedMarketingSection />
     </>
   );
 }
@@ -23,10 +25,8 @@ export async function getServerSideProps(context) {
   ]);
 
   return {
-    props: { 
-        page: page,
-        navStyle: "dark",
-        footerCta: true
+      props: { 
+          page: page || null,
       },
   };
 }

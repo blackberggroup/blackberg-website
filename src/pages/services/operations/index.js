@@ -6,7 +6,7 @@ import BusinessProcessSection from "@/app/components/services/operations/Busines
 import AugmentingServiceAISection from "@/app/components/services/operations/AugmentingServiceAISection";
 import { getPageBySlug } from '@/app/lib/hygraph';
 
-function Operations({page }) {
+function Operations({ page }) {
 
   return (
     <>
@@ -29,10 +29,8 @@ export async function getServerSideProps(context) {
   ]);
 
   return {
-    props: { 
-        page: page,
-        navStyle: "dark",
-        footerCta: true
+      props: { 
+          page: page || null,
       },
   };
 }

@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 const HeroSection = () => {
 
     return (
-            <section id="service-hero" className="hero hero--contact">
-                <div className="container h-100">
-                    <div className="row align-items-center h-100">
+            <section id="service-hero" className="hero hero--contact d-flex align-items-center">
+                <div className="container">
+                    <div className="row align-items-center">
                         <div className="col-12 col-md-12 col-lg-9 text-center mx-auto">
                             <div className="hero-title">
                                 <span className="text-headline-label text-headline-label--secondary text-uppercase">Contact</span>

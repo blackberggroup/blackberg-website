@@ -22,7 +22,7 @@ const Header = ({ nav, props }) => {
 
     return (
         <header >
-            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${props.navStyle}`} aria-label="Main navigation">
+            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${props?.navStyle}`} aria-label="Main navigation">
                 <div className="container">
                     <button className="navbar-toggler collapsed pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

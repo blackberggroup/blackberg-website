@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 const IntegratedMarketingSection = () => {
 
     return (
-        <section id="comms-integrated-marketing" className="py-8 py-md-11">
+        <section id="communications-integrated-marketing" className="py-8 py-md-11">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-12 col-md-6">

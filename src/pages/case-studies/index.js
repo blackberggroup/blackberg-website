@@ -17,7 +17,13 @@ function CaseStudies ({ page }) {
 export async function getServerSideProps(context) {
     const slug = context.resolvedUrl.substring(1);
     const page = await getPageBySlug(slug);
-    return { props: { page: page || null } };
+    return {
+      props: { 
+          page: page,
+          navStyle: "dark", 
+          footerCta: true
+        },
+    };
 }
 
 export default CaseStudies;

@@ -33,8 +33,9 @@ export async function getServerSideProps(context) {
   const page = await getPageBySlug(slug);
 
   
-  return { props: { 
-    page: page || null
+  return { 
+    props: { 
+      page: page || null
   } };
 }
 

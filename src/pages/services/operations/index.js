@@ -4,6 +4,7 @@ import IntroSection from "@/app/components/services/operations/IntroSection";
 import ProjectManagementSection from "@/app/components/services/operations/ProjectManagementSection";
 import BusinessProcessSection from "@/app/components/services/operations/BusinessProcessSection";
 import AugmentingServiceAISection from "@/app/components/services/operations/AugmentingServiceAISection";
+import { getPageBySlug } from '@/app/lib/hygraph';
 
 function Operations({page }) {
 
@@ -17,6 +18,23 @@ function Operations({page }) {
         <AugmentingServiceAISection />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+
+  const slug = context.resolvedUrl.substring(1);
+
+  const [page] = await Promise.all([
+      getPageBySlug(slug)
+  ]);
+
+  return {
+    props: { 
+        page: page,
+        navStyle: "dark",
+        footerCta: true
+      },
+  };
 }
 
 export default Operations;

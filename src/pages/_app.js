@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
 
   return (
     <>
-    <Header nav={nav} navStyle={pageName} />
+    <Header nav={nav} props={pageProps} />
     <NavInteractivity />
     <SmoothScrolling>
         <main aria-label="Main content" className={pageName}>

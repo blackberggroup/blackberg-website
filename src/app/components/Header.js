@@ -3,16 +3,17 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-const Header = ({ nav, navStyle }) => {
+const Header = ({ nav, props }) => {
     const [navbarBackground, setNavbarBackground] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const heroSection = document.getElementById('hero-section');
-            if (heroSection) {
-                const heroBottom = heroSection.getBoundingClientRect().bottom;
-                setNavbarBackground(window.scrollY > heroBottom);
-            }
+            // const heroSection = document.getElementById('hero-section');
+            // if (heroSection) {
+            //     const heroBottom = heroSection.getBoundingClientRect().bottom;
+            //     setNavbarBackground(window.scrollY > heroBottom);
+            // }
+            setNavbarBackground(window.scrollY > 500);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -21,7 +22,7 @@ const Header = ({ nav, navStyle }) => {
 
     return (
         <header >
-            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${navStyle}`} aria-label="Main navigation">
+            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${props?.navStyle}`} aria-label="Main navigation">
                 <div className="container">
                     <button className="navbar-toggler collapsed pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

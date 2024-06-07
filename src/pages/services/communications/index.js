@@ -2,6 +2,7 @@ import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/services/communications/HeroSection";
 import IntroSection from "@/app/components/services/communications/IntroSection";
 import IntegratedMarketingSection from "@/app/components/services/communications/IntegratedMarketingSection";
+import CreativeStudioSection from "@/app/components/services/communications/CreativeStudioSection";
 import EventManagementSection from "@/app/components/services/communications/EventManagementSection";
 import { getPageBySlug } from '@/app/lib/hygraph';
 
@@ -13,6 +14,7 @@ function Communications({ page }) {
         <HeroSection />
         <IntroSection />
         <IntegratedMarketingSection />
+        <CreativeStudioSection />
         <EventManagementSection />
     </>
   );

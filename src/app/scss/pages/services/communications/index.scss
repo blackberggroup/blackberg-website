@@ -21,3 +21,38 @@
     }
 
 }
+
+#communications-creative-studio {
+
+    .section-wrapper {
+      background-color: $electric-green;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dot {
+        position: absolute;
+        display: inline-block;
+        border-radius: 99px;
+
+        &__one {
+            background-color: #F8EF67;
+            height: 36px;
+            width: 36px;
+        }
+
+        &__two {
+            background-color: #243551;
+            height: 106px;
+            width: 106px;
+        }
+        
+        &__three {
+            background-color: #51C1BD;
+            height: 76px;
+            width: 76px;
+        }        
+
+    }
+
+}

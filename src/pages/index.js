@@ -1,4 +1,4 @@
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getFeaturedCaseStudies, getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "../app/components/home/HeroSection";
 import ServicesSection from '@/app/components/home/ServicesSection';
@@ -15,7 +15,7 @@ function HomePage({page, caseStudies}) {
         <HeroSection />
         <ServicesSection />
         <AboutSection />
-        <CaseStudySection />
+        <CaseStudySection caseStudies={caseStudies} />
     </>
   );
 }
@@ -24,13 +24,15 @@ export async function getServerSideProps(context) {
 
     const slug = context.resolvedUrl.substring(1);
 
-    const [page] = await Promise.all([
+    const [page, caseStudies] = await Promise.all([
         getPageBySlug(slug),
+        getFeaturedCaseStudies()
     ]);
 
     return {
         props: { 
             page: page,
+            caseStudies: caseStudies || null,
             navStyle: "dark",
             footerCta: true
         },

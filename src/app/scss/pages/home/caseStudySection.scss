@@ -23,4 +23,17 @@
         color: $gray-700;
         background: $white;
     }
+
+    .card-image {
+        height: 360px;
+
+        &--featured {
+            height: 560px;
+        }
+
+        img {
+            object-fit: cover;
+            transform-origin: center;
+          }
+    }
 }

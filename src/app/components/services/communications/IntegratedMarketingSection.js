@@ -11,7 +11,7 @@ const IntegratedMarketingSection = () => {
                         <div className="section-image">
                             <Image src="/images/services/communications/integrated-marketing.webp"
                                 className="image rounded-4 mb-5 mb-md-0"
-                                fill="true"
+                                fill={true}
                                 alt="Two circles laying on a greed background with small balls organized inside of the two circles."
                             />
                         </div>

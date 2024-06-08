@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const WebDesignSection = () => {
-    useLayoutEffect(() => {
+    useEffect(() => {
         gsap.to('.circle-arrow', {
             rotation: 35,  // Rotate 360 degrees
             ease: 'none',   // No easing for continuous rotation

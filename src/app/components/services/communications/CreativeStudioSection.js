@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CreativeStudioSection = () => {
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const dots = document.querySelectorAll('.dot');
         
         dots.forEach((dot, index) => {

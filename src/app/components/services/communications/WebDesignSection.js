@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -41,9 +42,9 @@ const WebDesignSection = () => {
                 <div className="row align-items-center">
                     <div className="col-12 col-lg-10 offset-lg-1">
                         <h2 className="text-headline display-5 mb-3 text-center">Web Design and Development</h2>
-                        <p>Transform your online presence with our digital team, where technical expertise meets sophisticated design. We focus on creating websites that are both visually striking and functionally reliable. Our approach balances robust back-end infrastructure with a seamless front-end user experience, ensuring that your website is more than just a digital address — an interactive showcase of your brand's personality and values.</p>
+                        <p>Transform your online presence with our digital team, where technical expertise meets sophisticated design. We focus on creating websites that are both visually striking and functionally reliable. Our approach balances robust back-end infrastructure with a seamless front-end user experience, ensuring that your website is more than just a digital address — an interactive showcase of your brand&lsquo;s personality and values.</p>
                         <div className="text-center">
-                            <a href="/case-studies/2023-suicide-prevention-annual-report" aria-label="View latest web design case study" className="btn btn-primary">View Latest Case Study <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2"></img></a> 
+                            <link href="/case-studies/2023-suicide-prevention-annual-report" aria-label="View latest web design case study" className="btn btn-primary">View Latest Case Study <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2"></img></link> 
                         </div>
                     </div> 
                 </div>

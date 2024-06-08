@@ -4,6 +4,7 @@ import IntroSection from "@/app/components/services/communications/IntroSection"
 import IntegratedMarketingSection from "@/app/components/services/communications/IntegratedMarketingSection";
 import CreativeStudioSection from "@/app/components/services/communications/CreativeStudioSection";
 import EventManagementSection from "@/app/components/services/communications/EventManagementSection";
+import WebDesignSection from "@/app/components/services/communications/WebDesignSection";
 import { getPageBySlug } from '@/app/lib/hygraph';
 
 function Communications({ page }) {
@@ -16,6 +17,7 @@ function Communications({ page }) {
         <IntegratedMarketingSection />
         <CreativeStudioSection />
         <EventManagementSection />
+        <WebDesignSection />
     </>
   );
 }

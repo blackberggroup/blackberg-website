@@ -56,3 +56,34 @@
     }
 
 }
+
+#communications-web-design {
+
+    .iso-container {
+        height: 400px;
+    }
+
+    .iso-row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(-20deg);
+        position: relative;
+    }
+
+    .column {
+        padding: 20px;
+        width: 50%;
+        max-width: 50%;
+        flex: 1 1 50%;
+        position: relative; /* Required for parallax positioning */
+        transform: translate(0); /* Initial position for parallax */
+    }
+
+    .ItemCard__thumb {
+        transform: translate(0); /* Initial position for parallax */
+        box-shadow: 0px 10px 30px rgba($color: #000000, $alpha: .25)
+    }
+
+}

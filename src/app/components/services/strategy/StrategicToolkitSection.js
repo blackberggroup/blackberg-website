@@ -26,7 +26,7 @@ const StrategicToolkitSection = () => {
             <section id="strategy-strategic-toolkit" className="py-8 py-md-11">
                 <div className="container">
                     <div className="section-wrapper rounded-4 p-6 p-md-8">
-                        <div class="text-center mb-5 mb-lg-8">
+                        <div className="text-center mb-5 mb-lg-8">
                             <span className="text-headline-label text-headline-label--secondary text-uppercase text-white">Blackberg Group</span>
                             <h2 className="text-headline display-5 text-white">Our Strategic Toolkit</h2>
                         </div>

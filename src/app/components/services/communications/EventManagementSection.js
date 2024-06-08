@@ -60,7 +60,7 @@ const EventManagementSection = () => {
                 </div>
                 <div className="row mt-5 text-center counter">
                     <div className="col-6 col-lg-3 mb-7 mb-lg-0">
-                        <span className="counter__amount display-3" data-target="183" ref={el => countersRef.current[0] = el}>
+                        <span className="counter__amount display-2" data-target="183" ref={el => countersRef.current[0] = el}>
                             0
                         </span>
                         <div className="counter__label h6">
@@ -68,7 +68,7 @@ const EventManagementSection = () => {
                         </div>
                     </div>
                     <div className="col-6 col-lg-3 mb-7 mb-lg-0">
-                        <span className="counter__amount display-3" data-target="364" ref={el => countersRef.current[1] = el}>
+                        <span className="counter__amount display-2" data-target="364" ref={el => countersRef.current[1] = el}>
                             0
                         </span>
                         <span className="display-3">k</span>
@@ -77,7 +77,7 @@ const EventManagementSection = () => {
                         </div>
                     </div>
                     <div className="col-6 col-lg-3">
-                        <span className="counter__amount display-3" data-target="4026" ref={el => countersRef.current[2] = el}>
+                        <span className="counter__amount display-2" data-target="4026" ref={el => countersRef.current[2] = el}>
                             0
                         </span>
                         <div className="counter__label h6">
@@ -85,7 +85,7 @@ const EventManagementSection = () => {
                         </div>
                     </div>
                     <div className="col-6 col-lg-3">
-                        <span className="counter__amount display-3" data-target="127" ref={el => countersRef.current[3] = el}>
+                        <span className="counter__amount display-2" data-target="127" ref={el => countersRef.current[3] = el}>
                             0
                         </span>
                         <div className="counter__label h6">

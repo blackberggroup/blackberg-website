@@ -6,6 +6,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WebDesignSection = () => {
     useLayoutEffect(() => {
+        gsap.to('.circle-arrow', {
+            rotation: 35,  // Rotate 360 degrees
+            ease: 'none',   // No easing for continuous rotation
+            scrollTrigger: {
+                trigger: 'body', // Trigger the animation when this section enters the viewport
+                start: 'top top',  // Start the animation when the top of the section reaches the top of the viewport
+                end: 'bottom top', // End the animation when the bottom of the section reaches the top of the viewport
+                scrub: true,       // Smooth scrubbing, ties the animation progress to the scroll progress
+            }
+        });
+
         const thumbs = document.querySelectorAll('.column');
 
         thumbs.forEach((thumb) => {
@@ -36,33 +47,36 @@ const WebDesignSection = () => {
                         </div>
                     </div> 
                 </div>
-                <div className="iso-container overflow-hidden position-relative rounded-4 bg-primary my-7 my-lg-10">
-                    <div className="iso-row">
-                        <div className="column">
-                            <figure className="ItemCard__thumb">
-                                <img src="https://placehold.co/1200x1080" className="img-fluid rounded-4" />
-                                <span className="shadow cover"></span>
-                            </figure>
+                <div className="iso-wrapper position-relative">
+                    <div className="iso-container overflow-hidden position-relative rounded-4 bg-primary my-7 my-lg-10">
+                        <div className="iso-row">
+                            <div className="column">
+                                <figure className="ItemCard__thumb">
+                                    <img src="https://placehold.co/1200x1080" className="img-fluid rounded-4" />
+                                    <span className="shadow cover"></span>
+                                </figure>
+                            </div>
+                            <div className="column">
+                                <figure className="ItemCard__thumb">
+                                    <img src="https://placehold.co/1200x1080" className="img-fluid " />
+                                    <span className="shadow cover"></span>
+                                </figure>
+                            </div>
+                            <div className="column">
+                                <figure className="ItemCard__thumb">
+                                    <img src="https://placehold.co/1200x1080" className="img-fluid" />
+                                    <span className="shadow cover"></span>
+                                </figure>
+                            </div>
+                            <div className="column">
+                                <figure className="ItemCard__thumb">
+                                    <img src="https://placehold.co/1200x1080" className="img-fluid" />
+                                    <span className="shadow cover"></span>
+                                </figure>
+                            </div>                    
                         </div>
-                        <div className="column">
-                            <figure className="ItemCard__thumb">
-                                <img src="https://placehold.co/1200x1080" className="img-fluid " />
-                                <span className="shadow cover"></span>
-                            </figure>
-                        </div>
-                        <div className="column">
-                            <figure className="ItemCard__thumb">
-                                <img src="https://placehold.co/1200x1080" className="img-fluid" />
-                                <span className="shadow cover"></span>
-                            </figure>
-                        </div>
-                        <div className="column">
-                            <figure className="ItemCard__thumb">
-                                <img src="https://placehold.co/1200x1080" className="img-fluid" />
-                                <span className="shadow cover"></span>
-                            </figure>
-                        </div>                    
                     </div>
+                    <img src="/images/circle-arrow.svg" className="circle-arrow unselectable d-none d-sm-block" />                                
                 </div>
                 <div className="row">
                     <div className="col-12 col-lg-4 mb-5 mb-lg-0">

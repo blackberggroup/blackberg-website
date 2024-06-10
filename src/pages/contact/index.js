@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
       props: { 
           page: page,
           navStyle: "light", 
-          footerCta: true
+          footerCta: false
       },
   };
 }

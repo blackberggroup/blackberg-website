@@ -117,6 +117,27 @@ export const getAllCaseStudies = async () => {
     return data.caseStudies
 }
 
+export const getFeaturedCaseStudies = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetFeaturedCaseStudies { 
+                caseStudies {
+                  id
+                  slug
+                  title
+                  category
+                  featured
+                  coverImage {
+                      url
+                      altText
+                  }
+              }
+          }
+      `,
+  });
+  return data.caseStudies
+}
+
 export const getCaseStudyBySlug = async (slug) => {
     console.log('Slug: ' + slug);
     const { data, errors } = await client.query({

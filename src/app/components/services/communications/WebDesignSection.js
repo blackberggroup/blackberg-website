@@ -55,26 +55,22 @@ const WebDesignSection = () => {
                         <div className="iso-row">
                             <div className="column">
                                 <figure className="ItemCard__thumb">
-                                    <img src="https://placehold.co/1200x1080" className="img-fluid rounded-4" />
-                                    <span className="shadow cover"></span>
+                                    <img src="/images/services/communications/mockups/isometric/spar-1.webp" className="img-fluid" />
+                                </figure>
+                            </div>
+                            <div className="column mt-6">
+                                <figure className="ItemCard__thumb">
+                                    <img src="/images/services/communications/mockups/isometric/fellowships.webp" className="img-fluid" />                                    
                                 </figure>
                             </div>
                             <div className="column">
                                 <figure className="ItemCard__thumb">
-                                    <img src="https://placehold.co/1200x1080" className="img-fluid " />
-                                    <span className="shadow cover"></span>
+                                    <img src="/images/services/communications/mockups/isometric/iex-2023.webp" className="img-fluid" />
                                 </figure>
                             </div>
-                            <div className="column">
+                            <div className="column mt-6">
                                 <figure className="ItemCard__thumb">
-                                    <img src="https://placehold.co/1200x1080" className="img-fluid" />
-                                    <span className="shadow cover"></span>
-                                </figure>
-                            </div>
-                            <div className="column">
-                                <figure className="ItemCard__thumb">
-                                    <img src="https://placehold.co/1200x1080" className="img-fluid" />
-                                    <span className="shadow cover"></span>
+                                    <img src="/images/services/communications/mockups/isometric/ncchi.webp" className="img-fluid" />
                                 </figure>
                             </div>                    
                         </div>

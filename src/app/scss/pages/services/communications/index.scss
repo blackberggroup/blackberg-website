@@ -73,7 +73,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(-20deg);
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(-20deg) translate(18%, -15%);
         position: relative;
     }
 
@@ -104,14 +104,15 @@
         }
     
         @include media-breakpoint-up(md) {
-            width: 986px;
-            height: 1072px;
+
             bottom: -10px;
           left: 0;
         }
     
         @include media-breakpoint-up(lg) {
-          bottom: 0;
+            width: 986px;
+            height: 1072px;
+            bottom: 0;
           left: 0;
         }
     

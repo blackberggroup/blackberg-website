@@ -9,7 +9,7 @@ export const getServerSideProps = async (ctx) => {
   const fields = paths.map((path) => ({
     loc: `https://testsite.com${path}`,
     changefreq: 'daily',
-    priority: 0.7,
+    priority: 1,
   }));
 
   console.log("Fields:", fields); // Debug log
@@ -17,6 +17,4 @@ export const getServerSideProps = async (ctx) => {
   return getServerSideSitemapLegacy(ctx, fields);
 };
 
-export default function Sitemap() {
-  // Placeholder component since Next.js requires a default export
-}
+export default function Sitemap() {}

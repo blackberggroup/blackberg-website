@@ -1,11 +1,10 @@
 import SEOHead from '@/app/components/SEOHead';
 import Link from 'next/link';
 
-function Custom404({ }) {
+function Custom404() {
 
   return (
     <>
-        <SEOHead page={page} />
           <div className="container-fluid">
             <div className="container">
               <div className="row">

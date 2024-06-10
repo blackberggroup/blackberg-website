@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-function Custom404() {
+function Custom404Page() {
 
   return (
     <>
@@ -31,4 +31,4 @@ export async function getServerSideProps() {
     };
 }
 
-export default Custom404;
+export default Custom404Page;

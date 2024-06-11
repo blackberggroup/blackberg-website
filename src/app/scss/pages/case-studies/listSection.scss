@@ -1,7 +1,7 @@
 #case-studies-list {
     overflow: hidden;
 }
-
+  
 .case-study-item {
 
     .box-gradient {
@@ -83,4 +83,17 @@
         }
     }
 
+    // .text-container {
+    //     display: inline-block;
+    //     overflow: hidden;
+    //     position: relative; 
+
+    //     .letter {
+    //         display: inline-block;
+    //         position: relative;
+    //         clip-path: inset(0 0 0 100%);
+    //         transform: translateX(100%);
+    //         overflow: hidden;
+    //     }
+    // }
 }

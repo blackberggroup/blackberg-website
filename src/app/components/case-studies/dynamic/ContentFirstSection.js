@@ -28,7 +28,7 @@ const ContentFirstSection = ({ page }) => {
                 </div>
                 )}
                 {/* Content | The Solution */}
-                {page.solutionConten && (
+                {page.solutionContent && (
                 <div className="row mt-8 mt-md-11">
                     <div className="col-12 col-md-8 col-lg-6 mx-auto">
                         <h2 className="display-5 mb-3">The Solution</h2>

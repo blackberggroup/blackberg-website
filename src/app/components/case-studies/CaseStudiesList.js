@@ -14,40 +14,45 @@ const CaseStudiesList = () => {
     useEffect(() => {
 
         const caseStudyList = caseStudyListRef.current;
+        const caseStudyItems = caseStudyList.querySelectorAll('.case-study-item');
 
-        const handleMouseMove = (e) => {
-            const { clientX, clientY } = e;
-            const { width, height } = caseStudyList.getBoundingClientRect();
-            const xPos = (clientX / width - 0.5) * 40; 
-            const yPos = (clientY / height - 0.5) * 40;
-            const xPos2 = (clientX / width - 0.5) * 80; 
-            const yPos2 = (clientY / height - 0.5) * 80;
-            const xPos3 = (clientX / width - 0.5) * 20; 
-            const yPos3 = (clientY / height - 0.5) * 20;
-
-            featuredImageRefs.current.forEach((featuredImage) => {
-                gsap.to(featuredImage, {
-                  x: xPos,
-                  y: yPos,
-                  duration: 0.6,
-                });
+        const handleMouseMove = (e, item) => {
+          const { clientX, clientY } = e;
+          const { width, height } = caseStudyList.getBoundingClientRect();
+          const xPos = (clientX / width - 0.5) * 40; 
+          const yPos = (clientY / height - 0.5) * 40;
+          const xPos2 = (clientX / width - 0.5) * 80; 
+          const yPos2 = (clientY / height - 0.5) * 80;
+          const xPos3 = (clientX / width - 0.5) * 20; 
+          const yPos3 = (clientY / height - 0.5) * 20;
+    
+        const featuredImage = item.querySelector('.feature-image');
+        const featuredPattern = item.querySelector('.feature-pattern');
+        const featuredBox = item.querySelector('.feature-box');
+    
+            if (featuredImage) {
+              gsap.to(featuredImage, {
+                x: xPos,
+                y: yPos,
+                duration: 0.6,
               });
-        
-              featuredPatternRefs.current.forEach((featuredPattern) => {
-                gsap.to(featuredPattern, {
-                  x: xPos2,
-                  y: yPos2,
-                  duration: 0.8,
-                });
+            }
+    
+            if (featuredPattern) {
+              gsap.to(featuredPattern, {
+                x: xPos2,
+                y: yPos2,
+                duration: 0.8,
               });
-        
-              featuredBoxRefs.current.forEach((featuredBox) => {
-                gsap.to(featuredBox, {
-                  x: xPos3,
-                  y: yPos3,
-                  duration: 1,
-                });
+            }
+    
+            if (featuredBox) {
+              gsap.to(featuredBox, {
+                x: xPos3,
+                y: yPos3,
+                duration: 1,
               });
+            }
         };
 
         featuredPatternRefs.current.forEach((featuredPattern) => {
@@ -68,7 +73,32 @@ const CaseStudiesList = () => {
             );
           });
 
-        caseStudyList.addEventListener('mousemove', handleMouseMove);
+        caseStudyItems.forEach((item) => {
+            item.addEventListener('mousemove', (e) => handleMouseMove(e, item));
+        });
+
+        // const textElement = document.querySelectorAll('.text-container');
+        // const letters = document.querySelectorAll('.text-container span');
+
+        // gsap.set(letters, {
+        //     x: '100%',
+        //     clipPath: 'inset(0 0 0 100%)',
+        //   });
+      
+        //   letters.forEach((letter) => {
+        //     gsap.to(letter, {
+        //       x: '0%',
+        //       clipPath: 'inset(0 0 0 0)',
+        //       duration: 1,
+        //       delay: .5,
+        //       scrollTrigger: {
+        //         trigger: letter,
+        //         start: 'top 90%',
+        //         end: 'top 50%',
+        //         scrub: true,
+        //       },
+        //     });
+        // });
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -82,11 +112,11 @@ const CaseStudiesList = () => {
                 {/* Case Study | VA Immersive National Marketing */}
                 <section className="case-study-item row mt-4 mt-lg-6 pb-2 pb-lg-6 align-items-center" id="cs-va-immersive" aria-label="VA Immersive National Marketing Case Study Overview">
                     <div className="col-12 col-lg-6 position-relative h-100">
-                        <div class="box-gradient position-absolute box-gradient--va-immersive" ref={(el) => (featuredBoxRefs.current[0] = el)}></div>
+                        <div className="box-gradient position-absolute box-gradient--va-immersive feature-box" ref={(el) => (featuredBoxRefs.current[0] = el)}></div>
                         <figure className="feature-image px-7 pt-7 position-relative z-2 m-0">
                             <img src="/images/case-studies/case-study-va-immersive.webp" className="d-block mx-auto img-fluid img-immersive" alt="Person wearing VR headset" loading="lazy" ref={(el) => (featuredImageRefs.current[0] = el)}></img>
                         </figure>
-                        <img src="/images/case-studies/dot-pattern-square.webp" alt="square dot pattern" class="position-absolute pattern pattern--va-immersive" ref={(el) => (featuredPatternRefs.current[0] = el)} />
+                        <img src="/images/case-studies/dot-pattern-square.webp" alt="square dot pattern" className="position-absolute pattern pattern--va-immersive feature-pattern" ref={(el) => (featuredPatternRefs.current[0] = el)} />
                     </div>
                     <div className="col-12 col-lg-6 d-flex align-items-center ps-lg-5 mt-5 mt-lg-0">
                         <div className="d-flex flex-column">
@@ -111,11 +141,11 @@ const CaseStudiesList = () => {
                 {/* Case Study | 2023 Suicide Prevention Annual Report */}
                 <section className="case-study-item row flex-lg-row-reverse mt-10 mt-lg-10 align-items-center" id="cs-prevention" aria-label="2023 Suicide Prevention Annual Report Case Study Overview">
                     <div className="col-12 col-lg-6 position-relative h-100">
-                        <div class="box-gradient position-absolute box-gradient--va-prevention" ref={(el) => (featuredBoxRefs.current[1] = el)}></div>
+                        <div className="box-gradient position-absolute box-gradient--va-prevention feature-box" ref={(el) => (featuredBoxRefs.current[1] = el)}></div>
                         <figure className="feature-image px-7 pt-7 position-relative z-2 m-0">
                             <img src="/images/case-studies/case-study-va-prevention.webp" className="d-block mx-auto img-fluid img-prevention" alt="Person wearing VR headset" loading="lazy" ref={(el) => (featuredImageRefs.current[1] = el)}></img>
                         </figure>
-                        <img src="/images/case-studies/dot-pattern-circle.webp" alt="square dot pattern" class="position-absolute pattern pattern--va-prevention device-mockup" ref={(el) => (featuredPatternRefs.current[1] = el)} />
+                        <img src="/images/case-studies/dot-pattern-circle.webp" alt="square dot pattern" className="position-absolute pattern pattern--va-prevention device-mockup feature-pattern" ref={(el) => (featuredPatternRefs.current[1] = el)} />
                     </div>
                     <div className="col-12 col-lg-6 d-flex align-items-center pe-lg-5 mt-5 mt-lg-0">
                         <div className="d-flex flex-column">

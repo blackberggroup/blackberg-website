@@ -165,7 +165,10 @@
  .navbar.light {
     box-shadow: none;
     position: relative;
-    background: transparent;
+
+    @include media-breakpoint-up(lg) {
+        background: transparent;
+    }
 
     &.is-stuck {
         position: fixed;

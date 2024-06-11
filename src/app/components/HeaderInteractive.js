@@ -9,12 +9,22 @@ const HeaderInteractive = () => {
   useEffect(() => {
     const navItems = document.querySelectorAll('.navbar .nav-item');
     const navLinks = document.querySelectorAll('.navbar .nav-link, .navbar .dropdown-item');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    let lastTouchedElement = null;
 
     const handleClick = (e) => {
       const elLink = e.currentTarget.querySelector('a[data-bs-toggle]');
       if (elLink && !e.target.closest('.dropdown-menu')) {
         e.preventDefault();
-        router.replace(elLink.href);
+        if (isTouchDevice) {
+          if (lastTouchedElement === e.currentTarget) {
+            router.replace(elLink.href);
+          } else {
+            lastTouchedElement = e.currentTarget;
+          }
+        } else {
+          router.replace(elLink.href);
+        }
       }
     };
 
@@ -40,9 +50,16 @@ const HeaderInteractive = () => {
     setActiveLink();
 
     return () => {
+      const navButton = document.querySelector('.navbar-toggler');
+      navButton.classList.add('collapsed');
+
+      const nav = document.querySelector('.navbar-collapse');
+      nav.classList.remove('show');
+
       navItems.forEach((item) => {
         item.removeEventListener('click', handleClick);
       });
+
     };
   }, [router]);
 

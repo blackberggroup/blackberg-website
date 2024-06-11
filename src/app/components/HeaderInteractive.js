@@ -10,12 +10,12 @@ const HeaderInteractive = () => {
     const navItems = document.querySelectorAll('.navbar .nav-item');
     const navLinks = document.querySelectorAll('.navbar .nav-link, .navbar .dropdown-item');
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+
     const handleClick = (e) => {
       const elLink = e.currentTarget.querySelector('a[data-bs-toggle]');
       if (elLink && !e.target.closest('.dropdown-menu')) {
         e.preventDefault();
-        if (isTouchDevice) {
+        if (window.innerWidth < 992) {
           if(e.currentTarget.classList.contains('clicked')){
             router.replace(elLink.href);
           } else {

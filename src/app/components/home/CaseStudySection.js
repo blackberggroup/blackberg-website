@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Image from 'next/image';
 
-const CaseStudySection = () => {
+const CaseStudySection = ({ caseStudies }) => {
 
     gsap.registerPlugin(ScrollTrigger);
     const featuredCaseStudyRef = useRef(null);
@@ -59,52 +60,66 @@ const CaseStudySection = () => {
         <section id="home-case-study-section" className="container-fluid pb-7 pb-md-10" aria-label="Case Study Overview">
             <div className="container position-relative">
                 <div className="row mt-4 d-flex position-relative">
-                    <div className="col-12 text-center">
+                    <div className="col-12 text-center pb-7 pb-lg-10">
                         <span className="text-headline-label text-headline-label--secondary text-uppercase text-white">Our Work</span>
                         <h2 className="text-headline display-3 text-white">Case Studies</h2>
                     </div>
                     {/* Featured Case Study */}
-                    <div className="col-12 py-7 py-lg-10 position-relative">
+                    {caseStudies?.length > 0 &&
+                    <div className="col-12  py-7 pg-lg-10 position-relative">
                         <div className="card card--case-study border-0 bg-transparent" ref={featuredCaseStudyRef}>
-                            <Link href="/case-studies/" aria-label="View VHA Resuscitation Symposium case study" className="text-decoration-none">
-                                <div className="card-image">
-                                    <img src="/images/home/case-study-vha-resuscitation-symposium.webp" className="card-img-top" alt="Person presenting at conference"></img>
+                            <Link href={`/case-studies/${caseStudies[0].slug}`} aria-label="View VHA Resuscitation Symposium case study" className="text-decoration-none">
+                                <div className="card-image card-image--featured">
+                                    <img src={caseStudies[0].coverImage.url} className="card-img-top" alt={caseStudies[0].coverImage.altText}></img>
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-md-7">
-                                    <h3 className="card-title mb-3">VHA Resuscitation Symposium </h3>
-                                    <span className="card-category">Event Management </span>
+                                    <h3 className="card-title mb-3">{caseStudies[0].title}</h3>
+                                    <span className="card-category">{caseStudies[0].category} </span>
                                 </div>
                             </Link>
                         </div>
                     </div>
+                    }
                     {/* End of Featured Case Study */}
                     {/* Secondary Case Studies */}
+                    {caseStudies?.length > 1 && 
                     <div className="col-12 col-lg-6 position-relative">
                         <div className="card card--case-study border-0 bg-transparent" ref={secondCaseStudyRef}>
-                            <Link href="/case-studies/" aria-label="View VA Immersive National Marketing case study" className="text-decoration-none">
+                            <Link href={`/case-studies/${caseStudies[1].slug}`} aria-label="View VA Immersive National Marketing case study" className="text-decoration-none">
                                 <div className="card-image">
-                                    <img src="/images/home/case-study-va-immersive-national-marketing.webp" className="card-img-top" alt="Person wearing VR headsest"></img>
+                                    <Image src={caseStudies[1].coverImage.url}
+                                    className="img-fluid rounded-4 w-100 position-relative" 
+                                    alt={caseStudies[1].coverImage.altText}
+                                    fill={true}
+                                    loading="lazy" />
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-lg-7">
-                                    <h3 className="card-title mb-3">VA Immersive National Marketing </h3>
-                                    <span className="card-category">Communications</span>
+                                    <h3 className="card-title mb-3">{caseStudies[1].title} </h3>
+                                    <span className="card-category">{caseStudies[1].category}</span>
                                 </div>
                             </Link>
                         </div>
                     </div>
+                    }                   
+                    {caseStudies?.length > 2 && 
                     <div className="col-12 col-lg-6 mt-7 mt-lg-0 position-relative">
                         <div className="card card--case-study border-0 bg-transparent" ref={thirdCaseStudyRef}>
-                            <Link href="/case-studies/" aria-label="View Suicide Prevention Annual Report case study" className="text-decoration-none">
-                                <div className="card-image">
-                                    <img src="/images/home/case-study-va-immersive-national-marketing.webp" className="card-img-top" alt=""></img>
+                            <Link href={`/case-studies/${caseStudies[2].slug}`} aria-label="View Suicide Prevention Annual Report case study" className="text-decoration-none">
+                                <div className="card-image card-img-top">
+                                    <Image src={caseStudies[2].coverImage.url}
+                                    className="img-fluid rounded-4 w-100 position-relative" 
+                                    alt={caseStudies[2].coverImage.altText}
+                                    fill={true}
+                                    loading="lazy" />
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-lg-7">
-                                    <h3 className="card-title mb-3">Suicide Prevention Annual Report </h3>
-                                    <span className="card-category">Web Design and Development</span>
+                                    <h3 className="card-title mb-3">{caseStudies[2].title} </h3>
+                                    <span className="card-category">{caseStudies[2].category}</span>
                                 </div>
                             </Link>
                         </div>
                     </div>
+                    }
                     {/* End of Secondary Case Studies */}
                 </div>
             </div>

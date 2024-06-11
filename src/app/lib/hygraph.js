@@ -117,6 +117,27 @@ export const getAllCaseStudies = async () => {
     return data.caseStudies
 }
 
+export const getFeaturedCaseStudies = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetFeaturedCaseStudies { 
+                caseStudies {
+                  id
+                  slug
+                  title
+                  category
+                  featured
+                  coverImage {
+                      url
+                      altText
+                  }
+              }
+          }
+      `,
+  });
+  return data.caseStudies
+}
+
 export const getCaseStudyBySlug = async (slug) => {
     console.log('Slug: ' + slug);
     const { data, errors } = await client.query({
@@ -209,18 +230,30 @@ export const getAllPagePaths = async () => {
         query GetPaths {
           pages {
             slug
+            parentPage {
+              slug
+            }
           }
           posts {
+            slug
+          }
+          caseStudies {
             slug
           }
         }
       `,
     });
 
-    const pages = data.pages.map(({ slug }) => `/${slug}`);
-    const articles = data.posts.map(({ slug }) => `/articles/${slug}`);
+    const pages = data.pages.map(({ slug, parentPage }) => {
+      if (parentPage && parentPage.slug) {
+        return `/${parentPage.slug}/${slug}`;
+      }
+      return `/${slug}`;
+    });  
+    const articles = data.posts.map(({ slug }) => `/insights/${slug}`);
+    const caseStudies = data.caseStudies.map(({ slug }) => `/case-studies/${slug}`);
   
-    return [...pages, ...articles];
+    return [...pages, ...articles, ...caseStudies];
     
   };
 

@@ -9,7 +9,7 @@ const EventManagementSection = () => {
         const updateCount = (counter) => {
             const target = parseInt(counter.getAttribute('data-target'));
             const count = +counter.innerText.replace(/,/g, '');
-            const increment = target / 200; // Adjust this value to control the speed of the count up
+            const increment = target / 400; // Adjust this value to control the speed of the count up
 
             if (count < target) {
                 counter.innerText = Math.ceil(count + increment).toLocaleString();

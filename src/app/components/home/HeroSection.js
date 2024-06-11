@@ -9,12 +9,12 @@ const HeroSection = () => {
         const handleMouseMove = (e) => {
             const { clientX, clientY } = e;
             const { width, height } = container.getBoundingClientRect();
-            const xPos = (clientX / width - 0.5) * 40; // Adjust the multiplier for more/less movement
-            const yPos = (clientY / height - 0.5) * 20;
+            const xPos = (clientX / width - 0.5) * 80; // Adjust the multiplier for more/less movement
+            const yPos = (clientY / height - 0.5) * 80;
 
             gsap.to(heroImage, {
-                x: xPos,
-                y: yPos,
+                x: -xPos,
+                y: -yPos,
                 duration: .8,
                 ease: 'power3.out'
             });

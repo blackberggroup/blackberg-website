@@ -31,7 +31,7 @@
         position: absolute;     
         right: -150px;
         top: 100px;
-        transform: translateX(55%);
+        // transform: translateX(55%);
         width: 75vw;
         height: 75vw;
 
@@ -40,7 +40,7 @@
         @include media-breakpoint-up(md) {
             top: 80px;
             right: -300px;
-            transform: translateX(55%);
+            // transform: translateX(55%);
             width: 75vw;
             height: 75vw;
         } 
@@ -49,7 +49,7 @@
             top: 100px;
             right: -400px;
             
-            transform: translateX(45%);
+            // transform: translateX(45%);
             width: 90vw;
             height: 90vw;
         }  
@@ -57,7 +57,7 @@
         @include media-breakpoint-up(xl) {
             top: 100px;
             
-            transform: translateX(45%);
+            // transform: translateX(45%);
             width: 90vw;
             height: 90vw;
         }  
@@ -65,7 +65,7 @@
         @include media-breakpoint-up(xxl) {
             top: 110px;
             
-            transform: translateX(40%);
+            // transform: translateX(40%);
             width: 75vw;
             height: 75vw;
         }          

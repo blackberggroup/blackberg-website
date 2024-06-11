@@ -18,6 +18,7 @@ const HeaderInteractive = () => {
         e.preventDefault();
         if (isTouchDevice) {
           if (lastTouchedElement === e.currentTarget) {
+            lastTouchedElement = null;
             router.replace(elLink.href);
           } else {
             lastTouchedElement = e.currentTarget;
@@ -55,6 +56,8 @@ const HeaderInteractive = () => {
 
       const nav = document.querySelector('.navbar-collapse');
       nav.classList.remove('show');
+
+      lastTouchedElement = null;
 
       navItems.forEach((item) => {
         item.removeEventListener('click', handleClick);

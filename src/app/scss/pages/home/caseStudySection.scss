@@ -28,7 +28,11 @@
         height: 360px;
 
         &--featured {
-            height: 560px;
+            height: auto;
+
+            @include media-breakpoint-up(lg) {
+                height: 560px;
+            }
         }
 
         img {

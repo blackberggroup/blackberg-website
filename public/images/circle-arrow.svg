@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1875.5 1964.65">
+  <defs>
+    <path id="reuse-0" d="M87.7 75.01h1686v1836.88H87.7z" class="cls-2"/>
+  </defs>
+  <defs>
+    <clipPath id="clippath">
+      <use xlink:href="#reuse-0" class="cls-2"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <use xlink:href="#reuse-0" class="cls-2"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <path d="M0 0h1875.5v1940.75H0z" class="cls-2"/>
+    </clipPath>
+    <clipPath id="clippath-3">
+      <path d="M1030.18 75.33C523.12 62.05 101.3 462.34 88.02 969.4c-13.27 507.06 387.02 928.89 894.08 942.17 329.4 8.62 622.78-157.32 791.6-413.65l-313.86-8.22c-123.92 113.32-290.17 180.68-471.3 175.95-371.24-9.73-664.31-318.56-654.59-689.81 9.72-371.23 318.55-664.3 689.79-654.58l138.69-120.59-132.24-125.34Z" class="cls-2"/>
+    </clipPath>
+    <clipPath id="clippath-4">
+      <path d="M22.57 96.8h1708.24v1756.02H22.57z" class="cls-2"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-67.75" x2="-60.66" y1="1998.73" y2="1998.73" gradientTransform="matrix(0 239.61 239.61 0 -477997.41 16388.61)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b5d334"/>
+      <stop offset="0" stop-color="#b5d334"/>
+      <stop offset=".14" stop-color="#b0d034"/>
+      <stop offset=".29" stop-color="#a3c737"/>
+      <stop offset=".44" stop-color="#8db93b"/>
+      <stop offset=".6" stop-color="#6ea640"/>
+      <stop offset=".77" stop-color="#468d47"/>
+      <stop offset=".93" stop-color="#166f4f"/>
+      <stop offset="1" stop-color="#006154"/>
+    </linearGradient>
+    <style>
+      .cls-2{fill:none;stroke-width:0}.cls-5{mix-blend-mode:multiply}
+    </style>
+  </defs>
+  <g style="isolation:isolate">
+    <g id="Layer_1" data-name="Layer 1" style="clip-path:url(#clippath)">
+      <g style="clip-path:url(#clippath-1)">
+        <g class="cls-5" style="clip-path:url(#clippath-2)">
+          <g style="clip-path:url(#clippath-3)">
+            <path d="M-26.77 117.61h1901.98v1747.01H-26.77z" style="fill:url(#linear-gradient);stroke-width:0" transform="rotate(-88.5 924.217 991.114)"/>
+          </g>
+        </g>
+        <g class="cls-5" style="clip-path:url(#clippath-4)">
+          <path d="M896.12 185.66C450.3 209.02 107.84 589.37 131.2 1035.18c23.36 445.82 403.71 788.28 849.52 764.92 289.61-15.17 535.56-181.03 665.98-417.6l-275.95 14.46c-100.9 107.99-242.12 178.57-401.37 186.91-326.4 17.11-604.87-233.63-621.98-560.03-17.11-326.4 233.63-604.87 560.03-621.97l113.36-115.39L896.1 185.64Z" style="fill:#50c2bd;stroke-width:0"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

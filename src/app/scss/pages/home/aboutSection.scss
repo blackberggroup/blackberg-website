@@ -1,0 +1,29 @@
+#home-about-section{
+    background: $jade-green-950;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+    #home-about-circle {
+        //transform: translate3d(-280px, -180px, 0) scale(0.65);
+        transform: scale(0.65);
+        top: -168px;
+        left: -254px;
+        width: 400px;
+    
+        @include media-breakpoint-up(md) {
+            // transform: translate3d(-360px, -290px, 0) scale(0.65);
+            transform: scale(0.65);
+            top: -290px;
+            left: -344px;
+            width: 640px;
+        }  
+    
+        @include media-breakpoint-up(lg) {
+            // transform: translate3d(-475px, -400px, 0) scale(0.65);
+            transform: scale(0.65);
+            top: -410px;
+            left: -464px;
+            width: 960px;
+        }  
+    }
+}

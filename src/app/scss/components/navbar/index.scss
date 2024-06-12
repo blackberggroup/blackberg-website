@@ -1,0 +1,179 @@
+.navbar {
+    background: $white;
+
+    @include media-breakpoint-down(lg) {
+        box-shadow: 0px 10px 20px rgba($color: #000000, $alpha: .2);
+    }
+
+    @include media-breakpoint-up(lg) {
+        background: transparent;
+    }
+
+    &-light {
+
+        .navbar-logo {
+            background-image: url('/images/logo-light.svg');
+        }
+    }
+
+    &-dark {
+
+        .navbar-logo {
+            background-image: url('/images/logo-dark.svg');
+        }
+    }
+
+    &-logo {
+        height: 38px;
+        width: 94px;
+        
+        @include media-breakpoint-up(lg) {
+            height: 50px;
+            width: 124px;    
+        }
+    }
+
+    .nav-item {
+        margin: 0 .5rem;
+        cursor: pointer;
+
+        @include media-breakpoint-down(lg) {
+            border-bottom: 1px solid $gray-200;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        
+        }
+
+        .dropdown-item {
+            font-weight: $font-weight-bold;
+            
+            &:hover {
+                // background: $jade-green-200;
+            }
+            &.active, &:active {
+                // background: $primary;
+            }
+        }
+    }
+
+    .nav-link {
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base;
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        align-items: center;
+    
+        @include media-breakpoint-down(lg) {
+            color: $black;
+    
+            &:hover {
+                color: $primary;
+                
+            }
+    
+            &.active {
+                color: $primary;
+            }
+        }
+    
+        @include media-breakpoint-up(lg) {
+            color: $white;
+        }
+    
+        &.active::before {
+
+            @include media-breakpoint-up(lg) {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                height: 4px;
+                width: 18px;
+                border-radius: 4px;
+                background-color: $electric-green-500;    
+                left: 50%;
+                transform: translateX(-50%);
+            }            
+
+        }
+    
+        &.dropdown-toggle::after {
+            content: '';
+            background-image: url('/images/menu-dropdown-icon-light.svg');
+            background-size: contain;
+            width: 12px;
+            height: 13px;
+            border: none;
+            margin-left: auto;
+
+            @include media-breakpoint-up(lg) {
+                background-image: url('/images/menu-dropdown-icon-dark.svg');
+                margin-left: .5rem;
+            }
+
+        }
+        
+    }    
+
+}
+
+.navbar {
+    transition: top 0.3s, background-color 0.3s;
+    margin-bottom: -76px;
+    z-index: 9999;
+  }
+  
+  .navbar.is-stuck, .navbar.light {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: $white;
+    transition: top 0.3s, background-color 0.3s;
+    box-shadow: 0px 10px 20px rgba($color: #000000, $alpha: .2);
+
+    .navbar-logo {
+        height: 38px;
+        width: 94px;
+    }
+
+    .nav-link {
+        color: $black;
+
+        @include media-breakpoint-up(lg) {
+            &:hover {
+                color: $primary;
+            }
+        
+        }
+
+        &.dropdown-toggle::after {
+            background-image: url('/images/menu-dropdown-icon-light.svg');
+
+        }
+
+    }
+
+  }
+  
+  .navbar.is-stuck.scrolled {
+    top: 0;
+  }
+
+ .navbar.light {
+    box-shadow: none;
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+        background: transparent;
+    }
+
+    &.is-stuck {
+        position: fixed;
+        box-shadow: 0px 10px 20px rgba($color: #000000, $alpha: .2);
+        background: #fff;
+    }
+  }

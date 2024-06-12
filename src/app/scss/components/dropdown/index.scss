@@ -1,0 +1,10 @@
+.dropdown-menu {
+    font-family: $font-family-sans-serif;
+
+    @include media-breakpoint-down(lg) {
+        box-shadow: none;
+        border-radius: 0;
+        border: 0;
+        background-color: $gray-100;
+    }
+}

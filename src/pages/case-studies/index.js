@@ -1,71 +1,27 @@
-import CaseStudyCard from '@/app/components/CaseStudyCard';
-import { getPageBySlug, getAllCaseStudies } from '../../app/lib/hygraph';
+import { getPageBySlug } from '../../app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
-import { useEffect, useRef } from 'react';
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import HeroSection from '@/app/components/case-studies/HeroSection';
+import CaseStudiesList from '@/app/components/case-studies/CaseStudiesList';
 
-function CaseStudies ({ page, caseStudies }) {
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const cardRefs = useRef([]);
-
-    useEffect(() => {
-        cardRefs.current.forEach((card, index) => {
-          gsap.fromTo(
-            card,
-            {
-              opacity: 0,
-              y: 50,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.5,
-              ease: "circ.out",
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 80%',
-              },
-              delay: index * 0.2, // Stagger effect
-            }
-          );
-        });
-      }, []);
+function CaseStudies ({ page }) {
 
   return (
     <>
       <SEOHead page={page} />
-      <div className="container-fluid">
-          <div className="container">
-              <h1>Case Studies</h1>
-              <div className="row mt-4">
-                {caseStudies.map((caseStudy, index) => (
-                    <div className="col-12 col-sm-4" key={index} ref={(el) => (cardRefs.current[index] = el)}>
-                        <CaseStudyCard caseStudy={caseStudy}  />
-                    </div>
-                ))}
-              </div>
-          </div>
-      </div>
+      <HeroSection />
+      <CaseStudiesList />
     </>
   );
 }
 
 export async function getServerSideProps(context) {
-
     const slug = context.resolvedUrl.substring(1);
-
-    const [page, caseStudies] = await Promise.all([
-        getPageBySlug(slug),
-        getAllCaseStudies()
-    ]);
-
+    const page = await getPageBySlug(slug);
     return {
-        props: { 
-            page: page || null,
-            caseStudies: caseStudies || [] 
+      props: { 
+          page: page,
+          navStyle: "dark", 
+          footerCta: true
         },
     };
 }

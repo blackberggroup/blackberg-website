@@ -1,0 +1,60 @@
+.social-share {
+    a {
+        border: 1px solid #D0D5DD;
+        margin-right: 1rem;
+
+        &:hover, &:active {
+            border-color: $gray-200;
+        }
+    }
+}
+
+.reveal-image {
+
+    overflow: hidden;
+
+	.inner {
+
+        visibility: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 1rem;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transform-origin: center;
+          }
+    }
+  }
+
+.strategies-content {
+    p {
+        width: 30%;
+    }
+
+    ul {
+        width: 40%;
+        margin-left: auto;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+
+        li {
+            width: 50%;
+
+            ul {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        p {
+            width: 100%;
+        }
+    }
+}
+

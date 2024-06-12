@@ -1,0 +1,179 @@
+.hero--about {
+    background-color: $jade-green-50;
+}
+
+#benefits-section {
+    background-color: $electric-green-100;
+}
+
+#mission-vision-section {
+    .circle-arrow-about {
+      position: absolute;
+      left: -600px;
+      // transform: translateX(-50%);
+      z-index: -1;
+      bottom: 0;
+  
+      @include media-breakpoint-up(sm) {
+        height: 806px;
+        left: -519px;
+        bottom: 34px;
+      }
+  
+      @include media-breakpoint-up(md) {
+        height: 850px;
+        left: -520px;
+        bottom: -112px;
+      }
+  
+      @include media-breakpoint-up(lg) {
+        height: auto;
+        left: -600px;
+        bottom: -175px;
+      }
+  
+      @include media-breakpoint-up(xl) {
+        left: -640px;
+        bottom: -190px;
+      }
+  
+      @include media-breakpoint-up(xxl) {
+        left: -700px;
+        bottom: -195px;
+      }
+  
+    }
+  
+  }
+
+  #values-section {
+    background-color: $jade-green-950;
+
+    .text-container {
+      opacity: 0;
+      // transform: translateY(50px);
+    }
+
+    .icon-container {
+        max-width: 375px;
+        max-height: 375px;
+        height: 100%;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            max-width: 516px;
+            max-height: 516px;
+        }
+
+        .icon-circle {
+            width: 225px;
+            height: 225px;
+            border-radius: 50rem;
+            transform: scale(0.75);
+            opacity: 0;
+
+            &--jade {
+                background: $jade-green;
+            }
+
+            &--electric {
+                background: rgba(181,211,52, 0.8);
+            }
+
+            &--cyan {
+                background: rgba(81, 193, 189, 0.8);
+            }
+
+            &--navy {
+                background: rgba(36,53,81, 0.8);
+            }
+
+            &--bottom-left {
+                margin-top: -75px;
+
+                @include media-breakpoint-up(lg) {
+                    margin-top: -92px;
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+                width: 296px;
+                height: 296px;
+              }
+    
+            img {
+                width: 80px !important;
+
+                @include media-breakpoint-up(lg) {
+                    width: 124px !important;
+                }
+            }
+        }
+    }
+
+  }
+
+  #benefits-section {
+
+    .benefits-card {
+        box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+
+        .benefits-icon {
+            width: 64px !important;
+        }
+    }
+  }
+
+  .circle-detail {
+    position: absolute;
+    border-radius: 50rem;
+
+
+    &.circle-36 {
+        width: 36px;
+        height: 36px;
+        background: $electric-green-300;
+        top: -114px;
+        left: 114px;
+    }
+
+    &.circle-76 {
+        width: 76px;
+        height: 76px;
+        background: #51C1BD;
+        left: -26px;
+        top: -28px;
+
+        @include media-breakpoint-up(lg) {
+            bottom: -48px;
+            right: 80px;
+            left: auto;
+            top: auto;
+        }
+
+    }
+
+    &.circle-106 {
+        width: 106px;
+        height: 106px;
+        background: #243551;
+        top: -56px;
+        right: -9px;
+    }
+  }
+
+  #job-openings-section {
+
+    .job-openings-container {
+        background-color: #243551;
+    }
+
+    #job-circle {
+        top: auto !important;
+        position: relative !important;
+
+        @include media-breakpoint-up(md) {
+            position: absolute !important;
+        }
+    }
+  }

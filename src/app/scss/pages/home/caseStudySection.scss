@@ -1,0 +1,43 @@
+[aria-label="Main content"].home {
+    overflow: visible;
+}
+
+#home-case-study-section{
+    background: $jade-green-950;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 128px;
+        padding-bottom: 128px;
+    }
+
+    .card-category {
+        font-family: $font-family-sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        padding: .25rem .75rem;
+        border-radius: 50rem;
+        display: inline-flex;
+        align-self: start;
+        color: $gray-700;
+        background: $white;
+    }
+
+    .card-image {
+        height: 360px;
+
+        &--featured {
+            height: auto;
+
+            @include media-breakpoint-up(lg) {
+                height: 560px;
+            }
+        }
+
+        img {
+            object-fit: cover;
+            transform-origin: center;
+          }
+    }
+}

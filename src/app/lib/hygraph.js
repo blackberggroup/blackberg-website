@@ -117,6 +117,27 @@ export const getAllCaseStudies = async () => {
     return data.caseStudies
 }
 
+export const getFeaturedCaseStudies = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetFeaturedCaseStudies { 
+                caseStudies {
+                  id
+                  slug
+                  title
+                  category
+                  featured
+                  coverImage {
+                      url
+                      altText
+                  }
+              }
+          }
+      `,
+  });
+  return data.caseStudies
+}
+
 export const getCaseStudyBySlug = async (slug) => {
     console.log('Slug: ' + slug);
     const { data, errors } = await client.query({
@@ -127,15 +148,36 @@ export const getCaseStudyBySlug = async (slug) => {
                   id
                   title
                   category
-                  content {
-                    raw
-                    html
-                    markdown
-                    text
-                  }
+                  client
                   coverImage {     
                     url       
                     altText
+                  }                  
+                  introContent
+                  challengeContent
+                  solutionContent
+                  gallery {
+                    url
+                    altText
+                  }
+                  strategiesContent
+                  strategies {
+                    details
+                    title
+                  }
+                  gallerySecondary {
+                    url
+                    altText
+                  }
+                  resultContent
+                  relatedCaseStudies {
+                    slug
+                    category
+                    title
+                    coverImage {
+                      altText
+                      url
+                    }
                   }
                   seoOverride {
                     description
@@ -156,24 +198,62 @@ export const getCaseStudyBySlug = async (slug) => {
     return data.caseStudy
 }
 
+export const getNavigation = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetNavigation { 
+              navigations {
+                navigationLink {
+                  displayText
+                  id
+                  url
+                  page {
+                    ... on Page {
+                      id
+                      slug
+                      title
+                    }
+                  }
+                  url
+                }
+              }
+          }
+      `,
+  });
+  // console.log("Nav:", data.navigations[0]);
+  return data.navigations[0];
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`
         query GetPaths {
           pages {
             slug
+            parentPage {
+              slug
+            }
           }
           posts {
+            slug
+          }
+          caseStudies {
             slug
           }
         }
       `,
     });
 
-    const pages = data.pages.map(({ slug }) => `/${slug}`);
-    const articles = data.posts.map(({ slug }) => `/articles/${slug}`);
+    const pages = data.pages.map(({ slug, parentPage }) => {
+      if (parentPage && parentPage.slug) {
+        return `/${parentPage.slug}/${slug}`;
+      }
+      return `/${slug}`;
+    });  
+    const articles = data.posts.map(({ slug }) => `/insights/${slug}`);
+    const caseStudies = data.caseStudies.map(({ slug }) => `/case-studies/${slug}`);
   
-    return [...pages, ...articles];
+    return [...pages, ...articles, ...caseStudies];
     
   };
 

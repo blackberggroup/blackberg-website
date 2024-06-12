@@ -1,0 +1,7 @@
+header {
+    background: $white;
+
+    @include media-breakpoint-up(md) {
+        background: transparent;
+    }
+}

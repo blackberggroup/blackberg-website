@@ -29,6 +29,7 @@ const HeaderInteractive = () => {
 
     navItems.forEach((item) => {
       item.addEventListener('click', handleClick);
+      item.addEventListener('touchstart', handleClick)
     });
 
     const setActiveLink = () => {
@@ -57,6 +58,7 @@ const HeaderInteractive = () => {
 
       navItems.forEach((item) => {
         item.removeEventListener('click', handleClick);
+        item.removeEventListener('touchstart', handleClick)
         item.classList.remove('clicked');
       });
 

@@ -7,10 +7,12 @@ const HeaderInteractive = () => {
   const router = useRouter();
 
   useEffect(() => {
+
     const navItems = document.querySelectorAll('.navbar .nav-item');
     const navLinks = document.querySelectorAll('.navbar .nav-link, .navbar .dropdown-item');
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
+    // Override Bootstrap default behavior
+    // Allows parent of dropdown to be clickable 
     const handleClick = (e) => {
       const elLink = e.currentTarget.querySelector('a[data-bs-toggle]');
       if (elLink && !e.target.closest('.dropdown-menu')) {
@@ -20,6 +22,7 @@ const HeaderInteractive = () => {
             router.replace(elLink.href);
           } else {
             e.currentTarget.classList.add('clicked');
+            e.target.nextSibling.classList.add('d-block');
           }
         } else {
           router.replace(elLink.href);
@@ -27,11 +30,14 @@ const HeaderInteractive = () => {
       }
     };
 
+    // Attach event listener for all nav items 
+    // Required click & touchstart for iOS safari bug 
     navItems.forEach((item) => {
       item.addEventListener('click', handleClick);
       item.addEventListener('touchstart', handleClick)
     });
 
+    // Add indicator in menu to show active page
     const setActiveLink = () => {
         const currentPath = router.asPath.split('/').pop();
 
@@ -49,12 +55,18 @@ const HeaderInteractive = () => {
 
     setActiveLink();
 
+    // Clean up function 
     return () => {
       const navButton = document.querySelector('.navbar-toggler');
       navButton.classList.add('collapsed');
 
       const nav = document.querySelector('.navbar-collapse');
       nav.classList.remove('show');
+
+      const dropdowns = document.querySelectorAll('.dropdown-menu');
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove('d-block');
+      });
 
       navItems.forEach((item) => {
         item.removeEventListener('click', handleClick);

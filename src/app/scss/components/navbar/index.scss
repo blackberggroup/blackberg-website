@@ -35,6 +35,7 @@
 
     .nav-item {
         margin: 0 .5rem;
+        cursor: pointer;
 
         @include media-breakpoint-down(lg) {
             border-bottom: 1px solid $gray-200;

@@ -1,10 +1,8 @@
 import Header from "../app/components/Header";
 import Footer from "../app/components/Footer";
 import BootstrapClient from '../app/components/BootstrapClient';
-// import "bootstrap/dist/css/bootstrap.min.css";
 import "../app/styles/globals.scss";
 import "../app/scss/main.scss";
-
 import SmoothScrolling from "../app/components/SmoothScrolling";
 import { getNavigation } from '@/app/lib/hygraph';
 import NavInteractivity from '@/app/components/HeaderInteractive';
@@ -17,14 +15,20 @@ function MyApp({ Component, pageProps, nav, pageName }) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = () => {
+    const handleRouteChange = (url) => {
       window.scrollTo(0, 0);
+      window.dataLayer.push({
+        event: 'pageview',
+        page: url,
+      });
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
+    
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
+    
   }, [router]);
 
   return (

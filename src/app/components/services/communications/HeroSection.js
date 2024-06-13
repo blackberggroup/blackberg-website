@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const HeroSection = () => {
 
     return (
-            <section id="communications-hero" className="hero hero--primary hero--right-align">
+            <section id="communications-hero" className="hero hero--primary hero--right-align hero-trigger">
                 <div className="container h-100">
                     <div className="row align-items-center h-100">
                         <img src="/images/services/communications/hero-video-donut.webp" className="fluid-img hero__video-image d-none d-lg-block" alt="Donut shaped image of diverse professionals clapping and smiling" />

@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const CaseStudiesList = () => {
 
-    gsap.registerPlugin(ScrollTrigger);
     const caseStudyListRef = useRef(null);
     const featuredImageRefs = useRef([]);
     const featuredPatternRefs = useRef([]);

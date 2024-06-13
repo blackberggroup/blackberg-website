@@ -5,14 +5,13 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const ServicesList = () => {
 
-    gsap.registerPlugin(ScrollTrigger);
     const cardRefs = useRef([]);
-
+    const timelines = useRef([]);
     useEffect(() => {
 
         cardRefs.current.forEach(card => {
         
-            gsap.timeline({
+            const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: card,
                     start: 'center center',
@@ -36,10 +35,12 @@ const ServicesList = () => {
                 scale: 0.4,
                 yPercent: -50
             }, 0)
-    
+
+            timelines.current.push(tl);
         });
 
         return () => {
+            timelines.current.forEach(tl => tl.kill());
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
     }, []);

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const HeroSection = () => {
 
     return (
-            <section id="organizational-effectiveness-hero" className="hero hero--primary hero--right-align">
+            <section id="organizational-effectiveness-hero" className="hero hero--primary hero--right-align hero-trigger">
                 <div className="container h-100">
                     <div className="row align-items-center h-100">
                         <div className="col-12 col-md-12 col-lg-7 offset-lg-5">

@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const WebDesignSection = () => {
     useEffect(() => {

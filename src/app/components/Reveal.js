@@ -1,9 +1,6 @@
 // components/Reveal.js
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Reveal = ({ children, index }) => {
   const revealRef = useRef(null);

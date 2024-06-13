@@ -12,32 +12,32 @@ const ServicesList = () => {
 
         cardRefs.current.forEach(card => {
         
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'center center',
-                    end: 'max',
-                    scrub: true
-                }
-            })
-            .to(card, {
-                ease: 'none',
-                startAt: {filter: 'blur(0px)'},
-                filter: 'blur(3px)',
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'center center',
-                    end: '+=100%',
-                    scrub: true
-                }
-            }, 0)
-            .to(card, {
-                ease: 'none',
-                scale: 0.4,
-                yPercent: -50
-            }, 0)
+        //     gsap.timeline({
+        //         scrollTrigger: {
+        //             trigger: card,
+        //             start: 'center center',
+        //             end: 'max',
+        //             scrub: true
+        //         }
+        //     })
+        //     .to(card, {
+        //         ease: 'none',
+        //         startAt: {filter: 'blur(0px)'},
+        //         filter: 'blur(3px)',
+        //         scrollTrigger: {
+        //             trigger: card,
+        //             start: 'center center',
+        //             end: '+=100%',
+        //             scrub: true
+        //         }
+        //     }, 0)
+        //     .to(card, {
+        //         ease: 'none',
+        //         scale: 0.4,
+        //         yPercent: -50
+        //     }, 0)
     
-        });
+        // });
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());

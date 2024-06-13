@@ -29,8 +29,7 @@ const ScrollToTop = () => {
   }, []);
 
   return (
-    <div className="scroll-to-top">
-      {isVisible && (
+    <div className={`scroll-to-top ${isVisible ? 'visible' : 'hidden'}`}>
         <button onClick={scrollToTop} className="scroll-to-top-btn">
             <Image src="/images/arrow-narrow-up.svg"
                 className="position-relative"
@@ -38,7 +37,6 @@ const ScrollToTop = () => {
                 height="20"
                 alt="Arrow pointing up" /> 
         </button>
-      )}
     </div>
   );
 };

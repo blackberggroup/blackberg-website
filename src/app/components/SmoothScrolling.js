@@ -19,7 +19,7 @@ function SmoothScrolling({ children }) {
     })
 
   return (
-    <ReactLenis root options={{ lerp: 0.2, duration: 2, smoothTouch: true, smoothWheel: true}}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1, smoothTouch: false, smoothWheel: true}}>
       {children}
     </ReactLenis>
   );

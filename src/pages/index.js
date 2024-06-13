@@ -15,7 +15,9 @@ function HomePage({page, caseStudies}) {
         <HeroSection />
         <ServicesSection />
         <AboutSection />
-        <CaseStudySection caseStudies={caseStudies} />
+        {caseStudies?.length > 0 &&
+            <CaseStudySection caseStudies={caseStudies} />
+        }
     </>
   );
 }

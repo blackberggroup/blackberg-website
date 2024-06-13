@@ -6,49 +6,45 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const ServicesList = () => {
 
     const cardRefs = useRef([]);
-
+    const timelines = useRef([]);
+    
     useEffect(() => {
-        cardRefs.current.forEach((card, index) => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              id: `card-${index}`,
-              trigger: card,
-              start: 'center center',
-              end: '+=100%',
-              scrub: true,
-              onLeave: () => ScrollTrigger.refresh(), 
-            }
-          });
-    
-          tl.to(card, {
-            ease: 'none',
-            startAt: { filter: 'blur(0px)' },
-            filter: 'blur(3px)',
-            scrollTrigger: {
-              trigger: card,
-              start: 'center center',
-              end: '+=100%',
-              scrub: true
-            }
-          }, 0)
-          .to(card, {
-            ease: 'none',
-            scale: 0.4,
-            yPercent: -50
-          }, 0);
+
+        cardRefs.current.forEach(card => {
+        
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'center center',
+                    end: 'max',
+                    scrub: true
+                }
+            })
+            .to(card, {
+                ease: 'none',
+                startAt: {filter: 'blur(0px)'},
+                filter: 'blur(3px)',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'center center',
+                    end: '+=100%',
+                    scrub: true
+                }
+            }, 0)
+            .to(card, {
+                ease: 'none',
+                scale: 0.4,
+                yPercent: -50
+            }, 0)
+
+            timelines.current.push(tl);
         });
-    
+
         return () => {
-          cardRefs.current.forEach((card, index) => {
-            const triggers = ScrollTrigger.getById(`card-${index}`);
-            if (triggers) {
-              triggers.kill();
-            }
-          });
-          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            timelines.current.forEach(tl => tl.kill());
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
-      }, []);
-    
+    }, []);
 
     return (
         <div className="row mt-4 d-flex flex-column align-items-center">

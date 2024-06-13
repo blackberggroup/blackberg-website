@@ -40,14 +40,7 @@ const AboutSection = () => {
             }
             }
         );
-
-        // const handleResize = () => {
-        //     ScrollTrigger.refresh();
-        // };
-    
-        // window.addEventListener('resize', handleResize);
-  
-
+        
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };

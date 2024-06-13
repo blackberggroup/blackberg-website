@@ -4,22 +4,22 @@ import gsap from 'gsap';
 
 function SmoothScrolling({ children }) {
 
-    // const lenisRef = useRef()
+    const lenisRef = useRef()
   
-    // useEffect(() => {
-    //   function update(time) {
-    //     lenisRef.current?.lenis?.raf(time * 1000)
-    //   }
+    useEffect(() => {
+      function update(time) {
+        lenisRef.current?.lenis?.raf(time * 1000)
+      }
     
-    //   gsap.ticker.add(update)
+      gsap.ticker.add(update)
     
-    //   return () => {
-    //     gsap.ticker.remove(update)
-    //   }
-    // })
+      return () => {
+        gsap.ticker.remove(update)
+      }
+    })
 
   return (
-    <ReactLenis root options={{ lerp: 0.2, duration: 2, smoothTouch: true, smoothWheel: true}}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1, smoothTouch: false, smoothWheel: true}}>
       {children}
     </ReactLenis>
   );

@@ -9,10 +9,13 @@ import NavInteractivity from '@/app/components/HeaderInteractive';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ScrollToTop from "@/app/components/ScrollToTop";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function MyApp({ Component, pageProps, nav, pageName }) {
 
   const router = useRouter();
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const handleRouteChange = (url) => {

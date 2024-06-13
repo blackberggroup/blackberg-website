@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const CaseStudySection = ({ caseStudies }) => {
 
-    gsap.registerPlugin(ScrollTrigger);
+    //gsap.registerPlugin(ScrollTrigger);
     const featuredCaseStudyRef = useRef(null);
     const secondCaseStudyRef = useRef(null);
     const thirdCaseStudyRef = useRef(null);
@@ -17,38 +17,38 @@ const CaseStudySection = ({ caseStudies }) => {
         const secondCaseStudy = secondCaseStudyRef.current;
         const thirdCaseStudy = thirdCaseStudyRef.current;
 
-        gsap.to(featuredCaseStudy, {
-            translateY: "-64px",
-            ease: "none",
-            scrollTrigger: {
-                trigger: featuredCaseStudy,
-                start: 'top 100%',
-                end: 'bottom top',
-                scrub: true,
-            }
-        });
+        // gsap.to(featuredCaseStudy, {
+        //     translateY: "-64px",
+        //     ease: "none",
+        //     scrollTrigger: {
+        //         trigger: featuredCaseStudy,
+        //         start: 'top 100%',
+        //         end: 'bottom top',
+        //         scrub: true,
+        //     }
+        // });
 
-        gsap.to(secondCaseStudy, {
-            translateY: "-64px",
-            ease: "none",
-            scrollTrigger: {
-                trigger: secondCaseStudy,
-                start: 'top 100%',
-                end: 'bottom top',
-                scrub: true,
-            }
-        });
+        // gsap.to(secondCaseStudy, {
+        //     translateY: "-64px",
+        //     ease: "none",
+        //     scrollTrigger: {
+        //         trigger: secondCaseStudy,
+        //         start: 'top 100%',
+        //         end: 'bottom top',
+        //         scrub: true,
+        //     }
+        // });
 
-        gsap.to(thirdCaseStudy, {
-            translateY: "-64px",
-            ease: "none",
-            scrollTrigger: {
-                trigger: thirdCaseStudy,
-                start: 'top 100%',
-                end: 'bottom top',
-                scrub: true,
-            }
-        });
+        // gsap.to(thirdCaseStudy, {
+        //     translateY: "-64px",
+        //     ease: "none",
+        //     scrollTrigger: {
+        //         trigger: thirdCaseStudy,
+        //         start: 'top 100%',
+        //         end: 'bottom top',
+        //         scrub: true,
+        //     }
+        // });
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());

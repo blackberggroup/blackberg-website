@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const ServicesList = () => {
 
-    gsap.registerPlugin(ScrollTrigger);
+    //gsap.registerPlugin(ScrollTrigger);
     const cardRefs = useRef([]);
 
     useEffect(() => {

@@ -20,7 +20,7 @@ const HeroSection = () => {
             });
         };
 
-        container.addEventListener('mousemove', handleMouseMove);
+        //container.addEventListener('mousemove', handleMouseMove);
 
         return () => {
             container.removeEventListener('mousemove', handleMouseMove);

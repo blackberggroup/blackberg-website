@@ -121,7 +121,7 @@ export const getFeaturedCaseStudies = async () => {
   const { data } = await client.query({
       query: gql`
           query GetFeaturedCaseStudies { 
-                caseStudies {
+              caseStudies(where: { featured: true }) {
                   id
                   slug
                   title

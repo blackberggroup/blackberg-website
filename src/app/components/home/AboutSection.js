@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const AboutSection = () => {
 
-    //gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
     const circleRef = useRef(null);
 
     useEffect(() => {

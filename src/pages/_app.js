@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
         </main>
     </SmoothScrolling>
     <Footer props={pageProps}/>
-    {/* <ScrollToTop /> */}
+    <ScrollToTop />
     <BootstrapClient />
     </>
   );

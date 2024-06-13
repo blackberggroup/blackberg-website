@@ -28,7 +28,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-            <section id="hero-section" className="home-page-hero-section">
+            <section id="hero-section" className="home-page-hero-section hero-trigger">
                 <div className="container">
                     <div className="col-12">
                         <div className="hero-title">

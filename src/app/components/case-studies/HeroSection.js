@@ -3,7 +3,7 @@ import React from 'react';
 const HeroSection = () => {
 
     return (
-            <section id="case-study-hero" className="hero hero--primary">
+            <section id="case-study-hero" className="hero hero--primary hero-trigger">
                 <div className="container h-100">
                     <div className="row align-items-center h-100">
                         <div className="col-12 col-md-12 col-lg-7">

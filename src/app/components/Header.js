@@ -8,7 +8,7 @@ const Header = ({ nav, props }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const heroSection = document.querySelector('.hero');
+            const heroSection = document.querySelector('.hero-trigger');
             if (heroSection) {
                 const heroBottom = heroSection.getBoundingClientRect().bottom;
                 setNavbarBackground(window.scrollY > heroBottom);

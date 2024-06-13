@@ -10,37 +10,37 @@ const AboutSection = () => {
 
     useEffect(() => {
 
-        // const element = circleRef.current;
+        const element = circleRef.current;
 
-        // // Scale animation
-        // gsap.fromTo(element, 
-        //     { scale: 0.65 }, 
-        //     {
-        //     scale: 1,
-        //     duration: 2,
-        //     scrollTrigger: {
-        //         trigger: element,
-        //         start: 'top 100%',
-        //         end: 'center center',
-        //         scrub: true,
-        //     }
-        //     }
-        // );
+        // Scale animation
+        gsap.fromTo(element, 
+            { scale: 0.65 }, 
+            {
+            scale: 1,
+            duration: 2,
+            scrollTrigger: {
+                trigger: element,
+                start: 'top 100%',
+                end: 'center center',
+                scrub: true,
+            }
+            }
+        );
 
-        // // Rotate animation
-        // gsap.fromTo(element, 
-        //     { rotate: 0 }, 
-        //     {
-        //     rotate: 360,
-        //     duration: 10,
-        //     scrollTrigger: {
-        //         trigger: element,
-        //         start: 'top 100%',
-        //         end: 'bottom top',
-        //         scrub: true,
-        //     }
-        //     }
-        // );
+        // Rotate animation
+        gsap.fromTo(element, 
+            { rotate: 0 }, 
+            {
+            rotate: 360,
+            duration: 10,
+            scrollTrigger: {
+                trigger: element,
+                start: 'top 100%',
+                end: 'bottom top',
+                scrub: true,
+            }
+            }
+        );
 
         // const handleResize = () => {
         //     ScrollTrigger.refresh();

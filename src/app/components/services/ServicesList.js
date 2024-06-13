@@ -10,7 +10,7 @@ const ServicesList = () => {
 
     useEffect(() => {
 
-        cardRefs.current.forEach(card => {
+        // cardRefs.current.forEach(card => {
         
         //     gsap.timeline({
         //         scrollTrigger: {

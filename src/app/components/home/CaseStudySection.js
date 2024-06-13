@@ -60,17 +60,23 @@ const CaseStudySection = ({ caseStudies }) => {
         <section id="home-case-study-section" className="container-fluid pb-7 pb-md-10" aria-label="Case Study Overview">
             <div className="container position-relative">
                 <div className="row mt-4 d-flex position-relative">
-                    <div className="col-12 text-center pb-7 pb-lg-10">
+                    <div className="col-12 text-center pb-7 pb-lg-8">
                         <span className="text-headline-label text-headline-label--secondary text-uppercase text-white">Our Work</span>
                         <h2 className="text-headline display-3 text-white">Case Studies</h2>
                     </div>
                     {/* Featured Case Study */}
                     {caseStudies?.length > 0 &&
-                    <div className="col-12  py-7 pg-lg-10 position-relative">
+                    <div className="col-12  pb-7 pb-lg-10 position-relative">
                         <div className="card card--case-study border-0 bg-transparent" ref={featuredCaseStudyRef}>
                             <Link href={`/case-studies/${caseStudies[0].slug}`} aria-label="View VHA Resuscitation Symposium case study" className="text-decoration-none">
                                 <div className="card-image card-image--featured">
-                                    <img src={caseStudies[0].coverImage.url} className="card-img-top" alt={caseStudies[0].coverImage.altText}></img>
+                                    {/* <img src={caseStudies[0].coverImage.url} className="card-img-top" alt={caseStudies[0].coverImage.altText}></img>
+                                     */}
+                                    <Image src={caseStudies[0].coverImage.url}
+                                        className="img-fluid rounded-4 w-100 position-relative" 
+                                        alt={caseStudies[0].coverImage.altText}
+                                        fill={true}
+                                        loading="lazy" />
                                 </div>
                                 <div className="card-body d-flex flex-column text-white p-0 mt-4 mt-md-7">
                                     <h3 className="card-title mb-3">{caseStudies[0].title}</h3>

@@ -1,29 +1,70 @@
 "use client";
 
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const Header = ({ nav, props }) => {
     const [navbarBackground, setNavbarBackground] = useState(false);
-
+    const menuRef = useRef(null);
+    const [isFixed, setIsFixed] = useState(false);
+    const [isHidden, setIsHidden] = useState(false);
+  
     useEffect(() => {
-        const handleScroll = () => {
-            const heroSection = document.querySelector('.hero-trigger');
-            if (heroSection) {
-                const heroBottom = heroSection.getBoundingClientRect().bottom;
-                setNavbarBackground(window.scrollY > heroBottom);
-            } else {
-                setNavbarBackground(window.scrollY > 500);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+      const handleScroll = () => {
+        const heroSection = document.querySelector('.hero-trigger');
+        const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : 0;
+  
+        // Determine if the menu should be fixed
+        if (window.scrollY > 76 && !isFixed) {
+          setIsFixed(true);
+          setIsHidden(true);
+        } else if (window.scrollY <= 76 && isFixed) {
+          setIsFixed(false);
+          setIsHidden(false);
+        }
+  
+        // Determine if the menu should be shown or hidden
+        if (window.scrollY > heroBottom && heroSection) {
+          setIsHidden(false);
+          setNavbarBackground(true);
+        } else if (window.scrollY > 500 && !heroSection) {
+          setIsHidden(false);
+          setNavbarBackground(true);
+        } else if (window.scrollY <= heroBottom && heroSection && !isHidden) {
+          setIsHidden(true);
+          setNavbarBackground(false);
+        } else if (window.scrollY <= 500 && !heroSection && !isHidden) {
+          setIsHidden(true);
+          setNavbarBackground(false);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, [isFixed, isHidden]);
+  
+    useEffect(() => {
+      if (isFixed) {
+        menuRef.current.style.position = 'fixed';
+        menuRef.current.style.top = '0';
+        if (isHidden) {
+          gsap.to(menuRef.current, { y: -100, duration: 0 });
+        } else {
+          gsap.to(menuRef.current, { y: 0, duration: 0.5, ease: 'power3.out' });
+        }
+      } else {
+        menuRef.current.style.position = 'absolute';
+        menuRef.current.style.top = 'initial';
+        gsap.to(menuRef.current, { y: 0, duration: 0 });
+      }
+    }, [isFixed, isHidden]);
 
     return (
         <header >
-            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${props?.navStyle}`} aria-label="Main navigation">
+            <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${props?.navStyle}`} aria-label="Main navigation" ref={menuRef}>
                 <div className="container">
                     <button className="navbar-toggler collapsed pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

@@ -100,7 +100,12 @@
     gap: 3vh;
     text-align: center;
     margin-bottom: 5vh;
+    z-index: 1;
+    max-height: 350px;
 
+    @include media-breakpoint-up(md) {
+        max-height: 100%;
+    }
 }
 
 

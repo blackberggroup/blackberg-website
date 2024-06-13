@@ -101,11 +101,16 @@
     text-align: center;
     margin-bottom: 5vh;
     z-index: 1;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;   
     // max-height: 350px;
 
     // @include media-breakpoint-up(md) {
     //     max-height: 100%;
     // }
+
 }
 
 

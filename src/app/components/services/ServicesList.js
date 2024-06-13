@@ -19,7 +19,6 @@ const ServicesList = () => {
         }
       })
       .to(card, {
-        ease: 'none',
         startAt: { filter: 'blur(0px)' },
         filter: 'blur(3px)',
         scrollTrigger: {
@@ -30,7 +29,6 @@ const ServicesList = () => {
         }
       }, 0)
       .to(card, {
-        ease: 'none',
         scale: 0.4,
         yPercent: -50
       }, 0);

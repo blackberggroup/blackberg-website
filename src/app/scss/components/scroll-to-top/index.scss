@@ -3,24 +3,37 @@
     bottom: 40px;
     right: 40px;
     z-index: 1000;
-}
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
 
-.scroll-to-top-btn {
-    background: $jade-green-600;
-    color: #fff;
-    border: none;
-    border-radius: 50rem;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    &.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-    &:hover {
-        opacity: 0.9;
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .scroll-to-top-btn {
+        background: $jade-green-600;
+        color: #fff;
+        border: none;
+        border-radius: 50rem;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            opacity: 0.9;
+        }
     }
 }

@@ -8,12 +8,13 @@ const Header = ({ nav, props }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // const heroSection = document.getElementById('hero-section');
-            // if (heroSection) {
-            //     const heroBottom = heroSection.getBoundingClientRect().bottom;
-            //     setNavbarBackground(window.scrollY > heroBottom);
-            // }
-            setNavbarBackground(window.scrollY > 500);
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const heroBottom = heroSection.getBoundingClientRect().bottom;
+                setNavbarBackground(window.scrollY > heroBottom);
+            } else {
+                setNavbarBackground(window.scrollY > 500);
+            }
         };
 
         window.addEventListener('scroll', handleScroll);

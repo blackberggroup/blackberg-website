@@ -18,7 +18,6 @@ function AboutPage({ page }) {
         <OurTeamSection />
         <ValuesSection />
         <BenefitsSection />
-        <JobOpeningsSection />
     </>
   );
 }

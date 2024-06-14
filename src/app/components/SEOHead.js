@@ -28,7 +28,7 @@ const SEOHead = ({page}) => {
       <meta name="twitter:image" content="https://media.graphassets.com/JMyrcEGXSI2wH3oHnzBI" />
 
       {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/images/favicon.ico" />
     </Head>
   );
 };

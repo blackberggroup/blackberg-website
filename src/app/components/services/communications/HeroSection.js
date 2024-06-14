@@ -10,7 +10,7 @@ const HeroSection = () => {
                         <div className="col-12 col-md-12 col-lg-7 offset-lg-5">
                             <div className="hero-title">
                                 <h1 className="display-2 text-white mb-3 mb-lg-5">Communications</h1>
-                                <p className="lead text-white"> Shaping Hearts and Minds Behind Public Service</p>
+                                <p className="lead text-white">Shaping hearts and minds behind public service</p>
                             </div>                            
                         </div>
                     </div>

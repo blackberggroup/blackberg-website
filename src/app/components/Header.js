@@ -76,7 +76,7 @@ const Header = ({ nav, props }) => {
                     <Link href="/contact" 
                         className="btn btn-primary btn-sm d-flex d-lg-none"
                         aria-label="Contact page">
-                        <span className="d-none d-sm-inline">Contact Us</span> <img src="/images/message-icon.svg" width="20" height="20" className="ms-0 ms-sm-2" />
+                        <span className="d-none d-sm-inline">Contact Us</span> <img src="/images/message-icon.svg" width="20" height="20" className="ms-0 ms-sm-2" alt="" />
                     </Link>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">

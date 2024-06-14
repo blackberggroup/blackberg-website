@@ -47,13 +47,13 @@ const StrategicImplementationSection = () => {
                     <div class="col-12 col-lg-8 offset-lg-2">
                         <div class="strategic-implementation__image py-8 text-center position-relative">
                             <div class="strategic-implementation__desktop d-inline-block mx-auto z-2">
-                                <img src="/images/services/strategy/strategic-implementation-desktop.webp" className="img-fluid" />
+                                <img src="/images/services/strategy/strategic-implementation-desktop.webp" className="img-fluid" alt="Screenshot of a desktop dashboard" />
                             </div>
                             <div class="strategic-implementation__mobile position-absolute top-0 end-0 z-3">
-                                <img src="/images/services/strategy/strategic-implementation-mobile.webp" className="img-fluid" />
+                                <img src="/images/services/strategy/strategic-implementation-mobile.webp" className="img-fluid" alt="Screenshot of a mobile dashboard" />
                             </div> 
                             <div class="strategic-implementation__circles position-absolute top-50 end-0 translate-middle-y z-n1 mt-3">
-                                <img src="/images/services/strategy/circles.svg" className="img-fluid" />
+                                <img src="/images/services/strategy/circles.svg" className="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>

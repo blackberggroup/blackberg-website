@@ -73,7 +73,7 @@ const ChangeManagementToolkitSection = () => {
                             </div>
                         </div>
                         <div className="circle-dotted">
-                            <img src="/images/circle-dotted.svg" className="img-fluid unselectable" />
+                            <img src="/images/circle-dotted.svg" className="img-fluid unselectable" alt="" />
                         </div>
                         <div className="svg-target"></div>
                     </div>

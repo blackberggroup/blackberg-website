@@ -13,9 +13,9 @@ const Footer = ({ props }) => {
                         <span className="text-headline-label text-headline-label--secondary text-uppercase">Contact</span>
                         <h3 className="text-headline display-5 mb-3 mb-lg-5">Let&lsquo;s work together.</h3>
                     </div>
-                    <Link href="/contact/" className="btn btn-secondary" arial-label="Contact us">
+                    <Link href="/contact/" className="btn btn-secondary" aria-label="Contact us">
                         Get In Touch
-                        <img src="/images/message-icon-dark.svg" width="20" height="20" className="ms-2" />    
+                        <img src="/images/message-icon-dark.svg" width="20" height="20" className="ms-2" alt="" />    
                     </Link>
                     </>
                     }
@@ -62,7 +62,7 @@ const Footer = ({ props }) => {
                 </div>
             </div>
             <div className="footer-logo">
-                <img src="/images/logo-light.svg" className="unselectable" />
+                <img src="/images/logo-light.svg" className="unselectable" alt="" />
             </div>
         </footer>
     )

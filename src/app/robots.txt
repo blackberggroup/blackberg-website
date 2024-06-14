@@ -1,4 +1,1 @@
-User-Agent: *
-Disallow: /
-
-Sitemap: https://testsite.com/sitemap.xml
+Sitemap: https://blackberggroup.com/sitemap.xml

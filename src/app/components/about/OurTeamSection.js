@@ -20,7 +20,7 @@ const OurTeamSection = () => {
                                 class="img-fluid position-relative h-auto mb-4 mb-lg-0" />
                             </div>
                             <div className="col-12 col-md-7 ps-0 ps-md-6">
-                                <h4 className="mb-2">Emily Uhl</h4>
+                                <h3 className="h4 mb-2">Emily Uhl</h3>
                                 <p class="mb-2">President and Founder</p>
                                 <p class="m-0">Beginning with the idea of continuing to serve her country while incorporating best practice from her experiences, Navy veteran Emily Uhl founded Blackberg Group.  A graduate from the United States Naval Academy and Old Dominion University, she served 12 years, both on active duty and in the Navy Reserves. Beyond the Navy, Emily was a  program manager for General Atomics Aeronautical Systems, Inc. supporting both Air Force programs and special projects. Most recently she has spent time living abroad, while supporting local Navy commands and volunteer organizations. </p>
                             </div>
@@ -33,7 +33,7 @@ const OurTeamSection = () => {
                                 class="img-fluid position-relative h-auto mb-4 mb-lg-0" />
                             </div>
                             <div className="col-12 col-md-7 ms-0 pe-0 pe-md-6">
-                                <h4 className="mb-2">Leanne Reisz</h4>
+                                <h3 className="h4 mb-2">Leanne Reisz</h3>
                                 <p class="mb-2">Executive Vice President</p>
                                 <p class="m-0">After more than a decade delivering communications support to public and private sector clients, Leanne partnered with Emily Uhl to form Blackberg Group. Throughout her career, she has worked with eight federal agencies in the defense, health care, and information technology sectors. She is passionate about leading high-performance teams in strategic planning, communications, and change management to uplift public service missions. </p>
                             </div>

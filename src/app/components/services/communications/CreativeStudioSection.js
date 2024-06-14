@@ -33,7 +33,7 @@ const CreativeStudioSection = () => {
                             <p>Blackberg Creative Studio is where imagination and vision come to life. We deliver a full suite of in-house creative services spanning graphic design, web design, videography, and photography. This creative hub is dedicated to innovation and aesthetic excellence, ensuring that every piece of content we produce is not only visually stunning but also strategically aligned with your goals.</p>
                         </div>
                         <div className="col-12 col-lg-5 offset-lg-1 order-1 order-lg-2 mb-6 mb-lg-0">
-                            <img src="/images/services/communications/creative-studio.webp" className="img-fluid" />
+                            <img src="/images/services/communications/creative-studio.webp" className="img-fluid" alt="Photo collage of a videographer and a creative designer with color swatches" />
                         </div>                        
                     </div>
                 </div>

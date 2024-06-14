@@ -7,7 +7,7 @@ const BusinessProcessSection = () => {
     useEffect(() => {
         // GSAP animation for rotating the circle-arrow
         gsap.to('.circle-arrow', {
-            rotation: 35,  // Rotate 360 degrees
+            rotation: 55,  // Rotate 360 degrees
             ease: 'none',   // No easing for continuous rotation
             scrollTrigger: {
                 trigger: 'body', // Trigger the animation when this section enters the viewport
@@ -29,7 +29,7 @@ const BusinessProcessSection = () => {
                                     fill={true}
                                     alt="Multiple US Air Force planes and helicopters flying in formation."
                                 />
-                                <img src="/images/circle-arrow.svg" className="circle-arrow unselectable d-none d-sm-block" />                                
+                                <img src="/images/circle-arrow.svg" className="circle-arrow unselectable d-none d-sm-block" alt="" />                                
                             </div>
                         </div>                        
                         <div className="col-12 col-md-6">

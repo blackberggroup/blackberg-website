@@ -74,7 +74,7 @@ const CaseStudySection = ({ caseStudies }) => {
                                      */}
                                     <Image src={caseStudies[0].coverImage.url}
                                         className="img-fluid rounded-4 w-100 position-relative" 
-                                        alt={caseStudies[0].coverImage.altText}
+                                        alt={caseStudies[0].title}
                                         fill={true}
                                         loading="lazy" />
                                 </div>
@@ -95,7 +95,7 @@ const CaseStudySection = ({ caseStudies }) => {
                                 <div className="card-image">
                                     <Image src={caseStudies[1].coverImage.url}
                                     className="img-fluid rounded-4 w-100 position-relative" 
-                                    alt={caseStudies[1].coverImage.altText}
+                                    alt={caseStudies[1].title}
                                     fill={true}
                                     loading="lazy" />
                                 </div>
@@ -114,7 +114,7 @@ const CaseStudySection = ({ caseStudies }) => {
                                 <div className="card-image card-img-top">
                                     <Image src={caseStudies[2].coverImage.url}
                                     className="img-fluid rounded-4 w-100 position-relative" 
-                                    alt={caseStudies[2].coverImage.altText}
+                                    alt={caseStudies[2].title}
                                     fill={true}
                                     loading="lazy" />
                                 </div>

@@ -55,7 +55,7 @@ const ServicesList = () => {
                             <img src="/images/services/services-strategy.webp" className="card-img-top" alt="Team strategizing in office" loading="lazy"></img>
                         </figure>
                         <div className="card-body d-flex flex-column">
-                            <h5 className="card-title display-5">Strategy</h5>
+                            <h3 className="card-title display-5">Strategy</h3>
                             <p className="card-text">Translating vision into actionable blueprints</p>
                         </div>
                     </Link>
@@ -69,7 +69,7 @@ const ServicesList = () => {
                             <img src="/images/services/services-communications.webp" className="card-img-top" alt="Two veterans communicating" loading="lazy"></img>
                         </figure>
                         <div className="card-body d-flex flex-column">
-                            <h5 className="card-title display-5">Communications</h5>
+                            <h3 className="card-title display-5">Communications</h3>
                             <p className="card-text">Shaping Hearts and Minds</p>
                         </div>
                     </Link>
@@ -83,7 +83,7 @@ const ServicesList = () => {
                             <img src="/images/services/services-organizational-effectiveness.webp" className="card-img-top" alt="Team reviewing data in office" loading="lazy"></img>
                         </figure>
                         <div className="card-body d-flex flex-column">
-                            <h5 className="card-title display-5">Organizational<br /> Effectiveness</h5>
+                            <h3 className="card-title display-5">Organizational<br /> Effectiveness</h3>
                             <p className="card-text">Mastering data-driven change and innovation</p>
                         </div>
                     </Link>
@@ -97,7 +97,7 @@ const ServicesList = () => {
                             <img src="/images/services/services-operations.webp" className="card-img-top" alt="Team meeting at office table" loading="lazy"></img>
                         </figure>
                         <div className="card-body d-flex flex-column">
-                            <h5 className="card-title display-5">Operations</h5>
+                            <h3 className="card-title display-5">Operations</h3>
                             <p className="card-text">Driving operations into pathways for unprecedented growth</p>
                         </div>
                     </Link>

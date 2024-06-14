@@ -39,8 +39,8 @@ const StrategicImplementationSection = () => {
                 <div className="row">
                     <div className="col-12 col-lg-10 offset-lg-1">
                         <h2 className="display-5 mb-3 text-center">Strategic Implementation</h2>
-                        <p>Blackberg deploys an interdisciplinary approach to strategic planning—synthesizing strategic awareness and formulating a response that positions your organization for success. Our experts work in tandem with leaders to refine their organization&lsquo;s vision, mission, purpose, goals, and strategic objectives.</p>
-                        <p>We construct goals and strategic objectives in a time-bound and priority manner, including objectives based on predicted trends for future-oriented takes. This enables proactive strategic positioning and planning, while maintaining flexibility for alternative future states.</p>                        
+                        <p>Blackberg turns strategic visions into actionable plans, seamlessly bridging the gap between strategy  and execution to drive measurable results. With a deep understanding of change management, we optimize personnel, technology, and budget, enabling smooth transitions and stakeholder buy-in.</p>
+                        <p>Our experts collaborate with clients every step of the way, ensuring strategic initiatives are aligned with organizational goals and maximize impact. Blackberg&lsquo;s ongoing support uses established benchmarks and KPIs to monitor progress, measure success, and adjust course based on feedback. With Blackberg, vision becomes a measurable, repeatable reality that sets you on a path to success.</p>
                     </div>
                 </div>
                 <div class="row">

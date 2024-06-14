@@ -132,7 +132,7 @@ const CaseStudiesList = () => {
                             </div>
                             <Link href="/case-studies/va-immersive-national-marketing" aria-label="Learn more about our Strategy services" className="btn btn-primary btn-icon-invert align-self-start mt-5">
                                 View Case Study
-                                <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" />    
+                                <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" alt="" />    
                             </Link>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ const CaseStudiesList = () => {
                             </div>
                             <Link href="/case-studies/2023-suicide-prevention-annual-report" aria-label="Learn more about our Strategy services" className="btn btn-primary btn-icon-invert align-self-start mt-5">
                                 View Case Study
-                                <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" />    
+                                <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" alt="" />    
                             </Link>
                         </div>
                     </div>

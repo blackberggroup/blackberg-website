@@ -42,7 +42,7 @@ const WebDesignSection = () => {
                         <p>Transform your online presence with our digital team, where technical expertise meets sophisticated design. We focus on creating websites that are both visually striking and functionally reliable. Our approach balances robust back-end infrastructure with a seamless front-end user experience, ensuring that your website is more than just a digital address — an interactive showcase of your brand&lsquo;s personality and values.</p>
                         <div className="text-center">
                             <Link href="/case-studies/2023-suicide-prevention-annual-report" aria-label="View latest web design case study" className="btn btn-primary">View Latest Case Study
-                                <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2" />
+                                <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2" alt="" />
                             </Link> 
                         </div>
                     </div> 
@@ -52,27 +52,27 @@ const WebDesignSection = () => {
                         <div className="iso-row">
                             <div className="column">
                                 <figure className="ItemCard__thumb">
-                                    <img src="/images/services/communications/mockups/isometric/spar-1.webp" className="img-fluid" />
+                                    <img src="/images/services/communications/mockups/isometric/spar-1.webp" className="img-fluid" alt="Mockup of the Suicide Prevention Annual Report website" />
                                 </figure>
                             </div>
                             <div className="column mt-6">
                                 <figure className="ItemCard__thumb">
-                                    <img src="/images/services/communications/mockups/isometric/fellowships.webp" className="img-fluid" />                                    
+                                    <img src="/images/services/communications/mockups/isometric/fellowships.webp" className="img-fluid" alt="Mockup of the VHA Fellowships website" />                                    
                                 </figure>
                             </div>
                             <div className="column">
                                 <figure className="ItemCard__thumb">
-                                    <img src="/images/services/communications/mockups/isometric/iex-2023.webp" className="img-fluid" />
+                                    <img src="/images/services/communications/mockups/isometric/iex-2023.webp" className="img-fluid" alt="Mockup of the iEX 2023 landing page" />
                                 </figure>
                             </div>
                             <div className="column mt-6">
                                 <figure className="ItemCard__thumb">
-                                    <img src="/images/services/communications/mockups/isometric/ncchi.webp" className="img-fluid" />
+                                    <img src="/images/services/communications/mockups/isometric/ncchi.webp" className="img-fluid" alt="Mockup of the VHA National Center for Collaborative Healthcare Innovation website" />
                                 </figure>
                             </div>                    
                         </div>
                     </div>
-                    <img src="/images/circle-arrow.svg" className="circle-arrow unselectable d-none d-sm-block" />                                
+                    <img src="/images/circle-arrow.svg" className="circle-arrow unselectable d-none d-sm-block" alt="" />                                
                 </div>
                 <div className="row">
                     <div className="col-12 col-lg-4 mb-5 mb-lg-0">

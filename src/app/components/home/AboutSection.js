@@ -17,6 +17,7 @@ const AboutSection = () => {
             {
             scale: 1,
             duration: 2,
+            ease: "power1.inOut",
             scrollTrigger: {
                 trigger: element,
                 start: 'top 100%',
@@ -32,6 +33,7 @@ const AboutSection = () => {
             {
             rotate: 360,
             duration: 10,
+            ease: "power1.inOut",
             scrollTrigger: {
                 trigger: element,
                 start: 'top 100%',
@@ -60,7 +62,7 @@ const AboutSection = () => {
                         <p className="pt-0 pt-lg-5 text-white">We are a Service-Disabled, Veteran-Owned Small Business (SDVOSB) and Woman-Owned Small Business (WOSB) uniting strategic operations with creative marketing to uplift public service missions. Specializing in strategy, operations, communications, and organizational effectiveness, our team leads engagements that foster operational excellence and marketing that sparks movements.</p>
                         <Link href="/about" aria-label="Learn more about Blackberg Group" className="btn btn-secondary mt-3">
                             Read More
-                            <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" />    
+                            <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" alt="" />    
                         </Link>
                     </div>
                 </div>

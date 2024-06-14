@@ -17,7 +17,7 @@ const HeroSection = () => {
                 </div>
                 <div className="hero__bg-image"></div>
                 <div className="hero__donut">
-                    <img src="/images/donut.svg" className="unselectable" />
+                    <img src="/images/donut.svg" className="unselectable" alt="" />
                 </div>
             </section>
     );

@@ -15,7 +15,7 @@ const JobOpeningsSection = () => {
                                 <h5 className="m-0 mt-3">Apply for one of our open roles and we’ll be in touch.</h5>
                                 <Link href="/careers" aria-label="" className="btn btn-secondary  align-self-start mt-5">
                                     View Job Openings
-                                    <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" />    
+                                    <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" alt="" />    
                                 </Link>
                             </div>
                             <div className="col-12 col-md-7 ms-auto position-relative">

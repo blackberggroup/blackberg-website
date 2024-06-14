@@ -70,7 +70,7 @@ const ServicesList = () => {
                         </figure>
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title display-5">Communications</h3>
-                            <p className="card-text">Shaping Hearts and Minds</p>
+                            <p className="card-text">Shaping hearts and minds behind public service</p>
                         </div>
                     </Link>
                 </div>

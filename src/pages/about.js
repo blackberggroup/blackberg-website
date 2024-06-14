@@ -6,7 +6,7 @@ import MissionVisionSection from '@/app/components/about/MissionVisionSection';
 import OurTeamSection from '@/app/components/about/OurTeamSection';
 import ValuesSection from '@/app/components/about/ValuesSection';
 import BenefitsSection from '@/app/components/about/BenefitsSection';
-import JobOpeningsSection from '@/app/components/about/JobOpeningsSection';
+// import JobOpeningsSection from '@/app/components/about/JobOpeningsSection';
 
 function AboutPage({ page }) {
 

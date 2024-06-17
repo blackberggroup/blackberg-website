@@ -6,7 +6,7 @@ export default function handler(req, res) {
 
     if (environment === 'production') {
         robotsTxt = `User-agent: *
-Disallow: 
+Allow: /
 
 Sitemap: https://blackberggroup.com/sitemap.xml
         `;

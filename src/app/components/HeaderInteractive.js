@@ -10,6 +10,8 @@ const HeaderInteractive = () => {
 
     const navItems = document.querySelectorAll('.navbar .nav-item');
     const navLinks = document.querySelectorAll('.navbar .nav-link, .navbar .dropdown-item');
+    const navButton = document.querySelector('.navbar-toggler');
+    const nav = document.querySelector('.navbar');
 
     // Override Bootstrap default behavior
     // Allows parent of dropdown to be clickable 
@@ -55,10 +57,22 @@ const HeaderInteractive = () => {
 
     setActiveLink();
 
+    // Toggle class on nav when navButton is clicked, only if it doesn't already have the class
+    const handleNavToggle = () => {
+      if (!nav.classList.contains('is-stuck')) {
+        nav.classList.toggle('is-shadow');
+      }
+    };
+
+    // Attach event listener to navButton
+    navButton.addEventListener('click', handleNavToggle);
+  
+
     // Clean up function 
     return () => {
       const navButton = document.querySelector('.navbar-toggler');
       navButton.classList.add('collapsed');
+      navButton.removeEventListener('click', handleNavToggle);
 
       const nav = document.querySelector('.navbar-collapse');
       nav.classList.remove('show');

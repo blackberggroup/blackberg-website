@@ -41,7 +41,7 @@ const handleSubmit = async (e) => {
                     <div className="col-12 col-md-6 px-md-6 text-figtree">
                         <form onSubmit={handleSubmit}>
                             <div className="d-flex flex-column flex-md-row">
-                                <div className="mb-4 me-5 flex-fill">
+                                <div className="mb-4 me-md-5 flex-fill">
                                     <label htmlFor="firstName" className="form-label">First name</label>
                                     <input type="text" className="form-control" id="firstName" placeholder="First Name" name="firstName" value={formData.firstName} onChange={handleChange} required />
                                 </div>

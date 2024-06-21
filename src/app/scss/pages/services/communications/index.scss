@@ -73,8 +73,12 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(-20deg) translate(18%, -15%);
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(-20deg) translate(27%, -15%);
         position: relative;
+
+        @include media-breakpoint-up(md) {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(-20deg) translate(18%, -15%);
+        }
     }
 
     .column {

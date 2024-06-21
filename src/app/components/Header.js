@@ -53,7 +53,7 @@ const Header = ({ nav, props }) => {
         if (isHidden) {
           gsap.to(menuRef.current, { y: -100, duration: 0 });
         } else {
-          gsap.to(menuRef.current, { y: 0, duration: 0.5, ease: 'power3.out' });
+          gsap.to(menuRef.current, { y: 0, duration: 0.3, ease: "none" });
         }
       } else {
         menuRef.current.style.position = 'absolute';

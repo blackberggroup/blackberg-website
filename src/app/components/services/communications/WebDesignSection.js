@@ -69,7 +69,17 @@ const WebDesignSection = () => {
                                 <figure className="ItemCard__thumb">
                                     <img src="/images/services/communications/mockups/isometric/ncchi.webp" className="img-fluid" alt="Mockup of the VHA National Center for Collaborative Healthcare Innovation website" />
                                 </figure>
-                            </div>                    
+                            </div>     
+                            <div className="column d-block d-md-none">
+                                <figure className="ItemCard__thumb">
+                                    <img src="/images/services/communications/mockups/isometric/spar-1.webp" className="img-fluid" alt="Mockup of the Suicide Prevention Annual Report website" />
+                                </figure>
+                            </div>
+                            <div className="column mt-6 d-block d-md-none">
+                                <figure className="ItemCard__thumb">
+                                    <img src="/images/services/communications/mockups/isometric/fellowships.webp" className="img-fluid" alt="Mockup of the VHA Fellowships website" />                                    
+                                </figure>
+                            </div>             
                         </div>
                     </div>
                     <img src="/images/circle-arrow.svg" className="circle-arrow unselectable d-none d-sm-block" alt="" />                                

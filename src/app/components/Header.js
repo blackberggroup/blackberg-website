@@ -53,7 +53,7 @@ const Header = ({ nav, props }) => {
         if (isHidden) {
           gsap.to(menuRef.current, { y: -100, duration: 0 });
         } else {
-          gsap.to(menuRef.current, { y: 0, duration: 0.5, ease: 'power3.out' });
+          gsap.to(menuRef.current, { y: 0, duration: 0.3, ease: "none" });
         }
       } else {
         menuRef.current.style.position = 'absolute';
@@ -66,7 +66,7 @@ const Header = ({ nav, props }) => {
         <header >
             <nav className={`navbar navbar-expand-lg navbar-dark ${navbarBackground ? 'is-stuck' : ''} ${props?.navStyle}`} aria-label="Main navigation" ref={menuRef}>
                 <div className="container">
-                    <button className="navbar-toggler collapsed pl-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler collapsed pl-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         <span className="navbar-toggler-title d-inline-block ms-2">Menu</span>
                     </button>

@@ -1,5 +1,7 @@
 header {
     background: $white;
+    position: relative;
+    z-index: 9999;
 
     @include media-breakpoint-up(md) {
         background: transparent;

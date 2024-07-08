@@ -22,7 +22,7 @@ const TeamGridSection = ({employees}) => {
     }, []);  
 
     return (
-        <section id="team-members-section" className="py-8 py-md-11">
+        <section id="team-members-section" className="pt-8 pt-md-9">
             <div className="container">
                 <div className="row d-flex align-items-stretch gx-6 member-row">
 

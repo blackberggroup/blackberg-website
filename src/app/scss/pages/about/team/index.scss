@@ -1,0 +1,94 @@
+#team-members-section {
+
+    .member-row .member-col:nth-child(even){
+        .circle-1 {
+            left: 0;
+            top: 27%;
+            width: 36px;
+            height: 36px;
+            background: $jade-green;
+            z-index: 2;
+        }
+    
+        .circle-2 {
+            top: 60%;
+            right: 0;
+            width: 64px;
+            height: 64px;
+            background: $refreshing-blue;
+            transition-delay: 0.1s;
+            z-index: 2;
+        }
+    
+        .circle-3 {
+            top: 11%;
+            right: 0;
+            width: 88px;
+            height: 88px;
+            background: $navy;
+            transition-delay: 0.2s;
+        }
+    }
+
+    .member-row .member-col:nth-child(odd){
+        .circle-1 {
+            top: 54%;
+            right: 0;
+            width: 106px;
+            height: 106px;
+            background: $electric-green;
+        }
+
+        .circle-2 {
+            top: 13%;
+            right: 0;
+            width: 64px;
+            height: 64px;
+            background: #F8EF67;
+            z-index: 2;
+            transition-delay: 0.1s;
+        }
+    
+        .circle-3 {
+            top: 58%;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            background: $navy;
+            transition-delay: 0.2s;
+        }
+    }
+
+    .member-card {
+        position: relative;
+        max-width: 300px;
+        margin: 0 auto;
+    
+        .circle {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(40px) scale(0.75);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+    
+        .member-name {
+            font-size: 24px;
+            font-weight: 800;
+        }
+    
+        .member-position {
+            font-size: 18px;
+            color: $jade-green;
+            font-weight: 800;
+        }
+    
+        &:hover {
+            .circle-1, .circle-2, .circle-3 {
+                transform: none;
+                opacity: 1;
+            }
+        }
+    }
+}
+

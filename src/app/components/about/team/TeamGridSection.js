@@ -1,7 +1,25 @@
 import Image from 'next/image';
 import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 
 const TeamGridSection = ({employees}) => {
+
+    useEffect(() => {
+
+        const memberCards = document.querySelectorAll(".member-card");
+    
+        gsap.fromTo(memberCards, 
+            { y: 60, opacity: 0 }, 
+            {
+                y: 0,
+                opacity: 1,
+                ease: 'Power1.easeOut',
+                stagger: 0.25,
+                duration: .4
+            }
+        );
+
+    }, []);  
 
     return (
         <section id="team-members-section" className="py-8 py-md-11">

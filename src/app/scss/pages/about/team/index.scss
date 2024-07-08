@@ -63,6 +63,8 @@
         position: relative;
         max-width: 300px;
         margin: 0 auto;
+        transform: translateY(50px);
+        opacity: 0;
     
         .circle {
             position: absolute;

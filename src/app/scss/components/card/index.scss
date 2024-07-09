@@ -104,4 +104,25 @@
         }
     }
 
+    &--insight {
+
+        a {
+            color: $gray-900;
+        }
+
+        .card-author {
+            img {
+                width: 40px !important
+            }
+        }
+
+        .card-image {
+            height: 159px;
+
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+
 }

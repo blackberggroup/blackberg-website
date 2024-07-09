@@ -1,4 +1,4 @@
-import { getFeaturedCaseStudies, getPageBySlug } from '@/app/lib/hygraph';
+import { getFeaturedCaseStudies, getFeaturedInsights, getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "../app/components/home/HeroSection";
 import ServicesSection from '@/app/components/home/ServicesSection';
@@ -6,8 +6,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import AboutSection from '@/app/components/home/AboutSection';
 import CaseStudySection from '@/app/components/home/CaseStudySection';
+import InsightsSection from '@/app/components/home/InsightsSection';
 
-function HomePage({page, caseStudies}) {
+function HomePage({page, caseStudies, insights}) {
 
   return (
     <>
@@ -18,6 +19,9 @@ function HomePage({page, caseStudies}) {
         {caseStudies?.length > 0 &&
             <CaseStudySection caseStudies={caseStudies} />
         }
+        {insights?.length > 0 &&
+            <InsightsSection insights={insights} />
+        }
     </>
   );
 }
@@ -26,15 +30,17 @@ export async function getServerSideProps(context) {
 
     const slug = context.resolvedUrl.substring(1);
 
-    const [page, caseStudies] = await Promise.all([
+    const [page, caseStudies, insights] = await Promise.all([
         getPageBySlug(slug),
-        getFeaturedCaseStudies()
+        getFeaturedCaseStudies(),
+        getFeaturedInsights()
     ]);
 
     return {
         props: { 
             page: page,
             caseStudies: caseStudies || null,
+            insights: insights || null,
             navStyle: "dark",
             footerCta: true
         },

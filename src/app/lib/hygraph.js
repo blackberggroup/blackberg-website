@@ -224,6 +224,35 @@ export const getNavigation = async () => {
   return data.navigations[0];
 }
 
+export const getFeaturedInsights = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetFeaturedInsights { 
+                insights(where: {featured: true}) {
+                  id
+                  slug
+                  title
+                  category
+                  content
+                  coverImage {
+                    url
+                    altText
+                  }
+                  date
+                  employee {
+                    image {
+                      url
+                    }
+                    lastName
+                    firstName
+                  }
+              }
+          }
+      `,
+  });
+  return data.insights
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`

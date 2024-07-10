@@ -92,4 +92,10 @@
         background: $electric-green-50;
     }    
 
+    &--about-team {
+        @include media-breakpoint-up(lg) {
+            height: 30vw;
+        }
+    }
+
 }

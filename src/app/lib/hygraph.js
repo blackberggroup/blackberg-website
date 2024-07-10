@@ -224,6 +224,26 @@ export const getNavigation = async () => {
   return data.navigations[0];
 }
 
+export const getAllEmployees = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetAllEmployees { 
+              employees {
+                  id
+                  firstName
+                  lastName
+                  position
+                  image {
+                      url
+                      altText
+                  }
+              }
+          }
+      `,
+  });
+  return data.employees
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`

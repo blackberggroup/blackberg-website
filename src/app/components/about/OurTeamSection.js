@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 
 const OurTeamSection = () => { 
@@ -10,7 +11,11 @@ const OurTeamSection = () => {
                         <div className="col-12 col-md-5 col-lg-4 pe-5">
                                 <h2 className="display-5 mb-3">Our Team</h2>
                                 <p>We bring a wealth of experience from a wide range of backgrounds.</p>    
-                                <p>Our philosophy is simple; hire great people and give them the resources and support to do their best work.</p>                          
+                                <p>Our philosophy is simple; hire great people and give them the resources and support to do their best work.</p>  
+                                <Link href="/about/team" aria-label="Learn more about our Strategy services" className="btn btn-primary btn-icon-invert align-self-start mt-3">
+                                    View The Team
+                                    <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" alt="" />    
+                                </Link>                        
                         </div>                        
                         <div className="col-12 col-lg-6 d-flex flex-column flex-md-row ms-auto mt-4 mt-lg-0">
                             <div className="col-5 mx-auto">

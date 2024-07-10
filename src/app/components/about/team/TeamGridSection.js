@@ -31,7 +31,7 @@ const TeamGridSection = ({employees}) => {
                             <div class="member-card d-flex flex-column align-items-center h-100">
                                 <div className="circle circle-1"></div>
                                 <div className="circle circle-2"></div>
-                                <div className="member-image h-100 w-100 mb-4 d-flex justify-content-center position-relative z-1">
+                                <div className="member-image w-100 mb-4 d-flex justify-content-center position-relative z-1">
                                     <Image src={employee.image.url}
                                     className="img-fluid w-100 h-auto position-relative" 
                                     alt={`${employee.firstName} ${employee.lastName}`}

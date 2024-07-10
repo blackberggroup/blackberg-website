@@ -34,7 +34,7 @@ const TeamGridSection = ({employees}) => {
                                 <div className="member-image h-100 w-100 mb-4 d-flex justify-content-center position-relative z-1">
                                     <Image src={employee.image.url}
                                     className="img-fluid w-100 h-auto position-relative" 
-                                    alt={employee.image.altText}
+                                    alt={`${employee.firstName} ${employee.lastName}`}
                                     fill={true}
                                     loading="lazy" />
                                 </div>

@@ -123,6 +123,32 @@
                 object-fit: cover;
             }
         }
+
+        &.featured {
+
+            .card-image {
+                display: flex;
+                flex: 1 1 auto;
+                height: 247px;
+            }
+
+            @include media-breakpoint-up(lg) {
+
+                a {
+                    display: flex;
+
+                    .card-image {                           
+                        margin-right: 2rem;
+                    }
+
+                    .card-body {
+                        width: 300px;
+                        flex: 0 0 auto; 
+                    }
+                }
+
+            }
+        }
     }
 
 }

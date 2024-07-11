@@ -1,0 +1,26 @@
+.insight-categories {
+
+    .h6 {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .category-buttons {
+        .btn {
+            border-radius: 6px;
+            background: none;
+            padding-left: 12px;
+            padding-right: 12px;
+            color: $gray-900;
+            transition: all 0.3s ease;
+    
+            &.active {
+                background: $gray-100;
+            }
+    
+            &:hover {
+                color: $gray-600;
+            }
+        }
+    }
+}

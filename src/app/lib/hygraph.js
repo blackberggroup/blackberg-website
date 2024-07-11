@@ -224,6 +224,38 @@ export const getNavigation = async () => {
   return data.navigations[0];
 }
 
+export const getAllInsights = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetAllInsights { 
+                insights {
+                  id
+                  slug
+                  title
+                  category  {
+                    title
+                  }
+                  content
+                  coverImage {
+                    url
+                    altText
+                  }
+                  date
+                  employee {
+                    image {
+                      url
+                    }
+                    lastName
+                    firstName
+                  }
+              }
+          }
+      `,
+  });
+  console.log('Insights: ', data.insights);
+  return data.insights
+}
+
 export const getFeaturedInsights = async () => {
   const { data } = await client.query({
       query: gql`
@@ -232,7 +264,9 @@ export const getFeaturedInsights = async () => {
                   id
                   slug
                   title
-                  category
+                  category  {
+                    title
+                  }
                   content
                   coverImage {
                     url
@@ -251,6 +285,45 @@ export const getFeaturedInsights = async () => {
       `,
   });
   return data.insights
+}
+
+export const getInsightBySlug = async (slug) => {
+  const { data, errors } = await client.query({
+      query: gql`
+          query GetInsightBySlug($slug: String!) {
+              insight(where: { slug: $slug }) {
+                 id
+                  slug
+                  title
+                  category  {
+                    title
+                  }
+                  content
+                  coverImage {
+                    url
+                    altText
+                  }
+                  date
+                  employee {
+                    image {
+                      url
+                    }
+                    lastName
+                    firstName
+                  }                
+              }
+            }
+      `,
+      variables: { slug },
+  });
+
+  if (errors) {
+      const error = apolloError; 
+
+      throw new Error("Failed to fetch insight.");
+  }
+
+  return data.insight
 }
 
 export const getAllPagePaths = async () => {

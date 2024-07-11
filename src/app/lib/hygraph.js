@@ -228,7 +228,7 @@ export const getAllInsights = async () => {
   const { data } = await client.query({
       query: gql`
           query GetAllInsights { 
-                insights {
+                insights(orderBy: date_DESC) {
                   id
                   slug
                   title
@@ -260,7 +260,7 @@ export const getFeaturedInsights = async () => {
   const { data } = await client.query({
       query: gql`
           query GetFeaturedInsights { 
-                insights(where: {featured: true}) {
+                insights(where: {featured: true}, orderBy: date_DESC) {
                   id
                   slug
                   title

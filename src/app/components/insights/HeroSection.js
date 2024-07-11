@@ -15,7 +15,7 @@ const HeroSection = () => {
                     </div>
                 </div>
                 <div className="hero__donut">
-                    <img src="/images/donut.svg" className="unselectable" />
+                    <img src="/images/donut.svg" className="unselectable" alt="circle graphic" />
                 </div>
             </section>
     );

@@ -118,9 +118,11 @@
 
         .card-image {
             height: 159px;
+            overflow: hidden;
 
             img {
                 object-fit: cover;
+                transition: all 1s ease;
             }
         }
 
@@ -147,6 +149,13 @@
                     }
                 }
 
+            }
+        }
+
+        &:hover {
+            .card-image img {
+                width: 110% !important;
+                height: 110% !important;
             }
         }
     }

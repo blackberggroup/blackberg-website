@@ -4,6 +4,12 @@
         font-size: 14px;
         font-weight: 600;
     }
+
+    select {
+        font-family: $font-family-sans-serif;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
     
     .category-buttons {
         .btn {

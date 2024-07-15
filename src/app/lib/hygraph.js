@@ -224,6 +224,26 @@ export const getNavigation = async () => {
   return data.navigations[0];
 }
 
+export const getAllEmployees = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetAllEmployees { 
+              employees {
+                  id
+                  firstName
+                  lastName
+                  position
+                  image {
+                      url
+                      altText
+                  }
+              }
+          }
+      `,
+  });
+  return data.employees
+}
+
 export const getAllInsights = async () => {
   const { data } = await client.query({
       query: gql`
@@ -235,7 +255,12 @@ export const getAllInsights = async () => {
                   category  {
                     title
                   }
-                  content
+                  content {
+                    raw
+                    html
+                    markdown
+                    text
+                  }
                   coverImage {
                     url
                     altText
@@ -267,7 +292,12 @@ export const getFeaturedInsights = async () => {
                   category  {
                     title
                   }
-                  content
+                  content {
+                    raw
+                    html
+                    markdown
+                    text
+                  }
                   coverImage {
                     url
                     altText
@@ -298,7 +328,30 @@ export const getInsightBySlug = async (slug) => {
                   category  {
                     title
                   }
-                  content
+                  content {
+                    raw
+                    references {
+                      ... on Video {
+                          id
+                          title
+                          url
+                          description
+                          coverImage {
+                            url
+                            altText
+                          }
+                      }
+                      ... on Gallery {
+                          id
+                          title
+                          type
+                          images {
+                            url
+                            altText
+                          }
+                      }
+                    }
+                  }
                   coverImage {
                     url
                     altText
@@ -322,8 +375,53 @@ export const getInsightBySlug = async (slug) => {
 
       throw new Error("Failed to fetch insight.");
   }
-
+  console.log('insight: ', data.insight.content.raw);
   return data.insight
+}
+
+export const getRelatedInsights = async (category, insightId) => {
+  const { data, errors } = await client.query({
+      query: gql`
+          query GetRelatedInsights($category: String!, $insightId: ID!) {
+              insights(where: { category: { title: $category}, NOT: {id: $insightId} }) {
+                  id
+                  slug
+                  title
+                  category  {
+                    title
+                  }
+                  content {
+                    raw
+                    html
+                    markdown
+                    text
+                  }
+                  coverImage {
+                    url
+                    altText
+                  }
+                  date
+                  employee {
+                    image {
+                      url
+                    }
+                    lastName
+                    firstName
+                  }                
+              }
+            }
+      `,
+      variables: { category, insightId },
+  });
+
+  if (errors) {
+      const error = apolloError; 
+
+      throw new Error("Failed to fetch insight.");
+  }
+
+  console.log('insight categories: ', data);
+  return data.insightCategories
 }
 
 export const getAllPagePaths = async () => {

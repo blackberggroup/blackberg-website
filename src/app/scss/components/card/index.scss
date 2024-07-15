@@ -154,8 +154,7 @@
 
         &:hover {
             .card-image img {
-                width: 110% !important;
-                height: 110% !important;
+                transform: scale(1.05);
             }
         }
     }

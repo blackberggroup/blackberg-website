@@ -3,9 +3,10 @@ import ContentFirstSection from '@/app/components/insights/details/ContentFirstS
 import DetailsSection from '@/app/components/insights/details/DetailsSection';
 import FeaturedImageSection from '@/app/components/insights/details/FeaturedImageSection';
 import RelatedInsightsSection from '@/app/components/insights/details/RelatedInsightsSection';
+import ResourcesSection from '@/app/components/insights/details/ResourcesSection';
 import { getInsightBySlug, getRelatedInsights } from '@/app/lib/hygraph';
 
-function InsightDetailPage ({ page }) {
+function InsightDetailPage ({ page, relatedInsights }) {
 
   return (
     <>
@@ -13,7 +14,8 @@ function InsightDetailPage ({ page }) {
         <DetailsSection page={page} />
         <FeaturedImageSection page={page} />
         <ContentFirstSection page={page} />
-        <RelatedInsightsSection page={page} />
+        <ResourcesSection page={page} />
+        <RelatedInsightsSection relatedInsights={relatedInsights} />
         {/* <DetailsSection page={page} />
         <FeaturedImageSection page={page} />
         <ContentFirstSection page={page} />
@@ -36,13 +38,13 @@ export async function getServerSideProps(context) {
       };
   }
 
-  console.log('Page Category: ' + page.category.title);
- const relatedInsights = await getRelatedInsights(page.category.title, page.id);
-
+  console.log('page category: ' + page.category.title);
+  const relatedInsights = await getRelatedInsights(page.category.id, page.id);
+  console.log('Related Insights: ', relatedInsights);
   return {
     props: { 
         page: page || null,
-      //  relatedInsights: relatedInsights || null,
+        relatedInsights: relatedInsights || null,
         navStyle: "light", 
         footerCta: true
       },

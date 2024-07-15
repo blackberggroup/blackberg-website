@@ -1,5 +1,4 @@
 import { RichText } from '@graphcms/rich-text-react-renderer';
-import Image from 'next/image';
 import VideoEmbed from './VideoEmbed';
 import GalleryEmbed from './GalleryEmbed';
 
@@ -7,7 +6,6 @@ const RichTextRenderer = ({ page }) => {
 
     const content = page.content.raw;
     const references = page.content.references;
-
       
     return (
         <RichText 
@@ -29,11 +27,8 @@ const RichTextRenderer = ({ page }) => {
               },
               Gallery: ({ nodeId }) => {
                 const galleryData = references.find(ref => ref.id === nodeId);
-                console.log('Gallery Data: ', galleryData);
                 return galleryData ? (
-                    <GalleryEmbed 
-                    title={galleryData.title} 
-                    images={galleryData.images} />
+                    <GalleryEmbed gallery={galleryData} />
                 ) : null;
               },
             },

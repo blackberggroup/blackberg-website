@@ -5,11 +5,11 @@ const ContentFirstSection = ({ page }) => {
 
 
     return (
-        <section id="content-first" className="pb-8 pb-md-11" aria-label="Case study challenge and solution">
+        <section id="content-first" className="pb-6 pb-md-7 content-rich-text" aria-label="Case study challenge and solution">
             <div className="container">
                 {page.content && (
                 <div className="row mb-0">
-                    <div className="col-12 col-md-8 col-lg-6 mx-auto">    
+                    <div className="col-12 col-md-8 col-lg-8 col-xxl-7 mx-auto">    
                         <RichTextRenderer page={page} />
                     </div>
                 </div>

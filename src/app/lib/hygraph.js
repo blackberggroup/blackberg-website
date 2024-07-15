@@ -326,7 +326,11 @@ export const getInsightBySlug = async (slug) => {
                   slug
                   title
                   category  {
+                    id
                     title
+                  }
+                  resources {
+                    raw
                   }
                   content {
                     raw
@@ -375,54 +379,93 @@ export const getInsightBySlug = async (slug) => {
 
       throw new Error("Failed to fetch insight.");
   }
-  console.log('insight: ', data.insight.content.raw);
+  console.log('insight: ', data.insight);
   return data.insight
 }
 
-export const getRelatedInsights = async (category, insightId) => {
+export const getRelatedInsights = async (categoryId, insightId) => {
   const { data, errors } = await client.query({
-      query: gql`
-          query GetRelatedInsights($category: String!, $insightId: ID!) {
-              insights(where: { category: { title: $category}, NOT: {id: $insightId} }) {
-                  id
-                  slug
-                  title
-                  category  {
-                    title
-                  }
-                  content {
-                    raw
-                    html
-                    markdown
-                    text
-                  }
-                  coverImage {
-                    url
-                    altText
-                  }
-                  date
-                  employee {
-                    image {
-                      url
-                    }
-                    lastName
-                    firstName
-                  }                
-              }
+    query: gql`
+      query GetRelatedInsights($categoryId: ID!, $insightId: ID!) {
+        insights(where: { category: { id: $categoryId }, id_not: $insightId }) {
+          id
+          slug
+          title
+          category {
+            title
+          }
+          content {
+            raw
+          }
+          coverImage {
+            url
+            altText
+          }
+          date
+          employee {
+            image {
+              url
             }
-      `,
-      variables: { category, insightId },
+            lastName
+            firstName
+          }
+        }
+      }
+    `,
+    variables: { categoryId, insightId },
   });
 
   if (errors) {
-      const error = apolloError; 
-
-      throw new Error("Failed to fetch insight.");
+    console.log('insight error: ', errors);
+    throw new Error("Failed to fetch insights.");
   }
 
-  console.log('insight categories: ', data);
-  return data.insightCategories
-}
+  console.log('Related: ', data);
+  return data.insights;
+};
+
+
+// export const getRelatedInsights = async (categoryId, insightId) => {
+//   const { data, errors } = await client.query({
+//       query: gql`
+//           query GetRelatedInsights($categoryId: String!, $insightId: ID!) {
+//               insights(where: { id: { id: $categoryId}, NOT: {id: $insightId} }) {
+//                   id
+//                   slug
+//                   title
+//                   category  {
+//                     title
+//                   }
+//                   content {
+//                     raw
+//                   }
+//                   coverImage {
+//                     url
+//                     altText
+//                   }
+//                   date
+//                   employee {
+//                     image {
+//                       url
+//                     }
+//                     lastName
+//                     firstName
+//                   }                
+//               }
+//             }
+//       `,
+//       variables: { categoryId, insightId },
+//   });
+
+//   if (errors) {
+//       const error = apolloError; 
+//       console.log('insight error: ', error.response);
+//       //throw new Error("Failed to fetch insight.");
+//   }
+
+//   console.log('Related: ', data);
+//   return data.insightCategories
+// }
 
 export const getAllPagePaths = async () => {
     const { data } = await client.query({

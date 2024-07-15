@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 const VideoEmbed = ({ title, url, coverImage }) => {
@@ -10,15 +11,27 @@ const VideoEmbed = ({ title, url, coverImage }) => {
   const videoUrl = isPlaying ? `${url}?autoplay=1` : url;
 
   return (
-    <section class="video-embed py-7" aria-label="Gallery">
+    <section className="video-embed py-7" aria-label="Gallery">
         <div className="container p-0">
             <div className="row">
                 <div class="col-12">
-                    <div class="ratio ratio-16x9">
+                    <div className="ratio ratio-16x9">
                     {!isPlaying && (
-                        <div onClick={handlePlayVideo}>
-                            <img className="img-fluid" src={coverImage.url} alt={coverImage.altText} />
-                        </div>
+                        <button className="video-cover rounded-4 border-0 background-none" onClick={handlePlayVideo}>
+                            <Image
+                                src={coverImage.url}
+                                className="img-fluid rounded-4 w-100 position-relative video-cover-image"
+                                alt={coverImage.title} 
+                                fill={true}
+                                style={{ objectFit: "cover" }}
+                                loading="lazy"
+                                />
+                            <div className="play-button">
+                                <div className="position-relative w-100 h-100">
+                                    <img className="img-fluid z-2" src="/images/play-icon.svg" alt="play button" />
+                                </div>
+                            </div>
+                        </button>
                     )}
                     {isPlaying && (
                         <iframe

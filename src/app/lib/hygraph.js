@@ -285,7 +285,7 @@ export const getFeaturedInsights = async () => {
   const { data } = await client.query({
       query: gql`
           query GetFeaturedInsights { 
-                insights(where: {featured: true}, orderBy: date_DESC) {
+                insights(where: {featured: true}, orderBy: date_DESC, first: 3) {
                   id
                   slug
                   title
@@ -387,7 +387,7 @@ export const getRelatedInsights = async (categoryId, insightId) => {
   const { data, errors } = await client.query({
     query: gql`
       query GetRelatedInsights($categoryId: ID!, $insightId: ID!) {
-        insights(where: { category: { id: $categoryId }, id_not: $insightId }) {
+        insights(where: { category: { id: $categoryId }, id_not: $insightId }, first: 3) {
           id
           slug
           title
@@ -423,49 +423,6 @@ export const getRelatedInsights = async (categoryId, insightId) => {
   console.log('Related: ', data);
   return data.insights;
 };
-
-
-// export const getRelatedInsights = async (categoryId, insightId) => {
-//   const { data, errors } = await client.query({
-//       query: gql`
-//           query GetRelatedInsights($categoryId: String!, $insightId: ID!) {
-//               insights(where: { id: { id: $categoryId}, NOT: {id: $insightId} }) {
-//                   id
-//                   slug
-//                   title
-//                   category  {
-//                     title
-//                   }
-//                   content {
-//                     raw
-//                   }
-//                   coverImage {
-//                     url
-//                     altText
-//                   }
-//                   date
-//                   employee {
-//                     image {
-//                       url
-//                     }
-//                     lastName
-//                     firstName
-//                   }                
-//               }
-//             }
-//       `,
-//       variables: { categoryId, insightId },
-//   });
-
-//   if (errors) {
-//       const error = apolloError; 
-//       console.log('insight error: ', error.response);
-//       //throw new Error("Failed to fetch insight.");
-//   }
-
-//   console.log('Related: ', data);
-//   return data.insightCategories
-// }
 
 export const getAllPagePaths = async () => {
     const { data } = await client.query({

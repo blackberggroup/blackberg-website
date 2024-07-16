@@ -10,7 +10,7 @@ const GalleryGrid = ({ gallery }) => {
                     <div class="col-12 col-md-7 mt-0">
                         <Image src={gallery.images[0].url}
                             className="img-fluid rounded-4 w-100 h-100 position-relative" 
-                            alt={gallery.images[0].altText}
+                            alt={gallery.images[0].altText || `${gallery.title} ${index}`}
                             fill={true}
                             style={{objectFit: "cover"}}
                             loading="lazy" />
@@ -21,7 +21,7 @@ const GalleryGrid = ({ gallery }) => {
                         <div className="col-12">
                             <Image src={gallery.images[1].url}
                                 className="img-fluid rounded-4 w-100 h-100 position-relative" 
-                                alt={gallery.images[1].url}
+                                alt={gallery.images[1].altText || `${gallery.title} ${index}`}
                                 fill={true}
                                 style={{objectFit: "cover"}}
                                 loading="lazy" />
@@ -32,7 +32,7 @@ const GalleryGrid = ({ gallery }) => {
                             <div className="col-6 pe-2 pe-lg-3">
                                 <Image src={gallery.images[2].url}
                                     className="img-fluid rounded-4 w-100 h-100 position-relative" 
-                                    alt={gallery.images[2].altText}
+                                    alt={gallery.images[2].altText || `${gallery.title} ${index}`}
                                     fill={true}
                                     style={{objectFit: "cover"}}
                                     loading="lazy" />
@@ -42,7 +42,7 @@ const GalleryGrid = ({ gallery }) => {
                             <div className="col-6 ps-2 ps-lg-3">
                                 <Image src={gallery.images[3].url}
                                     className="img-fluid rounded-4 w-100 h-100 position-relative" 
-                                    alt={gallery.images[3].altText}
+                                    alt={gallery.images[3].altText || `${gallery.title} ${index}`}
                                     fill={true}
                                     style={{objectFit: "cover"}}
                                     loading="lazy" />

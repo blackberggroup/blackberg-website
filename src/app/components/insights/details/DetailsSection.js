@@ -4,7 +4,7 @@ import DateFormatted from '../../DateFormatted';
 const DetailsSection = ({page}) => {
 
     return (
-        <section id="case-study-details" className="py-8 py-md-11 mt-8" aria-label="VA Immersive National Marketing case study details">
+        <section id="insight-details" className="py-8 py-md-11 mt-8" aria-label="Insight details">
             <div className="container">
                 <div className="row d-flex flex-column">
                     <div className="col-12 mb-5">

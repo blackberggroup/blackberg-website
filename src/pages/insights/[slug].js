@@ -1,5 +1,5 @@
 import SEOHead from '@/app/components/SEOHead';
-import ContentFirstSection from '@/app/components/insights/details/ContentFirstSection';
+import ContentSection from '@/app/components/insights/details/ContentSection';
 import DetailsSection from '@/app/components/insights/details/DetailsSection';
 import FeaturedImageSection from '@/app/components/insights/details/FeaturedImageSection';
 import RelatedInsightsSection from '@/app/components/insights/details/RelatedInsightsSection';
@@ -13,17 +13,9 @@ function InsightDetailPage ({ page, relatedInsights }) {
         <SEOHead page={page} />
         <DetailsSection page={page} />
         <FeaturedImageSection page={page} />
-        <ContentFirstSection page={page} />
+        <ContentSection page={page} />
         <ResourcesSection page={page} />
         <RelatedInsightsSection relatedInsights={relatedInsights} />
-        {/* <DetailsSection page={page} />
-        <FeaturedImageSection page={page} />
-        <ContentFirstSection page={page} />
-        <GalleryFirstSection page={page} />
-        <StrategiesSection page={page} />
-        <GallerySecondSection page={page} />
-        <ResultsSection page={page} />
-        <RelatedCaseStudiesSection page={page} /> */}
     </>
   );
 }

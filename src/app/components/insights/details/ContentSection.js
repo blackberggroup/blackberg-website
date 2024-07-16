@@ -1,11 +1,10 @@
 import React from 'react';
 import RichTextRenderer from '../../rich-text/RichTextRenderer';
 
-const ContentFirstSection = ({ page }) => {
-
+const ContentSection = ({ page }) => {
 
     return (
-        <section id="content-first" className="pb-6 pb-md-7 content-rich-text" aria-label="Case study challenge and solution">
+        <section id="content" className="pb-6 pb-md-7 content-rich-text" aria-label="Insight content">
             <div className="container">
                 {page.content && (
                 <div className="row mb-0">
@@ -19,4 +18,4 @@ const ContentFirstSection = ({ page }) => {
     );
 };
 
-export default ContentFirstSection;
+export default ContentSection;

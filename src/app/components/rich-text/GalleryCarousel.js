@@ -7,7 +7,7 @@ const GalleryCarousel = ({ gallery }) => {
             <div className="container p-0">
                 <div className="row gx-3 gy-3 gx-lg-5">
                     {gallery.images && gallery.images.length > 0 && (
-                    <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                    <div id={`gallery${gallery.id}`} className="carousel slide">
                         <div className="carousel-inner rounded">
                             {gallery.images.map((image, index) => (
                                 (index % 2 === 0) && (
@@ -17,7 +17,7 @@ const GalleryCarousel = ({ gallery }) => {
                                         <Image
                                         src={image.url}
                                         className="img-fluid rounded-4 w-100 position-relative"
-                                        alt={image.altText}
+                                        alt={image.altText || `${gallery.title} ${index}`}
                                         fill={true}
                                         style={{ objectFit: "cover" }}
                                         loading="lazy"
@@ -28,7 +28,7 @@ const GalleryCarousel = ({ gallery }) => {
                                         <Image
                                             src={gallery.images[index + 1].url}
                                             className="img-fluid rounded-4 w-100 h-100 position-relative"
-                                            alt={gallery.images[index + 1].altText}
+                                            alt={gallery.images[index + 1].altText || `${gallery.title} ${index}`}
                                             fill={true}
                                             style={{ objectFit: "cover" }}
                                             loading="lazy"
@@ -40,14 +40,28 @@ const GalleryCarousel = ({ gallery }) => {
                                 )
                             ))}
                         </div>
-                        <div class="carousel-buttons mt-5">
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <img src="/images/arrow-narrow-right.svg" width="24" height="24" alt="" />    
-                                <span class="visually-hidden">Previous</span>
+                        <div className="carousel-buttons mt-5">
+                            <button className="carousel-control-prev" type="button" data-bs-target={`#gallery${gallery.id}`} data-bs-slide="prev">
+                                <Image
+                                    src="/images/arrow-narrow-right.svg"
+                                    className="img-fluid position-relative"
+                                    alt="previous image icon"
+                                    width="24"
+                                    height="24"
+                                    loading="lazy"
+                                    />
+                                <span className="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <img src="/images/arrow-narrow-right.svg" width="24" height="24" alt="" />    
-                                <span class="visually-hidden">Next</span>
+                            <button className="carousel-control-next" type="button" data-bs-target={`#gallery${gallery.id}`} data-bs-slide="next">
+                                <Image
+                                    src="/images/arrow-narrow-right.svg"
+                                    className="img-fluid position-relative"
+                                    alt="next image icon"
+                                    width="24"
+                                    height="24"
+                                    loading="lazy"
+                                    />
+                                <span className="visually-hidden">Next</span>
                             </button>
                         </div>
                     </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import RichTextRenderer from '../../rich-text/RichTextRenderer';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
 const ResourcesSection = ({ page }) => {

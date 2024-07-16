@@ -8,12 +8,11 @@ const RelatedInsightsSection = ({ relatedInsights }) => {
     return (
         <>
         {relatedInsights && relatedInsights.length > 0 && (
-        <>
         <section id="related-insights" className="py-8 py-md-11" aria-label="Related Insights">
             <div className="container">
                 <div className="row">
                     <div className="col-12 mt-0 mb-5 mb-md-7 d-flex flex-column flex-md-row justify-content-between align-items-center">
-                        <h4 className="display-5 m-0">Related Insights</h4>
+                        <span className="display-5 m-0">Related Insights</span>
                         <Link href="/insights" aria-label="View all Insight articles written by Blackberg Group personnel" className="btn btn-primary mt-4 mt-md-0">
                             View All Articles
                             <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2" alt="white arrow pointing right" />    
@@ -50,7 +49,6 @@ const RelatedInsightsSection = ({ relatedInsights }) => {
                 </div>
             </div>
         </section>
-        </>
         )}
         </>
     );

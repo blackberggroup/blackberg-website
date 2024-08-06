@@ -9,7 +9,7 @@ const authLink = setContext((_, { headers }) => {
     return {
         headers: {
             ...headers,
-            authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+            authorization: `Bearer ${process.env.HYGRAPH_DEV_TOKEN}`,
         }
     };
 });

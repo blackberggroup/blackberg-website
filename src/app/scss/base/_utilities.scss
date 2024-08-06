@@ -105,12 +105,43 @@
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;   
-    // max-height: 350px;
-
-    // @include media-breakpoint-up(md) {
-    //     max-height: 100%;
-    // }
-
 }
 
+.overlay-transition {
+    position: absolute;
+    z-index:100000000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    display: none;
 
+    &.loading {
+        background: $jade-green;
+        display: block;
+    }
+}
+
+.overlay {
+    grid-area: 1 / 1 / -1 / -1;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000000;
+
+    div {
+        width: 100%;
+        height: 100%;
+        padding-top: 100%;
+        background-color: $jade-green; /* Use your desired color here */
+        border-radius: 50%;
+        transform: scale(.5);
+      }
+  }

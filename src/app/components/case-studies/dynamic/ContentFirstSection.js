@@ -9,6 +9,7 @@ const ContentFirstSection = ({ page }) => {
     useEffect(() => {
 
         
+        
    // Select all elements with the class "word"
     const words = document.querySelectorAll("#content-first .word");
 

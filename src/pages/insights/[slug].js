@@ -31,7 +31,7 @@ export async function getServerSideProps(context) {
   }
 
   console.log('page category: ' + page.category.title);
-  const relatedInsights = await getRelatedInsights(page.category.id, page.id);
+  const relatedInsights = await getRelatedInsights(page.category, page.id);
   console.log('Related Insights: ', relatedInsights);
   return {
     props: { 

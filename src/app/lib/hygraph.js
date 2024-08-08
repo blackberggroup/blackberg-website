@@ -147,7 +147,11 @@ export const getCaseStudyBySlug = async (slug) => {
                   slug
                   id
                   title
-                  category
+                  category {
+                    slug
+                    title
+                    id
+                  }
                   client
                   coverImage {     
                     url       
@@ -318,6 +322,7 @@ export const getFeaturedInsights = async () => {
 }
 
 export const getInsightBySlug = async (slug) => {
+  try {
   const { data, errors } = await client.query({
       query: gql`
           query GetInsightBySlug($slug: String!) {
@@ -374,45 +379,63 @@ export const getInsightBySlug = async (slug) => {
       variables: { slug },
   });
 
-  if (errors) {
-      const error = apolloError; 
+  // if (errors) {
+  //     const error = apolloError; 
 
-      throw new Error("Failed to fetch insight.");
-  }
+  //     throw new Error("Failed to fetch insight.");
+  // }
   console.log('insight: ', data.insight);
   return data.insight
+} catch (error) {
+    if (error.networkError) {
+      const { response, result } = error.networkError;
+      console.error("Network Error:", {
+        status: response?.status,
+        statusText: response?.statusText,
+        url: response?.url,
+        errors: result?.errors,
+        extensions: result?.extensions,
+      });
+    } else if (error.graphQLErrors) {
+      console.error("GraphQL Errors:", error.graphQLErrors);
+    } else {
+      console.error("Unknown Error:", error);
+    }
+  }
 }
 
-export const getRelatedInsights = async (categoryId, insightId) => {
+
+export const getRelatedInsights = async (categoryArray, insightId) => {
+  try {
   const { data, errors } = await client.query({
     query: gql`
-      query GetRelatedInsights($categoryId: ID!, $insightId: ID!) {
-        insights(where: { category: { id: $categoryId }, id_not: $insightId }, first: 3) {
-          id
-          slug
+    query GetRelatedInsights($categoryIds: [ID!], $insightId: ID!) {
+      insights(where: { category_some: { id_in: $categoryIds }, id_not: $insightId }, first: 3) {
+        id
+        slug
+        title
+        category {
           title
-          category {
-            title
-          }
-          content {
-            raw
-          }
-          coverImage {
+        }
+        content {
+          raw
+        }
+        coverImage {
+          url
+          altText
+        }
+        date
+        employee {
+          image {
             url
-            altText
           }
-          date
-          employee {
-            image {
-              url
-            }
-            lastName
-            firstName
-          }
+          lastName
+          firstName
         }
       }
-    `,
-    variables: { categoryId, insightId },
+    }
+  `,
+  variables: { categoryIds: categoryArray.map(category => category.id), insightId },  
   });
 
   if (errors) {
@@ -422,6 +445,22 @@ export const getRelatedInsights = async (categoryId, insightId) => {
 
   console.log('Related: ', data);
   return data.insights;
+} catch (error) {
+  if (error.networkError) {
+    const { response, result } = error.networkError;
+    console.error("Network Error:", {
+      status: response?.status,
+      statusText: response?.statusText,
+      url: response?.url,
+      errors: result?.errors,
+      extensions: result?.extensions,
+    });
+  } else if (error.graphQLErrors) {
+    console.error("GraphQL Errors:", error.graphQLErrors);
+  } else {
+    console.error("Unknown Error:", error);
+  }
+}
 };
 
 export const getAllPagePaths = async () => {

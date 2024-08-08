@@ -7,8 +7,28 @@ import InsightCategoryFilter from './InsightCategoryFilter';
 const InsightsListSection = ({ insights }) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const categories = Array.from(new Set(insights.map(insight => insight.category.title)));
-    const filteredInsights = selectedCategory === 'all' ? insights : insights.filter(insight => insight.category.title === selectedCategory);
+    // Extract unique category titles from all insights
+    // The `flatMap()` method is used to first map each insight to its categories (`category` is an array of objects).
+    // It then flattens the result into a single array of category titles.
+    // We then pass this array to `new Set()` to ensure we only get unique category titles.
+    // Finally, `Array.from()` converts the Set back into an array of unique category titles.
+    const categories = Array.from(
+        new Set(
+            insights.flatMap(insight => 
+                insight.category.map(cat => cat.title)
+            )
+        )
+    );
+    
+    // Filter insights based on the selected category
+    // If `selectedCategory` is 'all', we return all insights without any filtering.
+    // Otherwise, we filter the insights by checking if any category within an insight matches the `selectedCategory`.
+    // The `some()` method is used here to check if at least one category in the array has a title that matches `selectedCategory`.
+    const filteredInsights = selectedCategory === 'all' 
+        ? insights // No filtering; return all insights
+        : insights.filter(insight => 
+            insight.category.some(cat => cat.title === selectedCategory)
+        );
 
     return (
         <section id="insights-list-section" className="py-8 py-md-11">

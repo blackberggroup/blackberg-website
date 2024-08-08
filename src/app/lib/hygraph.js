@@ -232,7 +232,7 @@ export const getAllEmployees = async () => {
   const { data } = await client.query({
       query: gql`
           query GetAllEmployees { 
-              employees {
+              employees(orderBy: order_ASC) {
                   id
                   firstName
                   lastName

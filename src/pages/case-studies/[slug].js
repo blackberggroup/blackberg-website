@@ -35,29 +35,31 @@ function CaseStudyPage ({ page }) {
     tl.set(".inner", { autoAlpha: 1 });
     
     // Animate the words
-    tl.from('h1 .word', {
+    tl.fromTo("#featured-image img",{y: -100}, {
+      y: 0,
+      scale: 1.4,
+      duration: 1,
+      ease: 'power1.out',
+      delay: .4
+    })
+    
+    .from('h1 .word', {
       y: '110%',
       opacity: 0,
       rotationZ: 10,
       duration: 0.5,
       ease: 'power1.out',
       stagger: 0.1,
-      delay: 1.2
-    })
+    }, "-=0.5")
     
     // Animate the client category container
     .from('.client-category-container', {
       opacity: 0,
       duration: 0.5,
-      ease: 'power1.out'
-    })
+      ease: 'power1.out',
+    }, "-=0.25")
     
-    // Animate the featured image
-    .from("#featured-image img", {
-      yPercent: -120,
-      scale: 1.3,
-      duration: 1.5,
-    });
+
     
     // Clean up function
     return () => {

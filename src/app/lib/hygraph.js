@@ -244,6 +244,24 @@ export const getAllEmployees = async () => {
   return data.employees
 }
 
+export const getAllCareers = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetAllCareers { 
+              careers {
+                  id
+                  slug
+                  title
+                  type
+                  location
+              }
+          }
+      `,
+  });
+  console.log('Careers: ', data.careers);
+  return data.careers
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`

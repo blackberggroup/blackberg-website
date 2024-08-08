@@ -104,4 +104,31 @@
         }
     }
 
+    &--career {
+        box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+        transition: all 0.3s ease;
+
+        .career-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .btn {
+            color: #008072;
+            font-size: 14px;
+
+            img {
+                transition: all 0.3s ease;
+            }
+        }
+
+        &:hover {
+               box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.04), 0px 4px 6px -2px rgba(16, 24, 40, 0.015);
+
+            .btn img {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
 }

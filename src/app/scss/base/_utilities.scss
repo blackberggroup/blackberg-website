@@ -124,10 +124,12 @@
     }
 }
 
-.overlay {
+
+  .overlay {
     grid-area: 1 / 1 / -1 / -1;
     display: grid;
-    grid-template-columns: repeat(17, 1fr);
+    grid-template-columns: repeat(17, 1fr); /* Adjust as needed */
+    grid-template-rows: repeat(9, 1fr); /* Adjust number of rows as needed */
     position: fixed;
     top: 0;
     left: 0;
@@ -138,10 +140,19 @@
 
     div {
         width: 100%;
-        height: 100%;
-        padding-top: 100%;
-        background-color: $jade-green; /* Use your desired color here */
+        padding-bottom: 100%; /* Maintain a 1:1 aspect ratio */
+        background-color:$jade-green; /* Example color */
         border-radius: 50%;
-        transform: scale(.5);
-      }
+        transform: scale(0.5);
+    }
+}
+
+
+  .img-reveal {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .will-change {
+    will-change: transform, opacity;
   }

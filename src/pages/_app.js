@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
     <Header nav={nav} props={pageProps} />
     <NavInteractivity />
     <SmoothScrolling>
-          <main aria-label="Main content" className={pageName}>
+          <main aria-label="Main content" className={pageName} key={pageName}>
               <Component {...pageProps} />
           </main>
     </SmoothScrolling>

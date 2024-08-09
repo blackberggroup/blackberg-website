@@ -11,14 +11,14 @@ const DetailsSection = ({page, titleWords}) => {
                     <div className="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
                         <h1 className="display-5 m-0">
                         {titleWords.map((word, index) => (
-                            <span key={index} className="word">
+                            <span key={index} className="word will-change">
                             {word}
                             </span>
                         ))}
                         </h1>
                     </div>
                     )}
-                    <div className="col-12 col-md-3 col-lg-2 mt-4 mt-md-0 d-flex flex-md-column ms-auto client-category-container">
+                    <div className="col-12 col-md-3 col-lg-2 mt-4 mt-md-0 d-flex flex-md-column ms-auto client-category-container will-change">
                         {page.client && (
                         <div className="d-flex flex-column text-figtree">
                             <span className="fw-bold-800 mb-2">Client</span>

@@ -1,5 +1,10 @@
 .word {
     display: block;
     float: left;
-    margin-right: 12px;
+    margin-right: 5px;
+}
+
+.text-reveal {
+    position: relative;
+    overflow: hidden;
 }

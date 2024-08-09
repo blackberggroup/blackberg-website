@@ -10,7 +10,7 @@ const FeaturedImageSection = ({ page }) => {
                     <div className="col-12 rounded-4 reveal-image">
                         <div className="inner rounded-4">
                             <Image src={page.coverImage.url}
-                                className="img-fluid rounded-4 w-100 position-relative" 
+                                className="img-fluid rounded-4 w-100 position-relative will-change" 
                                 alt={page.coverImage.altText}
                                 fill={true}/>
                         </div>

@@ -10,20 +10,21 @@ import ResultsSection from '@/app/components/case-studies/dynamic/ResultsSection
 import StrategiesSection from '@/app/components/case-studies/dynamic/StrategiesSection';
 import { getCaseStudyBySlug, getPageBySlug } from '@/app/lib/hygraph';
 import { useEffect, useState } from 'react';
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function CaseStudyPage ({ page }) {
 
   const [isNavigating, setIsNavigating] = useState(false);
-
+  //gsap.registerPlugin(ScrollTrigger);
+  setTimeout(() => { ScrollTrigger.refresh() }, 100);
+  
   useEffect(() => {
     setTimeout(() => {
       setIsNavigating(true);
     }, 500);
   })
   
-  gsap.registerPlugin(ScrollTrigger);
   
   return (
     <>

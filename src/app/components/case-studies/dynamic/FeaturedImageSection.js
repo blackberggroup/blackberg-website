@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from 'gsap';
 
 const FeaturedImageSection = ({ page }) => {
-    useEffect(() => {
 
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
+    useEffect(() => {
 
         gsap.fromTo("#featured-image img", 
             { scale: 1.25 }, 
@@ -14,7 +12,7 @@ const FeaturedImageSection = ({ page }) => {
         );
 
         gsap.to("#featured-image img", {
-            y: "20%",
+            y: "10%",
             ease: "none",
             scrollTrigger: {
                 trigger: "#featured-image", 
@@ -25,12 +23,8 @@ const FeaturedImageSection = ({ page }) => {
             }
         });
 
-        // Clean up function
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
-
     }, []);
+
     return (
         <section id="featured-image" className="mb-8" aria-label="Featured image">
             <div className="container">

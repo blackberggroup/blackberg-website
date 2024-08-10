@@ -8,18 +8,16 @@ import PageTransitionOut from '@/app/components/PageTransitionOut';
 
 function CaseStudies ({ page }) {
 
-
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
 
   useEffect(() => {
-
+    window.scrollTo(0, 0);
     const handleRouteChangeStart = (url) => {
       if(url.includes('case-studies/') && !isNavigating) {
           setIsNavigating(true);
           setTimeout(() => {
             router.push(url);
-            window.scrollTo(0, 0);
           }, 1000);
         throw "Abort route change to wait for animation";
       }

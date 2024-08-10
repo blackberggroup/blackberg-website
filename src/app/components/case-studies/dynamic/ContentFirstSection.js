@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from 'gsap';
 
 const ContentFirstSection = ({ page }) => {
     
@@ -9,8 +8,6 @@ const ContentFirstSection = ({ page }) => {
     const solutionContent = page.solutionContent.split(' ');
     
     useEffect(() => {
-
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
          
             const introWords = document.querySelectorAll("#intro-content p .word");
 
@@ -123,13 +120,6 @@ const ContentFirstSection = ({ page }) => {
                     }
                 }
             );
-
-
-        // Clean up function
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
-
   }, [])
 
 
@@ -141,9 +131,7 @@ const ContentFirstSection = ({ page }) => {
                     <div className="col-12 col-md-8 col-lg-6 mx-auto">
                         <p className="m-0">
                             {introContent.map((word, index) => (
-                                <span key={index} className="word will-change">
-                                {word}
-                                </span>
+                                <span key={index} className="word will-change">{word}&nbsp;</span>
                             ))}
                         </p>
                     </div>
@@ -158,13 +146,11 @@ const ContentFirstSection = ({ page }) => {
                 <div className="row mt-0" id="challenge-text">
                     <div className="col-12 col-md-8 col-lg-6 mx-auto d-flex flex-column">
                         <div className="text-reveal mb-3">
-                            <h2 className="display-5"><span className="word will-change">The</span> <span className="word will-change">Challenge</span></h2>
+                            <h2 className="display-5"><span className="word will-change">The&nbsp;</span><span className="word will-change">Challenge</span></h2>
                         </div>
                         <p className="m-0">
                             {challengeContent.map((word, index) => (
-                                <span key={index} className="word will-change">
-                                {word}
-                                </span>
+                                <span key={index} className="word will-change">{word}&nbsp;</span>
                             ))}
                         </p>
                     </div>
@@ -174,13 +160,11 @@ const ContentFirstSection = ({ page }) => {
                 <div className="row mt-8 mt-md-11" id="solution-text">
                     <div className="col-12 col-md-8 col-lg-6 mx-auto d-flex flex-column">
                         <div className="text-reveal mb-3">
-                            <h2 className="display-5"><span className="word will-change">The</span> <span className="word will-change">Solution</span></h2>
+                            <h2 className="display-5"><span className="word will-change">The&nbsp;</span><span className="word will-change">Solution</span></h2>
                         </div>
                         <p className="m-0">
                             {solutionContent.map((word, index) => (
-                                <span key={index} className="word will-change">
-                                {word}
-                                </span>
+                                <span key={index} className="word will-change">{word}&nbsp;</span>
                             ))}
                         </p>
                     </div>

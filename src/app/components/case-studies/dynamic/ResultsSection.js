@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from 'gsap';
 
 const ResultsSection = ({ page }) => {
 
     const resultsContent = page.resultContent.split(' ');
 
-    
     useEffect(() => {
-
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
 
             const resultsHeadline = document.querySelectorAll("#results-content h2 .word");
 
@@ -57,11 +53,6 @@ const ResultsSection = ({ page }) => {
                 }
             );
 
-
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
-
     }, []);
 
     return (
@@ -71,13 +62,11 @@ const ResultsSection = ({ page }) => {
                     <div className="col-12 col-md-8 col-lg-6 mx-auto">
                         <div className="d-flex flex-column" id="results-content">
                             <div className="text-reveal mb-3">
-                                <h2 className="display-5"><span className="word will-change">The</span><span className="word will-change">Result</span></h2>
+                                <h2 className="display-5"><span className="word will-change">The&nbsp;</span><span className="word will-change">Result</span></h2>
                             </div>
                             <p className="m-0">
                                 {resultsContent.map((word, index) => (
-                                    <span key={index} className="word will-change">
-                                    {word}
-                                    </span>
+                                    <span key={index} className="word will-change">{word}&nbsp;</span>
                                 ))}
                             </p>
                         </div>

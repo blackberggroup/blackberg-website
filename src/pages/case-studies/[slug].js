@@ -16,7 +16,8 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 function CaseStudyPage ({ page }) {
 
   const [isNavigating, setIsNavigating] = useState(false);
-
+  gsap.registerPlugin(ScrollTrigger);
+  
   useEffect(() => {
     setTimeout(() => { ScrollTrigger.refresh()}, 100);
     setTimeout(() => {

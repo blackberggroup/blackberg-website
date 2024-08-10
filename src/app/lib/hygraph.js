@@ -148,7 +148,7 @@ export const getFeaturedCaseStudies = async () => {
 };
 
 export const getCaseStudyBySlug = async (slug) => {
-    console.log('Slug: ' + slug);
+    //console.log('Slug: ' + slug);
     const { data, errors } = await client.query({
         query: gql`
             query GetCaseStudyBySlug($slug: String!) {

@@ -156,11 +156,7 @@ export const getCaseStudyBySlug = async (slug) => {
                   slug
                   id
                   title
-                  category {
-                    slug
-                    title
-                    id
-                  }
+                  category 
                   client
                   coverImage {     
                     url       

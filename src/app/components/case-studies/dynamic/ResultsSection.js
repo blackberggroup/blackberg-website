@@ -62,13 +62,11 @@ const ResultsSection = ({ page }) => {
                     <div className="col-12 col-md-8 col-lg-6 mx-auto">
                         <div className="d-flex flex-column" id="results-content">
                             <div className="text-reveal mb-3">
-                                <h2 className="display-5"><span className="word will-change">The</span><span className="word will-change">Result</span></h2>
+                                <h2 className="display-5"><span className="word will-change">The&nbsp;</span><span className="word will-change">Result</span></h2>
                             </div>
                             <p className="m-0">
                                 {resultsContent.map((word, index) => (
-                                    <span key={index} className="word will-change">
-                                    {word}
-                                    </span>
+                                    <span key={index} className="word will-change">{word}&nbsp;</span>
                                 ))}
                             </p>
                         </div>

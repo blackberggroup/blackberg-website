@@ -34,8 +34,8 @@ const CareersList = ({careers}) => {
             <div className="container">
               <div className="row">
                 <div class="col-12 text-center">
-                  <h2>{'We’re looking for the best'}</h2>
-                  <p>{'We’re a 100% remote team spread all across the U.S.'}</p>
+                  <h2>{`We’re looking for the best`}</h2>
+                  <p>{`We’re a 100% remote team spread all across the U.S.`}</p>
                 </div>
               </div>
               {careers?.length > 0 &&
@@ -62,7 +62,7 @@ const CareersList = ({careers}) => {
               {careers?.length === 0 &&
                   <div className="row">
                         <div class="col-12 text-center">
-                          <p>We're not hiring right now, but we're always interested in great talent. Feel free to send your resume!</p>
+                          <p>{`We're not hiring right now, but we're always interested in great talent. Feel free to send your resume!`}</p>
                         </div>
                   </div>
               }   

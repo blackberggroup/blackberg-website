@@ -6,11 +6,11 @@ import "../app/scss/main.scss";
 import SmoothScrolling from "../app/components/SmoothScrolling";
 import { getNavigation } from '@/app/lib/hygraph';
 import NavInteractivity from '@/app/components/HeaderInteractive';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import ScrollToTop from "@/app/components/ScrollToTop";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps, nav, pageName }) {
 
@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
         event: 'pageview',
         page: url,
       });
+      
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -39,9 +40,9 @@ function MyApp({ Component, pageProps, nav, pageName }) {
     <Header nav={nav} props={pageProps} />
     <NavInteractivity />
     <SmoothScrolling>
-        <main aria-label="Main content" className={pageName}>
-            <Component {...pageProps} />
-        </main>
+          <main aria-label="Main content" className={pageName} key={pageName}>
+              <Component {...pageProps} />
+          </main>
     </SmoothScrolling>
     <Footer props={pageProps}/>
     <ScrollToTop />

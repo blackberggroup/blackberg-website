@@ -5,7 +5,6 @@ import CaseStudiesList from '@/app/components/case-studies/CaseStudiesList';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import PageTransitionOut from '@/app/components/PageTransitionOut';
-import { gsap } from "gsap/dist/gsap";
 
 function CaseStudies ({ page }) {
 
@@ -18,17 +17,9 @@ function CaseStudies ({ page }) {
     const handleRouteChangeStart = (url) => {
       if(url.includes('case-studies/') && !isNavigating) {
           setIsNavigating(true);
-        //   gsap.to('#case-studies-list',  // Initial state: scaled down and fully transparent
-        //     {
-        //         scale: 0.8,                // End state: original size
-        //         opacity: 1,              // End state: fully visible
-        //         ease: 'Power1.easeOut',   // Easing function for a smooth effect
-        //         //stagger: 0.25            // Stagger the start of each animation by 0.15 seconds
-        //         duration: .75
-        //     }
-        // );
           setTimeout(() => {
             router.push(url);
+            window.scrollTo(0, 0);
           }, 1000);
         throw "Abort route change to wait for animation";
       }

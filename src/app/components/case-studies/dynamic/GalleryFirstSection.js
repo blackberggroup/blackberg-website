@@ -5,9 +5,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const GalleryFirstSection = ({ page }) => {
 
-
     useEffect(() => {
-
+        
+        setTimeout(() => { ScrollTrigger.refresh()}, 100);
 
         const images = document.querySelectorAll("#gallery img");
 
@@ -26,11 +26,9 @@ const GalleryFirstSection = ({ page }) => {
                 scale: 1,
                 stagger: 0.25,
                 scrollTrigger: {
-                    trigger: "#gallery", // Ensure the correct trigger element is used
-                    start: "top 70%", // Adjust start position to trigger later
-                   // markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
-                    //delay: 0.4,
+                    trigger: "#gallery",
+                    start: "top 70%", 
+                    once: true,
                 }
             }
         );

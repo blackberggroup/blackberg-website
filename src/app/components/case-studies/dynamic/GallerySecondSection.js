@@ -8,6 +8,8 @@ const GallerySecondSection = ({ page }) => {
     
     useEffect(() => {
 
+        setTimeout(() => { ScrollTrigger.refresh()}, 100);
+
         const images = document.querySelectorAll("#gallery-two img");
 
         gsap.fromTo(
@@ -25,16 +27,13 @@ const GallerySecondSection = ({ page }) => {
                 scale: 1,
                 stagger: 0.25,
                 scrollTrigger: {
-                    trigger: "#gallery-two", // Ensure the correct trigger element is used
-                    start: "top 70%", // Adjust start position to trigger later
-               //     markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
-                    //delay: 0.4,
+                    trigger: "#gallery-two", 
+                    start: "top 70%", 
+                    once: true, 
                 }
             }
         );
 
-        // Clean up function
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };

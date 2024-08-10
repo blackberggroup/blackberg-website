@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
         event: 'pageview',
         page: url,
       });
+      
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);

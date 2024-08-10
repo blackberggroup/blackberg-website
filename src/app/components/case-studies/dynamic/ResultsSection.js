@@ -9,56 +9,55 @@ const ResultsSection = ({ page }) => {
 
     
     useEffect(() => {
-    
-        const resultsHeadline = document.querySelectorAll("#results-content h2 .word");
 
-        gsap.fromTo(
-            resultsHeadline,
-            {
-                y: '110%',
-                opacity: 0,
-                rotationZ: '10',
-            },
-            {
-                ease: "none",
-                y: 0,
-                opacity: 1,
-                rotationZ: '0',
-                stagger: 0.05,
-                scrollTrigger: {
-                    trigger: "#results-content", // Ensure the correct trigger element is used
-                    start: "top 70%", // Adjust start position to trigger later
-                  //  markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
+        setTimeout(() => { ScrollTrigger.refresh()}, 100);
+
+            const resultsHeadline = document.querySelectorAll("#results-content h2 .word");
+
+            gsap.fromTo(
+                resultsHeadline,
+                {
+                    y: '110%',
+                    opacity: 0,
+                    rotationZ: '10',
+                },
+                {
+                    ease: "none",
+                    y: 0,
+                    opacity: 1,
+                    rotationZ: '0',
+                    stagger: 0.05,
+                    scrollTrigger: {
+                    trigger: "#results-content",
+                    start: "top 90%", 
+                    once: true, 
+                    }
                 }
-            }
-        );
+            );
 
-        const resultsWords = document.querySelectorAll("#results-content p .word");
+            const solutionWords = document.querySelectorAll("#results-content p .word");
 
-        gsap.fromTo(
-            resultsWords,
-            {
-                opacity: 0.1
-            },
-            {
-                ease: "none",
-                opacity: 1,
-                stagger: 0.05,
-                scrollTrigger: {
-                    trigger: "#results-content", // Ensure the correct trigger element is used
-                    start: "top 70%", // Adjust start position to trigger later
-                    end: "bottom 50%", // Adjust end position
-                    scrub: true,
-                   // markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
-                    delay: 0.4,
+            gsap.fromTo(
+                solutionWords,
+                {
+                    opacity: 0.1
+                },
+                {
+                    ease: "none",
+                    opacity: 1,
+                    stagger: 0.05,
+                    scrollTrigger: {
+                        trigger: "#results-content", 
+                        start: "top 90%",
+                        end: "bottom 50%",
+                        scrub: true,
+                        once: true,
+                        delay: 0.4,
+                    }
                 }
-            }
-        );
+            );
 
 
-        // Clean up function
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };

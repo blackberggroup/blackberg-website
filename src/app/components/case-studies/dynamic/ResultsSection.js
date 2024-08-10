@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const ResultsSection = ({ page }) => {
 
     const resultsContent = page.resultContent.split(' ');
 
-    
     useEffect(() => {
 
             const resultsHeadline = document.querySelectorAll("#results-content h2 .word");
@@ -54,11 +52,6 @@ const ResultsSection = ({ page }) => {
                     }
                 }
             );
-
-
-        // return () => {
-        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        // };
 
     }, []);
 

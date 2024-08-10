@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
-import { RichText } from '@graphcms/rich-text-react-renderer';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 
 const StrategiesSection = ({ page }) => {
 
     const strategyContent = page.strategiesContent.split(' ');
-
 
     useEffect(() => {
 
@@ -27,10 +23,9 @@ const StrategiesSection = ({ page }) => {
                 rotationZ: '0',
                 stagger: 0.05,
                 scrollTrigger: {
-                    trigger: "#strategies", // Ensure the correct trigger element is used
-                    start: "top 90%", // Adjust start position to trigger later
-                   // markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
+                    trigger: "#strategies",
+                    start: "top 90%",
+                    once: true, 
                 }
             }
         );
@@ -47,12 +42,11 @@ const StrategiesSection = ({ page }) => {
                 opacity: 1,
                 stagger: 0.05,
                 scrollTrigger: {
-                    trigger: "#strategies-intro", // Ensure the correct trigger element is used
-                    start: "top 90%", // Adjust start position to trigger later
-                    end: "bottom 50%", // Adjust end position
+                    trigger: "#strategies-intro", 
+                    start: "top 90%", 
+                    end: "bottom 50%",
                     scrub: true,
-                   // markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
+                    once: true, 
                     delay: 0.4,
                 }
             }
@@ -75,19 +69,12 @@ const StrategiesSection = ({ page }) => {
                 scale: 1,
                 stagger: 0.25,
                 scrollTrigger: {
-                    trigger: "#key-strategies", // Ensure the correct trigger element is used
-                    start: "top 70%", // Adjust start position to trigger later
-                  //  markers: true, // Markers for debugging
-                    once: true, // Ensure the animation runs only once
-                    //delay: 0.4,
+                    trigger: "#key-strategies",
+                    start: "top 70%",
+                    once: true, 
                 }
             }
         );
-
-        // Clean up function
-        // return () => {
-        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        // };
 
     }, []);
 

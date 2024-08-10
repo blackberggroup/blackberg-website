@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const GallerySecondSection = ({ page }) => {
-
     
     useEffect(() => {
 
@@ -32,14 +30,10 @@ const GallerySecondSection = ({ page }) => {
             }
         );
 
-        // return () => {
-        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        // };
-
     }, []);
 
     return (
-        <section id="gallery-two" className="py-8 py-md-11" aria-label="Second gallery">
+        <section id="gallery-two" className="case-study-gallery--secondary py-8 py-md-11" aria-label="Second gallery">
             <div className="container">
                 <div className="row gx-4 gx-md-5">
                     {page.gallerySecondary && page.gallerySecondary.length > 0 && (

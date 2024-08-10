@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const ContentFirstSection = ({ page }) => {
     
@@ -121,13 +120,6 @@ const ContentFirstSection = ({ page }) => {
                     }
                 }
             );
-
-
-        // Clean up function
-        // return () => {
-        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        // };
-
   }, [])
 
 

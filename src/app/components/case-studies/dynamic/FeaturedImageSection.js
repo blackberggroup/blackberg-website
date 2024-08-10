@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const FeaturedImageSection = ({ page }) => {
-
-   // gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
 
@@ -26,12 +23,8 @@ const FeaturedImageSection = ({ page }) => {
             }
         });
 
-        // Clean up function
-        // return () => {
-        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        // };
-
     }, []);
+
     return (
         <section id="featured-image" className="mb-8" aria-label="Featured image">
             <div className="container">

@@ -4,6 +4,9 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const FeaturedImageSection = ({ page }) => {
+
+    gsap.registerPlugin(ScrollTrigger);
+    
     useEffect(() => {
 
         gsap.fromTo("#featured-image img", 

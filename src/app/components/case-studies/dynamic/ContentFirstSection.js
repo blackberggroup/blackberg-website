@@ -9,6 +9,8 @@ const ContentFirstSection = ({ page }) => {
     const solutionContent = page.solutionContent.split(' ');
     
     useEffect(() => {
+
+        gsap.registerPlugin(ScrollTrigger);
          
             const introWords = document.querySelectorAll("#intro-content p .word");
 

@@ -25,7 +25,6 @@ function CaseStudyPage ({ page }) {
     }, 500);
   })
   
-  gsap.registerPlugin(ScrollTrigger);
   
   return (
     <>

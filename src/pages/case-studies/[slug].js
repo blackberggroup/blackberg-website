@@ -17,12 +17,11 @@ function CaseStudyPage ({ page }) {
 
   const [isNavigating, setIsNavigating] = useState(false);
   gsap.registerPlugin(ScrollTrigger);
-  
+
   useEffect(() => {
-    setTimeout(() => { ScrollTrigger.refresh()}, 100);
     setTimeout(() => {
       setIsNavigating(true);
-      setTimeout(() => { ScrollTrigger.refresh()}, 100);
+
     }, 500);
   })
   

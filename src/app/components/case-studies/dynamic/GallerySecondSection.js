@@ -8,8 +8,6 @@ const GallerySecondSection = ({ page }) => {
     
     useEffect(() => {
 
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
-
         const images = document.querySelectorAll("#gallery-two img");
 
         gsap.fromTo(

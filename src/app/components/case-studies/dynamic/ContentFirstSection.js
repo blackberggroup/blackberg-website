@@ -9,8 +9,6 @@ const ContentFirstSection = ({ page }) => {
     const solutionContent = page.solutionContent.split(' ');
     
     useEffect(() => {
-
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
          
             const introWords = document.querySelectorAll("#intro-content p .word");
 

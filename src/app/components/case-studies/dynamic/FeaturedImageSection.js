@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const FeaturedImageSection = ({ page }) => {
     useEffect(() => {
 
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
-
         gsap.fromTo("#featured-image img", 
             { scale: 1.25 }, 
             { scale: 1, duration: 1.5, ease: "power2.out", delay: .8}

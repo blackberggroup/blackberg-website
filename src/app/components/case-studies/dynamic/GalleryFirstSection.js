@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const GalleryFirstSection = ({ page }) => {
 
     useEffect(() => {
-        
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
 
         const images = document.querySelectorAll("#gallery img");
 

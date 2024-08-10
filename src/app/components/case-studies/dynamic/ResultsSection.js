@@ -10,8 +10,6 @@ const ResultsSection = ({ page }) => {
     
     useEffect(() => {
 
-        setTimeout(() => { ScrollTrigger.refresh()}, 100);
-
             const resultsHeadline = document.querySelectorAll("#results-content h2 .word");
 
             gsap.fromTo(

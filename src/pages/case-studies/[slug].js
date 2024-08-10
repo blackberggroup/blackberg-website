@@ -10,7 +10,7 @@ import ResultsSection from '@/app/components/case-studies/dynamic/ResultsSection
 import StrategiesSection from '@/app/components/case-studies/dynamic/StrategiesSection';
 import { getCaseStudyBySlug, getPageBySlug } from '@/app/lib/hygraph';
 import { useEffect, useState } from 'react';
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function CaseStudyPage ({ page }) {
@@ -21,7 +21,6 @@ function CaseStudyPage ({ page }) {
   useEffect(() => {
     setTimeout(() => {
       setIsNavigating(true);
-
     }, 500);
   })
   

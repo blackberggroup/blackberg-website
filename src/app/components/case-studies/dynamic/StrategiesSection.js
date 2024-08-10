@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 
@@ -85,9 +85,9 @@ const StrategiesSection = ({ page }) => {
         );
 
         // Clean up function
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        // return () => {
+        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // };
 
     }, []);
 

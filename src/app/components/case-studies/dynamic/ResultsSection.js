@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const ResultsSection = ({ page }) => {
@@ -56,9 +56,9 @@ const ResultsSection = ({ page }) => {
             );
 
 
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        // return () => {
+        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // };
 
     }, []);
 

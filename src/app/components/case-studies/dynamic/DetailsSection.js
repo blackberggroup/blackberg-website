@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const DetailsSection = ({page}) => {
 

@@ -124,9 +124,9 @@ const ContentFirstSection = ({ page }) => {
 
 
         // Clean up function
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        // return () => {
+        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // };
 
   }, [])
 

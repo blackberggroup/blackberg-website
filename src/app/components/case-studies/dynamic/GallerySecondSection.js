@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const GallerySecondSection = ({ page }) => {
@@ -32,9 +32,9 @@ const GallerySecondSection = ({ page }) => {
             }
         );
 
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        // return () => {
+        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // };
 
     }, []);
 

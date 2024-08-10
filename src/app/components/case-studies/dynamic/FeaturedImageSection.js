@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const FeaturedImageSection = ({ page }) => {
 
-    gsap.registerPlugin(ScrollTrigger);
+   // gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
 
@@ -15,7 +15,7 @@ const FeaturedImageSection = ({ page }) => {
         );
 
         gsap.to("#featured-image img", {
-            y: "20%",
+            y: "10%",
             ease: "none",
             scrollTrigger: {
                 trigger: "#featured-image", 

@@ -12,13 +12,18 @@ function CaseStudies ({ page }) {
   const [isNavigating, setIsNavigating] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 900);
+
     const handleRouteChangeStart = (url) => {
       if(url.includes('case-studies/') && !isNavigating) {
           setIsNavigating(true);
           setTimeout(() => {
             router.push(url);
           }, 1000);
+
         throw "Abort route change to wait for animation";
       }
     };

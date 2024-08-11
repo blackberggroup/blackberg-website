@@ -262,6 +262,33 @@ export const getAllCareers = async () => {
   return data.careers
 }
 
+export const getCareerBySlug = async (slug) => {
+  const { data, errors } = await client.query({
+      query: gql`
+          query GetCareerBySlug($slug: String!) {
+              career(where: { slug: $slug }) {
+                slug
+                id
+                title
+                type
+                location
+                content {
+                  raw
+                }
+              }
+            }
+      `,
+      variables: { slug },
+  });
+
+  if (errors) {
+      const error = apolloError;
+      throw new Error("Failed to fetch post.");
+  }
+
+  return data.career
+}
+
 export const getAllPagePaths = async () => {
     const { data } = await client.query({
       query: gql`

@@ -1,0 +1,81 @@
+#careers-form {
+
+.circle-detail {
+    position: absolute;
+    border-radius: 50rem;
+
+
+    &.circle-36 {
+        width: 36px;
+        height: 36px;
+        background: $electric-green-300;
+        top: 132px;
+        left: -175px;
+    }
+
+    &.circle-76 {
+        width: 76px;
+        height: 76px;
+        background: #51C1BD;
+        left: -100px;
+        bottom: 0;
+
+        @include media-breakpoint-up(lg) {
+            left: -100px;
+            bottom: 0;
+        }
+
+    }
+
+    &.circle-106 {
+        width: 106px;
+        height: 106px;
+        background: #243551;
+        top: 364px;
+        right: -200px;
+    }
+  }
+
+  input, textarea {
+    border: 1px solid $gray-300;
+
+    &::placeholder {
+        color: #667085;
+    }
+}
+
+textarea {
+    padding: 12px 14px;
+}
+
+  .resume-upload {
+
+    border-radius: 12px;
+    border: 1px solid $gray-200;
+    transition: all .3s ease;
+
+    &.drag-active {
+        border: 1px solid $gray-500;
+    }
+
+    .upload-icon {
+        width: 40px;
+        height: 40px;
+        border: 1px solid $gray-200;
+        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    }
+
+    span {
+        color: $navy-400;
+    }
+
+    .text-primary {
+        font-weight: $font-weight-semibold;
+    }
+
+    .file-type, .file-name {
+        color: $navy-400;
+        font-size: 12px;
+    }
+  }
+}

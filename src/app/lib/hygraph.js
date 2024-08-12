@@ -253,24 +253,6 @@ export const getAllEmployees = async () => {
   return data.employees
 }
 
-export const getAllCareers = async () => {
-  const { data } = await client.query({
-      query: gql`
-          query GetAllCareers { 
-              careers {
-                  id
-                  slug
-                  title
-                  type
-                  location
-              }
-          }
-      `,
-  });
-  console.log('Careers: ', data.careers);
-  return data.careers
-}
-
 export const getAllInsights = async () => {
   const { data } = await client.query({
       query: gql`
@@ -485,6 +467,51 @@ export const getRelatedInsights = async (categoryArray, insightId) => {
   }
 }
 };
+
+export const getAllCareers = async () => {
+  const { data } = await client.query({
+      query: gql`
+          query GetAllCareers { 
+              careers {
+                  id
+                  slug
+                  title
+                  type
+                  location
+              }
+          }
+      `,
+  });
+  console.log('Careers: ', data.careers);
+  return data.careers
+}
+
+export const getCareerBySlug = async (slug) => {
+  const { data, errors } = await client.query({
+      query: gql`
+          query GetCareerBySlug($slug: String!) {
+              career(where: { slug: $slug }) {
+                slug
+                id
+                title
+                type
+                location
+                content {
+                  raw
+                }
+              }
+            }
+      `,
+      variables: { slug },
+  });
+
+  if (errors) {
+      const error = apolloError;
+      throw new Error("Failed to fetch post.");
+  }
+
+  return data.career
+}
 
 export const getAllPagePaths = async () => {
     const { data } = await client.query({

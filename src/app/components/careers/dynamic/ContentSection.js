@@ -1,10 +1,10 @@
 import React from 'react';
-//import RichTextRenderer from '../../rich-text/RichTextRenderer';
+import RichTextRenderer from '../../rich-text/RichTextRenderer';
 
 const ContentSection = ({ page }) => {
 
     return (
-        <section id="content" className="pb-6 pb-md-7 content-rich-text" aria-label="Insight content">
+        <section id="content" className="py-8 py-md-11 content-rich-text" aria-label="Career Details content">
             <div className="container">
                 {page.content && (
                 <div className="row mb-0">

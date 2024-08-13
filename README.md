@@ -2,8 +2,8 @@
 
 This project is a redesign and update from the current company website
 
-View dev: []()
-View live: []()
+[View Dev](https://blackberg-website-git-dev-bbg.vercel.app)  
+[View Live](https://www.blackberggroup.com/)
 
 ## Project Structure
 
@@ -35,20 +35,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Hygraph
 
-To load data from Hygraph you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these two keys and get the values by logging into your Hygraph project. 
+To load data from Hygraph you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these two keys and get the values by logging into your Hygraph project. You can set the HYGRAPH_STAGE to either DRAFT or PRODUCTION. DRAFT will return unpublished content. 
 
 ```bash
 NEXT_PUBLIC_HYGRAPH_ENDPOINT=""
 HYGRAPH_TOKEN=""
+HYGRAPH_STAGE=""
 ```
 
 ## SendGrid
 
-To handle contact form submissions you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these three items and get the API key by logging into your SendGrid account. The FROM_EMAIL needs to use the verified SendGrid email address. 
+To handle contact form and resume submissions you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these three items and get the API key by logging into your SendGrid account. The FROM_EMAIL needs to use the verified SendGrid email address. The TO_EMAIL is used for contact form submissions and the TO_EMAIL_CAREERS is used for resume form submissions.
 
 ```bash
 SENDGRID_API_KEY=""
 TO_EMAIL=""
+TO_EMAIL_CAREERS=""
 FROM_EMAIL=""
 ```
 

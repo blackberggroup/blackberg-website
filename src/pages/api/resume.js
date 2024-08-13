@@ -120,7 +120,7 @@ export default async function POST(req, res) {
         return res.status(500).json({ error: 'File upload failed' });
       }
 
-      const { firstName, lastName, email, message } = fields;
+      const { firstName, lastName, email, message, position } = fields;
       const file = files.resume && files.resume[0]; 
 
       try {
@@ -129,7 +129,7 @@ export default async function POST(req, res) {
 
         // Create the email message with attachment
         const msg = {
-          to: process.env.TO_EMAIL,
+          to: process.env.TO_EMAIL_CAREERS,
           from: process.env.FROM_EMAIL,
           subject: `Blackberg Group Resume Submission`,
           text: message[0],
@@ -235,6 +235,8 @@ export default async function POST(req, res) {
                 <p>${email}</p>
                 <p><b>Phone:</b></p>
                 <p>${fields.phone}</p>
+                <p><b>Position:</b></p>
+                <p>${position}</p>
                 <p><b>Message:</b></p>
                 <p>${message}</p>
               </div>

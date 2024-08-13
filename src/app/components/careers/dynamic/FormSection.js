@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 
-const FormSection = () => {
+const FormSection = ({page}) => {
 
     const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', phone: '', resume: null, message: '' });
     const [showMessage, setShowMessage] = useState(false);
@@ -10,37 +10,58 @@ const FormSection = () => {
     const [fileName, setFileName] = useState('');
     const [dragActive, setDragActive] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [uploadError, setUploadError] = useState('');
+    const allowedFileTypes = ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf'];
+
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         if (name === 'resume') {
             const file = files[0];
-            setFormData({ ...formData, [name]: file });
-            setFileName(file.name);
+            if (handleFileValidation(file)) {
+                setFormData({ ...formData, [name]: file });
+                setFileName(file.name);
+            } else {
+                setFormData({ ...formData, [name]: null });
+                setFileName('');
+            }
         } else {
             setFormData({ ...formData, [name]: value });
         }
     };
 
     const handleDrop = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      setDragActive(false);
-      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-          const file = e.dataTransfer.files[0];
-          setFormData({ ...formData, resume: file });
-          setFileName(file.name);
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive(false);
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            const file = e.dataTransfer.files[0];
+            if (handleFileValidation(file)) {
+                setFormData({ ...formData, resume: file });
+                setFileName(file.name);
 
-          // Manually trigger the change event on the file input to ensure it's registered
-          const inputElement = document.getElementById('resumeInput');
-          const dataTransfer = new DataTransfer();
-          dataTransfer.items.add(file);
-          inputElement.files = dataTransfer.files;
+                // Manually trigger the change event on the file input to ensure it's registered
+                const inputElement = document.getElementById('resumeInput');
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                inputElement.files = dataTransfer.files;
+
+            } else {
+                setFormData({ ...formData, resume: null });
+                setFileName('');
+            }
         }
     };
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
+
+        if (!formData.resume) {
+            setFormMessage('Please select a valid file before submitting.');
+            return;
+        }
+
         setIsSubmitting(true);
 
         const formDataToSend = new FormData();
@@ -48,13 +69,8 @@ const FormSection = () => {
             formDataToSend.append(key, formData[key]);
         });
 
-        // Start the GSAP loading animation
-        gsap.to(".loading-icon", {
-            rotation: 360,
-            repeat: -1,
-            ease: "linear",
-            duration: 1
-        });
+        // Manually add job position
+        formDataToSend.append('position', page.title);
 
         setShowMessage(true);
 
@@ -71,8 +87,7 @@ const FormSection = () => {
                   setFormData({ firstName: '', lastName: '', email: '', phone: '', resume: null, message: '' });
                   setFileName('');
                   setIsSubmitting(false);
-                  gsap.killTweensOf(".loading-icon"); // Stop the loading animation
-                }, 2000)
+                }, 500)
 
             } else {
                 setFormMessage('Sorry, we ran into issues sending your resume. Please try again.');
@@ -91,6 +106,15 @@ const FormSection = () => {
             setDragActive(false);
         }
     };
+
+    const handleFileValidation = (file) => {
+        if (file && !allowedFileTypes.includes(file.type)) {
+            setUploadError('Invalid file type. Please upload a .doc, .docx, or .pdf file.');
+            return false;
+        }
+        setUploadError('');
+        return true;
+    };    
 
     useEffect(() => {
         gsap.to(".circle-36", {
@@ -178,14 +202,14 @@ const FormSection = () => {
                                     <input type="file" className="form-control visually-hidden" id="resumeInput" name="resume" onChange={handleChange} accept=".doc, .docx, .pdf" required />
                                 </label>
                                 {fileName && <span className="file-name mt-2" aria-live="polite">{fileName}</span>}
+                                {uploadError && (
+                                    <span className="upload-error text-danger mt-2">{uploadError}</span>
+                                )}
                             </div>
                             <div className="d-flex flex-column">
                                 <button type="submit" className="btn btn-primary mt-5 w-100" disabled={isSubmitting}>
                                         <span className="d-flex justify-content-center align-items-center">
                                             <span>Send Resume</span>
-                                            {/* {isSubmitting && (
-                                            <span className="loading-icon ms-2"></span>
-                                            )} */}
                                         </span>
                                 </button>
                                 {showMessage && (

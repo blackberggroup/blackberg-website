@@ -7,7 +7,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const sendConfirmationEmail = async (firstName, email) => {
   const msgToUser = {
     to: email,
-    from: process.env.FROM_EMAIL,
+    from: "will.elder@blackberggroup.com",
     subject: `Confirmation: We received your resume`,
     text: `Hi ${firstName},\n\nThank you for reaching out to us. We have received your resume and will get back to you shortly.\n\nBest regards,\nBlackberg Group`,
     html: `
@@ -130,7 +130,7 @@ export default async function POST(req, res) {
         // Create the email message with attachment
         const msg = {
           to: process.env.TO_EMAIL,
-          from: process.env.FROM_EMAIL,
+          from: "will.elder@blackberggroup.com",
           subject: `Blackberg Group Resume Submission`,
           text: message[0],
           html: `

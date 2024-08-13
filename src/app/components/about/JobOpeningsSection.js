@@ -20,7 +20,7 @@ const JobOpeningsSection = () => {
                             </div>
                             <div className="col-12 col-md-7 ms-auto position-relative">
                                 <Image src="/images/about/job-openings-circle.webp"
-                                    className="img-fluid h-auto ps-md-5 ps-lg-7"
+                                    className="img-fluid h-auto ps-lg-3 ps-xl-9 ps-xxl-7"
                                     id="job-circle"
                                     fill={true}
                                     alt="" />

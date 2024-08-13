@@ -98,4 +98,14 @@
         }
     }
 
+    &--careers {
+        background: $electric-green-50;
+        height: 275px;
+
+        @include media-breakpoint-up(lg) {
+            height: 422px;
+        }
+
+    }
+
 }

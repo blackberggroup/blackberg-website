@@ -1,12 +1,11 @@
 import { getPageBySlug } from '@/app/lib/hygraph';
 import SEOHead from '@/app/components/SEOHead';
-import { RichText } from '@graphcms/rich-text-react-renderer';
 import HeroSection from '@/app/components/about/HeroSection';
 import MissionVisionSection from '@/app/components/about/MissionVisionSection';
 import OurTeamSection from '@/app/components/about/OurTeamSection';
 import ValuesSection from '@/app/components/about/ValuesSection';
 import BenefitsSection from '@/app/components/about/BenefitsSection';
-// import JobOpeningsSection from '@/app/components/about/JobOpeningsSection';
+import JobOpeningsSection from '@/app/components/about/JobOpeningsSection';
 
 function AboutPage({ page }) {
 
@@ -18,6 +17,7 @@ function AboutPage({ page }) {
         <OurTeamSection />
         <ValuesSection />
         <BenefitsSection />
+        <JobOpeningsSection />
     </>
   );
 }

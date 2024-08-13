@@ -266,8 +266,20 @@ export default async function POST(req, res) {
 
         res.status(200).json({ message: 'Message sent successfully!' });
       } catch (error) {
-        console.log('MAIL Error:', error);
-        res.status(500).json({ error: 'Failed to send message.' });
+        // Log the error message and stack trace for debugging
+        console.error('MAIL Error:', error.message);
+        console.error('STACK TRACE:', error.stack);
+      
+        // Check if the error has a response and response body
+        if (error.response) {
+          console.error('ERROR RESPONSE BODY:', error.response.body);
+        }
+      
+        // Return a more detailed error message to the client
+        res.status(500).json({
+          error: 'Failed to send message. Please check your input or try again later.',
+          details: error.message,  // Optional: Include this in development for more context
+        });
       }
     });
   } else {

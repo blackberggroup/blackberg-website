@@ -167,6 +167,10 @@
     .job-openings-container {
         background-color: #243551;
         overflow: hidden;
+
+        @include media-breakpoint-up(md) {
+          overflow: visible;
+        }
     }
 
     .h3 {

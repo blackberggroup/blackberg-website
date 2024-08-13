@@ -129,7 +129,7 @@ export default async function POST(req, res) {
 
         // Create the email message with attachment
         const msg = {
-          to: process.env.TO_EMAIL_CAREERS,
+          to: process.env.TO_EMAIL,
           from: process.env.FROM_EMAIL,
           subject: `Blackberg Group Resume Submission`,
           text: message[0],

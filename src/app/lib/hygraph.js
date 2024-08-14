@@ -540,6 +540,8 @@ export const getCareerBySlug = async (slug) => {
 }
 
 export const getAllPagePaths = async () => {
+
+  try {
     const { data } = await client.query({
       query: gql`
         query GetPaths {
@@ -549,10 +551,13 @@ export const getAllPagePaths = async () => {
               slug
             }
           }
-          posts {
+          insights {
             slug
           }
           caseStudies {
+            slug
+          }
+          careers {
             slug
           }
         }
@@ -565,10 +570,27 @@ export const getAllPagePaths = async () => {
       }
       return `/${slug}`;
     });  
-    const articles = data.posts.map(({ slug }) => `/insights/${slug}`);
+    const insights = data.insights.map(({ slug }) => `/insights/${slug}`);
     const caseStudies = data.caseStudies.map(({ slug }) => `/case-studies/${slug}`);
+    const careers = data.careers.map(({ slug }) => `/careers/${slug}`);
   
-    return [...pages, ...articles, ...caseStudies];
+    return [...pages, ...insights, ...caseStudies, ...careers];
+  } catch (error) {
+    if (error.networkError) {
+      const { response, result } = error.networkError;
+      console.error("Network Error:", {
+        status: response?.status,
+        statusText: response?.statusText,
+        url: response?.url,
+        errors: result?.errors,
+        extensions: result?.extensions,
+      });
+    } else if (error.graphQLErrors) {
+      console.error("GraphQL Errors:", error.graphQLErrors);
+    } else {
+      console.error("Unknown Error:", error);
+    }
+  }
     
   };
 

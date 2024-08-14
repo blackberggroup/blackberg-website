@@ -39,10 +39,14 @@ export const getPostBySlug = async (slug) => {
                     handle     
                     fileName  
                   }
-                  seoOverride {
+                   seoOverride {
                     description
                     title
-                  }
+                    image {
+                      altText
+                      url
+                    }
+                  }   
                 }
               }
         `,
@@ -72,10 +76,14 @@ export const getPageBySlug = async (slug) => {
                     markdown
                     text
                   }
-                  seoOverride {
+                   seoOverride {
                     description
                     title
-                  }
+                    image {
+                      altText
+                      url
+                    }
+                  }   
                 }
               }
         `,
@@ -184,10 +192,14 @@ export const getCaseStudyBySlug = async (slug) => {
                       url
                     }
                   }
-                  seoOverride {
+                    seoOverride {
                     description
                     title
-                  }
+                    image {
+                      altText
+                      url
+                    }
+                  }   
                 }
               }
         `,

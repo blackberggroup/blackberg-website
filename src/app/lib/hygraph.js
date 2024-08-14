@@ -39,10 +39,14 @@ export const getPostBySlug = async (slug) => {
                     handle     
                     fileName  
                   }
-                  seoOverride {
+                   seoOverride {
                     description
                     title
-                  }
+                    image {
+                      altText
+                      url
+                    }
+                  }   
                 }
               }
         `,
@@ -72,10 +76,14 @@ export const getPageBySlug = async (slug) => {
                     markdown
                     text
                   }
-                  seoOverride {
+                   seoOverride {
                     description
                     title
-                  }
+                    image {
+                      altText
+                      url
+                    }
+                  }   
                 }
               }
         `,
@@ -139,7 +147,8 @@ export const getFeaturedCaseStudies = async () => {
 }
 
 export const getCaseStudyBySlug = async (slug) => {
-    console.log('Slug: ' + slug);
+  try {
+    console.log('Case Study Slug: ' + slug);
     const { data, errors } = await client.query({
         query: gql`
             query GetCaseStudyBySlug($slug: String!) {
@@ -183,23 +192,37 @@ export const getCaseStudyBySlug = async (slug) => {
                       url
                     }
                   }
-                  seoOverride {
+                    seoOverride {
                     description
                     title
-                  }
+                    image {
+                      altText
+                      url
+                    }
+                  }   
                 }
               }
         `,
         variables: { slug },
     });
 
-    if (errors) {
-        const error = apolloError; 
- 
-        throw new Error("Failed to fetch case study.");
+    return data.caseStudy;
+  } catch (error) {
+    if (error.networkError) {
+      const { response, result } = error.networkError;
+      console.error("Network Error:", {
+        status: response?.status,
+        statusText: response?.statusText,
+        url: response?.url,
+        errors: result?.errors,
+        extensions: result?.extensions,
+      });
+    } else if (error.graphQLErrors) {
+      console.error("GraphQL Errors:", error.graphQLErrors);
+    } else {
+      console.error("Unknown Error:", error);
     }
-
-    return data.caseStudy
+  }
 }
 
 export const getNavigation = async () => {
@@ -372,7 +395,15 @@ export const getInsightBySlug = async (slug) => {
                     }
                     lastName
                     firstName
-                  }                
+                  } 
+                  seoOverride {
+                    description
+                    title
+                    image {
+                      altText
+                      url
+                    }
+                  }               
               }
             }
       `,

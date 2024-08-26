@@ -13,7 +13,7 @@ const JobOpeningsSection = () => {
                             <div className="col-12 col-md-5 p-5 p-lg-7 pe-lg-0">
                                 <span class="h4">Want to learn more?</span>
                                 <h5 className="m-0 mt-3">Apply for one of our open roles and we’ll be in touch.</h5>
-                                <Link href="/careers" aria-label="" className="btn btn-secondary  align-self-start mt-5">
+                                <Link href="/about/careers" aria-label="" className="btn btn-secondary  align-self-start mt-5">
                                     View Job Openings
                                     <img src="/images/arrow-narrow-right.svg" width="20" height="20" className="ms-2" alt="" />    
                                 </Link>

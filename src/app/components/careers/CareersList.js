@@ -45,7 +45,7 @@ const CareersList = ({careers}) => {
                             <div class="card--career d-flex flex-column align-items-start h-100 p-4">
                                 <div class="d-flex justify-content-between w-100 align-items-center">
                                   <span className="career-title mt-auto text-figtree">{career.title}</span>
-                                  <Link href={'/careers/' + career.slug} aria-label={`Learn more about our ${career.title} position`} className="btn btn-career-link align-self-start m-0 p-0 h6">
+                                  <Link href={'/about/careers/' + career.slug} aria-label={`Learn more about our ${career.title} position`} className="btn btn-career-link align-self-start m-0 p-0 h6">
                                     View Job
                                     <img src="/images/arrow-up-right.svg" width="20" height="20" className="ms-2" alt="" />    
                                 </Link>  

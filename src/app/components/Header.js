@@ -108,7 +108,7 @@ const Header = ({ nav, props }) => {
                                                     href={`/${item.url}/${subItem.slug}`} 
                                                     className="dropdown-item"
                                                     aria-label={`${subItem.title} page`}>
-                                                    {subItem.title}
+                                                     {subItem.menuText || subItem.title}
                                                 </Link>
                                             </li>
                                         ))}

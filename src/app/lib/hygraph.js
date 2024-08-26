@@ -2,12 +2,6 @@ import { gql } from '@apollo/client';
 import client from '../lib/apollo-client';
 
 const stage = process.env.NEXT_PUBLIC_HYGRAPH_STAGE || 'PUBLISHED';
-const isDevelopment = process.env.NEXT_PUBLIC_HYGRAPH_STAGE === "DRAFT";
-const token = isDevelopment 
-? process.env.HYGRAPH_DEV_TOKEN 
-: process.env.HYGRAPH_TOKEN;
-console.log('STAGE', stage);
-console.log('TOKEN', token);
 
 export const getAllPosts = async () => {
     const { data } = await client.query({
@@ -234,14 +228,12 @@ export const getCaseStudyBySlug = async (slug) => {
 }
 
 export const getNavigation = async () => {
-  const stage = process.env.NEXT_PUBLIC_HYGRAPH_STAGE;
-  const token = stage === 'DRAFT' ? process.env.HYGRAPH_DEV_TOKEN : process.env.HYGRAPH_TOKEN;
 
   try {
     const { data, errors } = await client.query({
       query: gql`
-        query GetNavigation($stage: Stage!) {
-          navigations(stage: $stage) {
+        query GetNavigation {
+          navigations {
             navigationLink {
               displayText
               id
@@ -251,47 +243,21 @@ export const getNavigation = async () => {
                   id
                   slug
                   title
+                  menuText
                 }
               }
             }
           }
         }
       `,
-      variables: {
-        stage,
-      },
-      context: {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
     });
 
-    // Handle potential GraphQL errors
-    if (errors && errors.length > 0) {
-      console.error("GraphQL errors:", errors);
-      throw new Error("An error occurred while fetching the navigation data.");
-    }
-
-    // Check if the data is null or undefined
-    if (!data || !data.navigations || !data.navigations[0]) {
-      console.error("No navigation data found.");
-      throw new Error("Navigation data is missing.");
-    }
-
-    // Log and return the data
-    console.log("Nav:", data.navigations[0].navigationLink[2]?.page);
     return data.navigations[0];
 
   } catch (error) {
-    // Log the error and throw it to be handled by the calling function
-    console.error("Failed to fetch navigation data:", flattenObject(error)); // Simplified error logging
     throw new Error(`Failed to fetch navigation data: ${error.message}`);
   }
 };
-
-
-
 
 
 function flattenObject(obj, prefix = '') {
@@ -639,7 +605,7 @@ export const getAllPagePaths = async () => {
     });  
     const insights = data.insights.map(({ slug }) => `/insights/${slug}`);
     const caseStudies = data.caseStudies.map(({ slug }) => `/case-studies/${slug}`);
-    const careers = data.careers.map(({ slug }) => `/careers/${slug}`);
+    const careers = data.careers.map(({ slug }) => `/about/careers/${slug}`);
   
     return [...pages, ...insights, ...caseStudies, ...careers];
   } catch (error) {

@@ -17,7 +17,8 @@ function CareerDetailPage ({ page }) {
 }
 
 export async function getServerSideProps(context) {
-  const slug = context.resolvedUrl.substring(1).replace("careers/",  "");
+  const slug = context.resolvedUrl.substring(1).replace("about/careers/",  "");
+  console.log('Career Details Slug: ' + slug);
   const page = await getCareerBySlug(slug);
 
     if (!page) {

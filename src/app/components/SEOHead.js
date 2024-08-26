@@ -13,7 +13,7 @@ const SEOHead = ({page}) => {
   // Image
   const image = page?.seoOverride?.image?.url || page?.coverImage?.image?.url || 'https://media.graphassets.com/JMyrcEGXSI2wH3oHnzBI';
 
-  console.log('Page SEO Data: ', page);
+  //console.log('Page SEO Data: ', page);
   
   return (
     <Head>

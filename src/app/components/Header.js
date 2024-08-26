@@ -119,7 +119,7 @@ const Header = ({ nav, props }) => {
                                 return (
                                 <li key={index} className="nav-item">
                                     <Link 
-                                        href={`/${item.page[0].slug}`} 
+                                        href={`/${item.url}`} 
                                         className="nav-link"
                                         aria-label={`${item.displayText} page`}>
                                         {item.displayText}

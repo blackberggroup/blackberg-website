@@ -226,30 +226,61 @@ export const getCaseStudyBySlug = async (slug) => {
 }
 
 export const getNavigation = async () => {
-  const { data } = await client.query({
+
+  try {
+    const { data, errors } = await client.query({
       query: gql`
-          query GetNavigation { 
-              navigations {
-                navigationLink {
-                  displayText
+        query GetNavigation {
+          navigations {
+            navigationLink {
+              displayText
+              id
+              url
+              page {
+                ... on Page {
                   id
-                  url
-                  page {
-                    ... on Page {
-                      id
-                      slug
-                      title
-                    }
-                  }
-                  url
+                  slug
+                  title
+                  menuText
                 }
               }
+            }
           }
+        }
       `,
-  });
-  // console.log("Nav:", data.navigations[0]);
-  return data.navigations[0];
+    });
+
+    return data.navigations[0];
+
+  } catch (error) {
+    throw new Error(`Failed to fetch navigation data: ${error.message}`);
+  }
+};
+
+
+function flattenObject(obj, prefix = '') {
+  const flattened = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    const newKey = prefix ? `${prefix}.${key}` : key;
+
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      // Recursively flatten nested objects
+      Object.assign(flattened, flattenObject(value, newKey));
+    } else if (Array.isArray(value)) {
+      // Flatten arrays by iterating over their items
+      value.forEach((item, index) => {
+        Object.assign(flattened, flattenObject(item, `${newKey}[${index}]`));
+      });
+    } else {
+      // Assign primitive values
+      flattened[newKey] = value;
+    }
+  }
+
+  return flattened;
 }
+
 
 export const getAllEmployees = async () => {
   const { data } = await client.query({
@@ -572,7 +603,7 @@ export const getAllPagePaths = async () => {
     });  
     const insights = data.insights.map(({ slug }) => `/insights/${slug}`);
     const caseStudies = data.caseStudies.map(({ slug }) => `/case-studies/${slug}`);
-    const careers = data.careers.map(({ slug }) => `/careers/${slug}`);
+    const careers = data.careers.map(({ slug }) => `/about/careers/${slug}`);
   
     return [...pages, ...insights, ...caseStudies, ...careers];
   } catch (error) {

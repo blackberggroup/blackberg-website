@@ -108,7 +108,7 @@ const Header = ({ nav, props }) => {
                                                     href={`/${item.url}/${subItem.slug}`} 
                                                     className="dropdown-item"
                                                     aria-label={`${subItem.title} page`}>
-                                                    {subItem.title}
+                                                     {subItem.menuText || subItem.title}
                                                 </Link>
                                             </li>
                                         ))}
@@ -119,7 +119,7 @@ const Header = ({ nav, props }) => {
                                 return (
                                 <li key={index} className="nav-item">
                                     <Link 
-                                        href={`/${item.page[0].slug}`} 
+                                        href={`/${item.url}`} 
                                         className="nav-link"
                                         aria-label={`${item.displayText} page`}>
                                         {item.displayText}

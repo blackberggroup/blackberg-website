@@ -1,8 +1,6 @@
 import { gql } from '@apollo/client';
 import client from '../lib/apollo-client';
 
-const stage = process.env.NEXT_PUBLIC_HYGRAPH_STAGE || 'PUBLISHED';
-
 export const getAllPosts = async () => {
     const { data } = await client.query({
         query: gql`

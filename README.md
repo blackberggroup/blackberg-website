@@ -58,7 +58,7 @@ FROM_EMAIL=""
 
 ### Spam Prevention
 
-All forms includes a hidden input field to block spam submissions. It’s visually hidden and inaccessible to users, including those using assistive technologies, ensuring only bots interact with it.
+All forms include a hidden input field to block spam submissions. It’s visually hidden and inaccessible to users, including those using assistive technologies, ensuring only bots interact with it.
 
 ## Deploy 
 

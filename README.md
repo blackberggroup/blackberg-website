@@ -47,12 +47,18 @@ HYGRAPH_STAGE=""
 
 To handle contact form and resume submissions you will need to setup a .env.local file in the root directory. This is not stored in the repository for security purposes. Once you create the file add these three items and get the API key by logging into your SendGrid account. The FROM_EMAIL needs to use the verified SendGrid email address. The TO_EMAIL is used for contact form submissions and the TO_EMAIL_CAREERS is used for resume form submissions.
 
+### Environment Variables
+
 ```bash
 SENDGRID_API_KEY=""
 TO_EMAIL=""
 TO_EMAIL_CAREERS=""
 FROM_EMAIL=""
 ```
+
+### Spam Prevention
+
+All forms includes a hidden input field to block spam submissions. It’s visually hidden and inaccessible to users, including those using assistive technologies, ensuring only bots interact with it.
 
 ## Deploy 
 

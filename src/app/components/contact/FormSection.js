@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const FormSection = () => {
 
-const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '' });
+const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '', extraInfo: '' });
 const [showMessage, setShowMessage] = useState(false);
 const [formMessage, setFormMessage] = useState("We are sending your message. Please wait.")
 
@@ -15,6 +15,12 @@ const handleChange = (e) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   setShowMessage(true);
+
+  // Check honeypot field before submitting
+  if (formData.extraInfo) {
+      setFormMessage('Spam detected. Your submission was not sent.');
+      return;
+  }
 
   try {
     const res = await fetch('/api/contact', {
@@ -57,6 +63,18 @@ const handleSubmit = async (e) => {
                             <div className="mb-0">
                                 <label htmlFor="messageInput" className="form-label">Message</label>
                                 <textarea className="form-control" id="messageInput" placeholder="Leave us a message" rows="4" name="message" value={formData.message} onChange={handleChange} required></textarea>
+                            </div>
+                            <div class="visually-hidden" aria-hidden="true">
+                                <label htmlFor="extraInfo" className="form-label">Extra Info</label>
+                                <input
+                                    type="text"
+                                    name="extraInfo"
+                                    id="extraInfo"
+                                    value={formData.extraInfo}
+                                    onChange={handleChange}
+                                    tabIndex="-1"
+                                    autoComplete="off"
+                                />
                             </div>
                             <div className="d-flex flex-column">
                               <button type="submit" className="btn btn-primary mt-5 align-self-start">Send Message</button>

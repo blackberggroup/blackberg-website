@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const FormSection = ({page}) => {
 
-    const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', phone: '', resume: null, message: '' });
+    const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', phone: '', resume: null, message: '', extraInfo: '' });
     const [showMessage, setShowMessage] = useState(false);
     const [formMessage, setFormMessage] = useState("We are sending your resume. Please wait.");
     const [fileName, setFileName] = useState('');
@@ -59,6 +59,14 @@ const FormSection = ({page}) => {
 
         if (!formData.resume) {
             setFormMessage('Please select a valid file before submitting.');
+            setShowMessage(true);
+            return;
+        }
+
+        // Check honeypot field before submitting
+        if (formData.extraInfo) {
+            setFormMessage('Spam detected. Your submission was not sent.');
+            setShowMessage(true);
             return;
         }
 
@@ -174,11 +182,11 @@ const FormSection = ({page}) => {
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="emailInput" className="form-label">Email<span className="text-danger">*</span></label>
-                                <input type="email" className="form-control rounded-3" id="emailInput" placeholder="you@emailaddress.com" name="email" value={formData.email} onChange={handleChange} autocomplete="email" required />
+                                <input type="email" className="form-control rounded-3" id="emailInput" placeholder="you@emailaddress.com" name="email" value={formData.email} onChange={handleChange} autoComplete="email" required />
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="phoneInput" className="form-label">Phone<span className="text-danger">*</span></label>
-                                <input type="tel" className="form-control rounded-3" id="phoneInput" placeholder="+1 (555) 000-0000" name="phone" value={formData.phone} onChange={handleChange} autocomplete="phone" required />
+                                <input type="tel" className="form-control rounded-3" id="phoneInput" placeholder="+1 (555) 000-0000" name="phone" value={formData.phone} onChange={handleChange} autoComplete="phone" required />
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="messageInput" className="form-label">Message</label>
@@ -205,6 +213,18 @@ const FormSection = ({page}) => {
                                 {uploadError && (
                                     <span className="upload-error text-danger mt-2">{uploadError}</span>
                                 )}
+                            </div>
+                            <div className="visually-hidden d-flex flex-column" aria-hidden="true">
+                                <label htmlFor="extraInfo" className="form-label">Extra Info</label>
+                                <input
+                                    type="text"
+                                    name="extraInfo"
+                                    id="extraInfo"
+                                    value={formData.extraInfo}
+                                    onChange={handleChange}
+                                    tabIndex="-1"
+                                    autoComplete="off"
+                                />
                             </div>
                             <div className="d-flex flex-column">
                                 <button type="submit" className="btn btn-primary mt-5 w-100" disabled={isSubmitting}>

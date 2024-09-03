@@ -4,7 +4,7 @@ import DetailsSection from '@/app/components/insights/details/DetailsSection';
 import FeaturedImageSection from '@/app/components/insights/details/FeaturedImageSection';
 import RelatedInsightsSection from '@/app/components/insights/details/RelatedInsightsSection';
 import ResourcesSection from '@/app/components/insights/details/ResourcesSection';
-import { getInsightBySlug, getRelatedInsights } from '@/app/lib/hygraph';
+import { getInsightBySlug, getRelatedInsights } from '@/app/lib/hygraph/insights';
 
 function InsightDetailPage ({ page, relatedInsights }) {
 
@@ -30,9 +30,9 @@ export async function getServerSideProps(context) {
       };
   }
 
-  console.log('page category: ' + page.category.title);
+  //console.log('page category: ' + page.category.title);
   const relatedInsights = await getRelatedInsights(page.category, page.id);
-  console.log('Related Insights: ', relatedInsights);
+  //console.log('Related Insights: ', relatedInsights);
   return {
     props: { 
         page: page || null,

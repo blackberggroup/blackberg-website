@@ -4,7 +4,7 @@ import IntroSection from "@/app/components/services/operations/IntroSection";
 import ProjectManagementSection from "@/app/components/services/operations/ProjectManagementSection";
 import BusinessProcessSection from "@/app/components/services/operations/BusinessProcessSection";
 import AugmentingServiceAISection from "@/app/components/services/operations/AugmentingServiceAISection";
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function Operations({ page }) {
 

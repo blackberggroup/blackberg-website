@@ -1,4 +1,4 @@
-import { getAllPagePaths } from '../app/lib/hygraph';
+import { getAllPagePaths } from '@/app/lib/hygraph/sitemap';
 
 import { getServerSideSitemapLegacy } from 'next-sitemap';
 

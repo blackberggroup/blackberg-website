@@ -1,4 +1,6 @@
-import { getFeaturedCaseStudies, getFeaturedInsights, getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
+import { getFeaturedInsights } from '@/app/lib/hygraph/insights';
+import { getFeaturedCaseStudies } from '@/app/lib/hygraph/case-studies';
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "../app/components/home/HeroSection";
 import ServicesSection from '@/app/components/home/ServicesSection';

@@ -1,4 +1,5 @@
-import { getAllInsights, getPageBySlug } from '../../app/lib/hygraph';
+import { getAllInsights } from '@/app/lib/hygraph/insights';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from '@/app/components/insights/HeroSection';
 import InsightsListSection from '@/app/components/insights/InsightsListSection';

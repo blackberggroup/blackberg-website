@@ -1,7 +1,8 @@
 import SEOHead from '@/app/components/SEOHead';
 import CareersList from '@/app/components/careers/CareersList';
 import HeroSection from '@/app/components/careers/HeroSection';
-import { getAllCareers, getPageBySlug } from '@/app/lib/hygraph';
+import { getAllCareers } from '@/app/lib/hygraph/careers';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function Careers({page, careers }) {
 

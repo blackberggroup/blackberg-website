@@ -4,7 +4,7 @@ import IntroSection from "@/app/components/services/organizational-effectiveness
 import ChangeManagementToolkitSection from "@/app/components/services/organizational-effectiveness/ChangeManagementToolkitSection";
 import TalentManagementSection from "@/app/components/services/organizational-effectiveness/TalentManagementSection";
 import DigitalServicesSection from "@/app/components/services/organizational-effectiveness/DigitalServicesSection";
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function OrganizationalEffectiveness({ page }) {
 

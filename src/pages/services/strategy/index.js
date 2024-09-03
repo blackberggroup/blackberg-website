@@ -5,7 +5,7 @@ import StrategicAwarenessSection from "@/app/components/services/strategy/Strate
 import StrategicToolkitSection from "@/app/components/services/strategy/StrategicToolkitSection";
 import StrategicPlanningSection from "@/app/components/services/strategy/StrategicPlanningSection";
 import StrategicImplementationSection from "@/app/components/services/strategy/StrategicImplementationSection";
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function Strategy({ page }) {
 

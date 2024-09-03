@@ -4,7 +4,7 @@ import BootstrapClient from '../app/components/BootstrapClient';
 import "../app/styles/globals.scss";
 import "../app/scss/main.scss";
 import SmoothScrolling from "../app/components/SmoothScrolling";
-import { getNavigation } from '@/app/lib/hygraph';
+import { getNavigation } from '@/app/lib/hygraph/navigation';
 import NavInteractivity from '@/app/components/HeaderInteractive';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';

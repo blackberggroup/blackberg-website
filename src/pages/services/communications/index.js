@@ -5,7 +5,7 @@ import IntegratedMarketingSection from "@/app/components/services/communications
 import CreativeStudioSection from "@/app/components/services/communications/CreativeStudioSection";
 import EventManagementSection from "@/app/components/services/communications/EventManagementSection";
 import WebDesignSection from "@/app/components/services/communications/WebDesignSection";
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function Communications({ page }) {
 

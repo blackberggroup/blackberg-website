@@ -2,7 +2,7 @@ import ContentSection from '@/app/components/careers/dynamic/ContentSection';
 import FormSection from '@/app/components/careers/dynamic/FormSection';
 import HeroSection from '@/app/components/careers/dynamic/HeroSection';
 import SEOHead from '@/app/components/SEOHead';
-import { getCareerBySlug, getPageBySlug } from '@/app/lib/hygraph';
+import { getCareerBySlug } from '@/app/lib/hygraph/careers';
 
 function CareerDetailPage ({ page }) {
 
@@ -18,7 +18,7 @@ function CareerDetailPage ({ page }) {
 
 export async function getServerSideProps(context) {
   const slug = context.resolvedUrl.substring(1).replace("about/careers/",  "");
-  console.log('Career Details Slug: ' + slug);
+  //console.log('Career Details Slug: ' + slug);
   const page = await getCareerBySlug(slug);
 
     if (!page) {

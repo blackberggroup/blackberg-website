@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 const SEOHead = ({ page, insights }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
-  
+  let article = null;
+
   console.log('Insights: ', insights);
 
   // Title 
@@ -21,12 +22,12 @@ const SEOHead = ({ page, insights }) => {
   const webpageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Home",
-    "url": "https://blackberggroup.com/",
-    "description": "Welcome to Blackberg Group, where strategy meets creativity. We specialize in strategy, communications, organizational effectiveness, and operations.",
+    "name": pageTitle,
+    "url": canonicalUrl,
+    "description": description,
     "publisher": {
       "@type": "Organization",
-      "name": "Blackberg Group",
+      "name": "Blackberg Group, LLC.",
       "logo": {
         "@type": "ImageObject",
         "url": "https://blackberggroup.com/images/logo-dark.svg"
@@ -77,6 +78,38 @@ const SEOHead = ({ page, insights }) => {
     "description": insight.content?.text ? insight.content.text.split('. ')[0] + '.' : "No description available."
   }));
 
+  if(router.pathname.includes("/insights/")) {
+    article = {
+      
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": page.title,
+        "author": {
+          "@type": "Person",
+          "name": page.employee.firstName + " " + page.employee.lastName
+        },
+        "datePublished": page.date,
+        "dateModified": page.date,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalUrl
+        },
+        "image": [
+          page.coverImage.url
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Blackberg Group, LLC.",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://blackberggroup.com/images/logo-dark.svg"
+          }
+        },
+        "articleBody": page.content.text,
+        "description": page.content?.text ? page.content.text.split('. ')[0] + '.' : "No description available."
+    }
+  }
+
   return (
     <Head>
       <title>{fullTitle}</title>
@@ -112,7 +145,7 @@ const SEOHead = ({ page, insights }) => {
       </script> */}
 
       {/* Inject JSON-LD for Services */}
-        {servicesJsonLd.map((service, index) => (
+      {router.pathname === '/' && servicesJsonLd.map((service, index) => (
         <script key={`service-${index}`} type="application/ld+json">
           {JSON.stringify(service)}
         </script>

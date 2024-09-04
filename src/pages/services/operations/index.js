@@ -1,4 +1,4 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import HeroSection from "@/app/components/services/operations/HeroSection";
 import IntroSection from "@/app/components/services/operations/IntroSection";
 import ProjectManagementSection from "@/app/components/services/operations/ProjectManagementSection";

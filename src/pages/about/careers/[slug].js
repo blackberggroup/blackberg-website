@@ -1,7 +1,7 @@
 import ContentSection from '@/app/components/careers/dynamic/ContentSection';
 import FormSection from '@/app/components/careers/dynamic/FormSection';
 import HeroSection from '@/app/components/careers/dynamic/HeroSection';
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import { getCareerBySlug, getPageBySlug } from '@/app/lib/hygraph';
 
 function CareerDetailPage ({ page }) {

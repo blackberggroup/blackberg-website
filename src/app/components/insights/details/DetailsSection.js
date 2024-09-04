@@ -1,5 +1,5 @@
 import React from 'react';
-import DateFormatted from '../../DateFormatted';
+import DateFormatted from '../../layout/DateFormatted';
 
 const DetailsSection = ({page}) => {
 

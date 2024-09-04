@@ -1,4 +1,4 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import HeroSection from "@/app/components/services/organizational-effectiveness/HeroSection";
 import IntroSection from "@/app/components/services/organizational-effectiveness/IntroSection";
 import ChangeManagementToolkitSection from "@/app/components/services/organizational-effectiveness/ChangeManagementToolkitSection";

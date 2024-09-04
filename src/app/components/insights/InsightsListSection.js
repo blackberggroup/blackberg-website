@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import DateFormatted from '../DateFormatted';
+import DateFormatted from '../layout/DateFormatted';
 import InsightCategoryFilter from './InsightCategoryFilter';
 
 const InsightsListSection = ({ insights }) => {

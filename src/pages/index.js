@@ -7,21 +7,22 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import AboutSection from '@/app/components/home/AboutSection';
 import CaseStudySection from '@/app/components/home/CaseStudySection';
 import InsightsSection from '@/app/components/home/InsightsSection';
+import JsonLd from '@/app/components/JsonLd';
 
-function HomePage({page, caseStudies, insights}) {
+function HomePage({ page, caseStudies, insights }) {
 
   return (
     <>
-        <SEOHead page={page} />
-        <HeroSection />
-        <ServicesSection />
-        <AboutSection />
-        {caseStudies?.length > 0 &&
-            <CaseStudySection caseStudies={caseStudies} />
-        }
-        {insights?.length > 0 &&
-            <InsightsSection insights={insights} />
-        }
+      <SEOHead page={page} insights={insights} />
+      <HeroSection />
+      <ServicesSection />
+      <AboutSection />
+      {caseStudies?.length > 0 &&
+          <CaseStudySection caseStudies={caseStudies} />
+      }
+      {insights?.length > 0 &&
+          <InsightsSection insights={insights} />
+      }
     </>
   );
 }

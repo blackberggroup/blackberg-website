@@ -12,7 +12,7 @@ Sitemap: https://blackberggroup.com/sitemap.xml
         `;
     } else {
         robotsTxt = `User-agent: *
-Disallow: /
+Allow: /
         `;
     }
 

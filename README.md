@@ -41,6 +41,7 @@ To load data from Hygraph you will need to setup a .env.local file in the root d
 NEXT_PUBLIC_HYGRAPH_ENDPOINT=""
 HYGRAPH_TOKEN=""
 HYGRAPH_STAGE=""
+HYGRAPH_DEV_TOKEN=""
 ```
 
 ## SendGrid

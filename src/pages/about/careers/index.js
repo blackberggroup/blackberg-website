@@ -2,12 +2,13 @@ import SEOHead from '@/app/components/seo/SEOHead';
 import CareersList from '@/app/components/careers/CareersList';
 import HeroSection from '@/app/components/careers/HeroSection';
 import { getAllCareers, getPageBySlug } from '@/app/lib/hygraph';
+import SEOHeadCareers from '@/app/components/seo/SeoHeadCareers';
 
 function Careers({page, careers }) {
 
   return (
     <>
-        <SEOHead page={page} />
+        <SEOHeadCareers page={page} careers={careers} />
         <HeroSection />
         <CareersList careers={careers} />
     </>

@@ -1,15 +1,18 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const SEOHead = ({ page }) => {
+const SeoHeadServices = ({ page }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
+  let articleJsonLd = null;
 
-  console.log('SEO Head Page: ', page);
+  console.log('Page: ', page);
 
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || '';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Blackberg Group, LLC.';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
+
+  console.log('Full Title: ', fullTitle);
 
   // Description
   const description = page?.seoOverride?.description || page?.description || 'Where Strategy Meets Creativity';
@@ -33,6 +36,38 @@ const SEOHead = ({ page }) => {
       }
     }
   };
+
+  const servicesJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Strategy",
+      "description": "Translating vision into actionable blueprints",
+      "image": "https://blackberggroup.com/images/services/services-strategy.webp"
+    },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Communications",
+    "description": "Shaping hearts and minds behind public service",
+    "image": "https://blackberggroup.com/images/services/services-communications.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Organizational Effectiveness",
+    "description": "Mastering data-driven change and innovation",
+    "image": "https://blackberggroup.com/images/services/services-organizational-effectiveness.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Operations",
+    "description": "Driving operations into pathways for unprecedented growth",
+    "image": "https://blackberggroup.com/images/services/services-operations.webp"
+  }
+  ];
+
 
   return (
     <Head>
@@ -60,12 +95,21 @@ const SEOHead = ({ page }) => {
       {/* Favicon */}
       <link rel="icon" href="/images/favicon.ico" />
 
-      <script type="application/ld+json">
-        {JSON.stringify(webpageJsonLd)}
-      </script>
+      {/* Inject JSON-LD for WebPage */}
+
+    <script type="application/ld+json">
+    {JSON.stringify(webpageJsonLd)}
+    </script>
+
+      {/* Inject JSON-LD for Services */}
+      {servicesJsonLd.map((service, index) => (
+        <script key={`service-${index}`} type="application/ld+json">
+          {JSON.stringify(service)}
+        </script>
+      ))}
 
     </Head>
   );
 };
 
-export default SEOHead;
+export default SeoHeadServices;

@@ -1,37 +1,33 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const SEOHead = ({ page }) => {
+const SEOHeadInsightDetails = ({ page }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
 
-  console.log('SEO Head Page: ', page);
+  console.log('Page: ', page);
 
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || '';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Careers';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
 
   // Description
-  const description = page?.seoOverride?.description || page?.description || 'Where Strategy Meets Creativity';
+  const description = page?.seoOverride?.description || page?.description || 'Work With Us';
 
   // Image
   const image = page?.seoOverride?.image?.url || page?.coverImage?.image?.url || 'https://media.graphassets.com/JMyrcEGXSI2wH3oHnzBI';
 
   // JSON-LD
-  const webpageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": fullTitle,
-    "url": canonicalUrl,
-    "description": description,
-    "publisher": {
-      "@type": "Organization",
-      "name": "Blackberg Group, LLC.",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://blackberggroup.com/images/logo-dark.svg"
-      }
-    }
+  const webpageJsonLd = 
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": page.title,
+        "author": page.employee?.firstName + " " + page.employee?.lastName || "Unknown",
+        "datePublished": page.date,
+        "url": `https://blackberggroup.com/insights/${page.slug}`,
+        "image": page.coverImage?.url || "https://blackberggroup.com/default-image.jpg",
+        "description": page.content?.text ? page.content.text.split('. ')[0] + '.' : "No description available."
   };
 
   return (
@@ -60,12 +56,15 @@ const SEOHead = ({ page }) => {
       {/* Favicon */}
       <link rel="icon" href="/images/favicon.ico" />
 
-      <script type="application/ld+json">
-        {JSON.stringify(webpageJsonLd)}
-      </script>
+      {/* Inject JSON-LD for WebPage */}
+        <script type="application/ld+json">
+            {JSON.stringify(webpageJsonLd)}
+        </script>
 
     </Head>
   );
 };
 
-export default SEOHead;
+export default SEOHeadInsightDetails;
+
+

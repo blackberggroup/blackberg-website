@@ -5,12 +5,13 @@ import FeaturedImageSection from '@/app/components/insights/details/FeaturedImag
 import RelatedInsightsSection from '@/app/components/insights/details/RelatedInsightsSection';
 import ResourcesSection from '@/app/components/insights/details/ResourcesSection';
 import { getInsightBySlug, getRelatedInsights } from '@/app/lib/hygraph';
+import SEOHeadInsightDetails from '@/app/components/seo/SeoHeadInsightDetails';
 
 function InsightDetailPage ({ page, relatedInsights }) {
 
   return (
     <>
-        <SEOHead page={page} />
+        <SEOHeadInsightDetails page={page} />
         <DetailsSection page={page} />
         <FeaturedImageSection page={page} />
         <ContentSection page={page} />

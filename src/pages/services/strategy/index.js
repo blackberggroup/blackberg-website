@@ -24,7 +24,7 @@ function Strategy({ page }) {
 
 export async function getServerSideProps(context) {
 
-  const slug = context.resolvedUrl.substring(1);
+  const slug = context.resolvedUrl.split('/').filter(Boolean)[1];
 
   const [page] = await Promise.all([
       getPageBySlug(slug)

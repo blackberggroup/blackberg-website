@@ -1,18 +1,16 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const SEOHead = ({ page }) => {
+const SEOHeadInsights = ({ page, insights }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
 
-  console.log('SEO Head Page: ', page);
-
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || '';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Careers';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
 
   // Description
-  const description = page?.seoOverride?.description || page?.description || 'Where Strategy Meets Creativity';
+  const description = page?.seoOverride?.description || page?.description || 'Work With Us';
 
   // Image
   const image = page?.seoOverride?.image?.url || page?.coverImage?.image?.url || 'https://media.graphassets.com/JMyrcEGXSI2wH3oHnzBI';
@@ -33,6 +31,17 @@ const SEOHead = ({ page }) => {
       }
     }
   };
+  
+  const insightsJsonLd = insights?.map(insight => ({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": insight.title,
+    "author": insight.employee?.firstName + " " + insight.employee?.lastName || "Unknown",
+    "datePublished": insight.date,
+    "url": `https://blackberggroup.com/insights/${insight.slug}`,
+    "image": insight.coverImage?.url || "https://blackberggroup.com/default-image.jpg",
+    "description": insight.content?.text ? insight.content.text.split('. ')[0] + '.' : "No description available."
+  }));
 
   return (
     <Head>
@@ -60,12 +69,20 @@ const SEOHead = ({ page }) => {
       {/* Favicon */}
       <link rel="icon" href="/images/favicon.ico" />
 
-      <script type="application/ld+json">
-        {JSON.stringify(webpageJsonLd)}
-      </script>
+      {/* Inject JSON-LD for WebPage */}
+        <script type="application/ld+json">
+            {JSON.stringify(webpageJsonLd)}
+        </script>
+
+      {/* Inject JSON-LD for (Insights) */}
+      {insightsJsonLd?.map((jsonLd, index) => (
+        <script key={`insight-${index}`} type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      ))}
 
     </Head>
   );
 };
 
-export default SEOHead;
+export default SEOHeadInsights;

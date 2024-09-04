@@ -5,12 +5,13 @@ import ServicesSection from '@/app/components/home/ServicesSection';
 import AboutSection from '@/app/components/home/AboutSection';
 import CaseStudySection from '@/app/components/home/CaseStudySection';
 import InsightsSection from '@/app/components/home/InsightsSection';
+import SeoHeadHome from '@/app/components/seo/SeoHeadHome';
 
 function HomePage({ page, caseStudies, insights }) {
 
   return (
     <>
-      <SEOHead page={page} insights={insights} />
+      <SeoHeadHome page={page} insights={insights} />
       <HeroSection />
       <ServicesSection />
       <AboutSection />

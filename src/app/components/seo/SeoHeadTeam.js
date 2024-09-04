@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const SEOHead = ({ page }) => {
+const SEOHeadTeam = ({ page, employees }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
+  let articleJsonLd = null;
 
-  console.log('SEO Head Page: ', page);
+  console.log('Employees: ', employees);
 
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || '';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Meet The Team';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
 
   // Description
@@ -33,6 +34,35 @@ const SEOHead = ({ page }) => {
       }
     }
   };
+
+  const organizationJsonLd = 
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Blackberg Group, LLC",
+      "url": "https://www.blackberggroup.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blackberggroup.com/images/logo-dark.svg"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/blackberg-group/",
+      ],
+    }
+  ]
+  
+  const employeesJsonLd = employees.map((employee) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": employee.firstName + " " + employee.lastName,
+    "jobTitle": employee.position,
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Blackberg Group, LLC"
+    },
+    "image": employee.image.url || "",
+  }));
 
   return (
     <Head>
@@ -60,12 +90,25 @@ const SEOHead = ({ page }) => {
       {/* Favicon */}
       <link rel="icon" href="/images/favicon.ico" />
 
+      {/* Inject JSON-LD for WebPage */}
+        <script type="application/ld+json">
+            {JSON.stringify(webpageJsonLd)}
+        </script>
+
+      {/* Inject JSON-LD for Organization */}
       <script type="application/ld+json">
-        {JSON.stringify(webpageJsonLd)}
-      </script>
+            {JSON.stringify(organizationJsonLd)}
+        </script>
+
+      {/* Inject JSON-LD for Employees */}
+      {employeesJsonLd?.map((jsonLd, index) => (
+        <script key={`insight-${index}`} type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      ))}
 
     </Head>
   );
 };
 
-export default SEOHead;
+export default SEOHeadTeam;

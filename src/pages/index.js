@@ -2,8 +2,6 @@ import { getFeaturedCaseStudies, getFeaturedInsights, getPageBySlug } from '@/ap
 import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "../app/components/home/HeroSection";
 import ServicesSection from '@/app/components/home/ServicesSection';
-import gsap from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import AboutSection from '@/app/components/home/AboutSection';
 import CaseStudySection from '@/app/components/home/CaseStudySection';
 import InsightsSection from '@/app/components/home/InsightsSection';

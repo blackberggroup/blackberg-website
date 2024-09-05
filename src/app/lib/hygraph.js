@@ -1,6 +1,8 @@
 import { gql } from '@apollo/client';
 import client from '../lib/apollo-client';
 
+const stage = process.env.NEXT_PUBLIC_HYGRAPH_STAGE || 'PUBLISHED';
+
 export const getAllPosts = async () => {
     const { data } = await client.query({
         query: gql`
@@ -99,56 +101,64 @@ export const getPageBySlug = async (slug) => {
 }
 
 export const getAllCaseStudies = async () => {
-    const { data } = await client.query({
-        query: gql`
-            query GetCaseStudies { 
-                caseStudies {
-                    id
-                    title
-                    category
-                    slug
-                    excerpt
-                    coverImage {
-                        url
-                        altText
-                    }
-                      content {
-                        html
-                        markdown
-                        raw
-                        text
-                    }
-                }
-            }
-        `,
-    });
-    return data.caseStudies
-}
-
-export const getFeaturedCaseStudies = async () => {
   const { data } = await client.query({
       query: gql`
-          query GetFeaturedCaseStudies { 
-              caseStudies(where: { featured: true }) {
+          query GetCaseStudies($stage1: Stage!, $stage2: Stage) {
+              caseStudies(stage_in: [$stage1, $stage2]) {
                   id
-                  slug
                   title
                   category
-                  featured
+                  slug
+                  excerpt
                   coverImage {
                       url
                       altText
                   }
+                  content {
+                      html
+                      markdown
+                      raw
+                      text
+                  }
               }
           }
       `,
+      variables: { stage1: 'PUBLISHED', stage2: stage !== 'PUBLISHED' ? stage : null },
   });
-  return data.caseStudies
-}
+  return data.caseStudies;
+};
+
+export const getFeaturedCaseStudies = async () => {
+  try {
+    const { data } = await client.query({
+      query: gql`
+        query GetFeaturedCaseStudies {
+          caseStudies(where: { featured: true }) {
+            id
+            slug
+            title
+            category
+            featured
+            coverImage {
+              url
+              altText
+            }
+          }
+        }
+      `,
+    });
+
+    return data.caseStudies;
+  } catch (error) {
+    console.error('Error fetching featured case studies:', error);
+    return []; // Return an empty array or handle the error as needed
+  }
+};
 
 export const getCaseStudyBySlug = async (slug) => {
   try {
     console.log('Case Study Slug: ' + slug);
+    //console.log('Slug: ' + slug);
     const { data, errors } = await client.query({
         query: gql`
             query GetCaseStudyBySlug($slug: String!) {
@@ -156,11 +166,7 @@ export const getCaseStudyBySlug = async (slug) => {
                   slug
                   id
                   title
-                  category {
-                    slug
-                    title
-                    id
-                  }
+                  category 
                   client
                   coverImage {     
                     url       

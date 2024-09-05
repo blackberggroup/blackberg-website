@@ -1,3 +1,4 @@
+import PageTransitionIn from '@/app/components/PageTransitionIn';
 import SEOHead from '@/app/components/SEOHead';
 import ContentFirstSection from '@/app/components/case-studies/dynamic/ContentFirstSection';
 import DetailsSection from '@/app/components/case-studies/dynamic/DetailsSection';
@@ -8,13 +9,31 @@ import RelatedCaseStudiesSection from '@/app/components/case-studies/dynamic/Rel
 import ResultsSection from '@/app/components/case-studies/dynamic/ResultsSection';
 import StrategiesSection from '@/app/components/case-studies/dynamic/StrategiesSection';
 import { getCaseStudyBySlug, getPageBySlug } from '@/app/lib/hygraph';
+import { useEffect, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function CaseStudyPage ({ page }) {
 
+  const [isNavigating, setIsNavigating] = useState(false);
+  //gsap.registerPlugin(ScrollTrigger);
+  setTimeout(() => { ScrollTrigger.refresh() }, 100);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setIsNavigating(true);
+    }, 500);
+  })
+  
+  
   return (
     <>
+      <PageTransitionIn />
+      {!isNavigating &&
+        <div class="overlay-transition loading"></div>
+      }
       <SEOHead page={page} />
-      <DetailsSection page={page} />
+      <DetailsSection page={page}  />
       <FeaturedImageSection page={page} />
       <ContentFirstSection page={page} />
       <GalleryFirstSection page={page} />

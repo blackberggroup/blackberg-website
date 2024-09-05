@@ -26,7 +26,7 @@
             height: 100%;
             width: 100%;
             object-fit: cover;
-            transform-origin: center;
+            transform-origin: bottom;
           }
     }
   }
@@ -54,6 +54,63 @@
 
         p {
             width: 100%;
+        }
+    }
+}
+
+.case-study-gallery {
+
+    .img-reveal {
+        height: 100%;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    #gallery-img-one img {
+        height: 300px !important;
+
+        @include media-breakpoint-up(md) {
+            height: 489px !important;
+        }
+
+        @include media-breakpoint-up(xl) {
+            height: 589px !important;
+        }
+    }
+    #gallery-img-two {
+        height: 150px !important;
+
+        @include media-breakpoint-up(md) {
+            height: 200px !important;
+        }
+
+        @include media-breakpoint-up(xl) {
+            height: 277px !important;
+        }
+    }
+
+    &--secondary {
+
+        .img-reveal {
+            height: 100%;
+    
+            img {
+                object-fit: cover;
+            }
+        }
+        
+        img {
+            height: 300px !important;
+
+            @include media-breakpoint-up(md) {
+                height: 489px !important;
+            }
+
+            @include media-breakpoint-up(xl) {
+                height: 589px !important;
+            }
         }
     }
 }

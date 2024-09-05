@@ -74,7 +74,7 @@ const ServicesList = () => {
                         </div>
                     </Link>
                 </div>
-            </section>
+            </section>            
             {/* Services | Communications */}
             <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[2] = el)} aria-label="Communications Service Overview">
                 <div className="card card--service border-0">

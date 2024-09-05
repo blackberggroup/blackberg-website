@@ -32,6 +32,9 @@ const Footer = ({ props }) => {
                             <Link className="nav-link" href="/services/">Services</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" href="/insights/">Insights</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" href="/about/">About</Link>
                         </li>
                         <li className="nav-item">

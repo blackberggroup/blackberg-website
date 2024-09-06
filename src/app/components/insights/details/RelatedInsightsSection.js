@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import DateFormatted from '../../DateFormatted';
+import DateFormatted from '../../layout/DateFormatted';
 
 const RelatedInsightsSection = ({ relatedInsights }) => {
 

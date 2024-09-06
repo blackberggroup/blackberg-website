@@ -1,4 +1,4 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import ContentFirstSection from '@/app/components/case-studies/dynamic/ContentFirstSection';
 import DetailsSection from '@/app/components/case-studies/dynamic/DetailsSection';
 import FeaturedImageSection from '@/app/components/case-studies/dynamic/FeaturedImageSection';

@@ -1,5 +1,5 @@
+import SEOHead from '@/app/components/seo/SEOHead';
 import { getPageBySlug } from '@/app/lib/hygraph/pages';
-import SEOHead from '@/app/components/SEOHead';
 import HeroSection from "@/app/components/privacy-policy/HeroSection";
 import ContentSection from '@/app/components/privacy-policy/ContentSection';
 
@@ -18,7 +18,9 @@ export async function getServerSideProps(context) {
 
     // Extract the slug from the resolved URL
     // Remove leading slash
-    const slug = context.resolvedUrl.substring(1); 
+    const slug = context.resolvedUrl.substring(1);
+
+    console.log('Privacy Policy Slug: ' + slug)
     const page = await getPageBySlug(slug);
   
     return {

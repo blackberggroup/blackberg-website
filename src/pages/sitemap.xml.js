@@ -1,4 +1,4 @@
-import { getAllPagePaths } from '@/app/lib/hygraph/sitemap';
+import { getAllPagePaths } from '../../src/app/lib/hygraph/sitemap';
 
 import { getServerSideSitemapLegacy } from 'next-sitemap';
 
@@ -20,4 +20,6 @@ export const getServerSideProps = async (ctx) => {
   return getServerSideSitemapLegacy(ctx, fields);
 };
 
-export default function Sitemap() {}
+export default function Sitemap() {
+  return null; 
+}

@@ -1,20 +1,35 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const SEOHead = ({page}) => {
-
+const SEOHeadInsightDetails = ({ page }) => {
   const router = useRouter();
-  const canonicalUrl = `http://www.blackberggroup.com${router.asPath}`;
+  const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
+
+  console.log('Page: ', page);
+
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || 'Blackberg Group, LLC.';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Insights';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
+
   // Description
   const description = page?.seoOverride?.description || page?.description || 'Where Strategy Meets Creativity';
+
   // Image
   const image = page?.seoOverride?.image?.url || page?.coverImage?.image?.url || 'https://media.graphassets.com/JMyrcEGXSI2wH3oHnzBI';
 
-  //console.log('Page SEO Data: ', page);
-  
+  // JSON-LD
+  const webpageJsonLd = 
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": page.title,
+        "author": page.employee?.firstName + " " + page.employee?.lastName || "Unknown",
+        "datePublished": page.date,
+        "url": `https://blackberggroup.com/insights/${page.slug}`,
+        "image": page.coverImage?.url || "https://blackberggroup.com/default-image.jpg",
+        "description": page.content?.text ? page.content.text.split('. ')[0] + '.' : "No description available."
+  };
+
   return (
     <Head>
       <title>{fullTitle}</title>
@@ -40,8 +55,16 @@ const SEOHead = ({page}) => {
 
       {/* Favicon */}
       <link rel="icon" href="/images/favicon.ico" />
+
+      {/* Inject JSON-LD for WebPage */}
+        <script type="application/ld+json">
+            {JSON.stringify(webpageJsonLd)}
+        </script>
+
     </Head>
   );
 };
 
-export default SEOHead;
+export default SEOHeadInsightDetails;
+
+

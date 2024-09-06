@@ -1,4 +1,4 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import HeroSection from "@/app/components/services/operations/HeroSection";
 import IntroSection from "@/app/components/services/operations/IntroSection";
 import ProjectManagementSection from "@/app/components/services/operations/ProjectManagementSection";
@@ -22,7 +22,7 @@ function Operations({ page }) {
 
 export async function getServerSideProps(context) {
 
-  const slug = context.resolvedUrl.substring(1);
+  const slug = context.resolvedUrl.split('/').filter(Boolean)[1];
 
   const [page] = await Promise.all([
       getPageBySlug(slug)

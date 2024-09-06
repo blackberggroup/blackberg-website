@@ -1,6 +1,6 @@
-import Header from "../app/components/Header";
-import Footer from "../app/components/Footer";
-import BootstrapClient from '../app/components/BootstrapClient.js';
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import BootstrapClient from './components/layout/BootstrapClient.js/index.js';
 import "../app/scss/main.scss";
 
 

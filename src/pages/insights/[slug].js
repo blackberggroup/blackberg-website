@@ -1,16 +1,16 @@
-import SEOHead from '@/app/components/SEOHead';
 import ContentSection from '@/app/components/insights/details/ContentSection';
 import DetailsSection from '@/app/components/insights/details/DetailsSection';
 import FeaturedImageSection from '@/app/components/insights/details/FeaturedImageSection';
 import RelatedInsightsSection from '@/app/components/insights/details/RelatedInsightsSection';
 import ResourcesSection from '@/app/components/insights/details/ResourcesSection';
+import SEOHeadInsightDetails from '@/app/components/seo/SeoHeadInsightDetails';
 import { getInsightBySlug, getRelatedInsights } from '@/app/lib/hygraph/insights';
 
 function InsightDetailPage ({ page, relatedInsights }) {
 
   return (
     <>
-        <SEOHead page={page} />
+        <SEOHeadInsightDetails page={page} />
         <DetailsSection page={page} />
         <FeaturedImageSection page={page} />
         <ContentSection page={page} />

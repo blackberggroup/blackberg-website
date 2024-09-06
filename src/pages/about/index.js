@@ -1,5 +1,5 @@
 import { getPageBySlug } from '@/app/lib/hygraph/pages';
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import HeroSection from '@/app/components/about/HeroSection';
 import MissionVisionSection from '@/app/components/about/MissionVisionSection';
 import OurTeamSection from '@/app/components/about/OurTeamSection';

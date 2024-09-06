@@ -26,6 +26,7 @@ export const getAllPagePaths = async () => {
       `,
     });
 
+    console.error("Sitemap data:", data);
     const pages = data.pages.map(({ slug, parentPage }) => {
       if (parentPage && parentPage.slug) {
         return `/${parentPage.slug}/${slug}`;
@@ -55,3 +56,5 @@ export const getAllPagePaths = async () => {
   }
     
   };
+
+  export default getAllPagePaths;

@@ -1,5 +1,5 @@
+import SEOHead from '@/app/components/seo/SEOHead';
 import { getPageBySlug } from '@/app/lib/hygraph/pages';
-import SEOHead from '@/app/components/SEOHead';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
 function Page ({ page }) {

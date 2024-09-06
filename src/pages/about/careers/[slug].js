@@ -1,14 +1,14 @@
 import ContentSection from '@/app/components/careers/dynamic/ContentSection';
 import FormSection from '@/app/components/careers/dynamic/FormSection';
 import HeroSection from '@/app/components/careers/dynamic/HeroSection';
-import SEOHead from '@/app/components/SEOHead';
+import SEOHeadCareerDetails from '@/app/components/seo/SeoHeadCareerDetails';
 import { getCareerBySlug } from '@/app/lib/hygraph/careers';
 
 function CareerDetailPage ({ page }) {
 
   return (
     <>
-      <SEOHead page={page} />
+      <SEOHeadCareerDetails page={page} />
       <HeroSection page={page} />
       <ContentSection page={page} />
       <FormSection page={page} />

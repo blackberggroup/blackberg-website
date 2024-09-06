@@ -1,11 +1,11 @@
-import Header from "../app/components/layout/Header";
-import Footer from "../app/components/layout/Footer";
-import BootstrapClient from '../app/components/layout/BootstrapClient';
-import "../app/styles/globals.scss";
-import "../app/scss/main.scss";
-import SmoothScrolling from "../app/components/layout/SmoothScrolling";
-import { getNavigation } from '@/app/lib/hygraph';
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+import BootstrapClient from '@/app/components/layout/BootstrapClient';
+import "@/app/styles/globals.scss";
+import "@/app/scss/main.scss";
+import SmoothScrolling from "@/app/components/layout/SmoothScrolling";
 import NavInteractivity from '@/app/components/layout/HeaderInteractive';
+import { getNavigation } from '@/app/lib/hygraph/navigation';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ScrollToTop from "@/app/components/layout/ScrollToTop";

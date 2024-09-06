@@ -1,7 +1,7 @@
 import SeoHeadServices from '@/app/components/seo/SeoHeadServices';
 import HeroSection from "@/app/components/services/HeroSection";
 import ServicesSection from '@/app/components/services/ServicesSection';
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function Services({page }) {
 

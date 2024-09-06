@@ -230,7 +230,7 @@ export default async function POST(req, res) {
       await sendConfirmationEmail(firstName, email);
       res.status(200).json({ message: 'Message sent successfully!' });
     } catch (error) {
-      console.log('MAIL Error:', error.response.body);
+      //console.log('MAIL Error:', error.response.body);
       res.status(500).json({ error: 'Failed to send message.' });
     }
   } else {

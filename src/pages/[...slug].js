@@ -1,4 +1,4 @@
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 import SEOHead from '@/app/components/seo/SEOHead';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
@@ -29,10 +29,10 @@ export async function getServerSideProps(context) {
 
     // console.log('Secondary page slug: ', path);
     const secondItem = slug[1];
-    console.log('Secondary page second item: ', secondItem);
+    //console.log('Secondary page second item: ', secondItem);
     const page = await getPageBySlug(secondItem);
 
-    console.log('Page: ', page);
+    //console.log('Page: ', page);
 
     if (!page) {
         return {

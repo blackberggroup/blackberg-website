@@ -1,6 +1,6 @@
 export default function handler(req, res) {
     const environment = process.env.VERCEL_ENV;
-    console.log('Environment: ' + environment);
+    //console.log('Environment: ' + environment);
 
     let robotsTxt = '';
 

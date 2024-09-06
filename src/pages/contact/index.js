@@ -1,7 +1,7 @@
 import SEOHead from '@/app/components/seo/SEOHead';
 import FormSection from '@/app/components/contact/FormSection';
 import HeroSection from '@/app/components/contact/HeroSection';
-import { getPageBySlug } from '@/app/lib/hygraph';
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
 function Contact({page }) {
 

@@ -1,10 +1,11 @@
-import { getFeaturedCaseStudies, getFeaturedInsights, getPageBySlug } from '@/app/lib/hygraph';
-import SEOHead from '@/app/components/seo/SEOHead';
-import HeroSection from "@/app/components/home/HeroSection";
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
+import { getFeaturedInsights } from '@/app/lib/hygraph/insights';
+import { getFeaturedCaseStudies } from '@/app/lib/hygraph/case-studies';
 import ServicesSection from '@/app/components/home/ServicesSection';
 import AboutSection from '@/app/components/home/AboutSection';
 import CaseStudySection from '@/app/components/home/CaseStudySection';
 import InsightsSection from '@/app/components/home/InsightsSection';
+import HeroSection from "@/app/components/home/HeroSection";
 import SeoHeadHome from '@/app/components/seo/SeoHeadHome';
 
 function HomePage({ page, caseStudies, insights }) {

@@ -7,7 +7,7 @@ import GallerySecondSection from '@/app/components/case-studies/dynamic/GalleryS
 import RelatedCaseStudiesSection from '@/app/components/case-studies/dynamic/RelatedCaseStudiesSection';
 import ResultsSection from '@/app/components/case-studies/dynamic/ResultsSection';
 import StrategiesSection from '@/app/components/case-studies/dynamic/StrategiesSection';
-import { getCaseStudyBySlug, getPageBySlug } from '@/app/lib/hygraph';
+import { getCaseStudyBySlug } from '@/app/lib/hygraph/case-studies';
 
 function CaseStudyPage ({ page }) {
 

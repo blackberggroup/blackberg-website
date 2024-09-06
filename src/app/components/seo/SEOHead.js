@@ -5,7 +5,7 @@ const SEOHead = ({ page }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
 
-  console.log('SEO Head Page: ', page);
+  //console.log('SEO Head Page: ', page);
 
   // Title 
   const pageTitle = page?.seoOverride?.title || page?.title || '';

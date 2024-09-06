@@ -9,7 +9,7 @@ const SeoHeadHome = ({ page, insights }) => {
   console.log('Page: ', page);
 
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || 'Blackberg Group, LLC.';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Home';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
 
   // Description

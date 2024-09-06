@@ -6,11 +6,11 @@ const SEOHeadInsights = ({ page, insights }) => {
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
 
   // Title 
-  const pageTitle = page?.seoOverride?.title || page?.title || 'Careers';
+  const pageTitle = page?.seoOverride?.title || page?.title || 'Insights';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
 
   // Description
-  const description = page?.seoOverride?.description || page?.description || 'Work With Us';
+  const description = page?.seoOverride?.description || page?.description || 'Where Strategy Meets Creativity';
 
   // Image
   const image = page?.seoOverride?.image?.url || page?.coverImage?.image?.url || 'https://media.graphassets.com/JMyrcEGXSI2wH3oHnzBI';

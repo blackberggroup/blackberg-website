@@ -1,6 +1,6 @@
 import { getPostBySlug } from '../../app/lib/hygraph';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 
 function ResourcePage ({ post }) {
 

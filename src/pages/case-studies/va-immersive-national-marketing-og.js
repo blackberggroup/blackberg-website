@@ -1,4 +1,4 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import { getPageBySlug } from '@/app/lib/hygraph';
 import RelatedCaseStudiesSection from '@/app/components/case-studies/va-immersive-marketing/RelatedCaseStudiesSection';
 import ResultsSection from '@/app/components/case-studies/va-immersive-marketing/ResultsSection';

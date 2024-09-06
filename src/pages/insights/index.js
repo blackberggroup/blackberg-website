@@ -1,13 +1,14 @@
 import { getAllInsights, getPageBySlug } from '../../app/lib/hygraph';
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import HeroSection from '@/app/components/insights/HeroSection';
 import InsightsListSection from '@/app/components/insights/InsightsListSection';
+import SEOHeadInsights from '@/app/components/seo/SeoHeadInsights';
 
 function Insights ({ page, insights }) {
 
   return (
     <>
-      <SEOHead page={page} />
+      <SEOHeadInsights page={page} insights={insights}/>
       <HeroSection />
       <InsightsListSection insights={insights} />
     </>

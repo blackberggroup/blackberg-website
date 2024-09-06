@@ -1,14 +1,15 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import HeroSection from '@/app/components/about/team/HeroSection';
 import JobOpeningsSection from '@/app/components/about/team/JobOpeningsSection';
 import TeamGridSection from '@/app/components/about/team/TeamGridSection';
 import { getAllEmployees, getPageBySlug } from '@/app/lib/hygraph';
+import SEOHeadTeam from '@/app/components/seo/SeoHeadTeam';
 
 function TeamPage({ page, employees }) {
 
   return (
     <>
-        <SEOHead page={page} />
+        <SEOHeadTeam page={page} employees={employees} />
         <HeroSection />
         {employees?.length > 0 &&
           <TeamGridSection employees={employees}/>

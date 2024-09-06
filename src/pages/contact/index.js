@@ -1,4 +1,4 @@
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import FormSection from '@/app/components/contact/FormSection';
 import HeroSection from '@/app/components/contact/HeroSection';
 import { getPageBySlug } from '@/app/lib/hygraph';

@@ -1,14 +1,14 @@
-import Header from "../app/components/Header";
-import Footer from "../app/components/Footer";
-import BootstrapClient from '../app/components/BootstrapClient';
+import Header from "../app/components/layout/Header";
+import Footer from "../app/components/layout/Footer";
+import BootstrapClient from '../app/components/layout/BootstrapClient';
 import "../app/styles/globals.scss";
 import "../app/scss/main.scss";
-import SmoothScrolling from "../app/components/SmoothScrolling";
+import SmoothScrolling from "../app/components/layout/SmoothScrolling";
 import { getNavigation } from '@/app/lib/hygraph';
-import NavInteractivity from '@/app/components/HeaderInteractive';
+import NavInteractivity from '@/app/components/layout/HeaderInteractive';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import ScrollToTop from "@/app/components/ScrollToTop";
+import ScrollToTop from "@/app/components/layout/ScrollToTop";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 

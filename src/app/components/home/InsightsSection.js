@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from 'next/image';
-import DateFormatted from '../DateFormatted';
+import DateFormatted from '../layout/DateFormatted';
 
 const InsightsSection = ({ insights }) => {
 

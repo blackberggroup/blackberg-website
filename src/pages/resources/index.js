@@ -1,6 +1,6 @@
 import PostCard from '../../app/components/cards/PostCard';
 import { getPageBySlug, getAllPosts } from '../../app/lib/hygraph';
-import SEOHead from '@/app/components/SEOHead';
+import SEOHead from '@/app/components/seo/SEOHead';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
 function Resources ({ page, posts }) {

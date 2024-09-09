@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-        {process.env.NODE_ENV === 'production' && (
+        {process.env.VERCEL_ENV === 'production' && (
         <>
         <script
           dangerouslySetInnerHTML={{
@@ -23,7 +23,7 @@ class MyDocument extends Document {
         <body>
             <Main />
             <NextScript />
-            {process.env.NODE_ENV === 'production' && (
+            {process.env.VERCEL_ENV === 'production' && (
             <>
             <noscript
               dangerouslySetInnerHTML={{

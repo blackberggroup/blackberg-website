@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
   
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.VERCEL_ENV === 'production') {
       const handleRouteChange = (url) => {
         window.scrollTo(0, 0);
         window.dataLayer.push({

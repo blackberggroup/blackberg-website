@@ -8,7 +8,7 @@ const GallerySecondSection = ({ page }) => {
             <div className="container">
                 <div className="row gx-4 gx-md-5">
                     {page.gallerySecondary && page.gallerySecondary.length > 0 && (
-                    <div class="col-12 col-md-6">
+                    <div className="col-12 col-md-6">
                         <Image src={page.gallerySecondary[0].url}
                              className="img-fluid rounded-4 w-100 position-relative" 
                              alt={page.gallerySecondary[0].altText}
@@ -17,7 +17,7 @@ const GallerySecondSection = ({ page }) => {
                     </div>
                     )}
                     {page.gallerySecondary && page.gallerySecondary.length > 1 && (
-                    <div class="col-12 col-md-6 mt-4 mt-md-auto">
+                    <div className="col-12 col-md-6 mt-4 mt-md-auto">
                         <Image src={page.gallerySecondary[1].url}
                              className="img-fluid rounded-4 w-100 position-relative" 
                              alt={page.gallerySecondary[1].altText}

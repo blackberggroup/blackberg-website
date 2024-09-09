@@ -23,7 +23,7 @@ const ChangeManagementToolkitSection = () => {
             <section id="organizational-effectiveness-change-management-toolkit" className="py-8 py-md-11">
                 <div className="container">
                     <div className="section-wrapper rounded-4 p-6 p-md-8">
-                        <div class="text-center mb-5 mb-lg-8">
+                        <div className="text-center mb-5 mb-lg-8">
                             <span className="text-headline-label text-headline-label--secondary text-uppercase text-white">Blackberg Group</span>
                             <h2 className="text-headline display-5 text-white">Our Change Management Toolkit</h2>
                         </div>
@@ -31,7 +31,7 @@ const ChangeManagementToolkitSection = () => {
                             <div className="col-12">
                                 <p>Blackberg has built a customizable change management toolkit to equip executives, managers, and workforces with the necessary tools to confidently embrace change. Rooted in Kotter&lsquo;s 8-Step Change Model, Prosci best practices, and our practitioner insights, our tools range from change assessments and communications checklists to manager trainings and enterprise roadmaps.</p>
                                 <div className="row mt-8">
-                                    <div class="col-12 col-md-8 col-lg-6 col-xl-4 offset-md-2 offset-lg-3 offset-xl-4">
+                                    <div className="col-12 col-md-8 col-lg-6 col-xl-4 offset-md-2 offset-lg-3 offset-xl-4">
                                         <div id="toolkit-prosci" className="toolkit-card card">
                                             <div className="card-body align-items-center d-flex flex-row shadow-lg">
                                                 <div className="icon icon--secondary me-3">
@@ -45,7 +45,7 @@ const ChangeManagementToolkitSection = () => {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div class="col-12 col-md-8 col-lg-5 col-xl-4 offset-md-2 offset-lg-0 offset-xl-1  mt-6 mt-lg-8">
+                                    <div className="col-12 col-md-8 col-lg-5 col-xl-4 offset-md-2 offset-lg-0 offset-xl-1  mt-6 mt-lg-8">
                                         <div id="toolkit-kotters" className="toolkit-card card">
                                             <div className="card-body align-items-center d-flex flex-row shadow-lg">
                                                 <div className="icon icon--secondary me-3">
@@ -57,7 +57,7 @@ const ChangeManagementToolkitSection = () => {
                                             </div>                                            
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-8 col-lg-5 col-xl-4 offset-md-2 offset-lg-2 offset-xl-2 mt-6 mt-lg-8">
+                                    <div className="col-12 col-md-8 col-lg-5 col-xl-4 offset-md-2 offset-lg-2 offset-xl-2 mt-6 mt-lg-8">
                                         <div id="toolkit-insights" className="toolkit-card card">
                                             <div className="card-body align-items-center d-flex flex-row shadow-lg">
                                                 <div className="icon icon--secondary me-3">

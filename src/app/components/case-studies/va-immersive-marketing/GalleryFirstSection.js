@@ -9,7 +9,7 @@ const GalleryFirstSection = () => {
         <section id="gallery" className="py-8 py-md-11" aria-label="Gallery">
             <div className="container">
                 <div className="row gx-3 gy-3 gx-lg-5">
-                    <div class="col-12 col-md-7 mt-0">
+                    <div className="col-12 col-md-7 mt-0">
                         <Image src="/images/case-studies/va-immersive/va-immersive-person-using-vr-2.webp"
                              className="img-fluid rounded-4 w-100 position-relative" 
                              alt="Person wearing VR headset" 

@@ -64,7 +64,7 @@ const handleSubmit = async (e) => {
                                 <label htmlFor="messageInput" className="form-label">Message</label>
                                 <textarea className="form-control" id="messageInput" placeholder="Leave us a message" rows="4" name="message" value={formData.message} onChange={handleChange} required></textarea>
                             </div>
-                            <div class="visually-hidden" aria-hidden="true">
+                            <div className="visually-hidden" aria-hidden="true">
                                 <label htmlFor="extraInfo" className="form-label">Extra Info</label>
                                 <input
                                     type="text"

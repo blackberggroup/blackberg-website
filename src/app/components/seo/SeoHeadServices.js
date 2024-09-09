@@ -6,13 +6,13 @@ const SeoHeadServices = ({ page }) => {
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
   let articleJsonLd = null;
 
-  console.log('Page: ', page);
+  //console.log('Page: ', page);
 
   // Title 
   const pageTitle = page?.seoOverride?.title || page?.title || 'Services';
   const fullTitle = `${pageTitle} | Blackberg Group, LLC.`;
 
-  console.log('Full Title: ', fullTitle);
+  //console.log('Full Title: ', fullTitle);
 
   // Description
   const description = page?.seoOverride?.description || page?.description || 'Where Strategy Meets Creativity';

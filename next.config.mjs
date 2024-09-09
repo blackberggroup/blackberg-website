@@ -6,12 +6,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const nextConfig = {
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
   sassOptions: {
     includePaths: [path.join(__dirname, 'scss')],
   },
   images: {
-    domains: ['media.graphassets.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.graphassets.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   async rewrites() {
     return [

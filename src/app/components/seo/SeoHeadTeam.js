@@ -6,7 +6,7 @@ const SEOHeadTeam = ({ page, employees }) => {
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
   let articleJsonLd = null;
 
-  console.log('Employees: ', employees);
+  //console.log('Employees: ', employees);
 
   // Title 
   const pageTitle = page?.seoOverride?.title || page?.title || 'Meet The Team';

@@ -53,8 +53,8 @@ const BenefitsSection = () => {
                 </div>
                 <div className="row mt-6 mt-md-8 gx-5 justify-content-center">
                     <div className="col-12 col-md-6 col-lg-4 position-relative">
-                        <div class="circle-detail circle-36 z-1"></div>
-                        <div class="circle-detail circle-76 z-1"></div>
+                        <div className="circle-detail circle-36 z-1"></div>
+                        <div className="circle-detail circle-76 z-1"></div>
                         <div className="bg-white rounded-4 p-4 p-md-5 benefits-card position-relative z-2 h-100">
                             <Image src="/images/about/professional-development-icon.webp"
                                 className="img-fluid position-relative h-auto benefits-icon"
@@ -75,7 +75,7 @@ const BenefitsSection = () => {
                         </div>
                     </div>
                     <div className="col-12 col-md-6 col-lg-4 position-relative mt-6 mt-lg-0">
-                    <div class="circle-detail circle-106 z-1"></div>
+                    <div className="circle-detail circle-106 z-1"></div>
                         <div className="bg-white rounded-4 p-4 p-md-5 benefits-card position-relative z-2 h-100">
                             <Image src="/images/about/corporate-social-responsibility-icon.webp"
                                 className="img-fluid position-relative h-auto benefits-icon"

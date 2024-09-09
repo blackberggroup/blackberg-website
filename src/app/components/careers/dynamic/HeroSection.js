@@ -20,7 +20,7 @@ const HeroSection = ({ page }) => {
                                 <h1 className="display-5 mb-3 mb-lg-5">{page.title}</h1>
                             </div>                       
                             <div className="hero-details d-flex justify-content-center text-figtree">
-                                <div class="detail detail--location me-3 d-flex align-items-center">
+                                <div className="detail detail--location me-3 d-flex align-items-center">
                                         <Image src="/images/location-icon.svg"
                                         className="img-fluid position-relative me-1" 
                                         alt="location pin icon"
@@ -28,7 +28,7 @@ const HeroSection = ({ page }) => {
                                         height="20"/>
                                     <span>{page.location}</span>
                                 </div>
-                                <div class="detail detail--type d-flex align-items-center">
+                                <div className="detail detail--type d-flex align-items-center">
                                     <Image src="/images/clock-icon.svg"
                                     className="img-fluid me-1" 
                                     alt="job type icon"

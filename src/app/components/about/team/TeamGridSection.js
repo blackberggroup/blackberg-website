@@ -28,7 +28,7 @@ const TeamGridSection = ({employees}) => {
 
                     {employees.map((employee, index) => (
                         <div className="member-col col-12 col-sm-6 col-lg-4 col-xl-3 mb-5 mb-md-8" key={index}>
-                            <div class="member-card d-flex flex-column align-items-center h-100">
+                            <div className="member-card d-flex flex-column align-items-center h-100">
                                 <div className="circle circle-1"></div>
                                 <div className="circle circle-2"></div>
                                 <div className="member-image w-100 mb-4 d-flex justify-content-center position-relative z-1">

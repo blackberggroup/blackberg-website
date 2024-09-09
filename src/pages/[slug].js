@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
     const slug = context.resolvedUrl.substring(1); 
     const page = await getPageBySlug(slug);
 
-    console.log('Page: ', page);
+    //console.log('Page: ', page);
 
     if (!page) {
         return {

@@ -5,7 +5,7 @@ const SEOHeadCareerDetails = ({ page }) => {
   const router = useRouter();
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
 
-  console.log('Page: ', page);
+  //console.log('Page: ', page);
 
   const employmentTypeMapping = {
     fullTime: "FULL_TIME",

@@ -7,7 +7,7 @@ const GalleryGrid = ({ gallery }) => {
             <div className="container p-0">
                 <div className="row gx-3 gy-3 gx-lg-5">
                     {gallery.images && gallery.images.length > 0 && (
-                    <div class="col-12 col-md-7 mt-0">
+                    <div className="col-12 col-md-7 mt-0">
                         <Image src={gallery.images[0].url}
                             className="img-fluid rounded-4 w-100 h-100 position-relative" 
                             alt={gallery.images[0].altText || `${gallery.title} ${index}`}

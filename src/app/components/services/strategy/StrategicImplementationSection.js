@@ -43,22 +43,22 @@ const StrategicImplementationSection = () => {
                         <p>Our experts collaborate with clients every step of the way, ensuring strategic initiatives are aligned with organizational goals and maximize impact. Blackberg&lsquo;s ongoing support uses established benchmarks and KPIs to monitor progress, measure success, and adjust course based on feedback. With Blackberg, vision becomes a measurable, repeatable reality that sets you on a path to success.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-lg-8 offset-lg-2">
-                        <div class="strategic-implementation__image py-8 text-center position-relative">
-                            <div class="strategic-implementation__desktop d-inline-block mx-auto z-2">
+                <div className="row">
+                    <div className="col-12 col-lg-8 offset-lg-2">
+                        <div className="strategic-implementation__image py-8 text-center position-relative">
+                            <div className="strategic-implementation__desktop d-inline-block mx-auto z-2">
                                 <img src="/images/services/strategy/strategic-implementation-desktop.webp" className="img-fluid" alt="Screenshot of a desktop dashboard" />
                             </div>
-                            <div class="strategic-implementation__mobile position-absolute top-0 end-0 z-3">
+                            <div className="strategic-implementation__mobile position-absolute top-0 end-0 z-3">
                                 <img src="/images/services/strategy/strategic-implementation-mobile.webp" className="img-fluid" alt="Screenshot of a mobile dashboard" />
                             </div> 
-                            <div class="strategic-implementation__circles position-absolute top-50 end-0 translate-middle-y z-n1 mt-3">
+                            <div className="strategic-implementation__circles position-absolute top-50 end-0 translate-middle-y z-n1 mt-3">
                                 <img src="/images/services/strategy/circles.svg" className="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div className="row">
                 <div className="col-12 col-lg-8 offset-lg-2">
                         <p>As part of our implementation, Blackberg develops and deploys dashboard tools that offer executives with continuous monitoring of their strategy&lsquo;s progress. We customize views to your unique strategic goals and performance measurements.</p>
                     </div>

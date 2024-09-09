@@ -6,7 +6,7 @@ const SeoHeadHome = ({ page, insights }) => {
   const canonicalUrl = `https://www.blackberggroup.com${router.asPath}`;
   let articleJsonLd = null;
 
-  console.log('Page: ', page);
+  //console.log('Page: ', page);
 
   // Title 
   const pageTitle = page?.seoOverride?.title || page?.title || 'Home';

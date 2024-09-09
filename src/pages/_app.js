@@ -16,21 +16,24 @@ function MyApp({ Component, pageProps, nav, pageName }) {
 
   const router = useRouter();
   gsap.registerPlugin(ScrollTrigger);
+  
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      window.scrollTo(0, 0);
-      window.dataLayer.push({
-        event: 'pageview',
-        page: url,
-      });
-    };
+    if (process.env.VERCEL_ENV === 'production') {
+      const handleRouteChange = (url) => {
+        window.scrollTo(0, 0);
+        window.dataLayer.push({
+          event: 'pageview',
+          page: url,
+        });
+      };
 
-    router.events.on('routeChangeComplete', handleRouteChange);
-    
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
+      router.events.on('routeChangeComplete', handleRouteChange);
+      
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange);
+      };
+    }
     
   }, [router]);
 

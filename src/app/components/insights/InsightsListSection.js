@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import DateFormatted from '../layout/DateFormatted';
+import React, { useState } from 'react';
 import InsightCategoryFilter from './InsightCategoryFilter';
 
 const InsightsListSection = ({ insights }) => {
@@ -57,7 +56,7 @@ const InsightsListSection = ({ insights }) => {
                                             </div>
                                             <div className="card-body d-flex flex-column p-0 mt-3">
                                                 <span className="h4 card-title mb-3">{insight.title}</span>
-                                                <DateFormatted dateString={insight.date} />
+                                                <span>{insight.formattedDate}</span>
                                                 <div className="card-author d-flex align-items-center mt-2 pt-1">
                                                     <Image src={insight.employee.image.url}
                                                     className="img-fluid position-relative" 

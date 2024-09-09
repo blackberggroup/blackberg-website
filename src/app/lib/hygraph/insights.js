@@ -10,6 +10,7 @@ export const getAllInsights = async () => {
                   slug
                   title
                   category  {
+                    id
                     title
                   }
                   content {
@@ -19,12 +20,15 @@ export const getAllInsights = async () => {
                     text
                   }
                   coverImage {
+                    id
                     url
                     altText
                   }
                   date
                   employee {
+                    id
                     image {
+                      id
                       url
                     }
                     lastName
@@ -47,6 +51,7 @@ export const getFeaturedInsights = async () => {
                   slug
                   title
                   category  {
+                    id
                     title
                   }
                   content {
@@ -56,11 +61,13 @@ export const getFeaturedInsights = async () => {
                     text
                   }
                   coverImage {
+                    id
                     url
                     altText
                   }
                   date
                   employee {
+                    id
                     image {
                       url
                     }
@@ -80,7 +87,7 @@ export const getInsightBySlug = async (slug) => {
       query: gql`
           query GetInsightBySlug($slug: String!) {
               insight(where: { slug: $slug }) {
-                 id
+                  id
                   slug
                   title
                   category  {
@@ -115,21 +122,26 @@ export const getInsightBySlug = async (slug) => {
                     }
                   }
                   coverImage {
+                    id
                     url
                     altText
                   }
                   date
                   employee {
+                    id
                     image {
+                      id
                       url
                     }
                     lastName
                     firstName
                   } 
                   seoOverride {
+                    id
                     description
                     title
                     image {
+                      id
                       altText
                       url
                     }
@@ -176,18 +188,22 @@ export const getRelatedInsights = async (categoryArray, insightId) => {
         slug
         title
         category {
+          id
           title
         }
         content {
           raw
         }
         coverImage {
+          id
           url
           altText
         }
         date
         employee {
+          id
           image {
+            id
             url
           }
           lastName

@@ -31,9 +31,9 @@ const MissionVisionSection = () => {
                             </div>
                         </div>                        
                         <div className="col-12 col-md-6 col-xl-5 col-xxl-4">
-                            <h2 className="display-5 mb-3">Mission</h2>
+                            <h2 className="h2 mb-3">Mission</h2>
                             <p>Unite strategic operations with creative marketing to uplift public service missions.</p>
-                            <h2 className="display-5 mb-3 mt-6">Vision</h2>
+                            <h2 className="h2 mb-3 mt-6">Vision</h2>
                             <p>Advance public service missions and connect them with those who it serves. Together, we shape hearts and minds behind public service. </p>
                         </div>
                     </div>

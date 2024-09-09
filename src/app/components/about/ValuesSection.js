@@ -78,7 +78,7 @@ const ValuesSection = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-6 text-white ps-auto ps-xxl-10 mt-5 mt-md-0 ms-auto text-container">
-                            <h3 className="h2 mb-3">Professionalism</h3>
+                            <h3 className="display-6 mb-3">Professionalism</h3>
                             <p>{"Our team thrives on precision, integrity, and a relentless pursuit of quality. Professionalism is not merely what we do; it’s who we are—a team committed to setting the gold standard."}</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ const ValuesSection = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto  text-container">
-                            <h3 className="h2 mb-3">Boldness</h3>
+                            <h3 className="display-6 mb-3">Boldness</h3>
                             <p>{"Our team thrives on precision, integrity, and a relentless pursuit of quality. Professionalism is not merely what we do; it’s who we are—a team committed to setting the gold standard."}</p>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const ValuesSection = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto text-container">
-                            <h3 className="h2 mb-3">Entrepreneurialism</h3>
+                            <h3 className="display-6 mb-3">Entrepreneurialism</h3>
                             <p>{"We believe in empowering bold and thoughtful ideas. We dare to dream big, think beyond conventional limits, and redefine industry norms. Our consultants are fearless in pushing the boundaries of conventional consulting and envisioning new possibilities to drive better solutions."}</p>
                         </div>
                     </div>
@@ -162,7 +162,7 @@ const ValuesSection = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto text-container">
-                            <h3 className="h2 mb-3">Grit</h3>
+                            <h3 className="display-6 mb-3">Grit</h3>
                             <p>{"Grit is the silent force that propels us through challenges. In the face of adversity, we don’t back down; we dig in. We thrive on perseverance and tenacity, turning obstacles into steppingstones for success."}</p>
                         </div>
                     </div>

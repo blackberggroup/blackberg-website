@@ -6,6 +6,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+        {process.env.NODE_ENV === 'production' && (
+        <>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,15 +17,21 @@ class MyDocument extends Document {
             })(window,document,'script','dataLayer','GTM-TJH68ZFB');`,
           }}
         />
+        </>
+        )}
         </Head>
         <body>
             <Main />
             <NextScript />
+            {process.env.NODE_ENV === 'production' && (
+            <>
             <noscript
               dangerouslySetInnerHTML={{
                 __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJH68ZFB" height="0" width="0" style="display: none; visibility: hidden;" />`,
               }}
             />
+            </>
+          )}
         </body>
       </Html>
     );

@@ -39,7 +39,18 @@ export const getAllInsights = async () => {
       `,
   });
   //console.log('Insights: ', data.insights);
-  return data.insights
+
+  const insights = data.insights.map(insight => ({
+    ...insight,
+    formattedDate: new Date(insight.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  }));
+
+  return insights;
+
 }
 
 export const getFeaturedInsights = async () => {
@@ -78,7 +89,17 @@ export const getFeaturedInsights = async () => {
           }
       `,
   });
-  return data.insights
+
+  const insights = data.insights.map(insight => ({
+    ...insight,
+    formattedDate: new Date(insight.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  }));
+
+  return insights;
 }
 
 export const getInsightBySlug = async (slug) => {
@@ -158,7 +179,19 @@ export const getInsightBySlug = async (slug) => {
   //     throw new Error("Failed to fetch insight.");
   // }
   //console.log('insight: ', data.insight);
-  return data.insight
+  //return data.insight
+
+  const insight = {
+    ...data.insight,
+    formattedDate: new Date(data.insight.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+  };
+  
+  return insight;
+
 } catch (error) {
     if (error.networkError) {
       const { response, result } = error.networkError;
@@ -221,7 +254,19 @@ export const getRelatedInsights = async (categoryArray, insightId) => {
   }
 
   //console.log('Related: ', data);
-  return data.insights;
+  //return data.insights;
+
+  const insights = data.insights.map(insight => ({
+    ...insight,
+    formattedDate: new Date(insight.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  }));
+
+  return insights;
+
 } catch (error) {
   if (error.networkError) {
     const { response, result } = error.networkError;

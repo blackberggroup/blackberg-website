@@ -1,5 +1,4 @@
 import React from 'react';
-import DateFormatted from '../../layout/DateFormatted';
 
 const DetailsSection = ({page}) => {
 
@@ -14,7 +13,7 @@ const DetailsSection = ({page}) => {
                         <div className="d-flex flex-column flex-md-row text-figtree">
                             <span className="fw-bold-800 mb-2 me-4 me-md-6">{page.employee.firstName} {page.employee.lastName}</span>
                             <span className="label-data text-noto">
-                                <DateFormatted dateString={page.date} />
+                            <span>{page.formattedDate}</span>
                             </span>
                         </div>
                         {page.category && page.category.length > 0 && (

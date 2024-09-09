@@ -1,39 +1,22 @@
-// import { useEffect, useState } from 'react';
-
-// const DateFormatted = ({ dateString }) => {
-//     const [formattedDate, setFormattedDate] = useState('');
-
-//     useEffect(() => {
-//         if (dateString) {
-//             const date = new Date(dateString);
-//             if (!isNaN(date.getTime())) {
-//                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
-//                 setFormattedDate(new Intl.DateTimeFormat('en-US', options).format(date));
-//             } else {
-//                 console.error("Invalid date string:", dateString);
-//             }
-//         }
-//     }, [dateString]);
-
-//     return <span>{formattedDate || 'Invalid date'}</span>;
-// };
-
-// export default DateFormatted;
+import { useEffect, useState } from 'react';
 
 const DateFormatted = ({ dateString }) => {
-    if (!dateString) {
-        return <span>Invalid date</span>;
-    }
+    const [formattedDate, setFormattedDate] = useState('');
 
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) {
-        return <span>Invalid date</span>;
-    }
+    useEffect(() => {
+        if (dateString) {
+            const date = new Date(dateString);
+            if (!isNaN(date.getTime())) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                setFormattedDate(new Intl.DateTimeFormat('en-US', options).format(date));
+            } else {
+                console.error("Invalid date string:", dateString);
+            }
+        }
+    }, [dateString]);
 
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
-
-    return <span>{formattedDate}</span>;
+    return <span>{formattedDate || 'Invalid date'}</span>;
 };
 
 export default DateFormatted;
+

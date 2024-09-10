@@ -15,9 +15,9 @@ const HeroSection = ({ page }) => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-12 col-md-12 col-lg-9 text-center mx-auto">
-                            <div className="hero-title">
+                            <div className="hero-title py-0 py-lg-6">
                                 <span className="text-headline-label text-headline-label--secondary text-uppercase">Careers</span>
-                                <h1 className="display-5 mb-3 mb-lg-5">{page.title}</h1>
+                                <h1 className="display-5 mb-0">{page.title}</h1>
                             </div>                       
                             <div className="hero-details d-flex justify-content-center text-figtree">
                                 <div className="detail detail--location me-3 d-flex align-items-center">

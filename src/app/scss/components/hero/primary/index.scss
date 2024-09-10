@@ -86,25 +86,33 @@
 
     &--contact {
         background: $navy-50;
+        height: auto;
+
+        p {
+            font-size: 18px;
+          }
     }
 
     &--privacy-policy {
         background: $electric-green-50;
     }    
 
-    &--about-team {
-        @include media-breakpoint-up(lg) {
-            height: 30vw;
+    &--about {
+        background-color: $jade-green-50;
+        height: auto;
+    
+        p {
+          font-size: 18px;
         }
+    }
+
+    &--about-team {
+        height: auto;
     }
 
     &--careers {
         background: $electric-green-50;
-        height: 275px;
-
-        @include media-breakpoint-up(lg) {
-            height: 422px;
-        }
+        height: auto;
 
     }
 

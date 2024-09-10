@@ -45,10 +45,10 @@ const BenefitsSection = () => {
         <section id="benefits-section" className="py-8 py-md-11">
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-12 col-md-9 col-lg-6 col-xl-5 text-center mx-auto position-relative z-2">
+                    <div className="col-12 col-md-9 col-lg-6 col-xl-6 text-center mx-auto position-relative z-2">
                         <span className="text-headline-label text-headline-label--secondary text-uppercase">Benefits</span>
                         <h2 className="display-5 m-0 text-uppercase">Our Work Perks</h2>
-                        <p className="mb-0 mt-5">As a small firm, our culture is continuously evolving alongside our workforce. Below are some of the employee-launched and firm-supported initiatives that we foster today.</p>                       
+                        <p className="mb-0 mt-5 fs-5">As a small firm, our culture is continuously evolving alongside our workforce. Below are some of the employee-launched and firm-supported initiatives that we foster today.</p>                       
                     </div>
                 </div>
                 <div className="row mt-6 mt-md-8 gx-5 justify-content-center">

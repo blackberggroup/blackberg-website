@@ -18,12 +18,13 @@ const ValuesSection = () => {
                     scale: 1,
                     opacity: 1,
                     ease: "none",
-                    stagger: 0.5,
+                    stagger: 0.25,
+                    duration: 0.5,
                     scrollTrigger: {
                       trigger: container,
-                      start: "-=500",
-                      end: "+=300",
-                      scrub: true
+                      start: "top bottom",
+                    //   end: "+=300",
+                      scrub: false
                     }
                   });
                 });
@@ -40,9 +41,9 @@ const ValuesSection = () => {
                     translateY: 0,
                     scrollTrigger: {
                         trigger: container,
-                        start: "-=500", 
-                        end: "+=300",
-                        scrub: true
+                        start: "top bottom-=15%", 
+                        // end: "+=300",
+                        scrub: false
                     }
                 });
             });

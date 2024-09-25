@@ -6,12 +6,12 @@ const MissionVisionSection = () => {
 
     useEffect(() => {
         gsap.to('.circle-arrow-about', {
-            rotation: 5,
+            rotation: 45,
             ease: 'none', 
             scrollTrigger: {
                 trigger: 'body',
-                start: '-=300', 
-                end: '+=600',
+                start: 'top top', 
+                end: 'bottom top',
                 scrub: true,  
             }
         });

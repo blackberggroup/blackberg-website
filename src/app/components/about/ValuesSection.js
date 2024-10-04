@@ -102,7 +102,7 @@ const ValuesSection = () => {
                         </div>
                         <div className="col-12 col-md-5 col-xl-6 text-white ps-auto ps-md-5 ps-xl-10 mt-5 mt-md-0 ms-auto  text-container">
                             <h3 className="display-6 mb-3">Boldness</h3>
-                            <p>{"Our team thrives on precision, integrity, and a relentless pursuit of quality. Professionalism is not merely what we do; it’s who we are—a team committed to setting the gold standard."}</p>
+                            <p>{"We see challenges as opportunities for growth and disruption as a pathway to innovation. Entrepreneurialism propels us to constantly push boundaries, explore uncharted territory, and transform visions into reality."}</p>
                         </div>
                     </div>
                 </div>

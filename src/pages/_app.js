@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import ScrollToTop from "@/app/components/layout/ScrollToTop";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Analytics } from "@vercel/analytics/react"
 
 function MyApp({ Component, pageProps, nav, pageName }) {
 
@@ -39,6 +40,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
 
   return (
     <>
+    <Analytics />
     <Header nav={nav} props={pageProps} />
     <NavInteractivity />
     <SmoothScrolling>

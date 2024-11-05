@@ -3,7 +3,7 @@ import React from 'react';
 const DetailsSection = ({page}) => {
 
     return (
-        <section id="insight-details" className="py-8 py-md-11 mt-8" aria-label="Insight details">
+        <section id="insight-details" className="py-8 pt-md-8 pb-md-6 mt-8" aria-label="Insight details">
             <div className="container">
                 <div className="row d-flex flex-column">
                     <div className="col-12 mb-5">

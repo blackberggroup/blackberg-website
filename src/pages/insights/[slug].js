@@ -21,7 +21,9 @@ function InsightDetailPage ({ page, relatedInsights }) {
 }
 
 export async function getServerSideProps(context) {
-  const slug = context.resolvedUrl.substring(1).replace("insights/",  "");
+  
+  const pathWithoutQuery = context.resolvedUrl.split('?')[0];
+  const slug = pathWithoutQuery.replace("/insights/", "");
   const page = await getInsightBySlug(slug);
 
     if (!page) {

@@ -186,4 +186,27 @@
         }
     }
 
+    &--portfolio {
+
+        .text-content {
+            position: relative;
+
+            .description {
+                width: 100%;
+            }
+
+            @include media-breakpoint-up(lg) {
+                position: absolute;
+
+                .description {
+                    width: 75%;
+                }
+            }
+        }
+
+        img {
+            cursor: pointer;
+        }
+    }
+
 }

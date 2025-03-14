@@ -15,21 +15,24 @@ const Layout1 = ({data, index}) => {
     const slides = data.gallery.map(img => ({ src: img.url }));
 
     return (
-    <div className={`card card--portfolio border-0 bg-transparent position-relative ${index === 0 ? 'featured' : ''}`}>
-        <div className="text-content start-0 mt-0 mt-lg-5 z-1 col-12 col-md-12 col-lg-7">
+    <div className={`card card--portfolio border-0 bg-transparent ${index === 0 ? 'featured' : ''}`}>
+        <div className="row align-items-center">
+        <div className="start-0 mt-0 mt-lg-5 z-1 col-12 col-md-12 col-lg-12 col-xl-6">
             <h2 className="mt-0 mt-lg-5">{data.title}</h2>
-            <p class="mb-0"><span className="fw-bold">Client</span> {data.clientName}</p>
-            <p className="description pe-0 pe-lg-5 mt-5 mt-lg-7 mb-0">{data.description}</p>
+            <p class="mb-0"><span className="fw-bold">Client:</span> {data.clientName}</p>
+            <p className="mt-4 mt-lg-4 mb-0">{data.description}</p>
         </div>
-        <div className="d-flex ms-auto col-12 col-lg-7 mt-5 mt-lg-0">
+        <div className="col-12 col-lg-12 col-xl-6 mt-5 mt-lg-5">
             {data.gallery && data.gallery.length > 0 && (
                 <Image src={data.gallery[0].url}
-                        className="img-fluid rounded-4 w-100 position-relative pointer" 
+                        className="img-fluid rounded-4 pointer" 
                         alt={data.gallery[0].altText}
-                        fill={true}
+                        height={1500}
+                        width={2100}
                         onClick={() => setOpen(true)} 
                         loading="lazy" />
             )}
+        </div>
         </div>
         <Lightbox
                 open={open}

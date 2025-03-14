@@ -21,7 +21,7 @@ const Layout5 = ({data, index}) => {
                 <p class="mb-0"><span className="fw-bold">Client:</span> {data.clientName}</p>
                 <p className="mt-4 mb-0">{data.description}</p>
             </div>
-            <div className="d-flex ms-auto col-12 col-lg-7 mt-5 mt-lg-0">
+            <div className="col-12 col-lg-12 col-xl-7 mt-5 mt-xl-0">
                 {data.gallery && data.gallery.length > 0 && (
                     <Image src={data.gallery[0].url}
                             className="img-fluid rounded-4 w-100 position-relative pointer" 

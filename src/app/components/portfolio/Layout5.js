@@ -14,24 +14,27 @@ const Layout5 = ({data, index}) => {
 
     const slides = data.gallery.map(img => ({ src: img.url }));
     return (
-    <div className={`card card--portfolio border-0 bg-transparent position-relative ${index === 0 ? 'featured' : ''}`}>
-        <div className="text-content start-0 mt-0 mt-lg-5 z-1 col-12 col-lg-7">
-            <h2 className="mt-0 mt-lg-5">{data.title}</h2>
-            <p class="mb-0"><span className="fw-bold">Client</span> {data.clientName}</p>
-            <p className="description pe-0 pe-lg-5 mt-5 mt-lg-7 mb-0">{data.description}</p>
-        </div>
-        <div className="d-flex ms-auto col-12 col-lg-7 mt-5 mt-lg-0">
-            {data.gallery && data.gallery.length > 0 && (
-                <Image src={data.gallery[0].url}
-                        className="img-fluid rounded-4 w-100 position-relative pointer" 
-                        alt={data.gallery[0].altText}
-                        onClick={() => {
-                            setPhotoIndex(0);
-                            setOpen(true); 
-                        }}
-                        fill={true}
-                        loading="lazy" />
-            )}
+    <div className={`card card--portfolio border-0 bg-transparent ${index === 0 ? 'featured' : ''}`}>
+        <div className="row align-items-center">
+            <div className="start-0 mt-0 z-1 col-12 col-lg-12 col-xl-5">
+                <h2 className="mt-0">{data.title}</h2>
+                <p class="mb-0"><span className="fw-bold">Client:</span> {data.clientName}</p>
+                <p className="mt-4 mb-0">{data.description}</p>
+            </div>
+            <div className="d-flex ms-auto col-12 col-lg-7 mt-5 mt-lg-0">
+                {data.gallery && data.gallery.length > 0 && (
+                    <Image src={data.gallery[0].url}
+                            className="img-fluid rounded-4 w-100 position-relative pointer" 
+                            alt={data.gallery[0].altText}
+                            onClick={() => {
+                                setPhotoIndex(0);
+                                setOpen(true); 
+                            }}
+                            height={1500}
+                            width={2100}
+                            loading="lazy" />
+                )}
+            </div>
         </div>
         <div className="col-12 d-flex mt-5 flex-wrap justify-content-center">
             {data.gallery && data.gallery.length > 1 && (

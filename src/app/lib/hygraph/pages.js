@@ -34,5 +34,7 @@ export const getPageBySlug = async (slug) => {
         throw new Error("Failed to fetch post.");
     }
 
+    console.log('Page BY Slug Data: ', data);
+
     return data.page
 }

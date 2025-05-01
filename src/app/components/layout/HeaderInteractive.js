@@ -41,7 +41,7 @@ const HeaderInteractive = () => {
 
     // Add indicator in menu to show active page
     const setActiveLink = () => {
-        const currentPath = router.asPath.split('/').pop();
+      const currentPath = router.pathname.split('/').pop();
 
         navLinks.forEach((item) => {
         const itemPath = item.getAttribute('href').split('/').pop();

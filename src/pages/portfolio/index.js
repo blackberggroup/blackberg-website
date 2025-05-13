@@ -17,21 +17,22 @@ function Portfolio ({ page, portfolioList }) {
 }
 
 export async function getServerSideProps(context) {
-    const slug = context.resolvedUrl.substring(1);
+    
+  const slug = 'portfolio';
 
-    const [page, portfolioList] = await Promise.all([
-        getPageBySlug(slug),
-        getAllPortfolios()
-    ]);
+  const [page, portfolioList] = await Promise.all([
+      getPageBySlug(slug),
+      getAllPortfolios()
+  ]);
 
-    return {
-        props: { 
-            page: page,
-            portfolioList: portfolioList || null,
-            navStyle: "dark",
-            footerCta: true
-        },
-    };
+  return {
+      props: { 
+          page: page,
+          portfolioList: portfolioList || null,
+          navStyle: "dark",
+          footerCta: true
+      },
+  };
 }
 
 export default Portfolio;

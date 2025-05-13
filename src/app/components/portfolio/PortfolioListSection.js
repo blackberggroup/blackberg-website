@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import PortfolioCategoryFilter from '@/app/components/portfolio/PortfolioCategoryFilter';
 import Layout1 from '@/app/components/portfolio/Layout1';
 import Layout2 from './Layout2';
@@ -8,8 +9,10 @@ import Layout5 from './Layout5';
 import Layout6 from './Layout6';
 
 const PortfolioListSection = ({ portfolioList }) => {
-
+    const router = useRouter();
+    const { filter } = router.query;
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [didSetFromURL, setDidSetFromURL] = useState(false);
 
     const categories = Array.from(
         new Set(
@@ -25,6 +28,38 @@ const PortfolioListSection = ({ portfolioList }) => {
             portfolio.portfolioCategory.some(cat => cat.title === selectedCategory)
         );
 
+    useEffect(() => {
+        if (!didSetFromURL && filter) {
+            const normalize = str => str.toLowerCase().replace(/\s+/g, '-');
+            const normalizedCategories = categories.map(c => normalize(c));
+            const normalizedFilter = normalize(filter);
+    
+            const matchIndex = normalizedCategories.indexOf(normalizedFilter);
+            if (matchIndex !== -1) {
+                setSelectedCategory(categories[matchIndex]);
+                setDidSetFromURL(true);
+            }
+        }
+    }, [filter, categories, didSetFromURL]);
+        
+     
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+        
+        const normalize = str => str.toLowerCase().replace(/\s+/g, '-');
+        
+        const query = category === 'all' ? {} : { filter: normalize(category) };
+        
+        router.push(
+            {
+            pathname: router.pathname,
+            query
+            },
+            undefined,
+            { shallow: true }
+        );
+    };
+
     return (
         <section id="portfolio-list-section" className="pb-0 pt-8">
             <div className="container">
@@ -34,7 +69,7 @@ const PortfolioListSection = ({ portfolioList }) => {
                         <PortfolioCategoryFilter 
                             categories={categories} 
                             selectedCategory={selectedCategory} 
-                            onSelectCategory={setSelectedCategory}
+                            onSelectCategory={handleCategorySelect}
                         />
                     </div>
                     <div className="col-12 col-md-12">

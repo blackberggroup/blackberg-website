@@ -22,7 +22,7 @@ export const getAllPortfolios = async () => {
           }
       `,
   });
-  console.log('portfolios: ', data.portfolios);
+  //console.log('portfolios: ', data.portfolios);
   return data.portfolios
 }
 

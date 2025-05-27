@@ -48,22 +48,28 @@ const InsightsListSection = ({ insights }) => {
                                     <div className={`card card--insight border-0 bg-transparent ${index === 0 ? 'featured' : ''}`}>
                                         <Link href={`/insights/${insight.slug}`} aria-label={`Read the full Insight on ${insight.title}`} className="text-decoration-none">
                                             <div className="card-image rounded-4">
+                                                {insight.coverImage?.url && (
                                                 <Image src={insight.coverImage.url}
                                                 className="img-fluid rounded-4 w-100 position-relative" 
                                                 alt={`${insight.title}`}
                                                 fill={true}
                                                 loading="lazy" />
+                                                )}
                                             </div>
                                             <div className="card-body d-flex flex-column p-0 mt-3">
                                                 <span className="h4 card-title mb-3">{insight.title}</span>
                                                 <span>{insight.formattedDate}</span>
                                                 <div className="card-author d-flex align-items-center mt-2 pt-1">
+                                                    {insight.employee && (
                                                     <Image src={insight.employee.image.url}
                                                     className="img-fluid position-relative" 
                                                     alt={`${insight.employee.firstName} ${insight.employee.lastName} author profile`}
                                                     fill={true}
                                                     loading="lazy" />
+                                                    )}
+                                                     {insight.employee && (
                                                     <span className="card-author-name ps-2">{insight.employee.firstName} {insight.employee.lastName}</span>
+                                                     )}
                                                 </div>
                                             </div>
                                         </Link>

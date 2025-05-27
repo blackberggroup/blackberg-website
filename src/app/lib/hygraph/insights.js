@@ -5,7 +5,7 @@ export const getAllInsights = async () => {
   const { data } = await client.query({
       query: gql`
           query GetAllInsights { 
-                insights(orderBy: date_DESC) {
+                insights(orderBy: date_DESC, stage: PUBLISHED) {
                   id
                   slug
                   title

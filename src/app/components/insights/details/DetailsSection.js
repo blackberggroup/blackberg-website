@@ -11,7 +11,9 @@ const DetailsSection = ({page}) => {
                     </div>
                     <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
                         <div className="d-flex flex-column flex-md-row text-figtree">
+                            {page.employee && (
                             <span className="fw-bold-800 mb-2 me-4 me-md-6">{page.employee.firstName} {page.employee.lastName}</span>
+                            )}
                             <span className="label-data text-noto">
                             <span>{page.formattedDate}</span>
                             </span>

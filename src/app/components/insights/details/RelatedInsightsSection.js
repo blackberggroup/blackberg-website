@@ -33,12 +33,16 @@ const RelatedInsightsSection = ({ relatedInsights }) => {
                                     <span className="h4 card-title mb-3">{insight.title}</span>
                                     <span>{insight.formattedDate}</span>
                                     <div className="card-author d-flex align-items-center mt-2 pt-1">
+                                    {insight.employee && (
                                         <Image src={insight.employee.image.url}
                                         className="img-fluid position-relative" 
                                         alt={`${insight.employee.firstName} ${insight.employee.lastName} author profile`}
                                         fill={true}
                                         loading="lazy" />
+                                    )}
+                                     {insight.employee && (
                                         <span className="card-author-name ps-2">{insight.employee.firstName} {insight.employee.lastName}</span>
+                                     )}
                                     </div>
                                 </div>
                             </Link>

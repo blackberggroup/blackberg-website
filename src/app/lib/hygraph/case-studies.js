@@ -139,6 +139,7 @@ export const getCaseStudyModularBySlug = async (slug) => {
                   id
                   title
                   category 
+                  client
                   coverImage {     
                     url       
                     altText

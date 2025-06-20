@@ -32,7 +32,8 @@ const FeaturedImageSection = ({ page }) => {
           
         // Clean up function
         return () => {
-            if (tl) tl.kill();
+            if (tl.scrollTrigger) tl.scrollTrigger.kill();
+            tl.kill();
         };
     }, []);
   

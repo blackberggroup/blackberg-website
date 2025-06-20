@@ -127,3 +127,98 @@ export const getCaseStudyBySlug = async (slug) => {
     }
   }
 }
+
+export const getCaseStudyModularBySlug = async (slug) => {
+  try {
+    console.log('Case Study Slug: ' + slug);
+    const { data, errors } = await client.query({
+        query: gql`
+            query GetCaseStudyBySlug($slug: String!) {
+                caseStudyModular(where: { slug: $slug }) {
+                  slug
+                  id
+                  title
+                  category 
+                  coverImage {     
+                    url       
+                    altText
+                  }                  
+                  components {
+                    __typename
+
+                    ... on CsBulletWithImage {
+                      id
+                      bulletBody: body {
+                        html
+                      }
+                      bulletImage: image {
+                        url
+                        altText
+                      }
+                    }
+
+                    ... on CsCalloutBox {
+                      id
+                      variant
+                      calloutBody: body {
+                        html
+                      }
+                    }
+
+                    ... on CsIntroText {
+                      id
+                      introHeadline: headline
+                      introBody: body {
+                        html
+                      }
+                    }
+
+                    ... on CsNarrowRegularText {
+                      id
+                      narrowHeadline: headline
+                      narrowBody: body {
+                        html
+                      }
+                    }
+
+                    ... on CsWideImage {
+                      id
+                      wideTitle: title
+                      wideImage: image {
+                        url
+                        altText
+                      }
+                    }
+
+                    ... on CsWideRegularText {
+                      id
+                      wideHeadline: headline
+                      wideBody: body {
+                        html
+                      }
+                    }
+                  }  
+                }
+              }
+        `,
+        variables: { slug },
+    });
+
+    return data.caseStudyModular;
+  } catch (error) {
+    if (error.networkError) {
+      const { response, result } = error.networkError;
+      console.error("Network Error:", {
+        status: response?.status,
+        statusText: response?.statusText,
+        url: response?.url,
+        errors: result?.errors,
+        extensions: result?.extensions,
+      });
+    } else if (error.graphQLErrors) {
+      console.error("GraphQL Errors:", error.graphQLErrors);
+    } else {
+      console.error("Unknown Error:", error);
+    }
+  }
+}

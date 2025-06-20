@@ -6,7 +6,7 @@ const DetailsSection = ({page}) => {
         <section id="case-study-details" className="py-8 py-md-11 mt-8" aria-label="VA Immersive National Marketing case study details">
             <div className="container">
                 <div className="row d-flex flex-column flex-md-row">
-                    {page.introContent && (
+                    {page.title && (
                     <div className="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
                         <h1 className="display-5 m-0">{page.title}</h1>
                     </div>

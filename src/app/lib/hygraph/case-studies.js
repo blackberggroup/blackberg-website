@@ -296,6 +296,7 @@ export const listHomePageCaseStudies = async () => {
           title
           category
           excerpt
+          client
           coverImage { url altText }
         }
       }

@@ -1,3 +1,4 @@
+import { formatCategory } from "@/app/lib/utilities/formatCategory";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -10,7 +11,7 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
         <div className="container">
           <div className="row">
             <div className="col-12 mt-0 mb-5 mb-md-7">
-              <h4 className="display-5 m-0">Related Case Studies</h4>
+              <h3 className="display-5 m-0">Related Case Studies</h3>
             </div>
 
             {items.map(cs => (
@@ -30,8 +31,8 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
                     />
                 </div>
                   <h4 className="mb-3">{cs.title}</h4>
-                  <span className="badge badge--case-study align-self-start">
-                    {cs.category}
+                  <span className="badge badge--case-study text-figtree align-self-start">
+                    {formatCategory(cs.category)}
                   </span>
                 </Link>
               </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { formatCategory } from "@/app/lib/utilities/formatCategory";
 
 const DetailsSection = ({page}) => {
 
     return (
-        <section id="case-study-details" className="py-8 py-md-11 mt-8" aria-label="VA Immersive National Marketing case study details">
+        <section id="case-study-details" className="py-8 py-md-11 mt-8" aria-label="${page.title} Case study details">
             <div className="container">
                 <div className="row d-flex flex-column flex-md-row">
                     {page.title && (
@@ -21,7 +22,7 @@ const DetailsSection = ({page}) => {
                         {page.category && (
                         <div className="d-flex flex-column ms-10 ms-lg-0 mt-lg-7 mt-lg-7 text-figtree">
                             <span className="fw-bold-800 mb-2">Category</span>
-                            <span className="badge badge--case-study align-self-start">{page.category}</span>
+                            <span className="badge badge--case-study align-self-start text-capitalize">{formatCategory(page.category)}</span>
                         </div>
                         )}
                     </div>

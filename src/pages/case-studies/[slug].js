@@ -40,6 +40,7 @@ function CaseStudyPage ({ page, related }) {
       })}
       
       <ShareButtons title={page.title} />
+      <div className="pb-6"></div>
       <RelatedCaseStudiesSection items={related} />
     </>
   );

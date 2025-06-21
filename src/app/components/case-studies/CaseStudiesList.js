@@ -6,7 +6,7 @@ export default function CaseStudiesList({ items = [] }) {
   if (!items.length) return <p className="py-5">No case studies found.</p>;
 
   return (
-    <div>
+    <section className="py-6 py-md-10">
     {items.map(cs => (
         <section key={cs.id} className="py-6">
             <div className="container">
@@ -43,6 +43,6 @@ export default function CaseStudiesList({ items = [] }) {
             </div>
         </section>
       ))}
-</div>
+</section>
   );
 }

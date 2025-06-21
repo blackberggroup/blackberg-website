@@ -8,7 +8,6 @@ export default function ShareButtons({ title }) {
   const url =
    typeof window !== "undefined" ? window.location.href : "";
 
-  /* ── turn off all navigator-dependent UI until after mount ── */
   const [canNativeShare, setCanNativeShare] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -28,9 +27,12 @@ export default function ShareButtons({ title }) {
 
   return (
     <section>
-      <div className="container">
-        <div className="col-12 col-md-8 col-lg-8 col-xxl-7 mx-auto d-flex gap-2 align-items-center">
+      <div className="container">        
+        <div className="col-12 col-md-8 col-lg-8 col-xxl-7 mx-auto">
+          
+          <h4>Share this Case Study:</h4>
 
+          <div className="d-flex gap-2 align-items-center">
           {canNativeShare && (
             <button
               className="btn btn-sm btn-outline-dark d-inline-flex align-items-center"
@@ -89,6 +91,7 @@ export default function ShareButtons({ title }) {
               {copied && <span className="ms-1 small">Copied!</span>}
             </button>
           )}
+          </div>
         </div>      
       </div>      
     </section>

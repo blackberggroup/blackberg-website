@@ -276,3 +276,32 @@ export const getCaseStudyModularBySlug = async (slug) => {
     }
   }
 }
+
+/**
+ * Returns up to three case-study entries that have
+ * `featured = true`, sorted by the custom “Featured Order” field.
+ * (Assuming the field API ID is `featuredOrder`; change if different.)
+ */
+export const listHomePageCaseStudies = async () => {
+  const { data } = await client.query({
+    query: gql`
+      query HomePageCaseStudies {
+        caseStudyModulars(
+          where: { featured: true }
+          orderBy: featuredOrder_ASC
+          first: 3
+        ) {
+          id
+          slug
+          title
+          category
+          excerpt
+          coverImage { url altText }
+        }
+      }
+    `,
+    fetchPolicy: "no-cache",
+  });
+
+  return data.caseStudyModulars;
+};

@@ -1,6 +1,30 @@
 import { gql } from '@apollo/client';
 import client from '@/app/lib/apollo-client';
 
+export const listCaseStudyModulars = async () => {
+  const { data } = await client.query({
+    query: gql`
+      query ListCaseStudyModulars {
+        caseStudyModulars(orderBy: publishedAt_DESC) {
+          id
+          title
+          slug
+          client
+          category
+          excerpt
+          coverImage {
+            url
+            altText
+          }
+        }
+      }
+    `,
+    fetchPolicy: 'no-cache', // avoids showing stale data during authoring
+  });
+
+  return data.caseStudyModulars;
+};
+
 export const getAllCaseStudies = async () => {
     const { data } = await client.query({
         query: gql`
@@ -59,11 +83,7 @@ export const getCaseStudyBySlug = async (slug) => {
                   slug
                   id
                   title
-                  category {
-                    slug
-                    title
-                    id
-                  }
+                  category
                   client
                   coverImage {     
                     url       
@@ -127,6 +147,39 @@ export const getCaseStudyBySlug = async (slug) => {
     }
   }
 }
+
+// Return up to 3 other case-study pages in the same category, excluding self
+export const listRelatedCaseStudyModulars = async (category, currentSlug) => {
+  const { data } = await client.query({
+    query: gql`
+      query RelatedCS(
+        $category: Category!
+        $current: String!
+      ) {
+        caseStudyModulars(
+          where: {
+            AND: [
+              { category: $category }
+              { slug_not: $current }
+            ]
+          }
+          orderBy: publishedAt_DESC
+          first: 3
+        ) {
+          slug
+          title
+          category
+          coverImage { url altText }
+        }
+      }
+    `,
+    variables: { category, current: currentSlug },
+    fetchPolicy: 'no-cache',
+  });
+
+  return data.caseStudyModulars;
+};
+
 
 export const getCaseStudyModularBySlug = async (slug) => {
   try {

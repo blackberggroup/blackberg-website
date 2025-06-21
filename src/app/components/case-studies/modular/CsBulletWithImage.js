@@ -35,18 +35,17 @@ const CSBulletWithImage = ({ section }) => {
   return (
     <section
       ref={containerRef}
-      className="py-6"
+      className="py-2"
     >
       <div className="container">
       <div className="col-12 col-md-8 col-lg-8 col-xxl-7 mx-auto d-flex">
             {bulletImage?.url && (
             <div className="pe-4 me-2">
-                <Image
+                <img
                 src={bulletImage.url}
                 alt={bulletImage.altText || ''}
                 width={64}
                 height={64}
-                style={{ objectFit: 'cover' }}
                 />
             </div>
             )}

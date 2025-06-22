@@ -23,15 +23,16 @@ export default function CaseStudySection({ items = [] }) {
 
           {items.map((cs, idx) => {
             const colClass =
-              idx === 0 ? "col-12 mb-5" : "col-12 col-md-6 d-flex mb-6";
-
+              idx === 0 ? "col-12 mb-6 mb-md-8" : "col-12 col-md-6 d-flex mb-6";
+              if (!cs.coverImage?.url) return null;
+              
             return (
               <div className={colClass} key={cs.id}>
                 <Link
                   href={`/case-studies/${cs.slug}`}
                   className="text-decoration-none w-100"
                 >
-                  <figure className="mb-4 position-relative overflow-hidden rounded-4">
+                  <figure className="mb-5 position-relative overflow-hidden rounded-4">
                     <Image
                       src={cs.coverImage.url}
                       alt={cs.coverImage.altText || cs.title}
@@ -43,7 +44,7 @@ export default function CaseStudySection({ items = [] }) {
                     />
                   </figure>
 
-                  <h3 className="fw-semibold mb-3 text-white">{cs.title}</h3>
+                  <h3 className="fw-semibold mb-2 text-white">{cs.title}</h3>
                   <span className="badge badge--case-study text-figtree mb-3 mt-3">
                     {formatCategory(cs.category)}
                   </span>

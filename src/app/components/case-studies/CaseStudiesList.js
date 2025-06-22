@@ -1,13 +1,15 @@
-// /src/app/components/case-studies/CaseStudiesList.jsx
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function CaseStudiesList({ items = [] }) {
   if (!items.length) return <p className="py-5">No case studies found.</p>;
-
+  
   return (
     <section className="py-6 py-md-10">
-    {items.map(cs => (
+    {items.map(cs => {
+        if (!cs.coverImage?.url) return null;
+
+        return (
         <section key={cs.id} className="py-6">
             <div className="container">
                 <div className="row align-items-center">          
@@ -42,7 +44,8 @@ export default function CaseStudiesList({ items = [] }) {
                 </div>
             </div>
         </section>
-      ))}
+        );
+    })}
 </section>
   );
 }

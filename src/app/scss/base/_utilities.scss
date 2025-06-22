@@ -108,13 +108,7 @@
     will-change: transform, opacity;
     transform: translateZ(0);
     backface-visibility: hidden;
-    perspective: 1000px;   
-    // max-height: 350px;
-
-    // @include media-breakpoint-up(md) {
-    //     max-height: 100%;
-    // }
-
+    perspective: 1000px;
 }
 
 

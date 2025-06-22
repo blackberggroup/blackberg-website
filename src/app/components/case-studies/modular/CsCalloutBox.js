@@ -41,7 +41,7 @@ const CSCalloutBox = ({ section }) => {
   return (
     <section
       ref={containerRef}
-      className="py-6 content-rich-text callout-box"
+      className="py-0 content-rich-text callout-box"
     >
       <div className="container">
         <div className="row">

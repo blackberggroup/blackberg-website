@@ -30,7 +30,7 @@ const RelatedInsightsSection = ({ relatedInsights }) => {
                                     loading="lazy" />
                                 </div>
                                 <div className="card-body d-flex flex-column p-0 mt-3">
-                                    <span className="h4 card-title mb-3">{insight.title}</span>
+                                    <span className="h4 card-title mb-3 text-dark">{insight.title}</span>
                                     <span>{insight.formattedDate}</span>
                                     <div className="card-author d-flex align-items-center mt-2 pt-1">
                                     {insight.employee && (

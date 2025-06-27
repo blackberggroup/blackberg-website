@@ -1,13 +1,4 @@
-.social-share {
-    a {
-        border: 1px solid #D0D5DD;
-        margin-right: 1rem;
 
-        &:hover, &:active {
-            border-color: $gray-200;
-        }
-    }
-}
 
 .reveal-image {
 
@@ -65,3 +56,6 @@
     }
 }
 
+#related-case-studies {
+    background: $jade-green-50;
+}

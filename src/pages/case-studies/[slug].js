@@ -46,30 +46,41 @@ function CaseStudyPage ({ page, related }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const slug = context.resolvedUrl.substring(1).replace("case-studies/",  "");
-  const page = await getCaseStudyModularBySlug(slug);
-  console.log('Case Study Page: ', page);
+export async function getServerSideProps({ params }) {
+  const slug = params.slug;
+  let page = null;
+  let related = [];
 
-    if (!page) {
-      return {
-          notFound: true,
-      };
+  /* ── DETAIL query debug ── */
+  try {
+    page = await getCaseStudyModularBySlug(slug);
+    console.log("DETAIL OK");
+  } catch (err) {
+    console.error("DETAIL ERROR →", err.networkError?.result?.errors);
   }
 
-  console.log('Enum literal sent to helper =', page.category);
+  /* ── RELATED query debug ── */
+  try {
+    const first = page?.serviceLines?.[0];
+    if (first) {
+      related = await listRelatedCaseStudyModulars(first, slug);
+      console.log("RELATED OK");
+    }
+  } catch (err) {
+    console.error("RELATED ERROR →", err.networkError?.result?.errors);
+  }
 
-  const related = await listRelatedCaseStudyModulars(page.category, slug);
+  if (!page) return { notFound: true };
 
   return {
-    props: { 
-        page: page,
-        related,
-        navStyle: "light", 
-        footerCta: true
-      },
+    props: {
+      page,
+      related,
+      navStyle: "light",
+      footerCta: true,
+    },
   };
-
 }
+
 
 export default CaseStudyPage;

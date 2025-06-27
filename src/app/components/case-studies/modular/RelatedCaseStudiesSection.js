@@ -39,7 +39,7 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
                     />
                   </div>
 
-                  <h4 className="mb-3">{cs.title}</h4>
+                  <h4 className="mb-3 text-body">{cs.title}</h4>
 
                 </Link>
               </div>

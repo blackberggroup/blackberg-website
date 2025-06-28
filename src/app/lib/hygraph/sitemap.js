@@ -16,7 +16,7 @@ export const getAllPagePaths = async () => {
           insights {
             slug
           }
-          caseStudies {
+          caseStudyModulars {
             slug
           }
           careers {
@@ -34,7 +34,7 @@ export const getAllPagePaths = async () => {
       return `/${slug}`;
     });  
     const insights = data.insights.map(({ slug }) => `/insights/${slug}`);
-    const caseStudies = data.caseStudies.map(({ slug }) => `/case-studies/${slug}`);
+    const caseStudies = data.caseStudyModulars.map(({ slug }) => `/case-studies/${slug}`);
     const careers = data.careers.map(({ slug }) => `/about/careers/${slug}`);
   
     return [...pages, ...insights, ...caseStudies, ...careers];

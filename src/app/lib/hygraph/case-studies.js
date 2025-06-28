@@ -30,7 +30,7 @@ export const getCaseStudyBySlug = async slug => { /* … unchanged … */ };
 
 /* ── RELATED ─────────────────────────────────────────────── */
 export const listRelatedCaseStudyModulars = async (
-  serviceLine,   // single enum literal, e.g. "PUBLIC_SECTOR"
+  serviceLine,
   currentSlug
 ) => {
   const { data } = await client.query({

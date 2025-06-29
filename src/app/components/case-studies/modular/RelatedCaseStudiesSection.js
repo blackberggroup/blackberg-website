@@ -34,7 +34,7 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
                   </div>
 
                   <h4 className="mb-2">{cs.title}</h4>
-                  <span className="text-figtree">
+                  <span>
                     {cs.serviceLines?.map(formatCategory).join(", ")}
                   </span>
                 </Link>

@@ -11,7 +11,7 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
           <div className="row">
             <div className="col-12 mt-0 mb-5 mb-md-7 d-flex flex-column flex-md-row justify-content-between align-items-center">
                 <h3 className="display-5 m-0">Related Case Studies</h3>
-                <Link href="/insights" aria-label="View all Case Studies by Blackberg" className="btn btn-primary mt-4 mt-md-0">
+                <Link href="/case-studies" aria-label="View all Case Studies by Blackberg" className="btn btn-primary mt-4 mt-md-0">
                     View All Case Studies
                     <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2" alt="white arrow pointing right" />    
                 </Link>

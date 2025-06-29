@@ -19,7 +19,6 @@ export default function CaseStudiesList({ items = [] }) {
           <section key={cs.id} className="py-6">
             <div className="container">
               <div className="row align-items-center">
-                {/* Image column */}
                 <div className="col-12 col-lg-7">
                   <Link href={`/case-studies/${cs.slug}`} className="d-block">
                     <div className="overflow-hidden rounded-3">
@@ -34,7 +33,6 @@ export default function CaseStudiesList({ items = [] }) {
                   </Link>
                 </div>
 
-                {/* Text column */}
                 <div className="col-12 col-lg-5 mt-3 mt-lg-0">
                   <Link
                     href={`/case-studies/${cs.slug}`}

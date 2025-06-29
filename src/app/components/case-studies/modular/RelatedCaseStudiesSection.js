@@ -9,15 +9,19 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
       <section id="related-case-studies" className="py-8 py-md-11">
         <div className="container">
           <div className="row">
-            <div className="col-12 mt-0 mb-5 mb-md-7">
-              <h3 className="display-5 m-0">Related Case Studies</h3>
-            </div>
+            <div className="col-12 mt-0 mb-5 mb-md-7 d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <h3 className="display-5 m-0">Related Case Studies</h3>
+                <Link href="/case-studies" aria-label="View all Case Studies by Blackberg" className="btn btn-primary mt-4 mt-md-0">
+                    View All Case Studies
+                    <img src="/images/arrow-narrow-right-light.svg" width="20" height="20" className="ms-2" alt="white arrow pointing right" />    
+                </Link>
+            </div>            
 
             {items.map(cs => (
               <div className="col-12 col-md-6 d-flex flex-column" key={cs.slug}>
                 <Link
                   href={`/case-studies/${cs.slug}`}
-                  className="text-decoration-none"
+                  className="text-decoration-none text-body"
                 >
                   <div className="overflow-hidden rounded-3 mb-3">
                     <Image
@@ -30,7 +34,7 @@ export default function RelatedCaseStudiesSection({ items = [] }) {
                   </div>
 
                   <h4 className="mb-2">{cs.title}</h4>
-                  <span className="small text-figtree">
+                  <span className="text-figtree">
                     {cs.serviceLines?.map(formatCategory).join(", ")}
                   </span>
                 </Link>

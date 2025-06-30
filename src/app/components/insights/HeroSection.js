@@ -9,7 +9,7 @@ const HeroSection = () => {
                     <div className="col-12 col-md-12 col-lg-7">
                         <div className="hero-title">
                             <h1 className="display-2 text-white mb-3 mb-lg-5">Insights</h1>
-                            <p className="lead text-white">Explore the real impact of strategic collaboration and innovative solutions. Our Case Studies showcase how Blackberg Group, armed with a dynamic team of subject matter experts, consistently achieves tangible and measurable results for our clients.</p>
+                            <p className="lead text-white">Discover thought leadership and real-world solutions designed to drive measurable impact in federal, state, and local sectors. From AI-powered marketing and influencer strategies to human-centered design and organizational effectiveness, our Insights guide you through practical approaches to achieve your mission.</p>
                         </div>                            
                     </div>
                 </div>

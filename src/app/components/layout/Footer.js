@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Footer = ({ props }) => {
+const Footer = ({ nav, props }) => {
     const currentYear = new Date().getFullYear();
 
     return (
@@ -28,18 +28,17 @@ const Footer = ({ props }) => {
                         <li className="nav-item">
                             <Link className="nav-link" href="/">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/services/">Services</Link>
+                        {nav?.navigationLink?.map((item, i) => (
+                        <li key={i} className="nav-item">
+                            <Link
+                            href={`/${item.url}`}
+                            className="nav-link"
+                            aria-label={`${item.displayText} page`}
+                            >
+                            {item.displayText}
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/insights/">Insights</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/about/">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/contact/">Contact</Link>
-                        </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="footer-copyright pt-6 pt-md-7 pb-2 pb-md-3">

@@ -1,0 +1,59 @@
+#event-management-hero {
+    background-image: url('/images/services/communications/event-management/hero-bg.jpg');
+
+    .hero {
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        &::after {
+            background-color: #012B24;
+            opacity: .9;
+            z-index: 5;
+        }
+
+        &::before {
+            background: linear-gradient(284.6deg, rgba(1, 54, 46, 0.8) 1.98%, rgba(1, 54, 46, 0) 43.22%, rgba(1, 54, 46, 0.8) 85.26%);
+            opacity: .7;
+            z-index: 1;
+        }
+
+        &__donut1,
+        &__donut2 {
+            position: absolute;
+        }
+
+        &__donut1 {
+            width: 1200px;
+            height: 1200px;
+            top: -50%;
+            right: -25%;
+            opacity: .05;
+            z-index: 10;
+        }
+
+        &__donut2 {
+            bottom: -15%;
+            left: -15%;
+            z-index: 8;
+            opacity: .3;
+            width: 500px;
+            height: 500px;
+        }        
+    }
+}
+
+#event-management-specialize-in {
+    background-color: $electric-green-50;
+}
+
+#event-management-sets-us-apart {
+
+}

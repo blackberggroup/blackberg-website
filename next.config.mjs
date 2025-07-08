@@ -18,6 +18,11 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: '**.graphassets.com',
+        pathname: '/**',
+      },
     ],
   },
   async rewrites() {

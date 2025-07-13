@@ -23,7 +23,7 @@ const testimonials = [
   {
     id: 2,
     quote:
-      "“Blackberg's team exceeded our expectations—turning our conference vision into an immersive, engaging reality. Their attention to detail and seamless execution made all the difference.”",
+      "“I’ve worked with a lot of event professionals over the years, but this team stands out. Their ability to manage complexity, stay calm under pressure, and still make every moment feel intentional and personal is unmatched. From the first planning call to the final guest goodbye, everything was seamless. We’ve never had an event that felt so aligned with our goals and so effortless to execute.”",
     author: "Carlos Martinez",
     rating: 5,
     image: "/images/services/communications/event-management/testimonial-1.jpg",
@@ -31,8 +31,8 @@ const testimonials = [
   {
     id: 3,
     quote:
-      "“From planning to post-event analytics, Blackberg's holistic approach meant we could focus on content while they handled every logistic. A truly turnkey partner.”",
-    author: "Priya Singh",
+      "“For three years of successful collaborations, Blackberg Group has proven themselves to be a valuable partner. They consistently bring professionalism, creativity, and forward-thinking strategies to every project, crafting experiences that resonate and leave a lasting impact.”",
+    author: "Anne Bailey",
     rating: 5,
     image: "/images/services/communications/event-management/testimonial-1.jpg",
   },

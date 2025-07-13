@@ -1,35 +1,39 @@
+// components/layout/SmoothScrolling.js
 "use client";
 
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScrolling({ children }) {
+  // this ref will point at the ReactLenis component instance
   const lenisRef = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Wait for the Lenis instance to mount
-    const lenis = lenisRef.current?.lenis;
-    if (!lenis) {
-      console.warn("Lenis instance not found ScrollTrigger proxy not installed");
+  useLayoutEffect(() => {
+    // once mounted, lenisRef.current is an object that contains
+    // the underlying Lenis engine on `.lenis`
+    const lenisWrapper = lenisRef.current;
+    if (!lenisWrapper || !lenisWrapper.lenis) {
+      console.warn("[Smooth] Lenis engine not ready, skipping proxy");
       return;
     }
+    const lenis = lenisWrapper.lenis;
 
-    // The element Lenis uses as its scroll container
-    const scrollerEl = lenis.container;
+    // ScrollTrigger should proxy against the element Lenis actually scrolls
+    // ReactLenis wraps everything in a .lenis__scroll div
+    const scrollerEl =
+      document.querySelector(".lenis__scroll") || window;
 
-    // Tell ScrollTrigger to use Lenis in place of window.scroll
+    console.log("[Smooth] hooking ST to Lenis →", { scrollerEl, lenis });
+
     ScrollTrigger.scrollerProxy(scrollerEl, {
       scrollTop(value) {
-        // setter
-        if (arguments.length) {
-          lenis.scrollTo(value, { immediate: true });
-        }
-        // getter
-        return lenis.scroll.instance.scroll.y;
+        return arguments.length
+          ? lenis.scrollTo(value)
+          : lenis.scroll;
       },
       getBoundingClientRect() {
         return {
@@ -39,40 +43,39 @@ export default function SmoothScrolling({ children }) {
           height: window.innerHeight,
         };
       },
-      // if Lenis is using transforms under the hood, pinType must be "transform"
-      pinType: scrollerEl.style.transform ? "transform" : "fixed",
+      // use transform‐pinning if Lenis uses transforms under the hood
+      pinType:
+        scrollerEl === window || !scrollerEl.style.transform
+          ? "fixed"
+          : "transform",
     });
 
-    // Drive Lenis's RAF via GSAP's ticker
-    const removeTicker = gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    // feed Lenis's RAF into GSAP's ticker
+    const raf = (time) => lenis.raf(time * 1000);
+    gsap.ticker.add(raf);
 
-    // Whenever Lenis scrolls, trigger a ScrollTrigger.update()
-    lenis.on("scroll", ScrollTrigger.update);
-
-    // Recalculate sizes on refresh
-    ScrollTrigger.addEventListener("refresh", () => lenis.resize());
+    // whenever ScrollTrigger recalculates, give Lenis a tick
+    ScrollTrigger.addEventListener("refresh", () => lenis.raf());
     ScrollTrigger.refresh();
 
+    // cleanup
     return () => {
-      gsap.ticker.remove(removeTicker);
-      lenis.off("scroll", ScrollTrigger.update);
-      ScrollTrigger.removeEventListener("refresh", () => lenis.resize());
+      gsap.ticker.remove(raf);
+      ScrollTrigger.removeEventListener("refresh", () => lenis.raf());
     };
   }, []);
 
   return (
     <ReactLenis
-      // this is the element that gets the `.lenis__scroll` class under the hood
       root
+      // keep your previous smooth‐scroll settings
       options={{
-        lerp: 0.1,         // how smoothly to interpolate
-        duration: 1.2,     // in seconds
-        smoothWheel: true, // enable smooth wheel scrolling
-        smoothTouch: false // disable smoothing on touch devices
+        lerp: 0.1,
+        duration: 1,
+        smoothWheel: true,
+        smoothTouch: false,
       }}
-      // capture the internal Lenis instance so we can proxy it above
+      // attach the component instance to lenisRef
       ref={lenisRef}
     >
       {children}

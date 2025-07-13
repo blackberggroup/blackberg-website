@@ -6,6 +6,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+// register once
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
@@ -44,43 +45,60 @@ export default function StepByStepProcess() {
   const panelsRef  = useRef();
 
   useLayoutEffect(() => {
-    const ctx = gsap.context((self) => {
+    // grab Lenis container (ReactLenis wraps children in .lenis__scroll)
+    const scrollerEl = document.querySelector(".lenis__scroll") || window;
+
+    // use gsap.context so we clean up on unmount
+    const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const panels  = panelsRef.current;
       const distance = panels.scrollWidth - section.clientWidth;
 
-      // pin & scrub
+      // 1) Pin the section for exactly `distance` pixels of scroll
       ScrollTrigger.create({
-        trigger: section,
-        start:  "top top",
-        end:    () => `+=${distance}`,
-        pin:    true,
+        scroller: scrollerEl,
+        trigger:  section,
+        start:    "top top",
+        end:      () => `+=${distance}`,
+        pin:      true,
         pinSpacing: false,
+        pinType:  scrollerEl === window ? "fixed" : "transform",
         invalidateOnRefresh: true,
+        markers: true,
       });
+
+      // 2) Scrub the panels left→right over that same scroll
       gsap.to(panels, {
         x: -distance,
         ease: "none",
         scrollTrigger: {
-          trigger: section,
-          start:  "top top",
-          end:    () => `+=${distance}`,
-          scrub:  true,
+          scroller: scrollerEl,
+          trigger:  section,
+          start:    "top top",
+          end:      () => `+=${distance}`,
+          scrub:    true,
           invalidateOnRefresh: true,
         },
       });
+
+      // 3) force a refresh so measurements are accurate
+      ScrollTrigger.refresh();
     }, sectionRef);
 
-    // ← on unmount, revert() will kill triggers AND remove pin wrappers
+    // on unmount, kill everything & remove pin wrappers
     return () => ctx.revert();
   }, []);
 
   return (
-  <section
-      ref={sectionRef}
+    <section
       id="step-by-step-process"
-      style={{ height: "100vh", overflow: "hidden" }}
+      ref={sectionRef}
       className="step-by-step-process position-relative text-white"
+      style={{
+        height: "100vh",
+        overflow: "hidden",
+        backgroundColor: "#012B24",
+      }}
     >
       <div className="content">
         <h2 className="display-5 text-center mb-6">

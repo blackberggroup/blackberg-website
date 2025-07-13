@@ -54,10 +54,6 @@
     background-color: $electric-green-50;
 }
 
-#event-management-sets-us-apart {
-
-}
-
 #step-by-step-process {
   background: #012B24;
   position: relative;
@@ -69,22 +65,20 @@
       height: 100vh;
     }
 
-  // content wrapper centers vertically on desktop
   .content {
     @include media-breakpoint-up(lg) {
       display: flex;
       flex-direction: column;
-      justify-content: center;     // vertical center
+      justify-content: center;
     }
   }
 
-  // panels container: horizontal on desktop, vertical on mobile
   .panels-container {
     @include media-breakpoint-up(lg) {
       display: flex;
     }
     @include media-breakpoint-down(md) {
-      display: block;             // normal stacking on tablet+
+      display: block;
       height: auto;
     }
   }
@@ -95,8 +89,8 @@
 
   .panel {
     @include media-breakpoint-up(lg) {
-      flex: 0 0 100vw;            // one panel per viewport-width
-      height: 100%;               // one panel per viewport-height
+      flex: 0 0 100vw;         
+      height: 100%;            
       display: flex;
       align-items: center;
       padding: 0 2rem;
@@ -113,7 +107,6 @@
     color: $gray-900;
   }
 
-  // your existing progress-bar styles…
   .progress-bar-wrapper {
     position: absolute;
     bottom: 0;
@@ -147,12 +140,7 @@
 #testimonials {
   background: #fff;
 
-  h2 {
-    color: #212529; // or your heading color
-  }
-
   .testimonial-quote {
-    // center vertically on lg+
     @include media-breakpoint-up(lg) {
       display: flex;
       flex-direction: column;
@@ -160,18 +148,13 @@
     }
   }
 
-  .stars span {
-    // optionally adjust star color/size
-  }
-
   .testimonial-nav {
-    // ensure buttons are same size & shape
     .testimonial-nav-btn {
       width: 40px;
       height: 40px;
       border: none;
       border-radius: 50%;
-      background-color: $primary; // e.g. jade-green
+      background-color: $primary;
       color: #fff;
       display: inline-flex;
       align-items: center;
@@ -187,7 +170,6 @@
 
   }
 
-  // center bullets
   .testimonial-pagination {
     .swiper-pagination-bullet {
       width: 8px;
@@ -199,11 +181,10 @@
       transition: background .2s;
     }
     .swiper-pagination-bullet-active {
-      background: $primary !important; // jade-green
+      background: $primary;
     }
   }
 
-  // hide default Swiper arrows
   .swiper-button-prev,
   .swiper-button-next {
     display: none !important;
@@ -212,4 +193,39 @@
 
 #event-case-studies {
   background-color: #012B24;
+}
+
+#event-management-cta-large {
+
+  .cta-large-wrapper {
+    background-image: url('/images/services/communications/event-management/cta-large-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &::after {
+      content: '';
+      background-color: $tertiary;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: .8;
+    }
+  }
+}
+
+#event-management-circle-arrow {
+  bottom: 2%;
+  left: -40%;
+  z-index: 1;
+  position: absolute;
+  transform: rotate(-25deg);
+
+  img {
+    width: 1100px;
+    height: 1100px;
+  }
 }

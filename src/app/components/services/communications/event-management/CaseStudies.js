@@ -76,7 +76,7 @@ export default function CaseStudies() {
       id="event-case-studies"
       className="py-8 py-lg-10 text-white"
     >
-      <div className="container">
+      <div className="container position-relative z-2">
         <h2
           ref={titleRef}
           className="display-5 mb-6"

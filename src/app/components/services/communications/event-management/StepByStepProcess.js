@@ -1,6 +1,4 @@
-// components/services/communications/event-management/StepByStepProcess.js
 "use client";
-
 import React, { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
@@ -20,24 +18,38 @@ const steps = [
   {
     id: 2,
     image: "/images/services/communications/event-management/step-1.png",
-    title: "Design & Planning",
+    title: "Experience Design & Programming",
     description:
-      "Working hand-in-hand with you, we develop detailed run-of-show, creative storyboards, branding, and marketing assets—then lock down venues, vendors, and tech to bring it all to life.",
+      "Together, we build your event's foundation. We design the agenda, map out the attendee journey, and craft an experience that feels purposeful at every moment.",
   },
   {
     id: 3,
     image: "/images/services/communications/event-management/step-1.png",
-    title: "Production & Execution",
+    title: "Branding, Marketing and Engagement",
     description:
-      "On-site or virtual, our team orchestrates every detail: from registration to staging, A/V, speaker support, and post-event surveys—so you deliver a seamless, memorable experience.",
+      "We bring your event to life with standout creative and integrated communications. Whether it's a federal summit or corporate retreat, we tailor the tone, visuals, and outreach to your audience. ",
   },
   {
     id: 4,
     image: "/images/services/communications/event-management/step-1.png",
-    title: "Analysis & Optimization",
+    title: "Logistics & Production",
     description:
-      "We gather attendance, engagement, and feedback data in real time, then provide you with clear insights and recommendations to make your next event even stronger.",
+      "We handle every behind-the-scenes detail, so you don't have to. From sourcing venues to managing vendors, we keep things moving and aligned with your goals.",
   },
+  {
+    id: 5,
+    image: "/images/services/communications/event-management/step-1.png",
+    title: "Showtime",
+    description:
+      "We are onsite, online, and always on. Our team runs the show, from speaker rehearsals to minute-by-minute management, ensuring a smooth, professional experience from start to finish.",
+  },
+  {
+    id: 6,
+    image: "/images/services/communications/event-management/step-1.png",
+    title: "Wrap-Up & Impact Reporting",
+    description:
+      "We don't just end with applause; we provide data, insights, and post-event materials that help you tell the story, sustain momentum, and plan what's next.",
+  },    
 ];
 
 export default function StepByStepProcess() {
@@ -45,47 +57,40 @@ export default function StepByStepProcess() {
   const panelsRef  = useRef();
 
   useLayoutEffect(() => {
-    // grab Lenis container (ReactLenis wraps children in .lenis__scroll)
-    const scrollerEl = document.querySelector(".lenis__scroll") || window;
-
-    // use gsap.context so we clean up on unmount
     const ctx = gsap.context(() => {
-      const section = sectionRef.current;
-      const panels  = panelsRef.current;
+      const section  = sectionRef.current;
+      const panels   = panelsRef.current;
       const distance = panels.scrollWidth - section.clientWidth;
 
-      // 1) Pin the section for exactly `distance` pixels of scroll
+      // 1) pin the section for exactly `distance` pixels of vertical scroll
       ScrollTrigger.create({
-        scroller: scrollerEl,
-        trigger:  section,
-        start:    "top top",
-        end:      () => `+=${distance}`,
-        pin:      true,
+        trigger: section,
+        start:   "top top",
+        end:     () => `+=${distance}`,
+        pin:     true,
         pinSpacing: false,
-        pinType:  scrollerEl === window ? "fixed" : "transform",
         invalidateOnRefresh: true,
-        markers: true,
+        markers: true,               // remove markers in production
       });
 
-      // 2) Scrub the panels left→right over that same scroll
+      // 2) scrub the panels left→right over the same scroll
       gsap.to(panels, {
         x: -distance,
         ease: "none",
         scrollTrigger: {
-          scroller: scrollerEl,
-          trigger:  section,
-          start:    "top top",
-          end:      () => `+=${distance}`,
-          scrub:    true,
+          trigger: section,
+          start:   "top top",
+          end:     () => `+=${distance}`,
+          scrub:   true,
           invalidateOnRefresh: true,
+          // no `scroller:` here
         },
       });
 
-      // 3) force a refresh so measurements are accurate
+      // 3) make sure all measurements are freshly calculated
       ScrollTrigger.refresh();
     }, sectionRef);
 
-    // on unmount, kill everything & remove pin wrappers
     return () => ctx.revert();
   }, []);
 

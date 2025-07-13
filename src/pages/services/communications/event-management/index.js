@@ -3,13 +3,14 @@ import HeroSection from "@/app/components/services/communications/event-manageme
 import WeSpecializeIn from "@/app/components/services/communications/event-management/WeSpecializeIn";
 import WhatSetsUsApart from "@/app/components/services/communications/event-management/WhatSetsUsApart";
 import CtaSmall from "@/app/components/services/communications/event-management/CtaSmall";
-import StepByStepProcess from "@/app/components/services/communications/event-management/StepByStepProcess";
+// import StepByStepProcess from "@/app/components/services/communications/event-management/StepByStepProcess";
 import OurAreasOfExpertise from "@/app/components/services/communications/event-management/OurAreasOfExpertise";
 import WhoWeWorkWith from "@/app/components/services/communications/event-management/WhoWeWorkWith";
 import Testimonials from "@/app/components/services/communications/event-management/Testimonials";
 import Awards from "@/app/components/common/Awards";
 import CaseStudies from "@/app/components/services/communications/event-management/CaseStudies";
 import Insights from "@/app/components/services/communications/event-management/Insights";
+import CtaLarge from "@/app/components/services/communications/event-management/CtaLarge";
 
 import { getPageBySlug } from '@/app/lib/hygraph/pages';
 
@@ -22,13 +23,14 @@ function EventManagement({ page }) {
         <WeSpecializeIn />
         <WhatSetsUsApart />
         <CtaSmall />
-        <StepByStepProcess />
+        {/* <StepByStepProcess /> */}
         <OurAreasOfExpertise />
         <WhoWeWorkWith />
         <Testimonials />
         <Awards />
         <CaseStudies />
         <Insights />
+        <CtaLarge />
     </>
   );
 }

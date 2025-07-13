@@ -89,7 +89,7 @@ export default function Insights() {
       id="event-insights"
       className="py-8 py-lg-10"
     >
-      <div className="container">
+      <div className="container z-2 position-relative">
         <h2
           ref={titleRef}
           className="display-5 mb-6"

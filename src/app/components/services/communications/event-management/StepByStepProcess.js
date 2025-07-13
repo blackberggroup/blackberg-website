@@ -76,7 +76,7 @@ export default function StepByStepProcess() {
   }, []);
 
   return (
- <section
+  <section
       ref={sectionRef}
       id="step-by-step-process"
       style={{ height: "100vh", overflow: "hidden" }}
@@ -87,16 +87,50 @@ export default function StepByStepProcess() {
           Our Step-by-Step Process
         </h2>
         <div className="panels-container" style={{ overflow: "hidden" }}>
-          <div className="panels-scroller" ref={panelsRef} style={{ display: "flex" }}>
-            {steps.map((s) => (
-              <div key={s.id} className="panel" style={{ minWidth: "100vw", padding: "0 2rem" }}>
-                {/* … */}
+          <div
+            className="panels-scroller"
+            ref={panelsRef}
+            style={{ display: "flex" }}
+          >
+            {steps.map((step) => (
+              <div
+                key={step.id}
+                className="panel"
+                style={{
+                  minWidth: "100vw",
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "0 2rem",
+                }}
+              >
+                <div className="row align-items-center gx-5">
+                  <div className="col-12 col-lg-6">
+                    <Image
+                      src={step.image}
+                      alt={step.title}
+                      width={800}
+                      height={500}
+                      className="img-fluid rounded-4"
+                    />
+                  </div>
+                  <div className="col-12 col-lg-6">
+                    <div className="step-card p-5 rounded-4 bg-light text-dark">
+                      <p className="small text-primary fw-bold mb-2">
+                        Step {step.id}
+                      </p>
+                      <h3 className="h4 mb-3">{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="progress-bar-wrapper"><div className="progress-bar" /></div>
+      <div className="progress-bar-wrapper">
+        <div className="progress-bar" />
+      </div>
     </section>
   );
 }

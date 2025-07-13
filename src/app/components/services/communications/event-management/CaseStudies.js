@@ -102,7 +102,7 @@ export default function CaseStudies() {
                     />
                   </div>
                   <div className="card-body p-0 mt-3">
-                    <h3 className="fw-bold text-white">{item.title}</h3>
+                    <h4 className="fw-bold text-white">{item.title}</h4>
                   </div>
                 </div>
               </Link>

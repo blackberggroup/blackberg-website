@@ -54,32 +54,30 @@ useEffect(() => {
       const circle = row.querySelector(".img-decore-circle-dots");
       const dots   = row.querySelector(".img-decore-dots");
 
-      // 2) Circle: spin + scale **scrubbed** as you scroll through the row
       if (circle) {
-        gsap.set(circle, { scale: 0, rotation: -180 });
+        gsap.set(circle, { scale: 0, rotation: -280 });
         gsap.to(circle, {
           scale: 1,
           rotation: 0,
-          ease: "none",
+          ease: "sine.out",
           scrollTrigger: {
             trigger: row,
             start: "top 85%",
-            end: "bottom 70%",
+            end: "bottom 60%",
             scrub: true,
           },
         });
       }
 
-      // 3) Dots: scale **scrubbed** over the same scroll window
       if (dots) {
         gsap.set(dots, { scale: 0 });
         gsap.to(dots, {
           scale: 1,
-          ease: "none",
+          ease: "sine.out",
           scrollTrigger: {
             trigger: row,
             start: "top 85%",
-            end: "bottom 70%",
+            end: "bottom 80%",
             scrub: true,
           },
         });
@@ -197,8 +195,8 @@ useEffect(() => {
               />
               <img
                 src="/images/circle-dotted-2.svg"
-                width="175"
-                height="175"
+                width="300"
+                height="300"
                 className="img-decore-circle-dots position-absolute z-n1"
                 alt=""
               />

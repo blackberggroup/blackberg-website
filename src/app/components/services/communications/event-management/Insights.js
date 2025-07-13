@@ -115,7 +115,7 @@ export default function Insights() {
                     />
                   </div>
                   <div className="card-body p-0 mt-3">
-                    <h3 className="fw-bold">{item.title}</h3>
+                    <h4 className="fw-bold">{item.title}</h4>
                     <div className="d-flex align-items-center">
                         <span className="me-3">
                             <Image

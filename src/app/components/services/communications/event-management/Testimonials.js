@@ -119,7 +119,7 @@ const Testimonials = () => {
             {testimonials.map(({ id, quote, author, rating, image }) => (
               <SwiperSlide key={id}>
                 <div className="row align-items-center gx-5">
-                  <div className="col-12 col-lg-5 offset-1 testimonial-quote">
+                  <div className="col-12 col-lg-5 offset-lg-1 testimonial-quote">
                     <div className="stars mb-3">
                       {Array.from({ length: rating }).map((_, i) => (
                         <span key={i} className="text-primary fs-4 me-1">
@@ -146,8 +146,8 @@ const Testimonials = () => {
 
           {/* custom nav & bullets */}
           <div className="row mt-4">
-            <div className="col-12 col-md-5 offset-1">
-              <div className="testimonial-nav d-flex gap-3">
+            <div className="col-12 col-lg-5 offset-lg-1 order-2 order-lg-1">
+              <div className="testimonial-nav d-flex justify-content-center justify-content-lg-start gap-4 mt-4 mt-lg-0">
                 <button
                   ref={prevRef}
                   className="testimonial-nav-btn testimonial-prev"
@@ -172,7 +172,7 @@ const Testimonials = () => {
                 </button>
               </div>
             </div>
-            <div className="col-12 col-md-5">
+            <div className="col-12 col-lg-5 order-1 order-lg-2">
               <div
                 ref={pageRef}
                 className="testimonial-pagination d-flex justify-content-center"

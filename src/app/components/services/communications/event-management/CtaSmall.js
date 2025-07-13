@@ -39,7 +39,7 @@ const CtaSmall = () => {
             <div className="col-12 col-lg-8">
               <div className="cta-small__content text-white">
                 <h3 className="mb-3 mb-lg-5">Ready to Make Your Next Event Unforgettable?</h3>
-                <p className="lead mb-4 mb-lg-0">Let's map your vision, align your stakeholders, and craft an experience that moves people and delivers measurable impact.</p>
+                <p className="lead mb-4 mb-lg-0">Let&apos;s map your vision, align your stakeholders, and craft an experience that moves people and delivers measurable impact.</p>
               </div>
             </div>
             <div className="col d-flex justify-content-start justify-content-lg-end">

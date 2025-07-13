@@ -1,4 +1,3 @@
-// components/services/communications/event-management/WeSpecializeIn.js
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -53,15 +52,15 @@ const WeSpecializeIn = () => {
           </div>
         </div>
         <div className="row">
-          <div ref={col1Ref} className="col-12 col-md-4 mb-4 mb-md-5 column-corporate">
+          <div ref={col1Ref} className="col-12 col-lg-4 mb-4 mb-md-5 column-corporate">
             <h3 className="h4">Corporate Offsites & Retreats</h3>
             <p>Team-building, leadership alignment, and strategic planning in destinations that inspire.</p>
           </div>
-          <div ref={col2Ref} className="col-12 col-md-4 mb-4 mb-md-5 column-conferences">
+          <div ref={col2Ref} className="col-12 col-lg-4 mb-4 mb-md-5 column-conferences">
             <h3 className="h4">Conferences & Summits</h3>
             <p>Full-scale productions designed to engage audiences, elevate content, and drive outcomes.</p>
           </div>
-          <div ref={col3Ref} className="col-12 col-md-4 mb-4 mb-md-5 column-events">
+          <div ref={col3Ref} className="col-12 col-lg-4 mb-4 mb-md-5 column-events">
             <h3 className="h4">Mission-Driven Events</h3>
             <p>Purpose-led gatherings for federal agencies, nonprofits, and associations—built for meaning, not just logistics.</p>
           </div>

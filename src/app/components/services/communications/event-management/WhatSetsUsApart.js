@@ -1,9 +1,52 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Image from "next/image";
 
 const WhatSetsUsApart = () => {
+  const titleRef = useRef(null);
+  const imageRef = useRef(null);
+  const itemRefs = useRef([]);
+  itemRefs.current = [];
+
+  const addToRefs = (el) => {
+    if (el && !itemRefs.current.includes(el)) {
+      itemRefs.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const elems = [
+        titleRef.current,
+        imageRef.current,
+        ...itemRefs.current,
+      ];
+
+      gsap.set(elems, { opacity: 0, y: 20 });
+
+      elems.forEach((el, i) => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power1.out",
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",           
+            toggleActions: "play none none none"
+          }
+        });
+      });
+    });
+  }, []);
+
   const accordionItems = [
     {
       id: "One",
@@ -32,7 +75,7 @@ const WhatSetsUsApart = () => {
     },
     {
       id: "Five",
-      title: "Data Driven Results",
+      title: "Data-Driven Results",
       content:
         "We don't just execute, we measure. We track key engagement metrics and audience feedback to deliver events that are not only memorable, but measurable.",
     },
@@ -41,22 +84,35 @@ const WhatSetsUsApart = () => {
   return (
     <section id="what-sets-us-apart" className="py-8 py-lg-10">
       <div className="container">
-        <h2 className="display-5 text-center mb-5">What Sets Us Apart</h2>
+        <h2 ref={titleRef} className="display-5 text-center mb-5">
+          What Sets Us Apart
+        </h2>
         <div className="row align-items-center">
-          <div className="col-12 col-lg-6 mb-4 mb-lg-0">
+          <div
+            ref={imageRef}
+            className="col-12 col-lg-6 mb-4 mb-lg-0"
+          >
             <Image
               src="/images/services/communications/event-management/what-sets-us-apart.png"
               alt="Our team celebrating"
               width={600}
               height={400}
-              className="img-fluid rounded"
+              className="img-fluid rounded-4"
+              fetchPriority="auto"
             />
           </div>
           <div className="col-12 col-lg-6">
             <div className="accordion" id="setsUsApartAccordion">
               {accordionItems.map((item) => (
-                <div className="accordion-item" key={item.id}>
-                  <h3 className="accordion-header" id={`heading${item.id}`}>
+                <div
+                  className="accordion-item"
+                  key={item.id}
+                  ref={addToRefs}
+                >
+                  <h3
+                    className="accordion-header"
+                    id={`heading${item.id}`}
+                  >
                     <button
                       className={`accordion-button ${
                         item.defaultExpanded ? "" : "collapsed"
@@ -78,7 +134,9 @@ const WhatSetsUsApart = () => {
                     aria-labelledby={`heading${item.id}`}
                     data-bs-parent="#setsUsApartAccordion"
                   >
-                    <div className="accordion-body">{item.content}</div>
+                    <div className="accordion-body">
+                      {item.content}
+                    </div>
                   </div>
                 </div>
               ))}

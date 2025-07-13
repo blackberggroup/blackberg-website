@@ -34,11 +34,6 @@ $spacers: map-merge(
 );
 
 
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/utilities";
-
-
 // Color system
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
@@ -74,9 +69,15 @@ $custom-theme-colors: (
 // Map Custom Theme to Utilities
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
 $utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
 $utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
 $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
 
 $jade-green-50: #dff1f0 !default;
 $jade-green-100: #b1dcd8 !default;
@@ -434,9 +435,9 @@ $accordion-button-active-bg:              #fff;
 $accordion-button-active-color:           $primary;
 
 // fusv-disable
-$accordion-button-focus-border-color:     $input-focus-border-color; // Deprecated in v5.3.3
+$accordion-button-focus-border-color:     inset 0 calc(-1 * 1px) 0 $primary; // Deprecated in v5.3.3
 // fusv-enable
-$accordion-button-focus-box-shadow:       $btn-focus-box-shadow;
+$accordion-button-focus-box-shadow:       0 0 0 0.25rem rgba(0, 128, 114, 0.25) ;
 
 $accordion-icon-width:                    1.5rem;
 $accordion-icon-color:                    $body-color;

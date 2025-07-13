@@ -57,3 +57,159 @@
 #event-management-sets-us-apart {
 
 }
+
+#step-by-step-process {
+  background: #012B24;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+      height: 100vh;
+    }
+
+  // content wrapper centers vertically on desktop
+  .content {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;     // vertical center
+    }
+  }
+
+  // panels container: horizontal on desktop, vertical on mobile
+  .panels-container {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+    @include media-breakpoint-down(md) {
+      display: block;             // normal stacking on tablet+
+      height: auto;
+    }
+  }
+
+  .panels-scroller {
+    display: flex;
+  }
+
+  .panel {
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 100vw;            // one panel per viewport-width
+      height: 100%;               // one panel per viewport-height
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    @include media-breakpoint-down(md) {
+      flex: none;
+      height: auto;
+      padding: 1rem 0;
+    }
+  }
+
+  .step-card {
+    background: $jade-green-50;
+    color: $gray-900;
+  }
+
+  // your existing progress-bar styles…
+  .progress-bar-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba($white, 0.3);
+    z-index: 20;
+  }
+  .progress-bar {
+    height: 100%;
+    background: $electric-green;
+    transform-origin: left center;
+  }
+}
+
+#areas-of-expertise {
+
+  .img-decore-dots {
+    bottom: -15%;
+    left: -15%;
+  }
+
+  .img-decore-circle-dots {
+    bottom: -12%;
+    right: -9%;
+  }  
+
+}
+
+#testimonials {
+  background: #fff;
+
+  h2 {
+    color: #212529; // or your heading color
+  }
+
+  .testimonial-quote {
+    // center vertically on lg+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .stars span {
+    // optionally adjust star color/size
+  }
+
+  .testimonial-nav {
+    // ensure buttons are same size & shape
+    .testimonial-nav-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background-color: $primary; // e.g. jade-green
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: background-color .2s;
+
+      &:hover {
+        background-color: darken($primary, 5%);
+      }
+    }
+
+  }
+
+  // center bullets
+  .testimonial-pagination {
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #ccc;
+      opacity: 1;
+      margin: 0 4px;
+      border-radius: 50%;
+      transition: background .2s;
+    }
+    .swiper-pagination-bullet-active {
+      background: $primary !important; // jade-green
+    }
+  }
+
+  // hide default Swiper arrows
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
+
+#event-case-studies {
+  background-color: #012B24;
+}

@@ -38,20 +38,35 @@
         }
        }
 
-       &.is-stuck {
-        .navbar-brand {    
-            &:before {
-                width: 94px;
-                height: 38px;
+        &.is-stuck {
+            .navbar-brand {    
+                &:before {
+                    width: 94px;
+                    height: 38px;
                 }
             }
-       }
+            .btn-back-to-site {
+                color: #000;
+            }
+        }
+
+       
     }
 
     &-dark {
 
         .navbar-logo {
             background-image: url('/images/logo-dark.svg');
+        }
+
+        .btn-back-to-site {
+            color: #fff;
+        }
+
+         &.is-stuck {
+            .btn-back-to-site {
+            color: #000;
+            }
         }
     }
 

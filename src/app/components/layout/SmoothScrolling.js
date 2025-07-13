@@ -14,7 +14,7 @@ export default function SmoothScrolling({ children }) {
     // Wait for the Lenis instance to mount
     const lenis = lenisRef.current?.lenis;
     if (!lenis) {
-      console.warn("Lenis instance not found – ScrollTrigger proxy not installed");
+      console.warn("Lenis instance not found ScrollTrigger proxy not installed");
       return;
     }
 

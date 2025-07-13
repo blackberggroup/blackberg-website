@@ -1,10 +1,12 @@
 // components/services/communications/event-management/StepByStepProcess.js
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -16,136 +18,85 @@ const steps = [
   },
   {
     id: 2,
-    image: "/images/services/communications/event-management/step-2.png",
+    image: "/images/services/communications/event-management/step-1.png",
     title: "Design & Planning",
     description:
       "Working hand-in-hand with you, we develop detailed run-of-show, creative storyboards, branding, and marketing assets—then lock down venues, vendors, and tech to bring it all to life.",
   },
   {
     id: 3,
-    image: "/images/services/communications/event-management/step-3.png",
+    image: "/images/services/communications/event-management/step-1.png",
     title: "Production & Execution",
     description:
       "On-site or virtual, our team orchestrates every detail: from registration to staging, A/V, speaker support, and post-event surveys—so you deliver a seamless, memorable experience.",
   },
   {
     id: 4,
-    image: "/images/services/communications/event-management/step-4.png",
+    image: "/images/services/communications/event-management/step-1.png",
     title: "Analysis & Optimization",
     description:
       "We gather attendance, engagement, and feedback data in real time, then provide you with clear insights and recommendations to make your next event even stronger.",
   },
 ];
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function StepByStepProcess() {
-  const sectionRef = useRef(null);
-  const scrollerRef = useRef(null);
+  const sectionRef = useRef();
+  const panelsRef  = useRef();
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  useLayoutEffect(() => {
+    const ctx = gsap.context((self) => {
+      const section = sectionRef.current;
+      const panels  = panelsRef.current;
+      const distance = panels.scrollWidth - section.clientWidth;
 
-    // target Lenis container or fallback to window
-    const scrollerEl = document.querySelector(".lenis__scroll") || window;
-    const section = sectionRef.current;
-    const panels = scrollerRef.current;
-
-    // calculate horizontal scroll length
-    const sectionWidth = section.clientWidth;
-    const distance = panels.scrollWidth - sectionWidth;
-
-    // pin the section for exactly the scroll distance
-    ScrollTrigger.create({
-      scroller: scrollerEl,
-      trigger: section,
-      start: "top top",
-      end: () => `+=${distance}`,
-      pin: true,
-      pinSpacing: true,       // ensures the rest of page content sits below
-      scrub: false,
-      invalidateOnRefresh: true,
-    });
-
-    // scrub horizontal translation of panels
-    gsap.to(panels, {
-      x: -distance,
-      ease: "none",
-      scrollTrigger: {
-        scroller: scrollerEl,
+      // pin & scrub
+      ScrollTrigger.create({
         trigger: section,
-        start: "top top",
-        end: () => `+=${distance}`,
-        scrub: true,
+        start:  "top top",
+        end:    () => `+=${distance}`,
+        pin:    true,
+        pinSpacing: false,
         invalidateOnRefresh: true,
-      },
-    });
+      });
+      gsap.to(panels, {
+        x: -distance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start:  "top top",
+          end:    () => `+=${distance}`,
+          scrub:  true,
+          invalidateOnRefresh: true,
+        },
+      });
+    }, sectionRef);
 
-    // recalc on resize/orientation change
-    ScrollTrigger.refresh();
+    // ← on unmount, revert() will kill triggers AND remove pin wrappers
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      id="step-by-step-process"
+ <section
       ref={sectionRef}
+      id="step-by-step-process"
+      style={{ height: "100vh", overflow: "hidden" }}
       className="step-by-step-process position-relative text-white"
-      style={{
-        height: "100vh",
-        overflow: "hidden",
-        backgroundColor: "#012B24",
-      }}
     >
       <div className="content">
         <h2 className="display-5 text-center mb-6">
           Our Step-by-Step Process
         </h2>
         <div className="panels-container" style={{ overflow: "hidden" }}>
-          <div
-            className="panels-scroller"
-            ref={scrollerRef}
-            style={{ display: "flex", height: "100%" }}
-          >
-            {steps.map((step) => (
-              <div
-                key={step.id}
-                className="panel"
-                style={{
-                  minWidth: "100vw",
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "0 2rem",
-                }}
-              >
-                <div className="row align-items-center gx-5 w-100">
-                  <div className="col-12 col-lg-6">
-                    <Image
-                      src={step.image}
-                      alt={step.title}
-                      width={800}
-                      height={500}
-                      className="img-fluid rounded-4"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="col-12 col-lg-6">
-                    <div className="step-card p-5 rounded-4 bg-light text-dark">
-                      <p className="small text-primary fw-bold mb-2">
-                        Step {step.id}
-                      </p>
-                      <h3 className="h4 mb-3">{step.title}</h3>
-                      <p>{step.description}</p>
-                    </div>
-                  </div>
-                </div>
+          <div className="panels-scroller" ref={panelsRef} style={{ display: "flex" }}>
+            {steps.map((s) => (
+              <div key={s.id} className="panel" style={{ minWidth: "100vw", padding: "0 2rem" }}>
+                {/* … */}
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="progress-bar-wrapper">
-        <div className="progress-bar" />
-      </div>
+      <div className="progress-bar-wrapper"><div className="progress-bar" /></div>
     </section>
   );
 }

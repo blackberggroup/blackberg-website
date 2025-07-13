@@ -33,21 +33,19 @@ function EventManagement({ page }) {
   );
 }
 
-export async function getServerSideProps(context) {
-
-  const slug = context.resolvedUrl.split('/').filter(Boolean)[1];
-
-  const [page] = await Promise.all([
-      getPageBySlug(slug)
-  ]);
+export async function getServerSideProps({ resolvedUrl }) {
+  const segments = resolvedUrl.split('/').filter(Boolean);
+  const slug = segments[segments.length - 1];
+  const [page] = await Promise.all([getPageBySlug(slug)]);
 
   return {
-      props: { 
-          page: page || null,
-          footerCta: false,
-          simpleHeader: true
-      },
+    props: {
+      page: page || null,
+      footerCta: false,
+      simpleHeader: true,
+    },
   };
 }
+
 
 export default EventManagement;

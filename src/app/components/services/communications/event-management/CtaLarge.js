@@ -34,9 +34,9 @@ const CtaSmall = () => {
           <div className="row align-items-center position-relative z-2">
             <div className="col-12 col-lg-10 offset-lg-1 text-center">
               <div className="cta-small__content text-white">
-                <h2 className="display-5 mb-3 mb-lg-5">Let's Create an Experience That Resonates</h2>
+                <h2 className="display-5 mb-3 mb-lg-5">Let&apos;s Create an Experience That Resonates</h2>
                 <h3 className="mb-4">Planning an event, meeting, or workshop?</h3>
-                <p className="lead">Let's talk about how Blackberg's integrated event services can help you design, manage, and deliver a convening that makes a measurable impact.</p>
+                <p className="lead">Let&apos;s talk about how Blackberg&apos;s integrated event services can help you design, manage, and deliver a convening that makes a measurable impact.</p>
                 <Link
                     href="#"
                     className="btn btn-secondary"

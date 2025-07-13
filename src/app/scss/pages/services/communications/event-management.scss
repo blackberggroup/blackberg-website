@@ -229,3 +229,13 @@
     height: 1100px;
   }
 }
+
+.steps-grid {
+  background-color: $jade-green-950;
+  margin-bottom: 4rem;
+
+  &__container {
+    background-color: $electric-green-50;
+    margin-bottom: -4rem;
+  }
+}

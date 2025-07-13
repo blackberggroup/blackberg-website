@@ -3,7 +3,7 @@ import HeroSection from "@/app/components/services/communications/event-manageme
 import WeSpecializeIn from "@/app/components/services/communications/event-management/WeSpecializeIn";
 import WhatSetsUsApart from "@/app/components/services/communications/event-management/WhatSetsUsApart";
 import CtaSmall from "@/app/components/services/communications/event-management/CtaSmall";
-// import StepByStepProcess from "@/app/components/services/communications/event-management/StepByStepProcess";
+import StepByStepProcess from "@/app/components/services/communications/event-management/StepByStepProcess2";
 import OurAreasOfExpertise from "@/app/components/services/communications/event-management/OurAreasOfExpertise";
 import WhoWeWorkWith from "@/app/components/services/communications/event-management/WhoWeWorkWith";
 import Testimonials from "@/app/components/services/communications/event-management/Testimonials";
@@ -23,7 +23,7 @@ function EventManagement({ page }) {
         <WeSpecializeIn />
         <WhatSetsUsApart />
         <CtaSmall />
-        {/* <StepByStepProcess /> */}
+        <StepByStepProcess />
         <OurAreasOfExpertise />
         <WhoWeWorkWith />
         <Testimonials />

@@ -100,7 +100,7 @@ export default function Insights() {
   ];
 
   return (
-    <section id="steps-grid" className="steps-grid pt-8 pt-10">
+    <section id="steps-grid" className="steps-grid pt-8 pt-lg-10">
       <div className="container z-2 position-relative">
         <h2 ref={titleRef} className="display-5 mb-6 text-center text-white">
           Our Step-by-Step Process

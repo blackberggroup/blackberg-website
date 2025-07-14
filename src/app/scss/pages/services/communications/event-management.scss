@@ -52,22 +52,37 @@
         }
 
         &__donut1 {
+            width: 600px;
+            height: 600px;
+            top: -20%;
+            right: -25%;
+            opacity: .05;
+            z-index: 4;
+
+          @include media-breakpoint-up(lg) {
             width: 1200px;
             height: 1200px;
             top: -50%;
             right: -25%;
-            opacity: .05;
-            z-index: 4;
+          }            
         }
 
         &__donut2 {
-            bottom: -15%;
-            left: -15%;
             z-index: 4;
             opacity: .3;
-            width: 500px;
-            height: 500px;
-        }        
+            width: 300px;
+            height: 300px;
+            bottom: -15%;
+            left: -25%;
+
+            @include media-breakpoint-up(lg) {
+              width: 500px;
+              height: 500px;
+              bottom: -15%;
+              left: -15%;
+            }            
+
+          }        
     }
 }
 
@@ -148,12 +163,41 @@
 
   .img-decore-dots {
     bottom: -15%;
-    left: -15%;
+    right: -12%;
+    height: 175px;
+    width: 175px;
+
+    @include media-breakpoint-up(sm) {
+      bottom: -5%;
+      left: -12%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      bottom: -15%;
+      left: -15%;
+    }
+
   }
 
   .img-decore-circle-dots {
-    bottom: -19%;
-    right: -14%;
+    bottom: -15%;
+    right: -20%;
+
+    @include media-breakpoint-up(sm) {
+      bottom: -20%;
+      right: -14%;
+    }
+
+    @include media-breakpoint-up(md) {
+      bottom: -19%;
+      right: -12%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      bottom: -19%;
+      right: -14%;
+    }
+
   }  
 
 }
@@ -213,7 +257,7 @@
 }
 
 #event-case-studies {
-  background-color: #012B24;
+  background-color: $jade-green-950;
 }
 
 #event-management-cta-large {
@@ -239,11 +283,35 @@
 }
 
 #event-management-circle-arrow {
-  bottom: 2%;
-  left: -40%;
-  z-index: 1;
-  position: absolute;
-  transform: rotate(-25deg);
+  display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      bottom: -5%;
+      left: -65%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-35deg);
+    }
+
+      @include media-breakpoint-up(lg) {
+      display: block;
+      bottom: 20%;
+      left: -40%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-25deg);
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+      bottom: 2%;
+      left: -40%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-25deg);
+    }
+
 
   img {
     width: 1100px;

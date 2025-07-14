@@ -132,7 +132,7 @@ const HeroSection = () => {
                 <Link
                   href="#"
                   className="btn btn-secondary hero__btn"
-                  aria-label="Schedule a Discovery Call"
+                  aria-label="Learn more about our event management offering"
                   ref={btnRef}
                   onClick={handleHeroBtnClick}
                 >

@@ -99,7 +99,7 @@ useEffect(() => {
         </div>
 
         {/* Discovery & Strategy */}
-        <div ref={addToRefs} className="row align-items-center mb-7">
+        <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 mb-4 mb-lg-0">
             <div className="img-wrapper position-relative">
               <Image
@@ -111,8 +111,6 @@ useEffect(() => {
               />
               <img
                 src="/images/square-dotted.svg"
-                width="175"
-                height="175"
                 className="img-decore-dots position-absolute z-n1"
                 alt=""
               />
@@ -133,7 +131,7 @@ useEffect(() => {
         </div>
 
         {/* Agenda & Experience Design */}
-        <div ref={addToRefs} className="row align-items-center mb-7">
+        <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 order-lg-2 mb-4 mb-lg-0">
             <Image
                 src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
@@ -158,7 +156,7 @@ useEffect(() => {
         </div>
 
         {/* Creative & Marketing Integration */}
-        <div ref={addToRefs} className="row align-items-center mb-7">
+        <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 mb-4 mb-lg-0">
             <Image
                 src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
@@ -183,7 +181,7 @@ useEffect(() => {
         </div>
 
         {/* Logistics & Technical Production */}
-        <div ref={addToRefs} className="row align-items-center mb-7">
+        <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 order-lg-2 mb-4 mb-lg-0">
             <div className="img-wrapper position-relative">
               <Image

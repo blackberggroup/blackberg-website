@@ -89,7 +89,6 @@ useEffect(() => {
   return (
     <section id="areas-of-expertise" className="py-8 py-lg-10">
       <div className="container">
-        {/* Title */}
         <div ref={titleRef} className="text-center mb-7">
           <h2 className="display-5">Our Areas of Expertise</h2>
           <p className="lead">
@@ -98,52 +97,20 @@ useEffect(() => {
           </p>
         </div>
 
-        {/* Discovery & Strategy */}
-        <div ref={addToRefs} className="row align-items-center mb-8">
-          <div className="col-12 col-lg-6 mb-4 mb-lg-0">
-            <div className="img-wrapper position-relative">
-              <Image
-                src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
-                alt="Discovery & Strategy"
-                width={884}
-                height={623}
-                className="img-fluid rounded-4 position-relative z-0"
-              />
-              <img
-                src="/images/square-dotted.svg"
-                className="img-decore-dots position-absolute z-n1"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="col-12 col-lg-6">
-            <h3 className="h4 mb-3">Discovery & Strategy</h3>
-            <ul>
-              <li>Mission alignment and stakeholder engagement</li>
-              <li>Budget and scope development</li>
-              <li>Event positioning and audience targeting</li>
-              <li>Development of event goals, success metrics, and KPIs</li>
-              <li>Timeline creation and milestone tracking</li>
-              <li>Stakeholder buy-in strategy and communications planning</li>
-              <li>Competitive landscape research and benchmarking</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Agenda & Experience Design */}
+        {/* Program Curation & Audience Engagement */}
         <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 order-lg-2 mb-4 mb-lg-0">
             <Image
-                src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
+                src="/images/services/communications/event-management/agenda-and-experience-design.webp"
               alt="Agenda & Experience Design"
-                width={884}
-                height={623}
-              className="img-fluid rounded-4"
+                width={590}
+                height={415}
+              className="img-fluid w-100 rounded-4"
             />
           </div>
           <div className="col-12 col-lg-6 order-lg-1">
-            <h3 className="h4 mb-3">Agenda & Experience Design</h3>
-            <ul>
+            <h3 className="mb-3">Program Curation & Audience Engagement</h3>
+            <ul className="lh-lg">
               <li>Facilitation of agenda-building workshops with internal teams</li>
               <li>Speaker engagement strategy and session formats</li>
               <li>Integration of experiential elements, storytelling, and live demonstrations</li>
@@ -155,20 +122,20 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Creative & Marketing Integration */}
+        {/* Brand Storytelling & Promotional Campaigns */}
         <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 mb-4 mb-lg-0">
             <Image
-                src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
+                src="/images/services/communications/integrated-marketing.webp"
               alt="Creative & Marketing Integration"
-                width={884}
-                height={623}
-              className="img-fluid rounded-4"
+                width={590}
+                height={415}
+              className="img-fluid w-100 rounded-4"
             />
           </div>
           <div className="col-12 col-lg-6">
-            <h3 className="h4 mb-3">Creative & Marketing Integration</h3>
-            <ul>
+            <h3 className="mb-3">Brand Storytelling & Promotional Campaigns</h3>
+            <ul className="lh-lg">
               <li>Cohesive event branding, signage, and environmental design</li>
               <li>Cross-channel marketing campaigns (email, social, earned media)</li>
               <li>Design & deployment of event websites, apps, and registration platforms</li>
@@ -180,16 +147,16 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Logistics & Technical Production */}
+        {/* End-to-End Logistics & Production Management */}
         <div ref={addToRefs} className="row align-items-center mb-8">
           <div className="col-12 col-lg-6 order-lg-2 mb-4 mb-lg-0">
             <div className="img-wrapper position-relative">
               <Image
-                src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
-                alt="Logistics & Technical Production"
-                width={884}
-                height={623}
-                className="img-fluid rounded-4"
+                src="/images/services/communications/event-management/logistics-and-production-management.webp"
+                alt="iEX event production showing cameras and lights"
+                width={590}
+                height={415}
+                className="img-fluid w-100 rounded-4"
               />
               <img
                 src="/images/circle-dotted-2.svg"
@@ -201,8 +168,8 @@ useEffect(() => {
             </div>
           </div>
           <div className="col-12 col-lg-6 order-lg-1">
-            <h3 className="h4 mb-3">Logistics & Technical Production</h3>
-            <ul>
+            <h3 className="mb-3">End-to-End Logistics & Production Management</h3>
+            <ul className="lh-lg">
               <li>Venue sourcing and contracting</li>
               <li>Technical planning for audiovisuals, livestreams, and hybrid formats</li>
               <li>Vendor coordination, speaker logistics, and accessibility planning</li>
@@ -214,20 +181,20 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Onsite Execution & Post-Event Support */}
+        {/* Execution & Follow-Through */}
         <div ref={addToRefs} className="row align-items-center">
           <div className="col-12 col-lg-6 mb-4 mb-lg-0">
             <Image
-                src="/images/services/communications/event-management/our-areas-of-expertise-1.jpg"
-              alt="Onsite Execution & Post-Event Support"
-              width={600}
-              height={400}
-              className="img-fluid rounded-4"
+              src="/images/services/communications/event-management/execution-and-follow-through.webp"
+              alt="Execution & Follow-Through"
+              width={590}
+              height={415}
+              className="img-fluid w-100 rounded-4"
             />
           </div>
           <div className="col-12 col-lg-6">
-            <h3 className="h4 mb-3">Onsite Execution & Post-Event Support</h3>
-            <ul>
+            <h3 className="mb-3">Execution & Follow-Through</h3>
+            <ul className="lh-lg">
               <li>Onsite staffing, run-of-show management, and speaker support</li>
               <li>Media coordination, VIP handling, and talent logistics</li>
               <li>Attendee experience oversight (wayfinding, signage, registration, help desks)</li>

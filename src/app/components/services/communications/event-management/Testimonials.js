@@ -16,7 +16,7 @@ const testimonials = [
     id: 1,
     quote:
       "“For three years of successful collaborations, Blackberg Group has proven themselves to be a valuable partner. They consistently bring professionalism, creativity, and forward-thinking strategies to every project, crafting experiences that resonate and leave a lasting impact.”",
-    author: "Anne Bailey",
+    author: "Healthcare Innovation Conference",
     rating: 5,
     image: "/images/services/communications/event-management/testimonial-1.jpg",
   },
@@ -24,17 +24,9 @@ const testimonials = [
     id: 2,
     quote:
       "“I’ve worked with a lot of event professionals over the years, but this team stands out. Their ability to manage complexity, stay calm under pressure, and still make every moment feel intentional and personal is unmatched. From the first planning call to the final guest goodbye, everything was seamless. We’ve never had an event that felt so aligned with our goals and so effortless to execute.”",
-    author: "Carlos Martinez",
+    author: "Startup Corporate Offsite",
     rating: 5,
-    image: "/images/services/communications/event-management/testimonial-1.jpg",
-  },
-  {
-    id: 3,
-    quote:
-      "“For three years of successful collaborations, Blackberg Group has proven themselves to be a valuable partner. They consistently bring professionalism, creativity, and forward-thinking strategies to every project, crafting experiences that resonate and leave a lasting impact.”",
-    author: "Anne Bailey",
-    rating: 5,
-    image: "/images/services/communications/event-management/testimonial-1.jpg",
+    image: "/images/services/communications/event-management/testimonial-2.webp",
   },
 ];
 
@@ -134,9 +126,9 @@ const Testimonials = () => {
                     <Image
                       src={image}
                       alt={`Photo of ${author}`}
-                      width={700}
-                      height={450}
-                      className="img-fluid rounded-4"
+                      width={480}
+                      height={410}
+                      className="img-fluid w-100 rounded-4"
                     />
                   </div>
                 </div>

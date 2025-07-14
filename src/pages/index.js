@@ -1,4 +1,3 @@
-// /src/pages/index.js
 import { getPageBySlug } from "@/app/lib/hygraph/pages";
 import { listHomePageCaseStudies } from "@/app/lib/hygraph/case-studies";
 import { getFeaturedInsights } from "@/app/lib/hygraph/insights";
@@ -27,9 +26,8 @@ function HomePage({ page, featuredStudies, insights }) {
 }
 
 export async function getServerSideProps(context) {
-  const slug = context.resolvedUrl.substring(1) || "home"; // fallback if "/" returns ""
+  const slug = context.resolvedUrl.substring(1) || "home";
 
-  // Run the 3 queries in parallel
   const [page, featuredStudies, insights] = await Promise.all([
     getPageBySlug(slug),
     listHomePageCaseStudies(),

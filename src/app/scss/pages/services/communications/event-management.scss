@@ -1,0 +1,330 @@
+#event-management-hero {
+
+    .hero {
+      opacity: 0;
+      transform: scale (.95);
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        &::after {
+            background-color: #012B24;
+            opacity: .9;
+            z-index: 1;
+        }
+
+        &::before {
+            background: linear-gradient(284.6deg, rgba(1, 54, 46, 0.8) 1.98%, rgba(1, 54, 46, 0) 43.22%, rgba(1, 54, 46, 0.8) 85.26%);
+            opacity: .7;
+            z-index: 2;
+        }
+
+        &__bg {
+          background-image: url('/images/services/communications/event-management/hero-bg.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transform: scale (.95);
+          top: 0;
+          z-index: 1;
+        }
+
+        &__headline,
+        &__subheadline {
+          opacity: 0;
+          transform: scale (.95);
+        }
+
+        &__donut1,
+        &__donut2 {
+            position: absolute;
+        }
+
+        &__donut1 {
+            width: 600px;
+            height: 600px;
+            top: -20%;
+            right: -25%;
+            opacity: .05;
+            z-index: 4;
+
+          @include media-breakpoint-up(lg) {
+            width: 1200px;
+            height: 1200px;
+            top: -50%;
+            right: -25%;
+          }            
+        }
+
+        &__donut2 {
+            z-index: 4;
+            opacity: .3;
+            width: 300px;
+            height: 300px;
+            bottom: -15%;
+            left: -25%;
+
+            @include media-breakpoint-up(lg) {
+              width: 500px;
+              height: 500px;
+              bottom: -15%;
+              left: -15%;
+            }            
+
+          }        
+    }
+}
+
+#event-management-specialize-in {
+    background-color: $electric-green-50;
+}
+
+#step-by-step-process {
+  background: #012B24;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+      height: 100vh;
+    }
+
+  .content {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .panels-container {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+    @include media-breakpoint-down(md) {
+      display: block;
+      height: auto;
+    }
+  }
+
+  .panels-scroller {
+    display: flex;
+  }
+
+  .panel {
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 100vw;         
+      height: 100%;            
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    @include media-breakpoint-down(md) {
+      flex: none;
+      height: auto;
+      padding: 1rem 0;
+    }
+  }
+
+  .step-card {
+    background: $jade-green-50;
+    color: $gray-900;
+  }
+
+  .progress-bar-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba($white, 0.3);
+    z-index: 20;
+  }
+  .progress-bar {
+    height: 100%;
+    background: $electric-green;
+    transform-origin: left center;
+  }
+}
+
+#areas-of-expertise {
+
+  .img-decore-dots {
+    bottom: -15%;
+    right: -12%;
+    height: 175px;
+    width: 175px;
+
+    @include media-breakpoint-up(sm) {
+      bottom: -5%;
+      left: -12%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      bottom: -15%;
+      left: -15%;
+    }
+
+  }
+
+  .img-decore-circle-dots {
+    bottom: -15%;
+    right: -20%;
+
+    @include media-breakpoint-up(sm) {
+      bottom: -20%;
+      right: -14%;
+    }
+
+    @include media-breakpoint-up(md) {
+      bottom: -19%;
+      right: -12%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      bottom: -19%;
+      right: -14%;
+    }
+
+  }  
+
+}
+
+#testimonials {
+  background: #fff;
+
+  .testimonial-quote {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .testimonial-nav {
+    .testimonial-nav-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background-color: $primary;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: background-color .2s;
+
+      &:hover {
+        background-color: darken($primary, 5%);
+      }
+    }
+
+  }
+
+  .testimonial-pagination {
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #ccc;
+      opacity: 1;
+      margin: 0 4px;
+      border-radius: 50%;
+      transition: background .2s;
+    }
+    .swiper-pagination-bullet-active {
+      background: $primary;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
+
+#event-case-studies {
+  background-color: $jade-green-950;
+}
+
+#event-management-cta-large {
+
+  .cta-large-wrapper {
+    background-image: url('/images/services/communications/event-management/cta-large-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &::after {
+      content: '';
+      background-color: $tertiary;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: .90;
+    }
+  }
+}
+
+#event-management-circle-arrow {
+  display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      bottom: -5%;
+      left: -65%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-35deg);
+    }
+
+      @include media-breakpoint-up(lg) {
+      display: block;
+      bottom: 20%;
+      left: -40%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-25deg);
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+      bottom: 2%;
+      left: -40%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-25deg);
+    }
+
+
+  img {
+    width: 1100px;
+    height: 1100px;
+  }
+}
+
+.steps-grid {
+  background-color: $jade-green-950;
+  margin-bottom: 4rem;
+
+  &__container {
+    background-color: $electric-green-50;
+    margin-bottom: -4rem;
+  }
+}

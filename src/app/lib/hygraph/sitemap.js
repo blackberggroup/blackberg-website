@@ -1,8 +1,17 @@
 import { gql } from '@apollo/client';
 import client from '@/app/lib/apollo-client';
 
-export const getAllPagePaths = async () => {
+function buildFullPath(page) {
+  let slugs = [];
+  let current = page;
+  while (current) {
+    if (current.slug) slugs.unshift(current.slug);
+    current = current.parentPage;
+  }
+  return '/' + slugs.join('/');
+}
 
+export const getAllPagePaths = async () => {
   try {
     const { data } = await client.query({
       query: gql`
@@ -11,6 +20,12 @@ export const getAllPagePaths = async () => {
             slug
             parentPage {
               slug
+              parentPage {
+                slug
+                parentPage {
+                  slug
+                }
+              }
             }
           }
           insights {
@@ -26,13 +41,7 @@ export const getAllPagePaths = async () => {
       `,
     });
 
-    console.error("Sitemap data:", data);
-    const pages = data.pages.map(({ slug, parentPage }) => {
-      if (parentPage && parentPage.slug) {
-        return `/${parentPage.slug}/${slug}`;
-      }
-      return `/${slug}`;
-    });  
+    const pages = data.pages.map(page => buildFullPath(page));
     const insights = data.insights.map(({ slug }) => `/insights/${slug}`);
     const caseStudies = data.caseStudyModulars.map(({ slug }) => `/case-studies/${slug}`);
     const careers = data.careers.map(({ slug }) => `/about/careers/${slug}`);

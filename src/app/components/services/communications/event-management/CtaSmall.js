@@ -43,9 +43,10 @@ const CtaSmall = () => {
             </div>
             <div className="col d-flex justify-content-start justify-content-lg-end">
               <Link
-                href="#"
+                href="https://outlook.office.com/book/EventsTest@blackberggroup.com/s/fBZMSlM-Tk-Cu35B2GweMg2?ismsaljsauthenabled"
                 className="btn btn-secondary"
                 aria-label="Schedule a Discovery Call"
+                target="_blank"
               >
                 Schedule a Discovery Call
               </Link>

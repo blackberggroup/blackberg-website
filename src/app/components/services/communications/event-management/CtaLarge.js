@@ -38,8 +38,9 @@ const CtaSmall = () => {
                 <h3 className="mb-4">Planning an event, meeting, or workshop?</h3>
                 <p className="lead">Let&apos;s talk about how Blackberg&apos;s integrated event services can help you design, manage, and deliver a convening that makes a measurable impact.</p>
                 <Link
-                    href="#"
+                    href="https://outlook.office.com/book/EventsTest@blackberggroup.com/s/fBZMSlM-Tk-Cu35B2GweMg2?ismsaljsauthenabled"
                     className="btn btn-secondary"
+                    target="_blank"
                     aria-label="Schedule a Discovery Call"
                 >
                     Schedule a Discovery Call

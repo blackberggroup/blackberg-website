@@ -93,7 +93,7 @@ const WhatSetsUsApart = () => {
             className="col-12 col-lg-6 mb-4 mb-lg-0"
           >
             <Image
-              src="/images/services/communications/event-management/what-sets-us-apart.png"
+              src="/images/services/communications/event-management/what-sets-us-apart.webp"
               alt="Our team celebrating"
               width={600}
               height={400}

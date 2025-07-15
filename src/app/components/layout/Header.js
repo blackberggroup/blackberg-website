@@ -75,7 +75,7 @@ const Header = ({ nav, props }) => {
             // ─────── Simple Variant ───────
             <>
               <Link
-                href="#"
+                href="/"
                 className="btn btn-light d-inline d-lg-none"
                 aria-label="Back to site"
               >
@@ -96,9 +96,10 @@ const Header = ({ nav, props }) => {
               </Link>
               <div className="d-flex">
                 <Link
-                  href="#"
+                  href="https://outlook.office.com/book/EventsTest@blackberggroup.com/s/fBZMSlM-Tk-Cu35B2GweMg2?ismsaljsauthenabled"
                   className="btn btn-secondary d-flex"
                   aria-label="Schedule a Discovery Call"
+                  target="_blank"
                 >
                   <span className="d-none d-lg-inline">
                     Schedule a Discovery Call

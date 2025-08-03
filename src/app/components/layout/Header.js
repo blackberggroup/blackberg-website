@@ -76,7 +76,7 @@ const Header = ({ nav, props }) => {
             <>
               <Link
                 href="/"
-                className="btn btn-light d-inline d-lg-none"
+                className="btn d-inline d-lg-none"
                 aria-label="Back to site"
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

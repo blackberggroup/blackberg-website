@@ -19,14 +19,14 @@ const InsightCategoryFilter = ({ categories, selectedCategory, onSelectCategory 
           <button 
             key="all" 
             onClick={() => onSelectCategory("all")} 
-            className={selectedCategory === "all" ? 'btn btn-light border-0 text-start active' : 'btn btn-light border-0 text-start'}>
+            className={selectedCategory === "all" ? 'btn border-0 text-start active' : 'btn border-0 text-start'}>
             View all
           </button>
           {categories.map(category => (
             <button 
               key={category} 
               onClick={() => onSelectCategory(category)} 
-              className={selectedCategory === category ? 'btn btn-light border-0 text-start active' : 'btn btn-light border-0 text-start'}>
+              className={selectedCategory === category ? 'btn border-0 text-start active' : 'btn border-0 text-start'}>
               {category}
             </button>
           ))}

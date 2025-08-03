@@ -19,14 +19,14 @@ const PortfolioCategoryFilter = ({ categories, selectedCategory, onSelectCategor
           <button 
             key="all" 
             onClick={() => onSelectCategory("all")} 
-            className={selectedCategory === "all" ? 'btn btn-light rounded-2 border-0 text-start active flex-grow-1' : 'btn btn-white rounded-2 border-0 text-start flex-grow-1'}>
+            className={selectedCategory === "all" ? 'btn rounded-2 border-0 text-start active flex-grow-1' : 'btn btn-white rounded-2 border-0 text-start flex-grow-1'}>
             View all
           </button>
           {categories.map(category => (
             <button 
               key={category} 
               onClick={() => onSelectCategory(category)} 
-              className={selectedCategory === category ? 'btn btn-light rounded-2 border-0 text-start active flex-grow-1' : 'btn btn-white rounded-2 border-0 text-start flex-grow-1'}>
+              className={selectedCategory === category ? 'btn rounded-2 border-0 text-start active flex-grow-1' : 'btn btn-white rounded-2 border-0 text-start flex-grow-1'}>
               {category}
             </button>
           ))}

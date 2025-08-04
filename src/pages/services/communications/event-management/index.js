@@ -27,7 +27,6 @@ function EventManagement({ page }) {
         <OurAreasOfExpertise />
         <WhoWeWorkWith />
         <Testimonials />
-        <Awards />
         <CaseStudies />
         <Insights />
         <CtaLarge />

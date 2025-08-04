@@ -1,4 +1,5 @@
 import Header from "@/app/components/layout/Header";
+import Awards from "@/app/components/common/Awards";
 import Footer from "@/app/components/layout/Footer";
 import BootstrapClient from '@/app/components/layout/BootstrapClient';
 import "@/app/styles/globals.scss";
@@ -48,6 +49,7 @@ function MyApp({ Component, pageProps, nav, pageName }) {
             <Component {...pageProps} />
         </main>
     </SmoothScrolling>
+    <Awards />
     <Footer nav={nav} props={pageProps}/>
     <ScrollToTop />
     <BootstrapClient />

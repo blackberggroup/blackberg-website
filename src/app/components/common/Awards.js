@@ -1,4 +1,3 @@
-// components/services/communications/event-management/Awards.js
 "use client";
 
 import React, { useRef, useEffect } from "react";

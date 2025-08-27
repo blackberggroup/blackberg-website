@@ -1,16 +1,21 @@
-import sgMail from '@sendgrid/mail';
-import formidable from 'formidable'
-import fs from 'fs';
+import SibApiV3Sdk from "sib-api-v3-sdk";
+import formidable from "formidable";
+import fs from "fs";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const defaultClient = SibApiV3Sdk.ApiClient.instance;
+const apiKey = defaultClient.authentications["api-key"];
+apiKey.apiKey = process.env.BREVO_API_KEY;
+
+const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
 const sendConfirmationEmail = async (firstName, email) => {
-  const msgToUser = {
-    to: email,
-    from: process.env.FROM_EMAIL,
-    subject: `Confirmation: We received your resume`,
-    text: `Hi ${firstName},\n\nThank you for reaching out to us. We have received your resume and will get back to you shortly.\n\nBest regards,\nBlackberg Group`,
-    html: `
+  const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+
+  sendSmtpEmail.sender = { name: "Blackberg Group", email: process.env.FROM_EMAIL };
+  sendSmtpEmail.to = [{ email, name: firstName }];
+  sendSmtpEmail.subject = `Confirmation: We received your resume`;
+  sendSmtpEmail.textContent = `Hi ${firstName},\n\nThank you for reaching out to us. We have received your resume and will get back to you shortly.\n\nBest regards,\nBlackberg Group`;
+  sendSmtpEmail.htmlContent = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -95,45 +100,49 @@ const sendConfirmationEmail = async (firstName, email) => {
           </div>
       </div>
       <footer class="footer">
-        <p>© 2024 Blackberg Group</p>
+        <p>© 2025 Blackberg Group</p>
       </footer>
     </body>
     </html>
-    `,
-  };
+  `;
 
-  await sgMail.send(msgToUser);
+  await apiInstance.sendTransacEmail(sendSmtpEmail);
 };
 
 export const config = {
   api: {
-    bodyParser: false, 
+    bodyParser: false,
   },
 };
 
-export default async function POST(req, res) {
-  if (req.method === 'POST') {
+export default async function handler(req, res) {
+  if (req.method === "POST") {
     const form = formidable({ multiples: false });
 
     form.parse(req, async (err, fields, files) => {
       if (err) {
-        return res.status(500).json({ error: 'File upload failed' });
+        return res.status(500).json({ error: "File upload failed" });
       }
 
-      const { firstName, lastName, email, message, position } = fields;
-      const file = files.resume && files.resume[0]; 
+      const firstName = Array.isArray(fields.firstName) ? fields.firstName[0] : fields.firstName;
+      const lastName  = Array.isArray(fields.lastName)  ? fields.lastName[0]  : fields.lastName;
+      const email     = Array.isArray(fields.email)     ? fields.email[0]     : fields.email;
+      const message   = Array.isArray(fields.message)   ? fields.message[0]   : fields.message;
+      const position  = Array.isArray(fields.position)  ? fields.position[0]  : fields.position;
+      const phone     = Array.isArray(fields.phone)     ? fields.phone[0]     : fields.phone;
+      const file = files.resume && files.resume[0];
 
       try {
         // Read the uploaded file
         const fileContent = fs.readFileSync(file.filepath);
 
         // Create the email message with attachment
-        const msg = {
-          to: process.env.TO_EMAIL_CAREERS,
-          from: process.env.FROM_EMAIL,
-          subject: `Blackberg Group Resume Submission`,
-          text: message[0],
-          html: `
+        const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+        sendSmtpEmail.sender = { name: "Blackberg Group", email: process.env.FROM_EMAIL };
+        sendSmtpEmail.to = [{ email: process.env.TO_EMAIL_CAREERS, name: "Careers" }];
+        sendSmtpEmail.subject = `Blackberg Group Resume Submission`;
+        sendSmtpEmail.textContent = message[0];
+        sendSmtpEmail.htmlContent = `
           <!DOCTYPE html>
           <html lang="en">
           <head>
@@ -234,7 +243,7 @@ export default async function POST(req, res) {
                 <p><b>Email:</b></p>
                 <p>${email}</p>
                 <p><b>Phone:</b></p>
-                <p>${fields.phone}</p>
+                <p>${phone}</p>
                 <p><b>Position:</b></p>
                 <p>${position}</p>
                 <p><b>Message:</b></p>
@@ -243,47 +252,42 @@ export default async function POST(req, res) {
             </div>
             <div class="footer">
               <p><i>Not interested in receiving these emails?</i> | <b>Contact IT</b></p>
-              <p>© 2024 Blackberg Group</p>
+              <p>© 2025 Blackberg Group</p>
             </div>
           </body>
           </html>
-          `,
-          attachments: [
-            {
-              content: fileContent.toString('base64'),
-              filename: file.originalFilename,
-              type: file.mimetype,
-              disposition: 'attachment',
-            },
-          ],
-        };
+        `;
+
+        // Attachment
+        sendSmtpEmail.attachment = [
+          {
+            content: fileContent.toString("base64"),
+            name: file.originalFilename,
+            type: file.mimetype,
+          },
+        ];
 
         // Send the email to the recipient
-        await sgMail.send(msg);
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
 
         // Send the confirmation email to the user
         await sendConfirmationEmail(firstName, email);
 
-        res.status(200).json({ message: 'Message sent successfully!' });
+        res.status(200).json({ message: "Message sent successfully!" });
       } catch (error) {
-        // Log the error message and stack trace for debugging
-        console.error('MAIL Error:', error.message);
-        console.error('STACK TRACE:', error.stack);
-      
-        // Check if the error has a response and response body
+        console.error("MAIL Error:", error.message);
+        console.error("STACK TRACE:", error.stack);
         if (error.response) {
-          console.error('ERROR RESPONSE BODY:', error.response.body);
+          console.error("ERROR RESPONSE BODY:", error.response.body);
         }
-      
-        // Return a more detailed error message to the client
         res.status(500).json({
-          error: 'Failed to send message. Please check your input or try again later.',
-          details: error.message,  // Optional: Include this in development for more context
+          error: "Failed to send message. Please check your input or try again later.",
+          details: error.message,
         });
       }
     });
   } else {
-    res.setHeader('Allow', ['POST']);
+    res.setHeader("Allow", ["POST"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

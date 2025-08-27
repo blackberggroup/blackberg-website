@@ -21,6 +21,7 @@
     "graphql": "^16.8.1",
     "gsap": "^3.13.0",
     "lucide-react": "^0.522.0",
+    "mailersend": "^2.6.0",
     "next": "14.2.3",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.13",
@@ -28,6 +29,7 @@
     "react-dom": "^18",
     "react-svg-draw": "^0.0.12",
     "sass": "^1.77.2",
+    "sib-api-v3-sdk": "^8.5.0",
     "swiper": "^11.2.10",
     "yet-another-react-lightbox": "^3.21.7"
   },

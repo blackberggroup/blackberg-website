@@ -43,6 +43,12 @@ export async function getServerSideProps({ resolvedUrl }) {
       page: page || null,
       footerCta: false,
       simpleHeader: true,
+      cta: {
+        href: "https://outlook.office.com/book/EventsTest@blackberggroup.com/s/fBZMSlM-Tk-Cu35B2GweMg2?ismsaljsauthenabled", // per-page URL
+        label: "Schedule a Discovery Call",          
+        target: "_self",                             
+        id: "header-cta-event-management",           
+      },
     },
   };
 }

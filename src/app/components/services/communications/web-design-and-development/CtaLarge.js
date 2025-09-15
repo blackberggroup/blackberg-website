@@ -28,17 +28,17 @@ const CtaSmall = () => {
   }, []);
 
   return (
-    <section id="event-management-cta-large" className="pb-8 pb-lg-10">
+    <section id="web-design-and-development-cta-large" className="pb-8 pb-lg-10">
       <div className="container position-relative">
         <div className="cta-large-wrapper position-relative overflow-hidden p-7 rounded-4 z-2">
           <div className="row align-items-center position-relative z-2">
             <div className="col-12 col-lg-10 offset-lg-1 text-center">
               <div className="cta-small__content text-white">
-                <h2 className="display-5 mb-3 mb-lg-5">Let&apos;s Create an Experience That Resonates</h2>
-                <h3 className="mb-4">Planning an event, meeting, or workshop?</h3>
-                <p className="lead">Let&apos;s talk about how Blackberg&apos;s integrated event services can help you design, manage, and deliver a convening that makes a measurable impact.</p>
+                <h2 className="display-5 mb-3 mb-lg-5">Transform Your Digital Presence</h2>
+                <h3 className="mb-4">Ready to create a digital experience<span class="d-inline d-md-block">that truly engages your audience?</span></h3>
+                <p className="lead">Let&apos;s collaborate and turn your vision into a scalable, accessible, and intelligentwebsite powered by data and AI.</p>
                 <Link
-                    href="https://outlook.office.com/book/EventsTest@blackberggroup.com/s/fBZMSlM-Tk-Cu35B2GweMg2?ismsaljsauthenabled"
+                    href="#"
                     className="btn btn-secondary"
                     target="_blank"
                     aria-label="Schedule a Discovery Call"
@@ -49,7 +49,7 @@ const CtaSmall = () => {
             </div>
           </div>
         </div>
-        <div id="event-management-circle-arrow" ref={arrowRef} className="event-management-circle-arrow">
+        <div id="landing-page-circle-arrow" ref={arrowRef} className="landing-page-circle-arrow">
             <img src="/images/circle-arrow.svg" />
         </div>        
       </div>

@@ -1,0 +1,31 @@
+#digital-ai-hero {
+    background: linear-gradient(0deg, #253551 0%, #0D1119 97.56%);
+    overflow: hidden;
+
+    .grid-pattern {
+        left: 50%;
+        transform: translate(-50%, -900px)
+    }
+
+    .rounded-50 {
+        border-radius: 50vw;
+    }
+
+    .gradient-text {
+        background: linear-gradient(89deg, #DBE6A3 3.85%, var(--Component-colors-Utility-Brand-utility-brand-200, #7DC6BE) 88.95%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.stats-row {
+        margin-top: -100px;
+        .ai-hero-card {
+        background: #0E121A;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-top: -160px;
+    }
+}

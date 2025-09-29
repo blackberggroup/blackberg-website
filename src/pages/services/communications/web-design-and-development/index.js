@@ -4,12 +4,20 @@ import Insights from "@/app/components/services/communications/web-design-and-de
 import CtaLarge from "@/app/components/services/communications/web-design-and-development/CtaLarge";
 
 import { getPageBySlug } from '@/app/lib/hygraph/pages';
+import HeroSection from '@/app/components/services/communications/web-design-and-development/HeroSection';
+import Capabilities from '@/app/components/services/communications/web-design-and-development/Capabilities';
+import DigitalCapabilities from '@/app/components/services/communications/web-design-and-development/DigitalCapabilities';
+import WhyPartner from '@/app/components/services/communications/web-design-and-development/WhyPartner';
 
 function WebDesignDevelopment({ page }) {
 
   return (
     <>
         <SEOHead page={page} />
+        <HeroSection />
+        <Capabilities />
+        <DigitalCapabilities />
+        <WhyPartner />
         <CaseStudies />
         <Insights />
         <CtaLarge />

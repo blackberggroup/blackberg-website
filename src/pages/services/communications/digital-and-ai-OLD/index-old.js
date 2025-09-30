@@ -1,0 +1,53 @@
+import SEOHead from '@/app/components/seo/SEOHead';
+import CaseStudies from "@/app/components/services/communications/digital-and-ai/CaseStudies";
+import Insights from "@/app/components/services/communications/digital-and-ai/Insights";
+import CtaLarge from "@/app/components/services/communications/digital-and-ai/CtaLarge";
+
+import { getPageBySlug } from '@/app/lib/hygraph/pages';
+import HeroSection from '@/app/components/services/communications/digital-and-ai/HeroSection';
+import Capabilities from '@/app/components/services/communications/digital-and-ai/Capabilities';
+import DigitalCapabilities from '@/app/components/services/communications/digital-and-ai/DigitalCapabilities';
+import WhyPartner from '@/app/components/services/communications/digital-and-ai/WhyPartner';
+import UnlockingPotential from '@/app/components/services/communications/digital-and-ai/UnlockingPotential';
+import SectorExpertise from '@/app/components/services/communications/digital-and-ai/SectorExpertise';
+
+function WebDesignDevelopment({ page }) {
+
+  return (
+    <>
+        <SEOHead page={page} />
+        <HeroSection />
+        <SectorExpertise />
+        <UnlockingPotential />
+        <Capabilities />
+        <WhyPartner />
+        <DigitalCapabilities />
+        <CaseStudies />
+        <Insights />
+        <CtaLarge />
+    </>
+  );
+}
+
+export async function getServerSideProps({ resolvedUrl }) {
+  const segments = resolvedUrl.split('/').filter(Boolean);
+  const slug = segments[segments.length - 1];
+  const [page] = await Promise.all([getPageBySlug(slug)]);
+
+  return {
+    props: {
+      page: page || null,
+      footerCta: false,
+      simpleHeader: true,
+      cta: {
+        href: "#", // per-page URL
+        label: "Book a UX Audit",          
+        target: "_self",                   
+        id: "header-cta-webdesign-development",
+      },
+    },
+  };
+}
+
+
+export default WebDesignDevelopment;

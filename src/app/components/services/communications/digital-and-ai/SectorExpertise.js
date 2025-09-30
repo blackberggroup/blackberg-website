@@ -50,9 +50,9 @@ const SectorExpertise = () => {
   }, []);
 
   return (
-    <section id="partner-expertise" className="py-8 py-lg-10">
+    <section id="partner-expertise" className="pb-8 pb-lg-11">
       <div className="container">
-        <div className="row stats-row justify-content-center">
+        <div className="row stats-row justify-content-center d-none">
           <div ref={col1Ref} className="col-12 col-md-6 col-lg-4 mb-4 mb-md-5 d-flex flex-column text-center">
             <div class="ai-hero-card text-white py-5 rounded">
               <img src="/images/projects-delivered-icon.svg" className="mb-3" />
@@ -77,7 +77,7 @@ const SectorExpertise = () => {
         </div>
         <div className="row">
           <div className="col-12 col-md-9 text-center mx-auto">
-            <h2 ref={titleRef} className="display-5 mb-5 section-title">Public Sector & Nonprofit Expertise </h2>
+            <h2 ref={titleRef} className="display-5 mb-5 section-title">Experience Spanning Sectors</h2>
           </div>
         </div>
         <div className="row mt-4">
@@ -85,7 +85,7 @@ const SectorExpertise = () => {
             <div className="border p-2 rounded d-inline-flex align-self-start mx-auto mb-3">
               <img src="/images/federal-state-icon.svg" className="" />
             </div>
-            <h3 className="h4">Federal and State Government</h3>
+            <h3 className="h4">Federal and State <br /> Government</h3>
             <p>Secure, compliant platforms that make public services clearer, faster, and more accessible.</p>
           </div>
           <div ref={col5Ref} className="col-12 col-md-6 col-lg-3 mb-4 mb-md-5 d-flex flex-column text-center">
@@ -106,7 +106,7 @@ const SectorExpertise = () => {
              <div className="border p-2 rounded d-inline-flex align-self-start mx-auto mb-3">
               <img src="/images/nonprofit-icon.svg" className="" />
             </div>
-            <h3 className="h4">Nonprofits and Foundations</h3>
+            <h3 className="h4">Nonprofits and <br /> Foundations</h3>
             <p>Websites that inspire supporters, drive donations, and showcase measurable impact.</p>
           </div>
         </div>

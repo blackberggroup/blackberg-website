@@ -37,12 +37,11 @@ const CtaSmall = () => {
                 <h2 className="display-5 mb-3 mb-lg-5">Begin Your Digital and AI Journey Today</h2>
                 <p className="lead">Discover how prepared your organization is to harness the power of AI. Schedule your personalized AI Readiness Assessment today and unlock new opportunities for impact and efficiency.</p>
                 <Link
-                    href="#"
+                    href="/"
                     className="btn btn-secondary"
-                    target="_blank"
                     aria-label="Request Your Digital and AI Assessment"
                 >
-                    Request Your Digital and AI Assessment
+                    Contact Us for a Discovery Call
                 </Link>
               </div>
             </div>

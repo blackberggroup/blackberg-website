@@ -68,20 +68,20 @@ export default function UnlockingPotential() {
           >
             Unlocking Mission-Driven Potential
           </h2>
-          <p>Artificial intelligence and digital transformation offer unprecedented opportunities for the public sector to achieve greater efficiency, agility, and impact. Blackberg helps agencies harness these technologies to anticipate needs, streamline complex processes, and deliver mission-aligned services with confidence and scale.</p>
+          <p>Artificial intelligence and digital transformation offer unprecedented opportunities for the public sector to achieve greater efficiency, agility, and impact. Blackberg helps agencies harness these technologies to anticipate needs, streamline complex processes, and deliver mission-aligned services with confidence and scale.</p>
                <Link
-                  href="#"
+                  href="/contact"
                   className="btn btn-secondary hero__btn"
                   aria-label="Learn more about our event management offering"
                   ref={btnRef}
                 >
-                  Book A Discovery Call
+                  Contact Us for a Discovery Call
                 </Link>
           </div>
             <div className="col-12 col-md-6 mt-5 mt-md-0">
                 <div className="card bg-transparent border-0">
                   <div className="overflow-hidden rounded-4">
-                    <img src="/images/ai-work-samples.png" alt="" />
+                    <img src="/images/digital-sample.png" alt="" className="img-fluid" />
                   </div>
                 </div>
             </div>

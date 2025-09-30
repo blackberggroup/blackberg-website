@@ -9,10 +9,10 @@ const workItems = [
   {
     id: 1,
     title:
-      "Managing a National, Branded Event Experience: VHA Innovation Experience (iEX)",
+      "Suicide Prevention Annual Report",
     image:
-      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/VpFdBqRnSx2DfXWvY5Jg",
-    slug: "/case-studies/managing-a-national-branded-event-experience-vha-innovation-experience-iex",
+      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/0P3SdNoQk23ZkzK9M7D0",
+    slug: "/case-studies/suicide-prevention-annual-report",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function CaseStudies() {
           >
             Proven Impact Through Digital Services
           </h2>
-          <p>Explore how our recent solutions have empowered organizations: </p>
+          <p>Explore how our recent solutions have empowered organizations.</p>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const HeroSection = () => {
                         <div className="col-12 col-md-12 col-lg-7">
                             <div className="hero-title">
                                 <h1 className="display-2 text-white mb-3 mb-lg-5">Digital & AI</h1>
-                                <p className="lead text-white">Harnessing intelligence to power impact</p>
+                                <p className="lead text-white">Empowering agencies through human-centered digital experience and AI-powered solutions</p>
                             </div>                            
                         </div>
                     </div>

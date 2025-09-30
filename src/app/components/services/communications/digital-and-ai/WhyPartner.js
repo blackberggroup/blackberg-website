@@ -47,7 +47,7 @@ const WhyPartner = () => {
         <div className="row">
           <div className="col-12 col-md-9 text-center mx-auto">
             <h2 ref={titleRef} className="display-5 mb-5 section-title">Why Partner with Blackberg? </h2>
-            <p className="w-50 mx-auto">Blackberg uniquely combines deep public sector expertise, mission-driven leadership, and AI innovation to deliver impactful solutions:</p>
+            <p className="w-50 mx-auto">Blackberg uniquely combines deep public sector expertise, mission-driven leadership, and AI innovation to deliver impactful solutions.</p>
           </div>
         </div>
         <div className="row mt-4">

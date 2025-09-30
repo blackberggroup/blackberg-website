@@ -45,11 +45,11 @@ const HealthcareServices = () => {
   }, []);
 
   return (
-    <section id="event-management-specialize-in" className="py-8 py-lg-10">
+    <section id="" className="py-8 py-lg-10 bg-electric-green-50">
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h2 ref={titleRef} className="display-5 mb-5 section-title">Our Digital Healthcare Services</h2>
+            <h2 ref={titleRef} className="display-5 mb-5 section-title">Our Healthcare IT Services</h2>
           </div>
         </div>
         <div className="row">

@@ -34,7 +34,6 @@ function DigitalAndAi({ page }) {
         <EthicalPractices />
         <CaseStudies />
         <Insights />
-        <CtaLarge />
     </>
   );
 }

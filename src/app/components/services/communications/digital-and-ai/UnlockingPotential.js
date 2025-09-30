@@ -57,7 +57,7 @@ export default function UnlockingPotential() {
   return (
     <section
       id="unlocking-potential"
-      className="py-8 py-lg-10"
+      className="pb-8 pb-lg-11"
     >
       <div className="container position-relative z-2">
         <div className="row d-flex align-items-center">

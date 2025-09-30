@@ -8,31 +8,31 @@ import { gsap } from "gsap";
 const insightItems = [
   {
     id: 1,
-    authorName: "Kevin Moloney",
-    authorImage: "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/Wc7oFZlSWyKKfKzVsoF8",
+    authorName: "Emily Engebretson",
+    authorImage: "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/e85PsYHfS0SCO23DG3eq",
     title:
-      "Mapping Out The Event Planning Process",
+      "The Potential of AI in Communications & Government",
     image:
-      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/XJe1QGelQ4Ob8PhiO8dH",
-    slug: "/insights/mapping-out-the-event-planning-process",
+      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/cmdvvfgd9t2o407k9jh3zw8my",
+    slug: "insights/the-potential-of-ai-in-communications-and-government",
   },
   {
     id: 2,
-    authorName: "Isabella Staton",
-    authorImage: "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/4yeLQyWcQaSpBa3BXwvb",    
-    title: "Adapting for Hybrid and AI Events",
+    authorName: "Ross Burmeister",
+    authorImage: "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/7rYM45fCQnsPtqGIAPsu",    
+    title: "AI Tools For Web Development",
     image:
-      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/ekOU2umTqqbN49GTmxhg",
-    slug: "/insights/adapting-for-hybrid-and-ai-events",
+      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/cmdvustoqw3lj07latf6mksw9",
+    slug: "/insights/ai-tools-for-web-development",
   },
   {
     id: 3,
-    authorName: "Kevin Moloney",
-    authorImage: "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/Wc7oFZlSWyKKfKzVsoF8",    
-    title: "6 Considerations to Enhance Attendee Experiences",
+    authorName: "Caitlyn Moore",
+    authorImage: "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/aqOVvvf4RB2kTZfF035g",    
+    title: "Artificial Intelligence’s Emergence in Marketing",
     image:
-      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/vdzO6WiDQICgrcWBjyk1",
-    slug: "/insights/6-considerations-to-enhance-attendee-experiences",
+      "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/CBnKljEHR3afm5LSbMPg",
+    slug: "insights/artificial-intelligences-emergence-in-marketing",
   },  
 ];
 

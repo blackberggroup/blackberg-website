@@ -102,7 +102,7 @@ export default function CaseStudies() {
           >
             Proven Impact Through Digital Services
           </h2>
-          <p>Explore how our recent solutions have empowered organizations.</p>
+          <p>Explore how our recent solutions have empowered organizations to better engage audiences, improve their operations, and drive lasting impact.</p>
           </div>
         </div>
       </div>

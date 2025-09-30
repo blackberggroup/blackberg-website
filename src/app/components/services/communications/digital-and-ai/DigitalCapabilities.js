@@ -47,7 +47,7 @@ const DigitalCapabilities = () => {
   }, []);
 
   return (
-    <section id="event-management-specialize-in" className="py-8 py-lg-10">
+    <section id="" className="py-8 py-lg-10">
       <div className="container">
         <div className="row">
           <div className="col-12">

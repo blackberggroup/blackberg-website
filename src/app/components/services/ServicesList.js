@@ -74,9 +74,23 @@ const ServicesList = () => {
                         </div>
                     </Link>
                 </div>
+            </section>     
+            {/* Services | Digital AI */}
+            <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[2] = el)} aria-label="Operations Service Overview">
+                <div className="card card--service border-0">
+                    <Link href="/services/digital-and-ai" aria-label="Learn more about our Digital & AI services">
+                        <figure className="card-image">
+                            <img src="/images/services/services-digital-ai.webp" className="card-img-top" alt="Woman looking at code" loading="lazy"></img>
+                        </figure>
+                        <div className="card-body d-flex flex-column">
+                            <h3 className="card-title display-5">Digital & AI</h3>
+                            <p className="card-text">Empowering agencies through human-centered digital experience and AI-powered solutions</p>
+                        </div>
+                    </Link>
+                </div>
             </section>            
             {/* Services | Communications */}
-            <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[2] = el)} aria-label="Communications Service Overview">
+            <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[3] = el)} aria-label="Communications Service Overview">
                 <div className="card card--service border-0">
                     <Link href="/services/communications" aria-label="Learn more about our Communications services">
                         <figure className="card-image">
@@ -90,7 +104,7 @@ const ServicesList = () => {
                 </div>
             </section>
             {/* Services | Organizational Effectiveness */}
-            <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[3] = el)} aria-label="Organizational Effectiveness Service Overview">
+            <section className="col-md-12 col-lg-9 mb-4 mb-md-5 mt-0 mt-lg-5 sticky" ref={(el) => (cardRefs.current[4] = el)} aria-label="Organizational Effectiveness Service Overview">
                 <div className="card card--service border-0">
                     <Link href="/services/organizational-effectiveness" aria-label="Learn more about our Organizational Effectiveness services">
                         <figure className="card-image">

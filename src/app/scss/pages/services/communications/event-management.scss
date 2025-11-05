@@ -319,6 +319,43 @@
   }
 }
 
+#event-management-circle-arrow {
+  display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      bottom: -5%;
+      left: -65%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-35deg);
+    }
+
+      @include media-breakpoint-up(lg) {
+      display: block;
+      bottom: 20%;
+      left: -40%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-25deg);
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+      bottom: 2%;
+      left: -40%;
+      z-index: 1;
+      position: absolute;
+      transform: rotate(-25deg);
+    }
+
+
+  img {
+    width: 1100px;
+    height: 1100px;
+  }
+}
+
 .steps-grid {
   background-color: $jade-green-950;
   margin-bottom: 4rem;

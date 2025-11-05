@@ -16,6 +16,9 @@ import UnlockingPotential from '@/app/components/services/communications/digital
 import SectorExpertise from '@/app/components/services/communications/digital-and-ai/SectorExpertise';
 import HealthcareServices from '@/app/components/services/communications/digital-and-ai/health-care-services';
 import EthicalPractices from '@/app/components/services/digital-and-ai/EthicalPractices';
+import CapabilitiesNew from '@/app/components/services/communications/digital-and-ai/CapabilitiesNew';
+import DigitalCapabilitiesNew from '@/app/components/services/communications/digital-and-ai/DigitalCapabilitiesNew';
+import HealthServices from '@/app/components/services/communications/digital-and-ai/HealthServices';
 
 
 function DigitalAndAi({ page }) {
@@ -25,11 +28,11 @@ function DigitalAndAi({ page }) {
         <SEOHead page={page} />
         <HeroSection />
         <IntroSection />
-        <SectorExpertise />
+        {/* <SectorExpertise /> */}
         <UnlockingPotential />
-        <Capabilities />
-        <DigitalCapabilities />
-        <HealthcareServices />
+        <CapabilitiesNew />
+        <DigitalCapabilitiesNew />
+        <HealthServices />
         <WhyPartner />
         <EthicalPractices />
         <CaseStudies />

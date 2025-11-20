@@ -111,7 +111,7 @@ const CapabilitiesNew = () => {
                 >
                   <h3
                     className="accordion-header"
-                    id={`heading${item.id}`}
+                    id={`aiHeading${item.id}`}
                   >
                     <button
                       className={`accordion-button ${
@@ -119,7 +119,7 @@ const CapabilitiesNew = () => {
                       }`}
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target={`#collapse${item.id}`}
+                      data-bs-target={`#aiCollapse${item.id}`}
                       aria-expanded={!!item.defaultExpanded}
                       aria-controls={`collapse${item.id}`}
                     >
@@ -127,11 +127,11 @@ const CapabilitiesNew = () => {
                     </button>
                   </h3>
                   <div
-                    id={`collapse${item.id}`}
+                    id={`aiCollapse${item.id}`}
                     className={`accordion-collapse collapse ${
                       item.defaultExpanded ? "show" : ""
                     }`}
-                    aria-labelledby={`heading${item.id}`}
+                    aria-labelledby={`aiHeading${item.id}`}
                     data-bs-parent="#setsUsApartAccordion"
                   >
                     <div className="accordion-body">

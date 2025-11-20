@@ -105,7 +105,7 @@ const HealthServices = () => {
                 >
                   <h3
                     className="accordion-header"
-                    id={`heading${item.id}`}
+                    id={`healthHeading${item.id}`}
                   >
                     <button
                       className={`accordion-button ${
@@ -113,7 +113,7 @@ const HealthServices = () => {
                       }`}
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target={`#collapse${item.id}`}
+                      data-bs-target={`#healthCollapse${item.id}`}
                       aria-expanded={!!item.defaultExpanded}
                       aria-controls={`collapse${item.id}`}
                     >
@@ -121,11 +121,11 @@ const HealthServices = () => {
                     </button>
                   </h3>
                   <div
-                    id={`collapse${item.id}`}
+                    id={`healthCollapse${item.id}`}
                     className={`accordion-collapse collapse ${
                       item.defaultExpanded ? "show" : ""
                     }`}
-                    aria-labelledby={`heading${item.id}`}
+                    aria-labelledby={`healthHeading${item.id}`}
                     data-bs-parent="#setsUsApartAccordion"
                   >
                     <div className="accordion-body">

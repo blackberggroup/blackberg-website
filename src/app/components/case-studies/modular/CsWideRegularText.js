@@ -34,7 +34,7 @@ const CsNarrowRegularText = ({ section }) => {
   return (
     <section
       ref={containerRef}
-      className="py-6 content-rich-text narrow-regular-text"
+      className="py-4 content-rich-text narrow-regular-text"
     >
       <div className="container">
         <div className="col-12">

@@ -74,6 +74,7 @@ export default function UnlockingPotential() {
                   className="btn btn-secondary hero__btn"
                   aria-label="Learn more about our event management offering"
                   ref={btnRef}
+                  target="_blank"
                 >
                   Contact Us for a Discovery Call
                 </Link>

@@ -34,7 +34,7 @@ const IntroText = ({ section }) => {
   return (
     <section
       ref={containerRef}
-      className="py-6 content-rich-text intro-text"
+      className="py-4 content-rich-text intro-text"
     >
       <div className="container">
         <div className="row mb-0">

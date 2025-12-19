@@ -40,7 +40,7 @@ const CsWideImage = ({ section }) => {
   }, []);
 
   return (
-    <section className="pb-6">
+    <section className="pb-4">
       <div className="container">
         <div className="row">
           <div className="col-12 rounded-4 reveal-image">

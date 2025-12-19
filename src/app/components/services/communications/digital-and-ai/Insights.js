@@ -14,7 +14,7 @@ const insightItems = [
       "The Potential of AI in Communications & Government",
     image:
       "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/cmdvvfgd9t2o407k9jh3zw8my",
-    slug: "insights/the-potential-of-ai-in-communications-and-government",
+    slug: "/insights/the-potential-of-ai-in-communications-and-government",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const insightItems = [
     title: "Artificial Intelligence’s Emergence in Marketing",
     image:
       "https://us-east-1-shared-usea1-02.graphassets.com/AORR3b2exTpqw7qrnJeZBz/CBnKljEHR3afm5LSbMPg",
-    slug: "insights/artificial-intelligences-emergence-in-marketing",
+    slug: "/insights/artificial-intelligences-emergence-in-marketing",
   },  
 ];
 

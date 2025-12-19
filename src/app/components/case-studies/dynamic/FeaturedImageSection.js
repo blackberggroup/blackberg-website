@@ -39,7 +39,7 @@ const FeaturedImageSection = ({ page }) => {
   
 
     return (
-        <section id="featured-image" className="mb-8" aria-label="Featured image">
+        <section id="featured-image" className="mb-4" aria-label="Featured image">
             <div className="container">
                 <div className="row">
                     <div className="col-12 rounded-4 reveal-image">

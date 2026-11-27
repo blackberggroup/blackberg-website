@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import client from '@/app/lib/apollo-client';
+import { CAREER_LISTINGS_ENABLED } from '@/app/lib/config/careers';
 
 function buildFullPath(page) {
   let slugs = [];
@@ -15,7 +16,7 @@ export const getAllPagePaths = async () => {
   try {
     const { data } = await client.query({
       query: gql`
-        query GetPaths {
+        query GetPaths($includeCareers: Boolean!) {
           pages {
             slug
             parentPage {
@@ -34,17 +35,18 @@ export const getAllPagePaths = async () => {
           caseStudyModulars {
             slug
           }
-          careers {
+          careers @include(if: $includeCareers) {
             slug
           }
         }
       `,
+      variables: { includeCareers: CAREER_LISTINGS_ENABLED },
     });
 
     const pages = data.pages.map(page => buildFullPath(page));
     const insights = data.insights.map(({ slug }) => `/insights/${slug}`);
     const caseStudies = data.caseStudyModulars.map(({ slug }) => `/case-studies/${slug}`);
-    const careers = data.careers.map(({ slug }) => `/about/careers/${slug}`);
+    const careers = (data.careers || []).map(({ slug }) => `/about/careers/${slug}`);
   
     return [...pages, ...insights, ...caseStudies, ...careers];
   } catch (error) {

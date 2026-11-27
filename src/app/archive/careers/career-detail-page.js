@@ -1,3 +1,5 @@
+// ARCHIVED: this was src/pages/about/careers/[slug].js. It is kept outside src/pages so it is not
+// built or deployed. See README.md in this folder for how to restore it.
 import ContentSection from '@/app/components/careers/dynamic/ContentSection';
 import FormSection from '@/app/components/careers/dynamic/FormSection';
 import HeroSection from '@/app/components/careers/dynamic/HeroSection';

@@ -5,6 +5,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Individual job listings are switched off unless this is set to 'true'.
+// See src/app/archive/careers/README.md.
+const careerListingsEnabled = process.env.NEXT_PUBLIC_CAREER_LISTINGS_ENABLED === 'true';
+
 const nextConfig = {
   productionBrowserSourceMaps: false,
   sassOptions: {
@@ -24,6 +28,19 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  async redirects() {
+    if (careerListingsEnabled) {
+      return [];
+    }
+
+    return [
+      {
+        source: '/about/careers/:slug+',
+        destination: '/about/careers',
+        statusCode: 301,
+      },
+    ];
   },
   async rewrites() {
     return [

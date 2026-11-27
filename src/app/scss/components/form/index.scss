@@ -12,5 +12,31 @@ form {
         .btn {
             padding: 16px 10px;
         }
+
+        // Checkboxes should not pick up the text input padding above
+        .form-check-input {
+            padding: 0;
+            border: 1px solid #98A2B3;
+            cursor: pointer;
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+
+        .interest-fieldset {
+            legend {
+                float: none;
+                font-size: inherit;
+            }
+
+            .interest-hint {
+                color: #667085;
+            }
+        }
     }
 }

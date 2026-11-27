@@ -1,6 +1,14 @@
 import SibApiV3Sdk from "sib-api-v3-sdk";
 import formidable from "formidable";
 import fs from "fs";
+import path from "path";
+import {
+  FIELDS_OF_INTEREST,
+  MAX_FIELDS_OF_INTEREST,
+  MAX_RESUME_SIZE_BYTES,
+  MAX_RESUME_SIZE_MB,
+  RESUME_EXTENSIONS,
+} from "@/app/lib/config/careers";
 
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications["api-key"];
@@ -8,20 +16,37 @@ apiKey.apiKey = process.env.BREVO_API_KEY;
 
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
+const currentYear = new Date().getFullYear();
+
+// User input goes into HTML emails, so it has to be escaped first
+const escapeHtml = (value = "") =>
+  String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+const getField = (fields, name, maxLength = 500) => {
+  const value = Array.isArray(fields[name]) ? fields[name][0] : fields[name];
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+};
+
 const sendConfirmationEmail = async (firstName, email) => {
+  const safeFirstName = escapeHtml(firstName);
   const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
   sendSmtpEmail.sender = { name: "Blackberg Group", email: process.env.FROM_EMAIL };
   sendSmtpEmail.to = [{ email, name: firstName }];
-  sendSmtpEmail.subject = `Confirmation: We received your resume`;
-  sendSmtpEmail.textContent = `Hi ${firstName},\n\nThank you for reaching out to us. We have received your resume and will get back to you shortly.\n\nBest regards,\nBlackberg Group`;
+  sendSmtpEmail.subject = `Thank you for your interest in Blackberg Group`;
+  sendSmtpEmail.textContent = `Hi ${firstName},\n\nThank you for your interest in Blackberg Group! We’ve received your information and will keep it on file. If a position opens that fits your background, we’ll be in touch.\n\nBest regards,\nThe Blackberg Team`;
   sendSmtpEmail.htmlContent = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Contact Submission</title>
+      <title>Resume Submission</title>
       <style>
           * {
               box-sizing: border-box;
@@ -93,14 +118,14 @@ const sendConfirmationEmail = async (firstName, email) => {
               <h1>Resume Submission</h1>
           </div>
           <div class="content">
-            <p>Hi ${firstName},</p>
-            <p>Thank you for reaching out to Blackberg Group. We have received your resume and will get back to you shortly.</p>
+            <p>Hi ${safeFirstName},</p>
+            <p>Thank you for your interest in Blackberg Group! We’ve received your information and will keep it on file. If a position opens that fits your background, we’ll be in touch.</p>
             <p>Best Regards,</p>
             <p>The Blackberg Team</p>
           </div>
       </div>
       <footer class="footer">
-        <p>© 2025 Blackberg Group</p>
+        <p>© ${currentYear} Blackberg Group</p>
       </footer>
     </body>
     </html>
@@ -115,34 +140,150 @@ export const config = {
   },
 };
 
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const form = formidable({ multiples: false });
+const parseForm = (req) => {
+  const form = formidable({
+    multiples: false,
+    maxFiles: 1,
+    maxFileSize: MAX_RESUME_SIZE_BYTES,
+    allowEmptyFiles: false,
+  });
 
-    form.parse(req, async (err, fields, files) => {
+  return new Promise((resolve, reject) => {
+    form.parse(req, (err, fields, files) => {
       if (err) {
-        return res.status(500).json({ error: "File upload failed" });
+        reject(err);
+      } else {
+        resolve({ fields, files });
       }
+    });
+  });
+};
 
-      const firstName = Array.isArray(fields.firstName) ? fields.firstName[0] : fields.firstName;
-      const lastName  = Array.isArray(fields.lastName)  ? fields.lastName[0]  : fields.lastName;
-      const email     = Array.isArray(fields.email)     ? fields.email[0]     : fields.email;
-      const message   = Array.isArray(fields.message)   ? fields.message[0]   : fields.message;
-      const position  = Array.isArray(fields.position)  ? fields.position[0]  : fields.position;
-      const phone     = Array.isArray(fields.phone)     ? fields.phone[0]     : fields.phone;
-      const file = files.resume && files.resume[0];
+const parseInterests = (fields) => {
+  let selected = [];
 
-      try {
-        // Read the uploaded file
-        const fileContent = fs.readFileSync(file.filepath);
+  try {
+    selected = JSON.parse(getField(fields, "interests", 1000) || "[]");
+  } catch (error) {
+    selected = [];
+  }
 
-        // Create the email message with attachment
-        const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-        sendSmtpEmail.sender = { name: "Blackberg Group", email: process.env.FROM_EMAIL };
-        sendSmtpEmail.to = [{ email: process.env.TO_EMAIL_CAREERS, name: "Careers" }];
-        sendSmtpEmail.subject = `Blackberg Group Resume Submission`;
-        sendSmtpEmail.textContent = message[0];
-        sendSmtpEmail.htmlContent = `
+  if (!Array.isArray(selected)) {
+    return [];
+  }
+
+  // Only accept the options the form offers
+  return FIELDS_OF_INTEREST.filter((interest) => selected.includes(interest));
+};
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", ["POST"]);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
+
+  let fields;
+  let files;
+
+  try {
+    ({ fields, files } = await parseForm(req));
+  } catch (error) {
+    // formidable: 1009 = file too large, 1016 = total size too large
+    if (error.httpCode === 413 || error.code === 1009 || error.code === 1016) {
+      return res.status(413).json({ error: `Your file is too large. Please upload a file up to ${MAX_RESUME_SIZE_MB} MB.` });
+    }
+    console.error("UPLOAD Error:", error.message);
+    return res.status(400).json({ error: "File upload failed. Please try again." });
+  }
+
+  const file = Array.isArray(files.resume) ? files.resume[0] : files.resume;
+  const cleanUp = () => {
+    if (file?.filepath) {
+      fs.promises.unlink(file.filepath).catch(() => {});
+    }
+  };
+
+  try {
+    // Honeypot: bots fill this in. Pretend it worked and send nothing.
+    if (getField(fields, "extraInfo")) {
+      return res.status(200).json({ message: "Message sent successfully!" });
+    }
+
+    const firstName = getField(fields, "firstName", 100);
+    const lastName = getField(fields, "lastName", 100);
+    const email = getField(fields, "email", 200);
+    const phone = getField(fields, "phone", 40);
+    const linkedin = getField(fields, "linkedin", 300);
+    const message = getField(fields, "message", 2000);
+    const otherInterest = getField(fields, "otherInterest", 100);
+    // Only sent by the archived per-job form (src/app/archive/careers)
+    const position = getField(fields, "position", 200);
+    const consent = getField(fields, "consent") === "true";
+    const interests = parseInterests(fields);
+
+    if (!firstName || !lastName || !email) {
+      return res.status(400).json({ error: "Please fill in your first name, last name, and email." });
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ error: "Please enter a valid email address." });
+    }
+
+    if (linkedin && !/^https?:\/\//i.test(linkedin)) {
+      return res.status(400).json({ error: "Please enter your LinkedIn URL starting with https://" });
+    }
+
+    if (interests.length > MAX_FIELDS_OF_INTEREST) {
+      return res.status(400).json({ error: `Please select up to ${MAX_FIELDS_OF_INTEREST} fields of interest.` });
+    }
+
+    if (interests.includes("Other") && !otherInterest) {
+      return res.status(400).json({ error: "Please tell us your field of interest." });
+    }
+
+    if (!position && !consent) {
+      return res.status(400).json({ error: "Please agree to let us keep your information on file." });
+    }
+
+    if (!file) {
+      return res.status(400).json({ error: "Please attach your resume." });
+    }
+
+    const extension = path.extname(file.originalFilename || "").toLowerCase();
+
+    if (!RESUME_EXTENSIONS.includes(extension)) {
+      return res.status(400).json({ error: "Invalid file type. Please upload a PDF, DOC, or DOCX file." });
+    }
+
+    const interestLabels = interests.map((interest) =>
+      interest === "Other" ? `Other: ${otherInterest}` : interest
+    );
+    const interestText = interestLabels.length > 0 ? interestLabels.join(", ") : "Not specified";
+    const fullName = `${firstName} ${lastName}`;
+    const subjectDetail = position || (interestLabels.length > 0 ? interestLabels.join(", ") : "General Interest");
+    const submittedAt = new Date().toLocaleString("en-US", { timeZone: "America/New_York", dateStyle: "medium", timeStyle: "short" });
+
+    const textLines = [
+      `Name: ${fullName}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "Not provided"}`,
+      position ? `Position: ${position}` : `Field of interest: ${interestText}`,
+      `LinkedIn: ${linkedin || "Not provided"}`,
+      `Message: ${message || "None"}`,
+      position ? null : `Consent to keep information on file: Yes (${submittedAt} ET)`,
+    ].filter(Boolean);
+
+    // Read the uploaded file
+    const fileContent = await fs.promises.readFile(file.filepath);
+
+    // Create the email message with attachment
+    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+    sendSmtpEmail.sender = { name: "Blackberg Group", email: process.env.FROM_EMAIL };
+    sendSmtpEmail.to = [{ email: process.env.TO_EMAIL_CAREERS, name: "Careers" }];
+    sendSmtpEmail.replyTo = { email, name: fullName };
+    sendSmtpEmail.subject = `Blackberg Group Resume Submission: ${fullName} (${subjectDetail})`;
+    sendSmtpEmail.textContent = textLines.join("\n");
+    sendSmtpEmail.htmlContent = `
           <!DOCTYPE html>
           <html lang="en">
           <head>
@@ -239,55 +380,60 @@ export default async function handler(req, res) {
               </div>
               <div class="content">
                 <p><b>Name:</b></p>
-                <p>${firstName} ${lastName}</p>
+                <p>${escapeHtml(fullName)}</p>
                 <p><b>Email:</b></p>
-                <p>${email}</p>
+                <p>${escapeHtml(email)}</p>
                 <p><b>Phone:</b></p>
-                <p>${phone}</p>
-                <p><b>Position:</b></p>
-                <p>${position}</p>
+                <p>${escapeHtml(phone) || "Not provided"}</p>
+                ${position ? `<p><b>Position:</b></p>
+                <p>${escapeHtml(position)}</p>` : `<p><b>Field of Interest:</b></p>
+                <p>${escapeHtml(interestText)}</p>`}
+                <p><b>LinkedIn:</b></p>
+                <p>${escapeHtml(linkedin) || "Not provided"}</p>
                 <p><b>Message:</b></p>
-                <p>${message}</p>
+                <p>${escapeHtml(message) || "None"}</p>
+                ${position ? "" : `<p><b>Consent to keep information on file:</b></p>
+                <p>Yes (${escapeHtml(submittedAt)} ET)</p>`}
               </div>
             </div>
             <div class="footer">
               <p><i>Not interested in receiving these emails?</i> | <b>Contact IT</b></p>
-              <p>© 2025 Blackberg Group</p>
+              <p>© ${currentYear} Blackberg Group</p>
             </div>
           </body>
           </html>
         `;
 
-        // Attachment
-        sendSmtpEmail.attachment = [
-          {
-            content: fileContent.toString("base64"),
-            name: file.originalFilename,
-            type: file.mimetype,
-          },
-        ];
+    // Attachment
+    sendSmtpEmail.attachment = [
+      {
+        content: fileContent.toString("base64"),
+        name: file.originalFilename,
+      },
+    ];
 
-        // Send the email to the recipient
-        await apiInstance.sendTransacEmail(sendSmtpEmail);
+    // Send the email to the careers inbox
+    await apiInstance.sendTransacEmail(sendSmtpEmail);
 
-        // Send the confirmation email to the user
-        await sendConfirmationEmail(firstName, email);
+    // Send the confirmation email to the applicant. The submission already reached the
+    // careers inbox, so a failure here should not show the applicant an error.
+    try {
+      await sendConfirmationEmail(firstName, email);
+    } catch (error) {
+      console.error("CONFIRMATION MAIL Error:", error.message);
+    }
 
-        res.status(200).json({ message: "Message sent successfully!" });
-      } catch (error) {
-        console.error("MAIL Error:", error.message);
-        console.error("STACK TRACE:", error.stack);
-        if (error.response) {
-          console.error("ERROR RESPONSE BODY:", error.response.body);
-        }
-        res.status(500).json({
-          error: "Failed to send message. Please check your input or try again later.",
-          details: error.message,
-        });
-      }
+    return res.status(200).json({ message: "Message sent successfully!" });
+  } catch (error) {
+    console.error("MAIL Error:", error.message);
+    console.error("STACK TRACE:", error.stack);
+    if (error.response) {
+      console.error("ERROR RESPONSE BODY:", error.response.body);
+    }
+    return res.status(500).json({
+      error: "Failed to send message. Please check your input or try again later.",
     });
-  } else {
-    res.setHeader("Allow", ["POST"]);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+  } finally {
+    cleanUp();
   }
 }
